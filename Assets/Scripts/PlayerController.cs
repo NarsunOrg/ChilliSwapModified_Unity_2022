@@ -80,6 +80,30 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState("Right");
         }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            Invisibility();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SuperJump();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            SuperSpeed();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            SlowingDown();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            Teleportation();
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            LaserGoggles();
+        }
         #endregion
 
         #region Touch Input
