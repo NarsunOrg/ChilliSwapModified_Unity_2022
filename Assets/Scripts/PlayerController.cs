@@ -465,12 +465,12 @@ public class PlayerController : MonoBehaviour
     }
     public void SuperSpeed()
     {
-        speed = 700;
+        speed = 50;
         SuperSpeedBool = true;
     }
     public void SlowingDown()
     {
-        speed = 300;
+        speed = 10;
     }
     public void Teleportation()
     {
@@ -479,5 +479,10 @@ public class PlayerController : MonoBehaviour
     public void LaserGoggles()
     {
         LaserToUse.SetActive(true);
+    }
+    public void SuperSpeedTurn(GameObject NextPosition)
+    {
+        //gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
+        Parent.transform.DOLocalMove(NextPosition.transform.position, 1);
     }
 }
