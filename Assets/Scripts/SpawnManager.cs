@@ -24,7 +24,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] HurdlesPrefabs;
     public int PatternIndex = 0;
     private GameObject spawnObj;
-
+    public GameObject[] _ENV;
     void Start()
     {
         instance = this;
