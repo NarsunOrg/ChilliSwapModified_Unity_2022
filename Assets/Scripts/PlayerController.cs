@@ -15,8 +15,8 @@ public class PlayerController : MonoBehaviour
     public GameObject SlidingCollider;
     public GameObject Parent;
     public string State;
-    int speed;
-    int JumpForce;
+    float speed;
+    float JumpPos;
     int Line= 0;
     bool changingline = false;
     public bool ChangingPlatform = false;
@@ -27,13 +27,14 @@ public class PlayerController : MonoBehaviour
     public bool InvisibilityBool;
     public bool SuperSpeedBool;
     public GameObject LaserToUse;
+    public float speedTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         InvisibilityBool = false;
         SuperSpeedBool = false;
-        JumpForce = 250;
+        JumpPos = 1.3f;
         speed = 20;
         State = "Front";
         middle = true;
@@ -46,6 +47,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        #region speed
+        if(speedTimer < 20)
+        {
+            speedTimer += Time.deltaTime;
+        }
+        else
+        {
+            speed += speed * 0.025f;
+            speedTimer = 0;
+        }
+        #endregion
+
         #region Keyboard Input
         //Keyboard Input
         if (Input.GetKeyDown(KeyCode.DownArrow) && !ChangingPlatform)
@@ -72,11 +85,11 @@ public class PlayerController : MonoBehaviour
         //{
         //    ChangeState();
         //}
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && ChangingPlatform)
+        if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform)
         {
             ChangeState("Left");
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && ChangingPlatform)
+        if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform)
         {
             ChangeState("Right");
         }
@@ -347,7 +360,8 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
         PlayerAnim.SetTrigger("Jump 0");
         PlayerAnim.SetBool("Jump", true);
-        rb.AddForce(transform.up * JumpForce);
+        StartCoroutine("JumpRoutine");
+        //rb.AddForce(transform.up * JumpForce);
         //PlayerAnim.SetBool("Jump", false);
     }
     public void Down()
@@ -396,13 +410,13 @@ public class PlayerController : MonoBehaviour
         //State = nextTransformPosition.transform.tag;
         if (str == "Left")
         {
-            Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.5f).SetRelative();
-            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.35f);
+            Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
+            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
         else if(str == "Right")
         {
-            Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.5f).SetRelative();
-            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.35f);
+            Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
+            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
         ChangingPlatform = false;
         
@@ -461,7 +475,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SuperJump()
     {
-        JumpForce = 350;
+        JumpPos = 2;
     }
     public void SuperSpeed()
     {
@@ -480,9 +494,16 @@ public class PlayerController : MonoBehaviour
     {
         LaserToUse.SetActive(true);
     }
-    public void SuperSpeedTurn(GameObject NextPosition)
+    public void SuperSpeedTurn(GameObject NextPosition,GameObject currentTag)
     {
         //gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
-        Parent.transform.DOLocalMove(NextPosition.transform.position, 1);
+        nextTransformPosition = NextPosition;
+        ChangingPlatform = true;
+        ChangeState(currentTag.transform.tag);
+    }
+    IEnumerator JumpRoutine()
+    {
+        transform.DOLocalMoveY(JumpPos,0.65f);
+        yield return new WaitForSeconds(0.65f);
     }
 }

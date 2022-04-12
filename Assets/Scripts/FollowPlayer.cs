@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
     void Update()
     {
         //gameObject.transform.position = new Vector3(Player.transform.position.x + offset.x, Player.transform.position.y + offset.y, Player.transform.position.z + offset.z);
-        gameObject.transform.DOLocalMove(PositionToSet.transform.position, 1);
+        gameObject.transform.DOLocalMove(PositionToSet.transform.position, 0.10f);
         //gameObject.transform.DOLocalRotate(new Vector3(PositionToSet.transform.rotation.x + 25, PositionToSet.transform.rotation.y, PositionToSet.transform.rotation.z), 1);
         transform.LookAt(Player.transform);
     }

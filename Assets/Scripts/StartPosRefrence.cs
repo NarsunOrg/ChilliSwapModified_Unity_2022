@@ -23,9 +23,11 @@ public class StartPosRefrence : MonoBehaviour
         {
             if(other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedBool)
             {
-                //other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedTurn(NextPosition);
-                other.transform.gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
-                other.transform.parent.DOLocalMove(NextPosition.transform.position, 1);
+                Debug.Log("Super Speed Called");
+                //other.transform.gameObject.GetComponent<PlayerController>().EnteredPlatformTrigger(NextPosition);
+                other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedTurn(NextPosition,this.gameObject);
+                //other.transform.gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
+                //other.transform.parent.DOLocalMove(NextPosition.transform.position, 1);
             }
             else
             {
