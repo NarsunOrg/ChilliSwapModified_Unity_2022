@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    public Material Normal, Transparent;
+    public GameObject rendererRef;
     public Animator PlayerAnim;
     public bool middle, left, right;
     public Rigidbody rb;
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         InvisibilityBool = false;
         SuperSpeedBool = false;
         JumpPos = 1.3f;
@@ -472,6 +475,7 @@ public class PlayerController : MonoBehaviour
     public void Invisibility()
     {
         InvisibilityBool = true;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
     }
     public void SuperJump()
     {
@@ -485,6 +489,7 @@ public class PlayerController : MonoBehaviour
     public void SlowingDown()
     {
         speed = 10;
+        PlayerAnim.SetFloat("RunningSpeed", 0.7f);
     }
     public void Teleportation()
     {
