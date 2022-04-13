@@ -23,10 +23,12 @@ public class ObjectSpawner : MonoBehaviour
       
         for (int i = 0; i < SpawnManager.instance._ENV.Length; i++)
         {
+            Debug.Log("callingggg");
             if (SpawnManager.instance._ENV[i] == this.transform.parent.gameObject)
             {
                 if(i!= SpawnManager.instance._ENV.Length)
                 SpawnManager.instance._ENV[i + 1].GetComponentInChildren<ObjectSpawner>().SpawnObjects();
+                Debug.Log("callingggg2222222");
             }
 
 

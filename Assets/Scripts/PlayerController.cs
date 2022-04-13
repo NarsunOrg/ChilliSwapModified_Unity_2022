@@ -30,7 +30,8 @@ public class PlayerController : MonoBehaviour
     public bool SuperSpeedBool;
     public GameObject LaserToUse;
     public float speedTimer;
-
+    bool isCollidingEnter = false;
+    bool isCollidingExit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -511,4 +512,42 @@ public class PlayerController : MonoBehaviour
         transform.DOLocalMoveY(JumpPos,0.65f);
         yield return new WaitForSeconds(0.65f);
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Enter")
+        {
+            if (isCollidingEnter) return;
+            isCollidingEnter = true;
+            other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
+            Debug.Log("enter");
+            StartCoroutine(ResetEnter());
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Exit")
+        {
+            if (isCollidingExit) return;
+            isCollidingExit = true;
+            other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyObjects();
+            Debug.Log("exit");
+            StartCoroutine(ResetExit());
+        }
+    }
+
+    IEnumerator ResetEnter()
+    {
+        yield return new WaitForEndOfFrame();
+        isCollidingEnter = false;
+    }
+
+    IEnumerator ResetExit()
+    {
+        yield return new WaitForEndOfFrame();
+        isCollidingExit = false;
+    }
+
+
 }

@@ -44,19 +44,19 @@ public class SpawnManager : MonoBehaviour
             {
                 case "green":
                     spawnObj = Instantiate(GreenChilliPrefab, t[i].position, t[i].rotation);
-                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
                     break;
                 case "red":
                     spawnObj = Instantiate(RedChilliPrefab, t[i]. position, t[i].rotation);
-                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
                     break;
                 case "golden":
                     spawnObj = Instantiate(GoldenChilliPrefab, t[i].position, t[i].rotation);
-                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
                     break;
                 case "blue":
                     spawnObj = Instantiate(BlueChilliPrefab, t[i].position, t[i].rotation);
-                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
                     break;
                 case "hurdle":
                     spawnObj = Instantiate(HurdlesPrefabs[Random.Range(0, HurdlesPrefabs.Length)], t[i].position, t[i].rotation);
@@ -65,7 +65,7 @@ public class SpawnManager : MonoBehaviour
             }
             ObjectSpwaned[i] = spawnObj;
             PatternIndex++;
-            if (PatternIndex == SpawnObjectsPattern.Length)
+            if (PatternIndex == SpawnObjectsPatterns[Random.Range(0, SpawnObjectsPatterns.Length)].SpawnObjectsPattern.Length)
             {
                 PatternIndex = 0;
             }
