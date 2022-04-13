@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
-    private delegate void voidCallBack();
     public Material Normal, Transparent;
     public GameObject rendererRef;
     public Animator PlayerAnim;
@@ -33,11 +32,10 @@ public class PlayerController : MonoBehaviour
     public float speedTimer;
     bool isCollidingEnter = false;
     bool isCollidingExit = false;
-    bool powerUpInUse;
     // Start is called before the first frame update
     void Start()
     {
-        powerUpInUse = false;
+        
         InvisibilityBool = false;
         SuperSpeedBool = false;
         JumpPos = 1.3f;
@@ -215,40 +213,22 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "PowerUpInvisibility":
-                if (!powerUpInUse)
-                {
-                    Invisibility();
-                }
+                Invisibility();
                 break;
             case "PowerUpJump":
-                if (!powerUpInUse)
-                {
-                    SuperJump();
-                }
+                SuperJump();
                 break;
             case "PowerUpSpeed":
-                if (!powerUpInUse)
-                {
-                    SuperSpeed();
-                }
+                SuperSpeed();
                 break;
             case "PowerUpSlow":
-                if (!powerUpInUse)
-                {
-                    SlowingDown();
-                }
+                SlowingDown();
                 break;
             case "PowerUpTeleportation":
-                if (!powerUpInUse)
-                {
-                    Teleportation();
-                }
+                Teleportation();
                 break;
             case "PowerUpLaser":
-                if (!powerUpInUse)
-                {
-                    LaserGoggles();
-                }
+                LaserGoggles();
                 break;
         }
         #region commented code
@@ -404,30 +384,30 @@ public class PlayerController : MonoBehaviour
     }
     public void CalculateParentMovement(float frontback,float leftright)
     {
-        //if(State== "Front" && !dead)
-        //{
-        //    frontback = frontback + Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveZ(frontback,1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, 0, 0), 1);
-        //}
-        //else if (State == "Back" && !dead)
-        //{
-        //    frontback = frontback - Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveZ(frontback, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, -180, 0), 1);
-        //}
-        //else if (State == "Left" && !dead)
-        //{
-        //    leftright = leftright - Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveX(leftright, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, -90, 0), 1);
-        //}
-        //else if(State == "Right" && !dead)
-        //{
-        //    leftright = leftright + Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveX(leftright, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, 90, 0), 1);
-        //}
+        if(State== "Front" && !dead)
+        {
+            frontback = frontback + Time.deltaTime * speed;
+            Parent.transform.DOLocalMoveZ(frontback,1f);
+            Parent.transform.DOLocalRotate(new Vector3(0, 0, 0), 1);
+        }
+        else if (State == "Back" && !dead)
+        {
+            frontback = frontback - Time.deltaTime * speed;
+            Parent.transform.DOLocalMoveZ(frontback, 1f);
+            Parent.transform.DOLocalRotate(new Vector3(0, -180, 0), 1);
+        }
+        else if (State == "Left" && !dead)
+        {
+            leftright = leftright - Time.deltaTime * speed;
+            Parent.transform.DOLocalMoveX(leftright, 1f);
+            Parent.transform.DOLocalRotate(new Vector3(0, -90, 0), 1);
+        }
+        else if(State == "Right" && !dead)
+        {
+            leftright = leftright + Time.deltaTime * speed;
+            Parent.transform.DOLocalMoveX(leftright, 1f);
+            Parent.transform.DOLocalRotate(new Vector3(0, 90, 0), 1);
+        }
     }
     public void ChangeState(string str)
     {
@@ -495,62 +475,22 @@ public class PlayerController : MonoBehaviour
     }
     public void Invisibility()
     {
-        if(!powerUpInUse)
-        {
-            InvisibilityBool = true;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
-            StartCoroutine(ResetPowerUp(Invisibility));
-        }
-        else
-        {
-            powerUpInUse = false;
-            InvisibilityBool = false;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-        }
+        InvisibilityBool = true;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
     }
     public void SuperJump()
     {
-        if (!powerUpInUse)
-        {
-            JumpPos = 2;
-            StartCoroutine(ResetPowerUp(SuperJump));
-        }
-        else
-        {
-            powerUpInUse = false;
-            JumpPos = 1.3f;
-        }
-        
+        JumpPos = 2;
     }
     public void SuperSpeed()
     {
-        if (!powerUpInUse)
-        {
-            speed = 50;
-            SuperSpeedBool = true;
-            StartCoroutine(ResetPowerUp(SuperSpeed));
-        }
-        else
-        {
-            powerUpInUse = false;
-            speed = 20;
-            SuperSpeedBool = false;
-        }
+        speed = 50;
+        SuperSpeedBool = true;
     }
     public void SlowingDown()
     {
-        if(!powerUpInUse)
-        {
-            speed = 10;
-            PlayerAnim.SetFloat("RunningSpeed", 0.7f);
-            StartCoroutine(ResetPowerUp(SlowingDown));
-        }
-        else
-        {
-            powerUpInUse = false;
-            speed = 20;
-            PlayerAnim.SetFloat("RunningSpeed", 1.5f);
-        }
+        speed = 10;
+        PlayerAnim.SetFloat("RunningSpeed", 0.7f);
     }
     public void Teleportation()
     {
@@ -558,16 +498,7 @@ public class PlayerController : MonoBehaviour
     }
     public void LaserGoggles()
     {
-        if(!powerUpInUse)
-        {
-            LaserToUse.SetActive(true);
-            StartCoroutine(ResetPowerUp(LaserGoggles));
-        }
-        else
-        {
-            powerUpInUse = false;
-            LaserToUse.SetActive(false);
-        }
+        LaserToUse.SetActive(true);
     }
     public void SuperSpeedTurn(GameObject NextPosition,GameObject currentTag)
     {
@@ -616,12 +547,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         isCollidingExit = false;
-    }
-    IEnumerator ResetPowerUp(voidCallBack callBackMethod)
-    {
-        powerUpInUse = true;
-        yield return new WaitForSeconds(10);
-        callBackMethod();
     }
 
 
