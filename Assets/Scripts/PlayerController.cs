@@ -34,9 +34,11 @@ public class PlayerController : MonoBehaviour
     bool isCollidingEnter = false;
     bool isCollidingExit = false;
     bool powerUpInUse;
+    bool AlreadyHit;
     // Start is called before the first frame update
     void Start()
     {
+        AlreadyHit = false;
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
@@ -210,8 +212,17 @@ public class PlayerController : MonoBehaviour
             case "Hurdle":
                 if (!InvisibilityBool && !SuperSpeedBool)
                 {
-                    dead = true;
-                    PlayerAnim.SetTrigger("Death");
+                    if(!AlreadyHit)
+                    {
+                        AlreadyHit = true;
+                        PlayerAnim.SetTrigger("Stumble");
+                        StartCoroutine("StumbleWait");
+                    }
+                    else if(AlreadyHit)
+                    {
+                        dead = true;
+                        PlayerAnim.SetTrigger("Death");
+                    }
                 }
                 break;
             case "PowerUpInvisibility":
@@ -623,6 +634,10 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(10);
         callBackMethod();
     }
-
+    IEnumerator StumbleWait()
+    {
+        yield return new WaitForSeconds(10);
+        AlreadyHit = false;
+    }
 
 }
