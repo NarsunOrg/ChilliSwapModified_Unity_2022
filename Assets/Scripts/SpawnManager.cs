@@ -43,20 +43,20 @@ public class SpawnManager : MonoBehaviour
             switch (SpawnObjectsPatterns[Random.Range(0, SpawnObjectsPatterns.Length)].SpawnObjectsPattern[PatternIndex])
             {
                 case "green":
-                    spawnObj = Instantiate(GreenChilliPrefab, t[i].position, t[i].rotation);
-                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    spawnObj = Instantiate(GreenChilliPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
+                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
                 case "red":
-                    spawnObj = Instantiate(RedChilliPrefab, t[i]. position, t[i].rotation);
-                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    spawnObj = Instantiate(RedChilliPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
+                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
                 case "golden":
-                    spawnObj = Instantiate(GoldenChilliPrefab, t[i].position, t[i].rotation);
-                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    spawnObj = Instantiate(GoldenChilliPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
+                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
                 case "blue":
-                    spawnObj = Instantiate(BlueChilliPrefab, t[i].position, t[i].rotation);
-                    //spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, Random.Range(-1, 1) * 5);
+                    spawnObj = Instantiate(BlueChilliPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
+                    spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
                 case "hurdle":
                     spawnObj = Instantiate(HurdlesPrefabs[Random.Range(0, HurdlesPrefabs.Length)], t[i].position, t[i].rotation);
