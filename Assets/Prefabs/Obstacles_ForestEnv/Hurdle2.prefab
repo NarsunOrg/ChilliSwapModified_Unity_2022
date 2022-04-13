@@ -41,7 +41,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4569232797072789800}
-  - component: {fileID: 2754057570862024166}
   m_Layer: 0
   m_Name: 'obsticle '
   m_TagString: Untagged
@@ -64,23 +63,6 @@ Transform:
   m_Father: {fileID: 143391591182207939}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -270, z: 0}
---- !u!111 &2754057570862024166
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3756843944678706066}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 1543675681145355377, guid: 55905ccbd1c764c4e9134426f9a2d19f,
-    type: 3}
-  m_Animations:
-  - {fileID: 1543675681145355377, guid: 55905ccbd1c764c4e9134426f9a2d19f, type: 3}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &4253311544343740417
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,7 +80,7 @@ GameObject:
   - component: {fileID: 4253311544343740416}
   m_Layer: 0
   m_Name: BlockHurdle
-  m_TagString: Untagged
+  m_TagString: Hurdle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +256,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: 55905ccbd1c764c4e9134426f9a2d19f, type: 3}
+  - {fileID: 2100000, guid: 47da3fce16f7f254ba4b29bd88b805c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -27,7 +27,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4127900057778223355}
   - {fileID: 304036897791019846}
   - {fileID: 5922033350492983449}
   m_Father: {fileID: 0}
@@ -63,7 +62,7 @@ Transform:
   m_Children:
   - {fileID: 8891802876396306876}
   m_Father: {fileID: 266449667598037821}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!111 &2119341868487565192
 Animation:
@@ -96,7 +95,7 @@ GameObject:
   - component: {fileID: 4127900057778223356}
   m_Layer: 0
   m_Name: BlockHurdle
-  m_TagString: Untagged
+  m_TagString: Hurdle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,11 +107,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4127900057778223359}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.07, y: 0, z: 3.68}
+  m_LocalRotation: {x: -0.0000006189542, y: 0.00000010846331, z: 0.106531106, w: 0.99430937}
+  m_LocalPosition: {x: -0.122699246, y: -0.8880747, z: 3.9215486}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 266449667598037821}
+  m_Father: {fileID: 8891802876396306876}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4127900057778223354
@@ -141,7 +140,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 47da3fce16f7f254ba4b29bd88b805c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -204,7 +203,8 @@ Transform:
   m_LocalRotation: {x: 0.0000006189542, y: -0.00000010846331, z: -0.106531106, w: 0.99430937}
   m_LocalPosition: {x: -4.781946, y: 0.84192824, z: 2.5484521}
   m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4127900057778223355}
   m_Father: {fileID: 304036897791019846}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -234,7 +234,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6458325637429098621, guid: 55905ccbd1c764c4e9134426f9a2d19f, type: 3}
+  - {fileID: 2100000, guid: 47da3fce16f7f254ba4b29bd88b805c0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -302,7 +302,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 266449667598037821}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2670041027096527606
 BoxCollider:
@@ -315,8 +315,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.266605, y: 1, z: 20.908861}
-  m_Center: {x: -1.6218562, y: 0, z: 0.9785547}
+  m_Size: {x: 9.266605, y: 1, z: 40.343716}
+  m_Center: {x: -1.6218562, y: 0, z: 1.3134804}
 --- !u!114 &2398889476048278189
 MonoBehaviour:
   m_ObjectHideFlags: 0

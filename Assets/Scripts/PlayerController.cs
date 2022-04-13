@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     bool isCollidingEnter = false;
     bool isCollidingExit = false;
     bool powerUpInUse;
-    bool AlreadyHit;
+    public bool AlreadyHit = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -209,22 +209,22 @@ public class PlayerController : MonoBehaviour
                 dead = true;
                 PlayerAnim.SetTrigger("Death");
                 break;
-            case "Hurdle":
-                if (!InvisibilityBool && !SuperSpeedBool)
-                {
-                    if(!AlreadyHit)
-                    {
-                        AlreadyHit = true;
-                        PlayerAnim.SetTrigger("Stumble");
-                        StartCoroutine("StumbleWait");
-                    }
-                    else if(AlreadyHit)
-                    {
-                        dead = true;
-                        PlayerAnim.SetTrigger("Death");
-                    }
-                }
-                break;
+            //case "Hurdle":
+            //    if (!InvisibilityBool && !SuperSpeedBool)
+            //    {
+            //        if(!AlreadyHit)
+            //        {
+            //            AlreadyHit = true;
+            //            PlayerAnim.SetTrigger("Stumble");
+            //            StartCoroutine("StumbleWait");
+            //        }
+            //        else if(AlreadyHit)
+            //        {
+            //            dead = true;
+            //            PlayerAnim.SetTrigger("Death");
+            //        }
+            //    }
+            //    break;
             case "PowerUpInvisibility":
                 if (!powerUpInUse)
                 {
@@ -597,37 +597,43 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enter")
         {
-            if (isCollidingEnter) return;
-            isCollidingEnter = true;
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
             Debug.Log("enter");
-            StartCoroutine(ResetEnter());
         }
+
+        if (other.gameObject.tag == "Hurdle")
+        {
+            if (!InvisibilityBool && !SuperSpeedBool)
+            {
+
+                if (AlreadyHit)
+                {
+                    dead = true;
+                    PlayerAnim.SetTrigger("Death");
+                   // Destroy(other.gameObject.transform.parent.gameObject);
+                }
+                if (!AlreadyHit)
+                {
+                   
+                    PlayerAnim.SetTrigger("Stumble");
+                    StartCoroutine("StumbleWait");
+                 //   Destroy(other.gameObject.transform.parent.gameObject);
+                }
+               
+            }
+        }
+        
     }
 
     public void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Exit")
         {
-            if (isCollidingExit) return;
-            isCollidingExit = true;
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyObjects();
             Debug.Log("exit");
-            StartCoroutine(ResetExit());
         }
     }
 
-    IEnumerator ResetEnter()
-    {
-        yield return new WaitForEndOfFrame();
-        isCollidingEnter = false;
-    }
-
-    IEnumerator ResetExit()
-    {
-        yield return new WaitForEndOfFrame();
-        isCollidingExit = false;
-    }
     IEnumerator ResetPowerUp(voidCallBack callBackMethod)
     {
         powerUpInUse = true;
@@ -636,7 +642,9 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator StumbleWait()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
+        AlreadyHit = true;
+        yield return new WaitForSeconds(7);
         AlreadyHit = false;
     }
 

@@ -3,7 +3,37 @@ guid: 81dc720034e6cc84e8c77e63827f608d
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BlueChilli
+    second: {fileID: 2100000, guid: 19f2ee4711119384da8c543f6c78c2a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Blue_BlueChilli
+    second: {fileID: 2100000, guid: 78168c3bb2689614c9d7dfea7a5f7c01, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #26
+    second: {fileID: 2100000, guid: a6b819ca899fc7f4b8625c286e7f65ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #26.001
+    second: {fileID: 2100000, guid: b194cba193ba71f47a9c3c577ee91705, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material #27
+    second: {fileID: 2100000, guid: 7c42836c66c7e124bafc6e7c7017b64b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material__251.001
+    second: {fileID: 2100000, guid: df3f788a5ee9ed4449e8353970087d98, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -81,7 +111,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0002
+    globalScale: 0.02
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
