@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     bool isCollidingExit = false;
     bool powerUpInUse;
     public bool AlreadyHit = false;
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +74,7 @@ public class PlayerController : MonoBehaviour
         {
             Down();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform)
+        if (Input.GetKey(KeyCode.UpArrow) && isGrounded && !ChangingPlatform)
         {
             Up();
         }
@@ -395,9 +396,20 @@ public class PlayerController : MonoBehaviour
         isGrounded = false;
         PlayerAnim.SetTrigger("Jump 0");
         PlayerAnim.SetBool("Jump", true);
-        StartCoroutine("JumpRoutine");
-        //rb.AddForce(transform.up * JumpForce);
+        //StartCoroutine("JumpRoutine");
+
+        rb.AddForce((new Vector3(0f, 2f, 0f)) * 250);
+        PlayerAnim.SetBool("Running", false);
+        Invoke("DelayCall", 0.9f);
         //PlayerAnim.SetBool("Jump", false);
+
+
+    }
+
+    public void DelayCall()
+    {
+        isGrounded = true;
+        PlayerAnim.SetBool("Running", true);
     }
     public void Down()
     {
