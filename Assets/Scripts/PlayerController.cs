@@ -470,12 +470,20 @@ public class PlayerController : MonoBehaviour
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
         ChangingPlatform = false;
-        
+
+        Invoke("resetfollowspeed",1.5f);
+    }
+
+
+    public void resetfollowspeed()
+    {
+        FollowPlayer.lookatspeed = 1f;
     }
     public void EnteredPlatformTrigger(GameObject obj)
     {
         nextTransformPosition = obj;
         ChangingPlatform = true;
+        FollowPlayer.lookatspeed = 0.001f;
         //switch(State)
         //{
         //    case "Front":
@@ -600,6 +608,7 @@ public class PlayerController : MonoBehaviour
     {
         //gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
         nextTransformPosition = NextPosition;
+        FollowPlayer.lookatspeed = 0.001f;
         ChangingPlatform = true;
         ChangeState(currentTag.transform.tag);
     }
