@@ -70,11 +70,11 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow) && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform)
         {
             Down();
         }
-        if (Input.GetKey(KeyCode.UpArrow) && isGrounded && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform)
         {
             Up();
         }
@@ -204,7 +204,7 @@ public class PlayerController : MonoBehaviour
         switch(collision.transform.tag)
         {
             case "Floor":
-                isGrounded = true;
+                //isGrounded = true;
                 break;
             case "Wall":
                 dead = true;
@@ -392,38 +392,42 @@ public class PlayerController : MonoBehaviour
     }
     public void Up()
     {
-        SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
-        isGrounded = false;
-        PlayerAnim.SetTrigger("Jump 0");
-        PlayerAnim.SetBool("Jump", true);
+         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
+         isGrounded = false;
+         //PlayerAnim.SetTrigger("Jump 0");
+         PlayerAnim.SetBool("Jump", true);
+         PlayerAnim.SetBool("Running", false);
+         PlayerAnim.SetBool("Sliding", false);
         //StartCoroutine("JumpRoutine");
 
-        rb.AddForce((new Vector3(0f, 2f, 0f)) * 250);
-        PlayerAnim.SetBool("Running", false);
-        Invoke("DelayCall", 0.9f);
-        //PlayerAnim.SetBool("Jump", false);
-
-
+         rb.AddForce((new Vector3(0f, 2f, 0f)) * 250);
+         Invoke("DelayCall", 0.9f);
+            
+         //PlayerAnim.SetBool("Jump", false);
     }
-
     public void DelayCall()
     {
-        isGrounded = true;
+        PlayerAnim.SetBool("Jump", false);
         PlayerAnim.SetBool("Running", true);
+        isGrounded = true;
     }
+
     public void Down()
     {
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0),1);
         transform.DOLocalMoveY(0, 0.25f);
-        PlayerAnim.SetTrigger("Sliding 0");
+        //PlayerAnim.SetTrigger("Sliding 0");
         PlayerAnim.SetBool("Sliding", true);
+        PlayerAnim.SetBool("Running", false);
         StartCoroutine("DelatPos");
         //PlayerAnim.SetBool("Sliding", false);
     }
     IEnumerator DelatPos()
     {
-        yield return new WaitForSeconds(1.10f);
+        yield return new WaitForSeconds(1.05f);
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0),1);
+        PlayerAnim.SetBool("Sliding", false);
+        PlayerAnim.SetBool("Running", true);
     }
     public void CalculateParentMovement(float frontback,float leftright)
     {
