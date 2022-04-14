@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         InvisibilityBool = false;
         SuperSpeedBool = false;
         JumpPos = 1.3f;
-        speed = 20;
+        speed = 10;
         State = "Front";
         middle = true;
         left = false;
@@ -327,9 +327,9 @@ public class PlayerController : MonoBehaviour
             case 0:
                 if (Line == -1)
                     break;
-                transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.25f);
+                transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 changingline=true;
-                Invoke("LineChnaged", 0.25f);
+                Invoke("LineChnaged", 0.1f);
                 Line = -1;
                 break;
             case -1:
@@ -337,9 +337,9 @@ public class PlayerController : MonoBehaviour
             case 1:
                 if (Line == 0)
                     break;
-                transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.25f);
+                transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 changingline = true;
-                Invoke("LineChnaged", 0.25f);
+                Invoke("LineChnaged", 0.1f);
                 Line = 0;
                 break;
         }
@@ -367,17 +367,17 @@ public class PlayerController : MonoBehaviour
             case 0:
                 if (Line == 1)
                     break;
-                transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.25f);
+                transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 changingline = true;
-                Invoke("LineChnaged", 0.25f);
+                Invoke("LineChnaged", 0.1f);
                 Line = 1;
                 break;
             case -1:
                 if (Line == 0)
                     break;
-                transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.25f);
+                transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 changingline = true;
-                Invoke("LineChnaged", 0.25f);
+                Invoke("LineChnaged", 0.1f);
                 Line = 0;
                 break;
             case 1:
@@ -553,14 +553,14 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            speed = 50;
+            speed = speed * 2;
             SuperSpeedBool = true;
             StartCoroutine(ResetPowerUp(SuperSpeed));
         }
         else
         {
             powerUpInUse = false;
-            speed = 20;
+            speed = speed / 2;
             SuperSpeedBool = false;
         }
     }
@@ -568,14 +568,14 @@ public class PlayerController : MonoBehaviour
     {
         if(!powerUpInUse)
         {
-            speed = 10;
+            speed = speed / 2;
             PlayerAnim.SetFloat("RunningSpeed", 0.7f);
             StartCoroutine(ResetPowerUp(SlowingDown));
         }
         else
         {
             powerUpInUse = false;
-            speed = 20;
+            speed = speed * 2;
             PlayerAnim.SetFloat("RunningSpeed", 1.5f);
         }
     }
