@@ -1,9 +1,144 @@
 fileFormatVersion: 2
 guid: 11c7023ce8d7c1a43ae88e9e485b7485
 ModelImporter:
-  serializedVersion: 20200
+  serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material.002
+    second: {fileID: 2100000, guid: cf15ba38a34024543ac364a44336ba78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default_Material.003
+    second: {fileID: 2100000, guid: eda8009481ee4d941a493273f95782e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass_01.002
+    second: {fileID: 2100000, guid: 104e5f6aa21af8f4eadbb0c91770e5d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_002.002
+    second: {fileID: 2100000, guid: 739a1a1317ac42145a7b84c78969b898, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_002.003
+    second: {fileID: 2100000, guid: 11836043a8861cc40a743f5fa7503bd3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_01_A.002
+    second: {fileID: 2100000, guid: 495917121089c364996c10ab965e3624, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_01_A.003
+    second: {fileID: 2100000, guid: a8ae6bbe1a694434cb3516ccf41f92c7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_01_B.002
+    second: {fileID: 2100000, guid: bb9929eb1c1b6e348a115d7ffe462654, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_01_B.003
+    second: {fileID: 2100000, guid: 49d1915da0735f44aa9a0a8f4bd6dc33, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_01_C.001
+    second: {fileID: 2100000, guid: 5d8bd9722505c49408fe70eded9c5733, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_02_A.001
+    second: {fileID: 2100000, guid: 61944e44974afc847926e3a2e9501d8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_02_B.001
+    second: {fileID: 2100000, guid: 8734feee5a3587842884c48bb29bdbec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_02_C.002
+    second: {fileID: 2100000, guid: d681f93eed5693c4c9cc0296846edab7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_02_C.003
+    second: {fileID: 2100000, guid: d4b5246cccec57a4f8523c37a3add77c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_03_A.002
+    second: {fileID: 2100000, guid: edd62d69d78aa0a4da131d67e38fd2a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_03_C.002
+    second: {fileID: 2100000, guid: b99553dd6e8a74b458f3fc6e8864a269, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_03_C.003
+    second: {fileID: 2100000, guid: f0b9b2307c7aefd4e9e65322f95ff972, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_04_B.001
+    second: {fileID: 2100000, guid: d606243202ce9c8419edffc9870bd8e4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_04_C.002
+    second: {fileID: 2100000, guid: 55cab7ac3fefd4a41a9b8987b3bd0d72, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_04_C.003
+    second: {fileID: 2100000, guid: cd0fb19144f8cf045ab1dc95105cc81d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_Plant_Basic_Blue_02.002
+    second: {fileID: 2100000, guid: 5494c15b76d88204ebcfd78240d786f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_Plant_Basic_Blue_02.003
+    second: {fileID: 2100000, guid: b292e7e20fea4784f980b0a2fadf5319, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonScifiWorlds_Mat_Plant_Basic_Green_02.002
+    second: {fileID: 2100000, guid: ab64b48999d97664bb57868ec952c2ae, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRack.002
+    second: {fileID: 2100000, guid: 1f8d7133a262ef5408a108ce392e4961, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRack.003
+    second: {fileID: 2100000, guid: 4c7f1fc1b6c34c848b4de204aaccb682, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: patch.002
+    second: {fileID: 2100000, guid: 445f6405588bc62459d8fc48964edf31, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: patch.003
+    second: {fileID: 2100000, guid: 072976876a6e2d74d96cad5f73790a83, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -40,16 +175,15 @@ ModelImporter:
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
-    importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importBlendShapes: 0
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
-    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -59,9 +193,6 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
-    secondaryUVMarginMethod: 1
-    secondaryUVMinLightmapResolution: 40
-    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -95,7 +226,6 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

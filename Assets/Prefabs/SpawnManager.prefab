@@ -1,0 +1,294 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &90392885365308327
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 90392885365308328}
+  - component: {fileID: 90392885365308329}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &90392885365308328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90392885365308327}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &90392885365308329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90392885365308327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8804a734741b8409ea0742cee34d9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpawnObjectsPatterns:
+  - SpawnObjectsPattern:
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - hurdle
+    - hurdle
+    - red
+    - red
+    - hurdle
+    - golden
+    - red
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - hurdle
+    - red
+    - hurdle
+    - blue
+    - hurdle
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+  - SpawnObjectsPattern:
+    - hurdle
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - golden
+    - hurdle
+    - blue
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - hurdle
+    - hurdle
+    - golden
+    - red
+    - red
+    - hurdle
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - hurdle
+    - blue
+  - SpawnObjectsPattern:
+    - red
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - hurdle
+    - hurdle
+    - blue
+    - red
+    - red
+    - hurdle
+    - hurdle
+    - hurdle
+    - golden
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - hurdle
+    - hurdle
+    - red
+    - blue
+    - hurdle
+    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+  SpawnObjectsPattern: []
+  GreenChilliPrefab: {fileID: 6921616879740572675, guid: 281c536444daac7498d65fb7025d4a5c,
+    type: 3}
+  RedChilliPrefab: {fileID: 5529504405982976602, guid: bf563f6be2a267740aa623828a0bf7cd,
+    type: 3}
+  GoldenChilliPrefab: {fileID: 546445361721782702, guid: 3323ae782a1a6474f8b2c9878d8789c2,
+    type: 3}
+  BlueChilliPrefab: {fileID: 118197459432326429, guid: fcc01ac853a08784580fa992542df729,
+    type: 3}
+  HurdlesPrefabs:
+  - {fileID: 8440997908058956502, guid: 198837564a3180c43b4debee1820ef1b, type: 3}
+  - {fileID: 143391591182207936, guid: 045deca1ecbfc0e4db9b47a14f1e8321, type: 3}
+  - {fileID: 8529855678502661394, guid: 176aa1a45dc4aa647b0ce6eeb0a12274, type: 3}
+  - {fileID: 7988094559342513561, guid: cc2918be30544864ab3fee0fab3f5bc0, type: 3}
+  - {fileID: 266449667598037822, guid: 9f741491ab65d1d46b82435f20d39b61, type: 3}
+  PatternIndex: 0
+  _ENV:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
