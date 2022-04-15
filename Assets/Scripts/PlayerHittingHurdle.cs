@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHittingHurdle : MonoBehaviour
 {
     public PlayerController PC;
+    public GameObject restartPanel;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -18,6 +19,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.dead = true;
                     PC.PlayerAnim.SetTrigger("Death");
+                    Invoke("PanelDelayCall", 2f);
                     // Destroy(other.gameObject.transform.parent.gameObject);
                 }
                 if (!PC.AlreadyHit)
@@ -36,6 +38,7 @@ public class PlayerHittingHurdle : MonoBehaviour
             {
                 PC.dead = true;
                 PC.PlayerAnim.SetTrigger("Death");
+                Invoke("PanelDelayCall", 2f);
             }
         }
 
@@ -47,5 +50,10 @@ public class PlayerHittingHurdle : MonoBehaviour
         PC.AlreadyHit = true;
         yield return new WaitForSeconds(7);
         PC.AlreadyHit = false;
+    }
+
+    public void PanelDelayCall()
+    {
+        restartPanel.SetActive(true);
     }
 }

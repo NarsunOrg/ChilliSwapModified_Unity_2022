@@ -209,6 +209,7 @@ public class PlayerController : MonoBehaviour
             case "Wall":
                 dead = true;
                 PlayerAnim.SetTrigger("Death");
+                Invoke("PanelDelayCall", 2f);
                 break;
             //case "Hurdle":
             //    if (!InvisibilityBool && !SuperSpeedBool)
@@ -303,6 +304,11 @@ public class PlayerController : MonoBehaviour
         //    LaserGoggles();
         //}
         #endregion
+    }
+
+    public void PanelDelayCall()
+    {
+        this.gameObject.GetComponentInChildren<PlayerHittingHurdle>().restartPanel.SetActive(true);
     }
     public void MoveLeft()
     {

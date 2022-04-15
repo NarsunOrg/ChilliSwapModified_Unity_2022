@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2175220307652294576
+--- !u!1 &763741787253420212
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,45 +8,90 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8156225541630833962}
-  - component: {fileID: 1130736969934555967}
-  - component: {fileID: 8987433585575021218}
+  - component: {fileID: 131320959187347982}
+  - component: {fileID: 8012879205496036795}
   m_Layer: 0
-  m_Name: Hurdle 3
-  m_TagString: Untagged
+  m_Name: apocalypse Hurdle
+  m_TagString: Hurdle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8156225541630833962
+--- !u!4 &131320959187347982
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2175220307652294576}
-  m_LocalRotation: {x: -0.29883623, y: -0.64085644, z: -0.64085644, w: 0.29883623}
-  m_LocalPosition: {x: -0.33, y: -1, z: 0.29}
-  m_LocalScale: {x: 300, y: 300, z: 300}
+  m_GameObject: {fileID: 763741787253420212}
+  m_LocalRotation: {x: -0, y: 0.99502635, z: -0, w: 0.09961194}
+  m_LocalPosition: {x: -0.34, y: 0.55, z: 0.26}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2055943032989017461}
+  m_Father: {fileID: 8105909683550432367}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 168.56601, z: 0}
+--- !u!65 &8012879205496036795
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763741787253420212}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.6231258, y: 1.2786399, z: 1}
+  m_Center: {x: 1.5144271, y: 0.13931997, z: 0}
+--- !u!1 &1653480754613025923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2055943032989017461}
+  - component: {fileID: 1574241148246607546}
+  - component: {fileID: 7403955650561023828}
+  m_Layer: 0
+  m_Name: Hurdle 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2055943032989017461
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653480754613025923}
+  m_LocalRotation: {x: 0, y: -0.7660445, z: 0, w: 0.64278764}
+  m_LocalPosition: {x: 1.507, y: 0.09, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
-  m_Father: {fileID: 4864396649305700371}
+  m_Father: {fileID: 131320959187347982}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: -130}
---- !u!33 &1130736969934555967
+  m_LocalEulerAnglesHint: {x: 0, y: -100, z: 0}
+--- !u!33 &1574241148246607546
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2175220307652294576}
-  m_Mesh: {fileID: -5864976681737559687, guid: 7716e8a81cf6d814f8d84739e304cb1c, type: 3}
---- !u!23 &8987433585575021218
+  m_GameObject: {fileID: 1653480754613025923}
+  m_Mesh: {fileID: -3081589787523239157, guid: 7716e8a81cf6d814f8d84739e304cb1c, type: 3}
+--- !u!23 &7403955650561023828
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2175220307652294576}
+  m_GameObject: {fileID: 1653480754613025923}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -55,12 +100,10 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 9222031518582795627, guid: 7716e8a81cf6d814f8d84739e304cb1c, type: 3}
-  - {fileID: -3986987142642214724, guid: 7716e8a81cf6d814f8d84739e304cb1c, type: 3}
+  - {fileID: 2100000, guid: 35f82b789382e8047966f1b3e42c3cb6, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -81,8 +124,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &5245038071862731433
+--- !u!1 &1952693730960300758
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,52 +132,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4864396649305700371}
-  - component: {fileID: 733121043735688371}
-  m_Layer: 0
-  m_Name: apocalypse Hurdle 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4864396649305700371
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245038071862731433}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8156225541630833962}
-  m_Father: {fileID: 2304766282550383758}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &733121043735688371
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5245038071862731433}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 6.178978, y: 1.5551373, z: 1.1491983}
-  m_Center: {x: 0.47344303, y: -0.8002779, z: 0.14181864}
---- !u!1 &6180116213347343551
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2304766282550383758}
+  - component: {fileID: 8105909683550432367}
   m_Layer: 0
   m_Name: Hurdle1
   m_TagString: Untagged
@@ -143,18 +140,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2304766282550383758
+--- !u!4 &8105909683550432367
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6180116213347343551}
+  m_GameObject: {fileID: 1952693730960300758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4864396649305700371}
+  - {fileID: 4784041518673442410}
+  - {fileID: 131320959187347982}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6240414822736418717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4784041518673442410}
+  m_Layer: 0
+  m_Name: RightSideObs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4784041518673442410
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6240414822736418717}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8105909683550432367}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}

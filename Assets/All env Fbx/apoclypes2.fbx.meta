@@ -3,7 +3,147 @@ guid: a0d254651d4caef4383d5a5365a7965b
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Billboard_01.001
+    second: {fileID: 2100000, guid: 2e133f67b55271245a600e27085c2ea2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Billboard_01_002.002
+    second: {fileID: 2100000, guid: e03a1c32eda587143b0e8662d5aaf920, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Billboard_01_002.003
+    second: {fileID: 2100000, guid: 7a74dbb3f74d80e4d93231c0228a6380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A.001
+    second: {fileID: 2100000, guid: e5f5590fe133d0748bb820cf886067c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_005.001
+    second: {fileID: 2100000, guid: 7aae7e85075c750489be4154016e3edb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_056.001
+    second: {fileID: 2100000, guid: fb2aff0647fc96b4896499545f3f5380, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_145.001
+    second: {fileID: 2100000, guid: 5785257c7ca5c1e4e965c9efb4be389b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_218.001
+    second: {fileID: 2100000, guid: 764ba339f79785d479757014bcbd3b22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_220.001
+    second: {fileID: 2100000, guid: db11332302ecc0f489e7c65cfe3e9cb8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_221.001
+    second: {fileID: 2100000, guid: 1a220853e0555c144993de744ab17f78, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A_245.001
+    second: {fileID: 2100000, guid: ea340102a803f18408852eed19206752, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_02_A.001
+    second: {fileID: 2100000, guid: e46aa5ccff9a4074c81917cd34a58146, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_03_C.001
+    second: {fileID: 2100000, guid: d4a451b951bed224aaa484cf4de8bd5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_04_A_020.001
+    second: {fileID: 2100000, guid: c7af6639652ee4b4c96280ca789c6354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_04_B_011.001
+    second: {fileID: 2100000, guid: 4f1e465ff53a0a849bafee2e52ec8d9e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Fence_01.001
+    second: {fileID: 2100000, guid: c48998b09eaa0a548955e6faa665b09e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Fence_01_004.001
+    second: {fileID: 2100000, guid: 88e64978abade314e815f8b3e4b35f56, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Glass_01.001
+    second: {fileID: 2100000, guid: 661cfd8e752a30441a7d56638e1e3c5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Glass_01_012.001
+    second: {fileID: 2100000, guid: 13e6c082d21ccec4ca4c3ae3b6b1bf38, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Overgrowth_01.001
+    second: {fileID: 2100000, guid: b53290607c510a14b9531adb4f4ecb5f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Overgrowth_01_007.001
+    second: {fileID: 2100000, guid: 0b661ad4b66a63f468a6a1367f54b470, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Road_01_Triplanar.001
+    second: {fileID: 2100000, guid: 6b27ad4a7f2cd624496184c5cd2d9143, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Road_01_Triplanar_024.001
+    second: {fileID: 2100000, guid: e13927e8b4b75d04e8717b628ff6c3f5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Road_01_Triplanar_026.001
+    second: {fileID: 2100000, guid: 039755baf43758940aa2b253fc0fdf5c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Road_01_Triplanar_031.001
+    second: {fileID: 2100000, guid: a29ec41b87dd2c947b19743739245f52, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Road_Standard_01_009.001
+    second: {fileID: 2100000, guid: 302ba191ce5001340bcf94b0776180f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_Vehicle_Standard_01.001
+    second: {fileID: 2100000, guid: 2e12ed7bcbbba6c479b5191b50671ae8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Rubble_01_008.001
+    second: {fileID: 2100000, guid: 1a3d5dd12457e5f4890be235f28e5d28, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

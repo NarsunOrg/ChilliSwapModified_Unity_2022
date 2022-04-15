@@ -3,7 +3,27 @@ guid: 505b9a9197eb0b34f804ea511f8341ea
 ModelImporter:
   serializedVersion: 19301
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_A
+    second: {fileID: 2100000, guid: 35f82b789382e8047966f1b3e42c3cb6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_01_B
+    second: {fileID: 2100000, guid: a61902ae65d634142a978e070baf3160, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_02_C
+    second: {fileID: 2100000, guid: 7ec5e461d2518934a8a417920c2448f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PolygonApocalypse_Material_04_A
+    second: {fileID: 2100000, guid: 411db9f9bd3a87148968014207ab9b24, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,5 +16,8 @@ public class GameManager : MonoBehaviour
         _Player.transform.rotation = _playerSpawnPoints[_PlayerRandomSpawnPos].rotation;
     }
 
-   
+    public void OnRestartButton(int scenenumber)
+    {
+        SceneManager.LoadScene(scenenumber);
+    }
 }
