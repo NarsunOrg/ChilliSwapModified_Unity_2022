@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     bool changingline = false;
     public bool ChangingPlatform = false;
     GameObject nextTransformPosition;
-    bool dead = false;
+    public bool dead = false;
     public string CurrentRespectiveState;
     bool hasSwiped;
     public bool InvisibilityBool;
@@ -626,27 +626,27 @@ public class PlayerController : MonoBehaviour
             Debug.Log("enter");
         }
 
-        if (other.gameObject.tag == "Hurdle")
-        {
-            if (!InvisibilityBool && !SuperSpeedBool)
-            {
+        //if (other.gameObject.tag == "Hurdle")
+        //{
+        //    if (!InvisibilityBool && !SuperSpeedBool)
+        //    {
 
-                if (AlreadyHit)
-                {
-                    dead = true;
-                    PlayerAnim.SetTrigger("Death");
-                   // Destroy(other.gameObject.transform.parent.gameObject);
-                }
-                if (!AlreadyHit)
-                {
+        //        if (AlreadyHit)
+        //        {
+        //            dead = true;
+        //            PlayerAnim.SetTrigger("Death");
+        //           // Destroy(other.gameObject.transform.parent.gameObject);
+        //        }
+        //        if (!AlreadyHit)
+        //        {
                    
-                    PlayerAnim.SetTrigger("Stumble");
-                    StartCoroutine("StumbleWait");
-                 //   Destroy(other.gameObject.transform.parent.gameObject);
-                }
+        //            PlayerAnim.SetTrigger("Stumble");
+        //            StartCoroutine("StumbleWait");
+        //         //   Destroy(other.gameObject.transform.parent.gameObject);
+        //        }
                
-            }
-        }
+        //    }
+        //}
         
     }
 
