@@ -5,10 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public GameObject _Player;
     public Transform[] _playerSpawnPoints;
     private int _PlayerRandomSpawnPos;
-    
+    public int CurrentLives;
+    public int CollectedChillis;
+
+    private void Awake()
+    {
+        instance = this;
+        CurrentLives = GameConstants.PlayerLives;
+    }
+
     void Start()
     {
         _PlayerRandomSpawnPos = Random.Range(0, _playerSpawnPoints.Length);

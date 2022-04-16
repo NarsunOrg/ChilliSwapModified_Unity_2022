@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHittingHurdle : MonoBehaviour
 {
@@ -19,6 +20,15 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.dead = true;
                     PC.PlayerAnim.SetTrigger("Death");
+                    GameManager.instance.CurrentLives -= 1;
+                    if (GameManager.instance.CurrentLives < 1)
+                    {
+                        SceneManager.LoadScene(0);
+                    }
+                    else
+                    {
+                        //respawn player
+                    }
                     Invoke("PanelDelayCall", 2f);
                     // Destroy(other.gameObject.transform.parent.gameObject);
                 }
@@ -38,6 +48,15 @@ public class PlayerHittingHurdle : MonoBehaviour
             {
                 PC.dead = true;
                 PC.PlayerAnim.SetTrigger("Death");
+                GameManager.instance.CurrentLives -= 1;
+                if (GameManager.instance.CurrentLives < 1)
+                {
+                    SceneManager.LoadScene(0);
+                }
+                else
+                {
+                    //respawn player
+                }
                 Invoke("PanelDelayCall", 2f);
             }
         }

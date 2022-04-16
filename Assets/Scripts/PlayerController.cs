@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -201,6 +202,7 @@ public class PlayerController : MonoBehaviour
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("collideddd");
         switch(collision.transform.tag)
         {
             case "Floor":
@@ -209,8 +211,18 @@ public class PlayerController : MonoBehaviour
             case "Wall":
                 dead = true;
                 PlayerAnim.SetTrigger("Death");
+                GameManager.instance.CurrentLives -= 1;
+                if (GameManager.instance.CurrentLives < 1)
+                {
+                    SceneManager.LoadScene(0);
+                }
+                else
+                {
+                    //respawn player
+                }
                 Invoke("PanelDelayCall", 2f);
                 break;
+           
             //case "Hurdle":
             //    if (!InvisibilityBool && !SuperSpeedBool)
             //    {
@@ -631,6 +643,36 @@ public class PlayerController : MonoBehaviour
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
             Debug.Log("enter");
         }
+        switch (other.gameObject.tag)
+        {
+            case "GreenChilli":
+                
+                Destroy(other.gameObject);
+                GameManager.instance.CollectedChillis += GameConstants.GreenChilliCount;
+                break;
+            case "RedChilli":
+               
+                Destroy(other.gameObject);
+                GameManager.instance.CollectedChillis += GameConstants.RedChilliCount;
+                if (GameManager.instance.CollectedChillis < 0)
+                {
+                    GameManager.instance.CollectedChillis = 0;
+                }
+                break;
+            case "GoldenChilli":
+               
+                Destroy(other.gameObject);
+                GameManager.instance.CollectedChillis += GameConstants.GoldenChilliCount;
+                break;
+            case "BlueChilli":
+               
+                Destroy(other.gameObject);
+                if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
+                {
+                    GameManager.instance.CurrentLives += GameConstants.BlueChilliCount;
+                }
+                break;
+        }
 
         //if (other.gameObject.tag == "Hurdle")
         //{
@@ -645,15 +687,15 @@ public class PlayerController : MonoBehaviour
         //        }
         //        if (!AlreadyHit)
         //        {
-                   
+
         //            PlayerAnim.SetTrigger("Stumble");
         //            StartCoroutine("StumbleWait");
         //         //   Destroy(other.gameObject.transform.parent.gameObject);
         //        }
-               
+
         //    }
         //}
-        
+
     }
 
     public void OnTriggerExit(Collider other)
