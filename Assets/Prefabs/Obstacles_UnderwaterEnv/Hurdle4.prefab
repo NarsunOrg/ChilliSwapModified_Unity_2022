@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147927252663891106}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.006, y: 0, z: 0.657}
+  m_LocalPosition: {x: -0.498, y: 0.4, z: 1.052}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3787991675406201673}
@@ -41,7 +41,8 @@ Animation:
   m_GameObject: {fileID: 147927252663891106}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: -4053159183266001191, guid: 14aa7b19b7377854cbfb3753aca4bff3, type: 3}
+  m_Animation: {fileID: -4053159183266001191, guid: 14aa7b19b7377854cbfb3753aca4bff3,
+    type: 3}
   m_Animations:
   - {fileID: 6370926896503912187, guid: 14aa7b19b7377854cbfb3753aca4bff3, type: 3}
   - {fileID: -4980039817203094730, guid: 14aa7b19b7377854cbfb3753aca4bff3, type: 3}
@@ -99,7 +100,7 @@ GameObject:
   - component: {fileID: 2974945176189687684}
   m_Layer: 0
   m_Name: BlockHurdle
-  m_TagString: Untagged
+  m_TagString: Hurdle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -112,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2974945176189687687}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.27, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1419339033750838341}
@@ -141,7 +142,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -166,7 +166,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &2974945176189687684
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -175,11 +174,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2974945176189687687}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16686347, y: 0.17802171, z: 0.31191397}
-  m_Center: {x: 0.00604482, y: 0.050556265, z: -0.009198733}
+  m_Size: {x: 1.0983243, y: 0.3323857, z: 0.9389804}
+  m_Center: {x: -0.03336093, y: 0.19655909, z: 0.3043345}
 --- !u!1 &3579045700428391559
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 3579045700428391559}
   m_LocalRotation: {x: -0.0045173937, y: 0.9820251, z: -0.18730637, w: 0.022862483}
   m_LocalPosition: {x: 0.6738949, y: 0.009463624, z: -0.11881108}
-  m_LocalScale: {x: 0.39182705, y: 0.3918271, z: 0.39182714}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 7229513415374209546}
   m_Father: {fileID: 668322345669176856}
@@ -236,7 +235,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -261,7 +259,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5780031716409858630
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,7 +284,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5780031716409858630}
-  m_LocalRotation: {x: 0.00000002235174, y: 0.0000000018626451, z: 4.6566095e-10, w: 1}
+  m_LocalRotation: {x: 0.00000002235174, y: 0.0000000018626451, z: 4.6566095e-10,
+    w: 1}
   m_LocalPosition: {x: -0, y: 0.000000019073486, z: 0.000000076293944}
   m_LocalScale: {x: 1, y: 1.0000002, z: 1}
   m_Children: []
@@ -317,7 +315,6 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -342,4 +339,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
