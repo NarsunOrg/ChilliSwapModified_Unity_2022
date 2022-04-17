@@ -202,8 +202,9 @@ public class PlayerController : MonoBehaviour
 
     public void RespwanPlayer()
     {
-
-
+        ChangingPlatform = false;
+        changingline = false;
+        Line = 0;
         State = "Front";
         middle = true;
         left = false;
@@ -211,11 +212,14 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
-        dead = false;
+       
         AlreadyHit = false;
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
         Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
         Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+        transform.DOLocalMoveX(0, 0.1f);
+        FollowPlayer.lookatspeed = 1;
+        dead = false;
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
