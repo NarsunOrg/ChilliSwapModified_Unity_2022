@@ -202,6 +202,13 @@ public class PlayerController : MonoBehaviour
 
     public void RespwanPlayer()
     {
+
+
+        State = "Front";
+        middle = true;
+        left = false;
+        right = false;
+        isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
         dead = false;
@@ -661,30 +668,31 @@ public class PlayerController : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "GreenChilli":
-                
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
-                GameManager.instance.CollectedChillis += GameConstants.GreenChilliCount;
+                GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GreenChilliCount;
                 break;
             case "RedChilli":
-               
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
-                GameManager.instance.CollectedChillis += GameConstants.RedChilliCount;
+                GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.RedChilliCount;
                 if (GameManager.instance.CollectedChillis < 0)
                 {
                     GameManager.instance.CollectedChillis = 0;
                 }
                 break;
             case "GoldenChilli":
-               
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
-                GameManager.instance.CollectedChillis += GameConstants.GoldenChilliCount;
+                GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GoldenChilliCount;
                 break;
             case "BlueChilli":
-               
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                Debug.Log("blue chilli call");
                 Destroy(other.gameObject);
                 if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
                 {
-                    GameManager.instance.CurrentLives += GameConstants.BlueChilliCount;
+                    GameManager.instance.CurrentLives = GameManager.instance.CurrentLives+ GameConstants.BlueChilliCount;
                 }
                 break;
         }

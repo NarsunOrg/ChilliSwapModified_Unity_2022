@@ -18,17 +18,20 @@ public class PlayerHittingHurdle : MonoBehaviour
 
                 if (PC.AlreadyHit)
                 {
-                    PC.dead = true;
-                    PC.PlayerAnim.SetBool("Running", false);
-                    PC.PlayerAnim.SetBool("Death", true);
-                    GameManager.instance.CurrentLives -= 1;
-                    if (GameManager.instance.CurrentLives < 1)
+                    if (PC.dead == false)
                     {
-                        SceneManager.LoadScene(0);
-                    }
-                    else
-                    {
-                        Invoke("RespawnPlayerDelayCall", 3f);
+                        PC.dead = true;
+                        PC.PlayerAnim.SetBool("Running", false);
+                        PC.PlayerAnim.SetBool("Death", true);
+                        GameManager.instance.CurrentLives -= 1;
+                        if (GameManager.instance.CurrentLives < 1)
+                        {
+                            SceneManager.LoadScene(0);
+                        }
+                        else
+                        {
+                            Invoke("RespawnPlayerDelayCall", 3f);
+                        }
                     }
                     //Invoke("PanelDelayCall", 2f);
                     // Destroy(other.gameObject.transform.parent.gameObject);
@@ -47,17 +50,20 @@ public class PlayerHittingHurdle : MonoBehaviour
         {
             if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
             {
-                PC.dead = true;
-                PC.PlayerAnim.SetBool("Running", false);
-                PC.PlayerAnim.SetBool("Death", true);
-                GameManager.instance.CurrentLives -= 1;
-                if (GameManager.instance.CurrentLives < 1)
+                if (PC.dead == false)
                 {
-                    SceneManager.LoadScene(0);
-                }
-                else
-                {
-                    Invoke("RespawnPlayerDelayCall", 3f);
+                    PC.dead = true;
+                    PC.PlayerAnim.SetBool("Running", false);
+                    PC.PlayerAnim.SetBool("Death", true);
+                    GameManager.instance.CurrentLives -= 1;
+                    if (GameManager.instance.CurrentLives < 1)
+                    {
+                        SceneManager.LoadScene(0);
+                    }
+                    else
+                    {
+                        Invoke("RespawnPlayerDelayCall", 3f);
+                    }
                 }
                 //Invoke("PanelDelayCall", 2f);
             }
