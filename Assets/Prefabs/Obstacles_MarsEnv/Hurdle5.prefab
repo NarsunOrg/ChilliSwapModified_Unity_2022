@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7052153721483824029}
   m_Layer: 0
   m_Name: Obstacle_Gameover
-  m_TagString: Untagged
+  m_TagString: HurdleDie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 948465359836173341}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0.0000000037252899, y: 0.1730118, z: -0.000000014901159, w: 0.9849198}
   m_LocalPosition: {x: 0, y: 0.324, z: 1.97}
   m_LocalScale: {x: 1, y: 4.0881705, z: 1.6193265}
   m_Children: []
   m_Father: {fileID: 3898211513263692463}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 19.926, z: 0}
 --- !u!33 &5072592675247337540
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -93,8 +93,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.4332156, y: 1.1409822, z: 2.5411465}
-  m_Center: {x: -0.94402236, y: 0.1836437, z: 0.3845745}
+  m_Size: {x: 0.7927219, y: 1.1409822, z: 2.749156}
+  m_Center: {x: -2.25514, y: 0.1836436, z: 0.2805712}
 --- !u!1 &1290038967433130923
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,13 +152,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7278060446447585998}
-  m_LocalRotation: {x: -0.5749791, y: -0.1660689, z: -0.22230203, w: 0.76967657}
-  m_LocalPosition: {x: 7.14, y: -1.23, z: 0}
+  m_LocalRotation: {x: -0.591729, y: -0.08964709, z: -0.12000255, w: 0.7920982}
+  m_LocalPosition: {x: 7.14, y: 0.75, z: 0.59}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 8261362355317421303}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -73.522, y: 0, z: -32.22}
+  m_LocalEulerAnglesHint: {x: -73.522, y: 0, z: -17.229}
 --- !u!33 &6477537818467573713
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -233,11 +233,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7597039686830820410}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.09223854, y: 0.701065, z: 0.092237666, w: 0.70106506}
+  m_LocalPosition: {x: 0, y: 1.98, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8548095561177047216}
   m_Father: {fileID: 8261362355317421303}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 14.991}

@@ -306,7 +306,7 @@ GameObject:
   - component: {fileID: 6974402923441423981}
   m_Layer: 0
   m_Name: Obstacle_Gameover
-  m_TagString: Untagged
+  m_TagString: HurdleDie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -318,13 +318,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6530542073117358212}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.046, z: 0}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1.046, z: -0.23}
   m_LocalScale: {x: 1, y: 0.5084037, z: 4.5506663}
   m_Children: []
   m_Father: {fileID: 2990095964220537536}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2280683459841537517
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -385,8 +385,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1482531, y: 3.8146656, z: 0.38390177}
-  m_Center: {x: -0.09734782, y: 0.2869715, z: -0.23174365}
+  m_Size: {x: 0.14825311, y: 2.705563, z: 0.38390177}
+  m_Center: {x: -0.09734782, y: 0.8415228, z: -0.23174365}
 --- !u!65 &3862665267605605133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -437,8 +437,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 6.1959434, z: 0.066305645}
-  m_Center: {x: 1.34794875e-14, y: -0.90366733, z: -0.46211478}
+  m_Size: {x: 0.3128641, y: 6.1959434, z: 0.066305645}
+  m_Center: {x: -0.04764818, y: -0.90366733, z: -0.46211478}
 --- !u!1 &6892740556903030919
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7392494565777584435}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.51, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1767989059939957525}
@@ -576,12 +576,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8405232833775567252}
-  m_LocalRotation: {x: -0, y: 0.71085745, z: -0, w: 0.7033361}
-  m_LocalPosition: {x: -0.1, y: -1, z: 0}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0.1, y: 0.50999993, z: 0}
   m_LocalScale: {x: 0.43970093, y: 0.43970093, z: 0.43970093}
   m_Children:
   - {fileID: 4419053689808599757}
   - {fileID: 4872980866615742900}
   m_Father: {fileID: 7482375997010260696}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 90.609, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}

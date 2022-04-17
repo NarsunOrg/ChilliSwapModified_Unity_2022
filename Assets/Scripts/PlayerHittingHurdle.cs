@@ -19,7 +19,8 @@ public class PlayerHittingHurdle : MonoBehaviour
                 if (PC.AlreadyHit)
                 {
                     PC.dead = true;
-                    PC.PlayerAnim.SetTrigger("Death");
+                    PC.PlayerAnim.SetBool("Running", false);
+                    PC.PlayerAnim.SetBool("Death", true);
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
@@ -27,9 +28,9 @@ public class PlayerHittingHurdle : MonoBehaviour
                     }
                     else
                     {
-                        //respawn player
+                        Invoke("RespawnPlayerDelayCall", 3f);
                     }
-                    Invoke("PanelDelayCall", 2f);
+                    //Invoke("PanelDelayCall", 2f);
                     // Destroy(other.gameObject.transform.parent.gameObject);
                 }
                 if (!PC.AlreadyHit)
@@ -47,7 +48,8 @@ public class PlayerHittingHurdle : MonoBehaviour
             if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
             {
                 PC.dead = true;
-                PC.PlayerAnim.SetTrigger("Death");
+                PC.PlayerAnim.SetBool("Running", false);
+                PC.PlayerAnim.SetBool("Death", true);
                 GameManager.instance.CurrentLives -= 1;
                 if (GameManager.instance.CurrentLives < 1)
                 {
@@ -55,9 +57,9 @@ public class PlayerHittingHurdle : MonoBehaviour
                 }
                 else
                 {
-                    //respawn player
+                    Invoke("RespawnPlayerDelayCall", 3f);
                 }
-                Invoke("PanelDelayCall", 2f);
+                //Invoke("PanelDelayCall", 2f);
             }
         }
 
@@ -69,6 +71,11 @@ public class PlayerHittingHurdle : MonoBehaviour
         PC.AlreadyHit = true;
         yield return new WaitForSeconds(7);
         PC.AlreadyHit = false;
+    }
+
+    public void RespawnPlayerDelayCall()
+    {
+        PC.RespwanPlayer();
     }
 
     public void PanelDelayCall()

@@ -199,6 +199,17 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
     }
+
+    public void RespwanPlayer()
+    {
+        PlayerAnim.SetBool("Running", true);
+        PlayerAnim.SetBool("Death", false);
+        dead = false;
+        AlreadyHit = false;
+        int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
+        Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
+        Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+    }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
     {
@@ -209,18 +220,22 @@ public class PlayerController : MonoBehaviour
                 //isGrounded = true;
                 break;
             case "Wall":
-                dead = true;
-                PlayerAnim.SetTrigger("Death");
-                GameManager.instance.CurrentLives -= 1;
-                if (GameManager.instance.CurrentLives < 1)
+                if (dead == false)
                 {
-                    SceneManager.LoadScene(0);
+                    dead = true;
+                    PlayerAnim.SetBool("Running", false);
+                    PlayerAnim.SetBool("Death", true);
+                    GameManager.instance.CurrentLives -= 1;
+                    if (GameManager.instance.CurrentLives < 1)
+                    {
+                        SceneManager.LoadScene(0);
+                    }
+                    else
+                    {
+                        Invoke("RespwanPlayer", 3f);
+                    }
+                    //Invoke("PanelDelayCall", 2f);
                 }
-                else
-                {
-                    //respawn player
-                }
-                Invoke("PanelDelayCall", 2f);
                 break;
            
             //case "Hurdle":
