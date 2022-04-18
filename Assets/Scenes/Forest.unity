@@ -26517,7 +26517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583357644
 Transform:
   m_ObjectHideFlags: 0
@@ -35581,6 +35581,7 @@ MonoBehaviour:
   - {fileID: 1687659319}
   CurrentLives: 0
   CollectedChillis: 0
+  ENV: {fileID: 1583357643}
 --- !u!4 &2075737928
 Transform:
   m_ObjectHideFlags: 0

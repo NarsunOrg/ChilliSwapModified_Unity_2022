@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Parent;
     public string State;
     float speed;
-    float JumpPos;
+    float Jumpforce;
     int Line= 0;
     bool changingline = false;
     public bool ChangingPlatform = false;
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
-        JumpPos = 1.3f;
+        Jumpforce = 250;
         speed = 10;
         State = "Front";
         middle = true;
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            speed += speed * 0.025f;
+            speed += speed * 0.05f;
             speedTimer = 0;
         }
         #endregion
@@ -195,7 +195,7 @@ public class PlayerController : MonoBehaviour
         #region Gyro Movement
         if(Input.acceleration.x != 0)
         {
-            transform.DOLocalMoveX(Input.acceleration.x * Time.deltaTime * 200, 1);
+            transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 200, -1, 1), 1);
         }
         #endregion
     }
@@ -350,21 +350,6 @@ public class PlayerController : MonoBehaviour
     }
     public void MoveLeft()
     {
-        //if (!left)
-        //{
-        //    if (middle)
-        //    {
-        //        transform.DOLocalMoveX(gameObject.transform.localPosition.x - 2, 0.25f);
-        //        middle = false;
-        //        left = true;
-        //    }
-        //    else
-        //    {
-        //        transform.DOLocalMoveX(gameObject.transform.localPosition.x - 2, 0.25f);
-        //        right = false;
-        //        middle = true;
-        //    }
-        //}
         switch (Line)
         {
 
@@ -390,21 +375,6 @@ public class PlayerController : MonoBehaviour
     }
     public void MoveRight()
     {
-        //if (!right)
-        //{
-        //    if (middle)
-        //    {
-        //        transform.DOLocalMoveX(gameObject.transform.localPosition.x + 2, 0.25f);
-        //        middle = false;
-        //        right = true;
-        //    }
-        //    else
-        //    {
-        //        transform.DOLocalMoveX(gameObject.transform.localPosition.x + 2, 0.25f);
-        //        left = false;
-        //        middle = true;
-        //    }
-        //}
         switch (Line)
         {
 
@@ -442,9 +412,8 @@ public class PlayerController : MonoBehaviour
          PlayerAnim.SetBool("Jump", true);
          PlayerAnim.SetBool("Running", false);
          PlayerAnim.SetBool("Sliding", false);
-        //StartCoroutine("JumpRoutine");
 
-         rb.AddForce((new Vector3(0f, 2f, 0f)) * 250);
+         rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
          Invoke("DelayCall", 0.9f);
             
          //PlayerAnim.SetBool("Jump", false);
@@ -472,33 +441,6 @@ public class PlayerController : MonoBehaviour
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0),1);
         PlayerAnim.SetBool("Sliding", false);
         PlayerAnim.SetBool("Running", true);
-    }
-    public void CalculateParentMovement(float frontback,float leftright)
-    {
-        //if(State== "Front" && !dead)
-        //{
-        //    frontback = frontback + Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveZ(frontback,1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, 0, 0), 1);
-        //}
-        //else if (State == "Back" && !dead)
-        //{
-        //    frontback = frontback - Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveZ(frontback, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, -180, 0), 1);
-        //}
-        //else if (State == "Left" && !dead)
-        //{
-        //    leftright = leftright - Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveX(leftright, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, -90, 0), 1);
-        //}
-        //else if(State == "Right" && !dead)
-        //{
-        //    leftright = leftright + Time.deltaTime * speed;
-        //    Parent.transform.DOLocalMoveX(leftright, 1f);
-        //    Parent.transform.DOLocalRotate(new Vector3(0, 90, 0), 1);
-        //}
     }
     public void ChangeState(string str)
     {
@@ -528,49 +470,6 @@ public class PlayerController : MonoBehaviour
         nextTransformPosition = obj;
         ChangingPlatform = true;
         FollowPlayer.lookatspeed = 0.001f;
-        //switch(State)
-        //{
-        //    case "Front":
-        //        if (nextTransformPosition.transform.tag == "Left")
-        //        {
-        //            CurrentRespectiveState = "Left";
-        //        }
-        //        if (nextTransformPosition.transform.tag == "Right")
-        //        {
-        //            CurrentRespectiveState = "Right";
-        //        }
-        //        break;
-        //    case "Back":
-        //        if (nextTransformPosition.transform.tag == "Left")
-        //        {
-        //            CurrentRespectiveState = "Right";
-        //        }
-        //        if (nextTransformPosition.transform.tag == "Right")
-        //        {
-        //            CurrentRespectiveState = "Left";
-        //        }
-        //        break;
-        //    case "Left":
-        //        if (nextTransformPosition.transform.tag == "Front")
-        //        {
-        //            CurrentRespectiveState = "Right";
-        //        }
-        //        if (nextTransformPosition.transform.tag == "Back")
-        //        {
-        //            CurrentRespectiveState = "Left";
-        //        }
-        //        break;
-        //    case "Right":
-        //        if (nextTransformPosition.transform.tag == "Front")
-        //        {
-        //            CurrentRespectiveState = "Left";
-        //        }
-        //        if (nextTransformPosition.transform.tag == "Back")
-        //        {
-        //            CurrentRespectiveState = "Right";
-        //        }
-        //        break;
-        //}
     }
     public void Invisibility()
     {
@@ -591,13 +490,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            JumpPos = 2;
+            Jumpforce = 300;
             StartCoroutine(ResetPowerUp(SuperJump));
         }
         else
         {
             powerUpInUse = false;
-            JumpPos = 1.3f;
+            Jumpforce = 250;
         }
         
     }
@@ -605,14 +504,16 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            speed = speed * 2;
+            PlayerAnim.SetFloat("RunningSpeed", 2);
+            speed = speed * 4;
             SuperSpeedBool = true;
             StartCoroutine(ResetPowerUp(SuperSpeed));
         }
         else
         {
+            PlayerAnim.SetFloat("RunningSpeed", 1.2f);
             powerUpInUse = false;
-            speed = speed / 2;
+            speed = speed / 4;
             SuperSpeedBool = false;
         }
     }
@@ -628,7 +529,7 @@ public class PlayerController : MonoBehaviour
         {
             powerUpInUse = false;
             speed = speed * 2;
-            PlayerAnim.SetFloat("RunningSpeed", 1.5f);
+            PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         }
     }
     public void Teleportation()
@@ -655,11 +556,6 @@ public class PlayerController : MonoBehaviour
         FollowPlayer.lookatspeed = 0.001f;
         ChangingPlatform = true;
         ChangeState(currentTag.transform.tag);
-    }
-    IEnumerator JumpRoutine()
-    {
-        transform.DOLocalMoveY(JumpPos,0.65f);
-        yield return new WaitForSeconds(0.65f);
     }
 
     public void OnTriggerEnter(Collider other)
@@ -700,29 +596,6 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
         }
-
-        //if (other.gameObject.tag == "Hurdle")
-        //{
-        //    if (!InvisibilityBool && !SuperSpeedBool)
-        //    {
-
-        //        if (AlreadyHit)
-        //        {
-        //            dead = true;
-        //            PlayerAnim.SetTrigger("Death");
-        //           // Destroy(other.gameObject.transform.parent.gameObject);
-        //        }
-        //        if (!AlreadyHit)
-        //        {
-
-        //            PlayerAnim.SetTrigger("Stumble");
-        //            StartCoroutine("StumbleWait");
-        //         //   Destroy(other.gameObject.transform.parent.gameObject);
-        //        }
-
-        //    }
-        //}
-
     }
 
     public void OnTriggerExit(Collider other)
