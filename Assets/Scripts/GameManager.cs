@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     private int _PlayerRandomSpawnPos;
     public int CurrentLives;
     public int CollectedChillis;
+    public GameObject ENV;
 
     private void Awake()
     {
         instance = this;
         CurrentLives = GameConstants.PlayerLives;
+        ENV.SetActive(true);
     }
 
     void Start()
