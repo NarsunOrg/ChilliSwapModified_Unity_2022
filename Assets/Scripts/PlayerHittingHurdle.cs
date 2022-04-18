@@ -23,6 +23,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                         PC.dead = true;
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
+                        PC.MonsterMovement(2);
                         GameManager.instance.CurrentLives -= 1;
                         if (GameManager.instance.CurrentLives < 1)
                         {
@@ -30,6 +31,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                         }
                         else
                         {
+                            PC.DisablePowerUps();
                             Invoke("RespawnPlayerDelayCall", 3f);
                         }
                     }
@@ -40,6 +42,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.PlayerAnim.SetTrigger("Stumble");
                     PC.PlayerAnim.SetBool("Sliding", false);
+                    PC.MonsterMovement(1);
                     StartCoroutine("StumbleWait");
                     //   Destroy(other.gameObject.transform.parent.gameObject);
                 }
@@ -78,6 +81,7 @@ public class PlayerHittingHurdle : MonoBehaviour
         PC.AlreadyHit = true;
         yield return new WaitForSeconds(7);
         PC.AlreadyHit = false;
+        PC.MonsterMovement(0);
     }
 
     public void RespawnPlayerDelayCall()

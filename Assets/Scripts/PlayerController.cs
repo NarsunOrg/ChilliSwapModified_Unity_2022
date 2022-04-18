@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     public string State;
     float speed;
     float Jumpforce;
-    int Line= 0;
+    int Line = 0;
     bool changingline = false;
     public bool ChangingPlatform = false;
     GameObject nextTransformPosition;
@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
     bool isCollidingExit = false;
     bool powerUpInUse;
     public bool AlreadyHit = false;
-   
+    public GameObject Monster;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +59,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region speed
-        if(speedTimer < 20)
+        if (speedTimer < 20)
         {
             speedTimer += Time.deltaTime;
         }
@@ -79,11 +80,11 @@ public class PlayerController : MonoBehaviour
         {
             Up();
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)&&changingline == false && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && changingline == false && !ChangingPlatform)
         {
             MoveLeft();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow)&&changingline==false && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && changingline == false && !ChangingPlatform)
         {
             MoveRight();
         }
@@ -143,23 +144,23 @@ public class PlayerController : MonoBehaviour
             hasSwiped = true;
             //}
         }
-        if(hasSwiped)
+        if (hasSwiped)
         {
             hasSwiped = false;
             endTouchPosition = Input.GetTouch(0).position;
             xDifference = initialTouchPosition.x - endTouchPosition.x;
             yDifference = initialTouchPosition.y - endTouchPosition.y;
-            if (Mathf.Abs(xDifference) > 3 || Mathf.Abs(yDifference) > 3)
+            if (Mathf.Abs(xDifference) > 10 || Mathf.Abs(yDifference) > 10)
             {
                 isMoved = true;
                 if (Mathf.Abs(xDifference) >= Mathf.Abs(yDifference))
                 {
                     //move left or right
-                    if (xDifference > 0 && ChangingPlatform && CurrentRespectiveState == "Left")
+                    if (xDifference > 0 && ChangingPlatform)
                     {
                         ChangeState("Left");
                     }
-                    else if (xDifference < 0 && ChangingPlatform && CurrentRespectiveState == "Right")
+                    else if (xDifference < 0 && ChangingPlatform)
                     {
                         ChangeState("Right");
                     }
@@ -185,17 +186,17 @@ public class PlayerController : MonoBehaviour
         float x = Parent.transform.position.x;
         float z = Parent.transform.position.z;
         //CalculateParentMovement(z, x);
-        if(!dead)
+        if (!dead)
         {
             Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
         }
-        
+
         #endregion
 
         #region Gyro Movement
-        if(Input.acceleration.x != 0)
+        if (Input.acceleration.x != 0)
         {
-            transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 200, -1, 1), 1);
+            transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 120, -1, 1), 1);
         }
         #endregion
     }
@@ -212,7 +213,7 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
-       
+
         AlreadyHit = false;
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
         Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
@@ -225,7 +226,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("collideddd");
-        switch(collision.transform.tag)
+        switch (collision.transform.tag)
         {
             case "Floor":
                 //isGrounded = true;
@@ -248,7 +249,7 @@ public class PlayerController : MonoBehaviour
                     //Invoke("PanelDelayCall", 2f);
                 }
                 break;
-           
+
             //case "Hurdle":
             //    if (!InvisibilityBool && !SuperSpeedBool)
             //    {
@@ -357,7 +358,7 @@ public class PlayerController : MonoBehaviour
                 if (Line == -1)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
-                changingline=true;
+                changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = -1;
                 break;
@@ -395,7 +396,7 @@ public class PlayerController : MonoBehaviour
                 Line = 0;
                 break;
             case 1:
-               
+
                 break;
         }
     }
@@ -406,17 +407,17 @@ public class PlayerController : MonoBehaviour
     }
     public void Up()
     {
-         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
-         isGrounded = false;
-         //PlayerAnim.SetTrigger("Jump 0");
-         PlayerAnim.SetBool("Jump", true);
-         PlayerAnim.SetBool("Running", false);
-         PlayerAnim.SetBool("Sliding", false);
+        SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
+        isGrounded = false;
+        //PlayerAnim.SetTrigger("Jump 0");
+        PlayerAnim.SetBool("Jump", true);
+        PlayerAnim.SetBool("Running", false);
+        PlayerAnim.SetBool("Sliding", false);
 
-         rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
-         Invoke("DelayCall", 0.9f);
-            
-         //PlayerAnim.SetBool("Jump", false);
+        rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
+        Invoke("DelayCall", 0.9f);
+
+        //PlayerAnim.SetBool("Jump", false);
     }
     public void DelayCall()
     {
@@ -427,7 +428,7 @@ public class PlayerController : MonoBehaviour
 
     public void Down()
     {
-        SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0),1);
+        SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0), 1);
         transform.DOLocalMoveY(0, 0.25f);
         //PlayerAnim.SetTrigger("Sliding 0");
         PlayerAnim.SetBool("Sliding", true);
@@ -437,8 +438,8 @@ public class PlayerController : MonoBehaviour
     }
     IEnumerator DelatPos()
     {
-        yield return new WaitForSeconds(1.05f);
-        SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0),1);
+        yield return new WaitForSeconds(0.9f);
+        SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0), 1);
         PlayerAnim.SetBool("Sliding", false);
         PlayerAnim.SetBool("Running", true);
     }
@@ -450,14 +451,14 @@ public class PlayerController : MonoBehaviour
             Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
-        else if(str == "Right")
+        else if (str == "Right")
         {
             Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
         ChangingPlatform = false;
 
-        Invoke("resetfollowspeed",1.5f);
+        Invoke("resetfollowspeed", 1.5f);
     }
 
 
@@ -471,9 +472,11 @@ public class PlayerController : MonoBehaviour
         ChangingPlatform = true;
         FollowPlayer.lookatspeed = 0.001f;
     }
+    #region PowerUps
+
     public void Invisibility()
     {
-        if(!powerUpInUse)
+        if (!powerUpInUse)
         {
             InvisibilityBool = true;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
@@ -498,7 +501,7 @@ public class PlayerController : MonoBehaviour
             powerUpInUse = false;
             Jumpforce = 250;
         }
-        
+
     }
     public void SuperSpeed()
     {
@@ -519,7 +522,7 @@ public class PlayerController : MonoBehaviour
     }
     public void SlowingDown()
     {
-        if(!powerUpInUse)
+        if (!powerUpInUse)
         {
             speed = speed / 2;
             PlayerAnim.SetFloat("RunningSpeed", 0.7f);
@@ -538,7 +541,7 @@ public class PlayerController : MonoBehaviour
     }
     public void LaserGoggles()
     {
-        if(!powerUpInUse)
+        if (!powerUpInUse)
         {
             LaserToUse.SetActive(true);
             StartCoroutine(ResetPowerUp(LaserGoggles));
@@ -549,7 +552,8 @@ public class PlayerController : MonoBehaviour
             LaserToUse.SetActive(false);
         }
     }
-    public void SuperSpeedTurn(GameObject NextPosition,GameObject currentTag)
+    #endregion
+    public void SuperSpeedTurn(GameObject NextPosition, GameObject currentTag)
     {
         //gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
         nextTransformPosition = NextPosition;
@@ -592,7 +596,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(other.gameObject);
                 if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
                 {
-                    GameManager.instance.CurrentLives = GameManager.instance.CurrentLives+ GameConstants.BlueChilliCount;
+                    GameManager.instance.CurrentLives = GameManager.instance.CurrentLives + GameConstants.BlueChilliCount;
                 }
                 break;
         }
@@ -621,4 +625,31 @@ public class PlayerController : MonoBehaviour
         AlreadyHit = false;
     }
 
+    public void DisablePowerUps()
+    {
+        InvisibilityBool = false;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+        Jumpforce = 250;
+        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+        speed = speed / 4;
+        SuperSpeedBool = false;
+        speed = speed * 2;
+        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+        LaserToUse.SetActive(false);
+    }
+    public void MonsterMovement(int i)
+    {
+        if (i == 0)
+        {
+            Monster.transform.DOLocalMoveZ(-5, 0.5f);
+        }
+        else if (i == 1)
+        {
+            Monster.transform.DOLocalMoveZ(-2, 0.5f);
+        }
+        else
+        {
+            Monster.transform.DOLocalMoveZ(-1, 0.5f);
+        }
+    }
 }

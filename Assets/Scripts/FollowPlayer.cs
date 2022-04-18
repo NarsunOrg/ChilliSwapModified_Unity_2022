@@ -23,6 +23,7 @@ public class FollowPlayer : MonoBehaviour
         gameObject.transform.DOLocalMove(PositionToSet.transform.position, 0.10f);
         //gameObject.transform.DOLocalRotate(new Vector3(PositionToSet.transform.rotation.x + 25, PositionToSet.transform.rotation.y, PositionToSet.transform.rotation.z), 1);
         //transform.LookAt(Player.transform);
+        //gameObject.transform.DOLookAt(new Vector3(Mathf.Clamp(Player.transform.position.x, -1, 1), Player.transform.position.y, Player.transform.position.z), lookatspeed);
         gameObject.transform.DOLookAt(Player.transform.position, lookatspeed);
     }
 }
