@@ -400,6 +400,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -424,6 +425,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &4399064570432708448
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -435,8 +437,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.40957648, y: 0.58675265, z: 0.348614}
-  m_Center: {x: -0.025652975, y: 1.272868, z: -0.102423534}
+  m_Size: {x: 0.61963624, y: 0.68498373, z: 0.56731486}
+  m_Center: {x: -0.042283505, y: 1.3219836, z: -0.14667375}
 --- !u!1 &4782900360639165162
 GameObject:
   m_ObjectHideFlags: 0
@@ -980,8 +982,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8074695232770646238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.955, y: 1.204, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: -0.955, y: 0.55, z: 0}
+  m_LocalScale: {x: 5, y: 6, z: 5}
   m_Children:
   - {fileID: 6766873466224164770}
   m_Father: {fileID: 573993858769687713}
@@ -1063,6 +1065,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

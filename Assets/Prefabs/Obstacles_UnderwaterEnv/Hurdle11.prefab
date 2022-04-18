@@ -55,8 +55,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4356272309977088461}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0749999, y: -0.838, z: 0}
-  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_LocalPosition: {x: 1.31, y: -0.957, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 2478330945890053250}
   m_Father: {fileID: 7628667483707132244}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 5991433595924972181}
   m_Layer: 0
   m_Name: BlockHurdle
-  m_TagString: Hurdle
+  m_TagString: HurdleDie
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5991433595924972182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.112, y: 0.235, z: 0}
+  m_LocalPosition: {x: 1.347, y: 0.235, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7628667483707132244}
@@ -236,8 +236,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.93307143, y: 0.937733, z: 0.6381312}
-  m_Center: {x: -0.014318496, y: 0.4304119, z: -0.084261924}
+  m_Size: {x: 1.1409094, y: 1.4702011, z: 0.6381312}
+  m_Center: {x: 0.08960056, y: 0.6966459, z: -0.084261924}
 --- !u!1 &7628667483707132247
 GameObject:
   m_ObjectHideFlags: 0
