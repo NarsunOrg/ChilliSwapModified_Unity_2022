@@ -39,6 +39,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 if (!PC.AlreadyHit)
                 {
                     PC.PlayerAnim.SetTrigger("Stumble");
+                    PC.PlayerAnim.SetBool("Sliding", false);
                     StartCoroutine("StumbleWait");
                     //   Destroy(other.gameObject.transform.parent.gameObject);
                 }

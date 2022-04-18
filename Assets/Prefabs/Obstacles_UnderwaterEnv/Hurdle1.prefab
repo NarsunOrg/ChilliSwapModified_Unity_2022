@@ -77,6 +77,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -434,7 +435,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1591818675135171318}
   m_Layer: 0
-  m_Name: Hurdle 1
+  m_Name: Hurdle1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,7 +513,7 @@ Transform:
   m_GameObject: {fileID: 1933785279939487957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.542, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 7468184340006371222}
   - {fileID: 5257432628948155761}
@@ -690,6 +691,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -714,6 +716,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &3237216297907323191
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -725,8 +728,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.69158304, y: 0.20759556, z: 0.61239004}
-  m_Center: {x: -0.0340904, y: 0.050108984, z: 0.100732744}
+  m_Size: {x: 1.2012969, y: 0.20759556, z: 0.61239004}
+  m_Center: {x: 0.00091058016, y: 0.050108984, z: 0.100732744}
 --- !u!1 &3694505940545414770
 GameObject:
   m_ObjectHideFlags: 0
