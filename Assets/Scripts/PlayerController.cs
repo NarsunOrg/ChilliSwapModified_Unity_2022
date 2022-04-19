@@ -73,19 +73,19 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform && !slide)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform && !slide && !dead)
         {
             Down();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform && !dead)
         {
             Up();
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && changingline == false && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && changingline == false && !ChangingPlatform && !dead)
         {
             MoveLeft();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && changingline == false && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && changingline == false && !ChangingPlatform && !dead)
         {
             MoveRight();
         }
@@ -97,11 +97,11 @@ public class PlayerController : MonoBehaviour
         //{
         //    ChangeState();
         //}
-        if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform)
+        if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform && !dead)
         {
             ChangeState("Left");
         }
-        if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform)
+        if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform && !dead)
         {
             ChangeState("Right");
         }
@@ -198,7 +198,10 @@ public class PlayerController : MonoBehaviour
         #region Gyro Movement
         if (Input.acceleration.x != 0)
         {
-            transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 120, -1, 1), 1);
+            if (Mathf.Abs(Input.acceleration.x) > 0.05)
+            {
+                transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 120, -1, 1), 0.35f);
+            }
         }
         #endregion
     }
@@ -411,15 +414,11 @@ public class PlayerController : MonoBehaviour
     {
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
-        //PlayerAnim.SetTrigger("Jump 0");
         PlayerAnim.SetBool("Jump", true);
         PlayerAnim.SetBool("Running", false);
         PlayerAnim.SetBool("Sliding", false);
-
         rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
-        Invoke("DelayCall", 0.9f);
-
-        //PlayerAnim.SetBool("Jump", false);
+        Invoke("DelayCall", 0.8f);
     }
     public void DelayCall()
     {
@@ -433,30 +432,21 @@ public class PlayerController : MonoBehaviour
         slide = true;
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0), 1);
         transform.DOLocalMoveY(0, 0.25f);
-        //PlayerAnim.SetTrigger("Sliding 0");
         PlayerAnim.SetBool("Sliding", true);
+        PlayerAnim.SetBool("Jump", false);
         PlayerAnim.SetBool("Running", false);
         Invoke("SlideDelayCall", 0.9f);
-        //StartCoroutine("DelatPos");
-        //PlayerAnim.SetBool("Sliding", false);
+        
     }
 
     public void SlideDelayCall()
     {
-        
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0), 1);
         PlayerAnim.SetBool("Sliding", false);
         PlayerAnim.SetBool("Running", true);
         slide = false;
     }
-    //IEnumerator DelatPos()
-    //{
-    //    yield return new WaitForSeconds(0.9f);
-    //    SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0), 1);
-    //    PlayerAnim.SetBool("Sliding", false);
-    //    PlayerAnim.SetBool("Running", true);
-
-    //}
+   
     public void ChangeState(string str)
     {
         //State = nextTransformPosition.transform.tag;
