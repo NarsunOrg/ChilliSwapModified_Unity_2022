@@ -1,0 +1,1800 @@
+fileFormatVersion: 2
+guid: 00376b92f64ecb64d861f819b3fbedbd
+ModelImporter:
+  serializedVersion: 20200
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Take 001
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'LeftUpperArm' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 80
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: Monster_Run(Clone)
+      parentName: 
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:ant_all_move
+      parentName: Monster_Run(Clone)
+      position: {x: -0.13888827, y: 0.020443913, z: -5.5627856}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.2, y: 0.2, z: 0.2}
+    - name: Monster_walk_ref3:Monster_v3:allControl_grp
+      parentName: Monster_walk_ref3:Monster_v3:ant_all_move
+      position: {x: -0.08264787, y: 0.06733487, z: -0.03110144}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.05012842, y: 0.07276703, z: 0.036355812}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2Pole_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg02Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: -0.06384504, y: -0.06631403, z: -0.059483223}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg02Ctr_grp
+      position: {x: -0.02088857, y: 0.018370468, z: 0.091479525}
+      rotation: {x: 0.8386442, y: 0.36453176, z: 0.33240056, w: 0.230873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg03Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: -0.07172056, y: -0.06733296, z: -0.12683977}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg03Ctr_grp
+      position: {x: -0.0050098775, y: 0, z: -0.021369785}
+      rotation: {x: 0.8386442, y: 0.36453176, z: 0.33240056, w: 0.230873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.059508584, y: 0.0851295, z: 0.007976648}
+      rotation: {x: 6.938894e-18, y: -5.551115e-17, z: 2.7755576e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3Pole_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg01Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: -0.0064735604, y: -0.06733487, z: 0.16912463}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg01Ctr_grp
+      position: {x: -0.03621165, y: 0, z: -0.074691996}
+      rotation: {x: 0.77997786, y: 0.21777695, z: -0.44698682, w: -0.38001385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.02777944, y: 0.036208075, z: 0.1156888}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1Pole_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1PoleOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1Pole_ctr
+      position: {x: 0.05061605, y: 0.07354755, z: 0.044409182}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.016467217, y: -0.011398551, z: 0.032135546}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.03305276, y: 0.023406891, z: 0.030922687}
+      rotation: {x: 0.81458086, y: 0.33656138, z: -0.19298586, w: -0.4312087}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1ACtr_grp
+      position: {x: -0.0014706462, y: -5.5511148e-18, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1A_ctr
+      position: {x: 0.0010278254, y: 0.0005242157, z: 0.0022096394}
+      rotation: {x: 0.78023195, y: 0.21328893, z: -0.4687034, w: 0.35505363}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.020173993, y: 0.012280431, z: 0.04607433}
+      rotation: {x: 0.6903974, y: -0.3000235, z: -0.6558992, w: 0.055977974}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1BCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1B_ctr
+      position: {x: -0.0005556583, y: 0.00038129956, z: 0.00022478103}
+      rotation: {x: -0.58463067, y: 0.27089554, z: 0.73363507, w: 0.21587549}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: -0.013824911, y: -0.024069397, z: 0.05452967}
+      rotation: {x: 0.83857214, y: 0.26951236, z: -0.1998329, w: -0.42921633}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1CCtr_grp
+      position: {x: 0.0018465621, y: -2.7755576e-17, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1C_ctr
+      position: {x: 0.0095684435, y: 0.0019088363, z: -0.00069067476}
+      rotation: {x: 0.8051342, y: 0.18943723, z: -0.44601965, w: 0.34196338}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.03157882, y: 0.016909441, z: 0.03522859}
+      rotation: {x: 0.9497084, y: 0.30660388, z: -0.03786495, w: -0.051130183}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2ACtr_grp
+      position: {x: -0.0014706462, y: -5.5511148e-18, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2A_ctr
+      position: {x: -0.002112974, y: -0.00048146246, z: -0.0024921463}
+      rotation: {x: 0.9212618, y: 0.2812071, z: 0.24548595, w: 0.10925166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.017918829, y: 0.023651809, z: 0.019049026}
+      rotation: {x: -0.4921493, y: 0.70670885, z: -0.4945331, w: 0.117425226}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2BCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2B_ctr
+      position: {x: 0.0014845085, y: 0.0010083478, z: -0.00005033493}
+      rotation: {x: 0.64029485, y: -0.50458527, z: 0.48824245, w: 0.31150526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: -0.027305631, y: 0.0024902772, z: 0.011154284}
+      rotation: {x: 0.9245976, y: 0.29223514, z: 0.07263391, w: 0.2333287}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2CCtr_grp
+      position: {x: 0.0018465621, y: -2.7755576e-17, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2C_ctr
+      position: {x: -0.0060906694, y: 0.0020474338, z: -0.0005456209}
+      rotation: {x: 0.8614352, y: 0.37837523, z: 0.29936534, w: -0.1585627}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.034154825, y: 0.024315165, z: 0.0003999795}
+      rotation: {x: 0.9141593, y: 0.23321627, z: 0.30932575, w: -0.119334064}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3ACtr_grp
+      position: {x: -0.0014706462, y: -5.5511148e-18, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3A_ctr
+      position: {x: 0.000060883758, y: -0.0011238575, z: -0.0019761694}
+      rotation: {x: 0.9212618, y: 0.2812071, z: 0.24548595, w: 0.10925166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: 0.010183539, y: 0.030619506, z: -0.046473235}
+      rotation: {x: 0.73210496, y: -0.38422546, z: 0.49627855, w: -0.26476544}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3BCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3B_ctr
+      position: {x: 0.0010793114, y: 0.0022413826, z: -0.00036448953}
+      rotation: {x: 0.64029485, y: -0.50458527, z: 0.48824245, w: 0.31150526}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRollCtr_grp
+      position: {x: -0.04154236, y: -0.007363963, z: -0.119081534}
+      rotation: {x: 0.8592221, y: 0.37651226, z: 0.3166755, w: 0.14033039}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3CCtr_grp
+      position: {x: 0.0018465621, y: -2.7755576e-17, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3C_ctr
+      position: {x: -0.0004881191, y: 0.0028304767, z: -0.00014311075}
+      rotation: {x: 0.8614352, y: 0.37837523, z: 0.29936534, w: -0.1585627}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.08264787, y: -0.06733487, z: 0.03110144}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.05813837, y: 0.042049583, z: 0.08568277}
+      rotation: {x: 0.36664906, y: -0.43227795, z: -0.12012498, w: 0.8150302}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1CCtr_grp
+      position: {x: 0.0018158631, y: 0.00033531038, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1C_ctr
+      position: {x: -0.009537744, y: -0.0022441482, z: 0.00069067476}
+      rotation: {x: -0.34196338, y: 0.44601965, z: 0.18943723, w: 0.8051342}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.03374882, y: 0.0774913, z: 0.04056066}
+      rotation: {x: 0.40076262, y: -0.38510036, z: -0.25808242, w: 0.79024076}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1ACtr_grp
+      position: {x: -0.0014549962, y: 0.00021397845, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1A_ctr
+      position: {x: -0.0010434752, y: -0.00073820114, z: -0.0022096394}
+      rotation: {x: -0.35505363, y: 0.4687034, z: 0.21328893, w: 0.78023195}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.035696384, y: 0.07130687, z: 0.056535285}
+      rotation: {x: 0.2865671, y: 0.7596848, z: -0.4403206, w: -0.38324425}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1BCtr_grp
+      position: {x: -2.6645352e-17, y: -5.9922345e-18, z: -4.8849813e-17}
+      rotation: {x: 1.0251099e-15, y: 8.049117e-16, z: -3.2136186e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1B_ctr
+      position: {x: 0.0005556583, y: -0.00038129956, z: -0.00022478103}
+      rotation: {x: 0.21587549, y: 0.73363507, z: -0.27089554, w: 0.58463067}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.03561892, y: 0.07068498, z: 0.028103191}
+      rotation: {x: 0.057449337, y: 0.13282765, z: -0.34572783, w: 0.9271077}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2ACtr_grp
+      position: {x: -0.0014549962, y: 0.00021397845, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2A_ctr
+      position: {x: 0.002097324, y: 0.0002674818, z: 0.0024921463}
+      rotation: {x: -0.10925166, y: -0.24548595, z: 0.2812071, w: 0.9212618}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.04671685, y: 0.079338856, z: 0.0073343045}
+      rotation: {x: 0.2734918, y: 0.5158823, z: 0.6613883, w: 0.47077945}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2BCtr_grp
+      position: {x: -1.4432899e-17, y: 8.881784e-18, z: 0}
+      rotation: {x: 3.6082248e-16, y: 3.7470027e-16, z: 5.2041704e-18, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2B_ctr
+      position: {x: -0.0014845085, y: -0.0010083478, z: 0.00005033493}
+      rotation: {x: -0.31150526, y: -0.48824245, z: -0.50458527, w: 0.6402949}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.08522948, y: 0.055192556, z: -0.017202869}
+      rotation: {x: -0.21584216, y: 0.24255624, z: -0.30527097, w: 0.89520293}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2CCtr_grp
+      position: {x: 0.0018158631, y: 0.00033531038, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2C_ctr
+      position: {x: 0.0061213705, y: -0.0023827457, z: 0.0005456209}
+      rotation: {x: 0.1585627, y: -0.29936534, z: 0.37837523, w: 0.8614352}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3ACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.033641454, y: 0.07765715, z: 0.007307292}
+      rotation: {x: 0.10189241, y: 0.18244752, z: -0.26751757, w: 0.9406196}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3ACtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3ACtr_grp
+      position: {x: -0.0014549962, y: 0.00021397845, z: -2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3ACtrOff_grp
+      position: {x: 0.0014706462, y: 5.5511148e-18, z: 2.220446e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3A_ctr
+      position: {x: -0.00007653474, y: 0.00090988155, z: 0.0019761694}
+      rotation: {x: -0.10925166, y: -0.24548595, z: 0.2812071, w: 0.9212618}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3BCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.055169176, y: 0.091073304, z: -0.030115955}
+      rotation: {x: 0.2801596, y: 0.47296456, z: 0.57549495, w: 0.6054921}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3BCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3BCtr_grp
+      position: {x: -6.661338e-18, y: 2.220446e-18, z: 0}
+      rotation: {x: -3.0531133e-16, y: -1.517883e-16, z: -3.9811904e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3BCtrOff_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3B_ctr
+      position: {x: -0.0010793114, y: -0.0022413826, z: 0.00036448953}
+      rotation: {x: -0.31150526, y: -0.48824245, z: -0.50458527, w: 0.6402949}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3CCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRollCtr_grp
+      position: {x: 0.10894284, y: 0.061101373, z: -0.08580926}
+      rotation: {x: -0.15982924, y: 0.25253552, z: -0.34541255, w: 0.88959014}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3CCtrOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3CCtr_grp
+      position: {x: 0.0018158631, y: 0.00033531038, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3CCtrOff_grp
+      position: {x: -0.0018465621, y: 1.8873792e-17, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C02_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3C_ctr
+      position: {x: 0.00051881786, y: -0.0031657885, z: 0.00014311075}
+      rotation: {x: 0.1585627, y: -0.29936534, z: 0.37837523, w: 0.8614352}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg01Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.17176929, y: -0.06733487, z: 0.16912463}
+      rotation: {x: 0, y: -0, z: -6.123032e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg01Ctr_grp
+      position: {x: 0.0034058609, y: 0.016926613, z: -0.016054207}
+      rotation: {x: 0.77997786, y: 0.21777695, z: -0.44698682, w: -0.38001385}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg02Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.22914077, y: -0.06631403, z: -0.059483223}
+      rotation: {x: 0, y: -0, z: -6.123032e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg02Ctr_grp
+      position: {x: -0, y: 0.00953051, z: 0.03642389}
+      rotation: {x: 0.8386442, y: 0.36453176, z: 0.33240056, w: 0.230873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg03Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.23701629, y: -0.06733296, z: -0.12683977}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg03Ctr_grp
+      position: {x: 0.017321479, y: 0.015588122, z: 0.019483145}
+      rotation: {x: 0.8386442, y: 0.36453176, z: 0.33240056, w: 0.230873}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.13751787, y: 0.036208075, z: 0.1156888}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1Pole_ctr
+      position: {x: -0, y: -3.5527136e-17, z: 0}
+      rotation: {x: -1.0106391e-15, y: 0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1PoleOff_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1Pole_ctr
+      position: {x: -0.050617617, y: 0.07354755, z: 0.044409182}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.1032822, y: 0.0851295, z: 0.018661542}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3Pole_ctr
+      position: {x: -4.440892e-18, y: -3.5527136e-17, z: 1.7763568e-17}
+      rotation: {x: 8.881784e-16, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2PoleCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.11516731, y: 0.07276703, z: 0.036355812}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2Pole_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2PoleCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2poleNull_nul
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2Pole_ctr
+      position: {x: -4.440892e-18, y: -3.5527136e-17, z: 1.7763568e-17}
+      rotation: {x: 8.881784e-16, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:pelvisCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:allControl_grp
+      position: {x: 0.08264787, y: 0.019314509, z: 0.027052788}
+      rotation: {x: -0.69911057, y: -0.10603978, z: 0.69911057, w: 0.10603979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:pelvis_ctr
+      parentName: Monster_walk_ref3:Monster_v3:pelvisCtr_grp
+      position: {x: 0.0009981003, y: -0.003214497, z: 8.296485e-11}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:pelvis_ctr
+      position: {x: 0.0014052393, y: 0.000075497046, z: -1.9484403e-12}
+      rotation: {x: 0.08810505, y: 0.9961112, z: -0.0000000128546125, w: 0.0000000011369776}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailA_ctr
+      parentName: Monster_walk_ref3:Monster_v3:tailACtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.010614297, y: 0.008589115, z: 0.00020233476, w: 0.9999068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailA_chd
+      parentName: Monster_walk_ref3:Monster_v3:tailA_ctr
+      position: {x: -0.0072931526, y: -0.0009937, z: 1.3298217e-16}
+      rotation: {x: 0.6870492, y: -0.16722259, z: 0.6870492, w: 0.16722259}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailBCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:tailA_ctr
+      position: {x: -0.06037247, y: 0.022867262, z: 2.0944903e-17}
+      rotation: {x: 5.438956e-16, y: 1.4554063e-16, z: -0.5519635, w: 0.83386827}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailB_ctr
+      parentName: Monster_walk_ref3:Monster_v3:tailBCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.003761178, y: 0.013124986, z: -0.00013909551, w: 0.99990684}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailB_chd
+      parentName: Monster_walk_ref3:Monster_v3:tailB_ctr
+      position: {x: 0.0018465626, y: 0, z: -4.1901863e-17}
+      rotation: {x: 0.6652093, y: 0.2397845, z: 0.6652093, w: -0.2397845}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailCCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:tailB_ctr
+      position: {x: -0.050935157, y: 0.023381721, z: 4.577971e-17}
+      rotation: {x: 2.077042e-16, y: 3.509607e-16, z: -0.42692146, w: 0.90428877}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailC_ctr
+      parentName: Monster_walk_ref3:Monster_v3:tailCCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.012524085, y: 0.0054376577, z: -0.00018454251, w: 0.9999068}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tailC_chd
+      parentName: Monster_walk_ref3:Monster_v3:tailC_ctr
+      position: {x: 0.0017890166, y: 0.00045740127, z: -5.759909e-17}
+      rotation: {x: -0.49917212, y: -0.50082654, z: -0.49917212, w: 0.50082654}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:pelvis_ctr
+      position: {x: -0.0015914214, y: -0.00021986966, z: 5.6746214e-12}
+      rotation: {x: -1.6543612e-24, y: 8.2714275e-25, z: 2.7754605e-17, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineA_ctr
+      parentName: Monster_walk_ref3:Monster_v3:spineACtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineA_chd
+      parentName: Monster_walk_ref3:Monster_v3:spineA_ctr
+      position: {x: -0.004233708, y: 0.00037641524, z: -9.691661e-12}
+      rotation: {x: 0.69911057, y: 0.106039785, z: -0.69911057, w: 0.10603979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineBCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:spineA_ctr
+      position: {x: -0.02360329, y: -0.0037114595, z: 9.5788565e-11}
+      rotation: {x: -0.000000001904354, y: 0.0000000048308535, z: 0.22243087, w: 0.97494847}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineB_ctr
+      parentName: Monster_walk_ref3:Monster_v3:spineBCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineIK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:spineB_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineB_chd
+      parentName: Monster_walk_ref3:Monster_v3:spineIK_ctr
+      position: {x: -0.0008668661, y: 0.0014697027, z: -3.1053275e-11}
+      rotation: {x: 0.7051833, y: -0.05212045, z: -0.7051833, w: -0.05212045}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineCCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:spineB_ctr
+      position: {x: -0.024897072, y: -0.0066950605, z: 4.3439313e-10}
+      rotation: {x: -3.6178463e-11, y: 0.000000008149354, z: 0.21600555, w: 0.97639215}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineC_ctr
+      parentName: Monster_walk_ref3:Monster_v3:spineCCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0.09886348, w: 0.99510103}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spineC_chd
+      parentName: Monster_walk_ref3:Monster_v3:spineC_ctr
+      position: {x: 0.004167232, y: 0.00037545204, z: -2.4204638e-11}
+      rotation: {x: 0.67727715, y: -0.20321351, z: -0.67727715, w: -0.20321351}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neckACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:spineC_ctr
+      position: {x: -0.01013325, y: -0.0026557331, z: 2.4570282e-10}
+      rotation: {x: -0.000000016884833, y: 0.000000009444234, z: 0.16471256, w: 0.9863416}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neckA_ctr
+      parentName: Monster_walk_ref3:Monster_v3:neckACtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neckBCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:neckA_ctr
+      position: {x: -0.010422377, y: 3.0010502e-16, z: 3.450159e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neckB_ctr
+      parentName: Monster_walk_ref3:Monster_v3:neckBCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neck03_chd
+      parentName: Monster_walk_ref3:Monster_v3:neckB_ctr
+      position: {x: 0.0008685398, y: 0, z: -5.1471324e-11}
+      rotation: {x: 0.6345548, y: -0.311994, z: -0.63455474, w: -0.311994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_teethCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:neckB_ctr
+      position: {x: -0.015442142, y: 0.042026706, z: 0.019579737}
+      rotation: {x: -0.43368328, y: 0.40340176, z: 0.6888142, w: -0.4179962}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_teeth_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_teethCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_teethCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:neckB_ctr
+      position: {x: -0.015442142, y: 0.042026706, z: -0.019579735}
+      rotation: {x: 0.40340176, y: 0.43368328, z: 0.4179962, w: 0.6888142}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_teeth_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_teethCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earA_Ctr_grp
+      parentName: Monster_walk_ref3:Monster_v3:neckB_ctr
+      position: {x: -0.062116697, y: -0.017756052, z: -0.014721692}
+      rotation: {x: -0.2960485, y: 0.64214903, z: 0.7061926, w: -0.03594546}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earA_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earA_Ctr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earAMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earA_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earAMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_earAMid_ctr
+      position: {x: 0.00384037, y: 0.00004427433, z: -0.00014195919}
+      rotation: {x: -0.07197618, y: 0.048697505, z: -0.5582506, w: 0.8251086}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earBCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_earA_ctr
+      position: {x: 0.03339878, y: -0.003509843, z: 0.0050777397}
+      rotation: {x: 0.12079399, y: -0.21640693, z: -0.12364091, w: 0.9608797}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earB_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earBCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earBMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earB_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earBMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_earBMid_ctr
+      position: {x: -0.00069515227, y: 0.00010629654, z: -0.00023903846}
+      rotation: {x: -0.29565892, y: 0.14901917, z: -0.42470065, w: 0.84262}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earCCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_earB_ctr
+      position: {x: 0.042471927, y: -0.00093616924, z: 0.0053746216}
+      rotation: {x: 0.11394405, y: -0.14601617, z: -0.025126975, w: 0.98237705}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earC_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earCCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earCMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earC_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earCMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_earCMid_ctr
+      position: {x: 0.0017559242, y: 0.0002150917, z: -0.0005323124}
+      rotation: {x: -0.45221764, y: 0.21360801, z: -0.36985257, w: 0.7829942}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earDCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_earC_ctr
+      position: {x: 0.021469519, y: -0.0036946111, z: 0.009342585}
+      rotation: {x: 0.35888213, y: -0.632193, z: 0.11746274, w: 0.67656344}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earD_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earDCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earDMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_earD_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_earDMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:rt_earDMid_ctr
+      position: {x: 0.004397087, y: -0.0006348896, z: -0.00056055066}
+      rotation: {x: 0.7956838, y: -0.55990815, z: 0.13297267, w: -0.18896708}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earACtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:neckB_ctr
+      position: {x: -0.062116697, y: -0.017756052, z: 0.01472169}
+      rotation: {x: 0.642149, y: 0.2960485, z: 0.035945464, w: 0.7061926}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earA_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earACtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earAMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earA_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earAMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_earAMid_ctr
+      position: {x: -0.00384037, y: -0.00004427433, z: 0.00014195919}
+      rotation: {x: 0.8251087, y: -0.55825055, z: -0.048697513, w: 0.07197617}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earBCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_earA_ctr
+      position: {x: -0.03339878, y: 0.003509843, z: -0.0050777397}
+      rotation: {x: 0.12079399, y: -0.21640693, z: -0.12364091, w: 0.9608797}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earB_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earBCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earBMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earB_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earBMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_earBMid_ctr
+      position: {x: 0.00069515227, y: -0.00010629654, z: 0.00023903846}
+      rotation: {x: 0.84262, y: -0.42470065, z: -0.14901917, w: 0.29565892}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earCCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_earB_ctr
+      position: {x: -0.042471927, y: 0.00093616924, z: -0.0053746216}
+      rotation: {x: 0.11394405, y: -0.14601617, z: -0.025126975, w: 0.98237705}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earC_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earCCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earCMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earC_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earCMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_earCMid_ctr
+      position: {x: -0.0017559242, y: -0.0002150917, z: 0.0005323124}
+      rotation: {x: 0.7829943, y: -0.36985257, z: -0.21360803, w: 0.45221764}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earDCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_earC_ctr
+      position: {x: -0.021469519, y: 0.0036946111, z: -0.009342585}
+      rotation: {x: 0.35888213, y: -0.632193, z: 0.11746274, w: 0.67656344}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earD_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earDCtr_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earDMid_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_earD_ctr
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_earDMid_chd
+      parentName: Monster_walk_ref3:Monster_v3:lt_earDMid_ctr
+      position: {x: -0.004397087, y: 0.0006348896, z: 0.00056055066}
+      rotation: {x: 0.18896708, y: -0.13297267, z: -0.55990815, w: 0.7956838}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      parentName: Monster_walk_ref3:Monster_v3:pelvis_ctr
+      position: {x: -0.029561048, y: 0.08155152, z: -0.0000000021048119}
+      rotation: {x: 0.69911057, y: 0.106039785, z: -0.69911057, w: 0.10603979}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: -0.010798624, y: 0.0815322, z: 0.013113396}
+      rotation: {x: 0.92829347, y: 0.16450399, z: 0.328365, w: 0.05818995}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3AFK_ctr
+      position: {x: -0.047605332, y: -1.02140514e-16, z: 4.8849813e-17}
+      rotation: {x: 0.09142745, y: 0.2985494, z: 0.5733795, w: 0.7574597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3BFK_grp
+      position: {x: -2.220446e-18, y: 1.11022296e-17, z: -2.2186712e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3BFK_ctr
+      position: {x: -0.06095478, y: -3.9968027e-17, z: -7.105427e-17}
+      rotation: {x: -0.034224007, y: -0.2392728, z: -0.6981461, w: 0.67392087}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3CFK_grp
+      position: {x: -8.881784e-18, y: 1.7763568e-17, z: -2.280301e-32}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3CFK_ctr
+      position: {x: -0.18664439, y: 1.2434498e-16, z: 1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg3DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg3DFK_grp
+      position: {x: -9.860761e-33, y: 2.2204459e-17, z: -1.1093356e-32}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: -0.015262257, y: 0.08132331, z: 0.026267244}
+      rotation: {x: 0.9202324, y: 0.18618904, z: 0.27251843, w: 0.21033227}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2AFK_ctr
+      position: {x: -0.05301279, y: 2.4424906e-17, z: -2.2204459e-17}
+      rotation: {x: 0.09769214, y: 0.12218014, z: 0.77141505, w: 0.6168039}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2BFK_grp
+      position: {x: 4.440892e-18, y: 4.440892e-18, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2BFK_ctr
+      position: {x: -0.05583316, y: -1.8651746e-16, z: -2.220446e-16}
+      rotation: {x: 0.035220176, y: -0.10332824, z: -0.8383891, w: 0.5340286}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2CFK_grp
+      position: {x: 2.696302e-35, y: -8.881784e-18, z: 6.1062266e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2CFK_ctr
+      position: {x: -0.15638728, y: -8.881784e-18, z: 5.3290704e-17}
+      rotation: {x: -0.042932276, y: -0.0074934955, z: -0.058285654, w: 0.99734825}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg2DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg2DFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: -0.015302991, y: 0.08359178, z: 0.040494636}
+      rotation: {x: 0.80278903, y: 0.19719353, z: -0.39493355, w: -0.40083912}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1AFK_ctr
+      position: {x: -0.039310597, y: 3.1934304e-18, z: 4.4408918e-17}
+      rotation: {x: -0.15364848, y: -0.2966558, z: 0.70256907, w: 0.62831855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1BFK_grp
+      position: {x: -2.220446e-18, y: 4.440892e-18, z: 8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1BFK_ctr
+      position: {x: -0.02656648, y: 3.645266e-17, z: -6.217249e-17}
+      rotation: {x: 0.10794013, y: 0.25895062, z: -0.7041545, w: 0.65227294}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1CFK_grp
+      position: {x: 7.395571e-34, y: -8.881784e-18, z: -1.4791142e-33}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1CFK_ctr
+      position: {x: -0.110326715, y: -1.9433885e-18, z: -4.4408918e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_leg1DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:lt_leg1DFK_grp
+      position: {x: -8.881784e-18, y: 7.771561e-18, z: 8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: 0.015303, y: 0.083591804, z: 0.0404946}
+      rotation: {x: 0.4008391, y: -0.39493358, z: -0.19719352, w: 0.8027891}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1AFK_ctr
+      position: {x: 0.039310567, y: 0.00000003426502, z: 0.000000034999687}
+      rotation: {x: -0.15364848, y: -0.2966558, z: 0.70256907, w: 0.62831855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1BFK_grp
+      position: {x: -4.440892e-18, y: 8.881784e-18, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1BFK_ctr
+      position: {x: 0.02656644, y: -0.00000003738205, z: 0.000000014595507}
+      rotation: {x: 0.10794013, y: 0.25895062, z: -0.7041545, w: 0.65227294}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1CFK_grp
+      position: {x: 9.121204e-33, y: -1.774937e-32, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1CFK_ctr
+      position: {x: 0.11032662, y: -0.00000013339357, z: -0.00000007019454}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg1DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg1DFK_grp
+      position: {x: 2.0522709e-32, y: -5.5511148e-18, z: -1.7763568e-17}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: 0.015262299, y: 0.081323296, z: 0.026267199}
+      rotation: {x: -0.21033227, y: 0.27251843, z: -0.18618904, w: 0.9202324}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2AFK_ctr
+      position: {x: 0.053012714, y: 0.000000008731805, z: 0.000000026364038}
+      rotation: {x: 0.09769214, y: 0.12218014, z: 0.77141505, w: 0.6168039}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2BFK_grp
+      position: {x: -8.881784e-18, y: -8.628166e-34, z: -4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2BFK_ctr
+      position: {x: 0.05583275, y: -0.00000019805807, z: -0.00000007327429}
+      rotation: {x: 0.035220176, y: -0.10332824, z: -0.8383891, w: 0.5340286}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2CFK_grp
+      position: {x: -4.237046e-34, y: -2.4651903e-34, z: -1.110223e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2CFK_ctr
+      position: {x: 0.15638703, y: 0.00000033502212, z: 0.00000005050112}
+      rotation: {x: -0.042932276, y: -0.0074934955, z: -0.058285654, w: 0.99734825}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg2DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg2DFK_grp
+      position: {x: 2.6645352e-17, y: 2.2204459e-17, z: -6.661338e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3AFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:fkCtr_grp
+      position: {x: 0.0107986, y: 0.0815322, z: 0.013113399}
+      rotation: {x: -0.05818995, y: 0.328365, z: -0.16450399, w: 0.92829347}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3AFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3AFK_grp
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3BFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3AFK_ctr
+      position: {x: 0.04760538, y: -0.000000014778307, z: 0.00000006605895}
+      rotation: {x: 0.09142745, y: 0.2985494, z: 0.5733795, w: 0.7574597}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3BFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3BFK_grp
+      position: {x: -2.5884498e-33, y: 1.11022296e-17, z: 4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3CFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3BFK_ctr
+      position: {x: 0.060955178, y: 0.00000025834615, z: -0.00000006258696}
+      rotation: {x: -0.034224007, y: -0.2392728, z: -0.6981461, w: 0.67392087}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3CFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3CFK_grp
+      position: {x: -6.1629757e-35, y: -2.539146e-32, z: 4.440892e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3DFK_grp
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3CFK_ctr
+      position: {x: 0.18664432, y: -0.00000062591084, z: -0.00000016696201}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_leg3DFK_ctr
+      parentName: Monster_walk_ref3:Monster_v3:rt_leg3DFK_grp
+      position: {x: 8.881784e-18, y: 2.2204459e-17, z: -8.881784e-18}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:ant_LOD
+      parentName: Monster_walk_ref3:Monster_v3:ant_all_move
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:littleBigAnt_mod
+      parentName: Monster_Run(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:Body
+      parentName: Monster_walk_ref3:Monster_v3:littleBigAnt_mod
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:Pelvis_ball
+      parentName: Monster_walk_ref3:Monster_v3:Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:Torso
+      parentName: Monster_walk_ref3:Monster_v3:Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:Tail_mesh
+      parentName: Monster_walk_ref3:Monster_v3:Body
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:Legs
+      parentName: Monster_walk_ref3:Monster_v3:littleBigAnt_mod
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:L_leg_1
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:L_leg_2
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:L_leg_3
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:R_leg_1
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:R_leg_2
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:R_leg_3
+      parentName: Monster_walk_ref3:Monster_v3:Legs
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:untouchables
+      parentName: Monster_Run(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:skeleton_grp
+      parentName: Monster_walk_ref3:Monster_v3:untouchables
+      position: {x: 0.13888827, y: -0.030027706, z: 5.554881}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.2, y: 0.2, z: 0.2}
+    - name: Monster_walk_ref3:Monster_v3:root_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.6944414, y: 0.19223483, z: -27.817976}
+      rotation: {x: 0.057837237, y: 0.7047375, z: 0.057837237, w: 0.7047375}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine1_jnt
+      parentName: Monster_walk_ref3:Monster_v3:root_jnt
+      position: {x: -0.001606537, y: -2.1457594e-10, z: -2.3874235e-14}
+      rotation: {x: 0.99762917, y: 0.06881899, z: -5.8446865e-11, w: 4.0317515e-12}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine2_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine1_jnt
+      position: {x: -0.010035814, y: -8.881784e-18, z: 5.800439e-20}
+      rotation: {x: 3.8476448e-11, y: 4.4179795e-11, z: 0.6567551, w: 0.754104}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine3_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine2_jnt
+      position: {x: -0.010028371, y: -4.3156953e-32, z: 1.834882e-17}
+      rotation: {x: -0.0000000010141634, y: 0.000000007654424, z: 0.15375042, w: 0.9881097}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine4_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine3_jnt
+      position: {x: -0.010006419, y: 3.5527136e-17, z: -5.0612605e-18}
+      rotation: {x: 0.000000009074539, y: 0.000000012053166, z: 0.1320687, w: 0.9912406}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine5_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine4_jnt
+      position: {x: -0.010031135, y: 2.9072705e-32, z: -2.5145485e-17}
+      rotation: {x: -0.000000007013325, y: -0.0000000049065263, z: 0.008110138, w: 0.9999671}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:spine6_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine5_jnt
+      position: {x: -0.010082783, y: -0.0000000024049327, z: 1.621486e-10}
+      rotation: {x: -0.000000009946574, y: 2.2070476e-10, z: -1.2056328e-16, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:neck1_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine6_jnt
+      position: {x: -0.010133251, y: -0.002655733, z: 6.137118e-10}
+      rotation: {x: -6.62115e-11, y: 3.964917e-10, z: 0.14531608, w: 0.9893853}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine5_jnt
+      position: {x: -0.00094746426, y: 0.0053721415, z: 0.013484738}
+      rotation: {x: 0.044790138, y: -0.013439048, z: 0.95676666, w: 0.28707287}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine5_jnt
+      position: {x: -0.0009474864, y: 0.0053721783, z: -0.0134847}
+      rotation: {x: -0.013439067, y: -0.044790134, z: -0.2870729, w: 0.95676666}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine4_jnt
+      position: {x: 0.0014737057, y: 0.0018458534, z: 0.012203536}
+      rotation: {x: 0.13168293, y: -0.026907846, z: 0.97086513, w: 0.19838476}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine4_jnt
+      position: {x: 0.0014737308, y: 0.0018458755, z: -0.0122035}
+      rotation: {x: -0.026907854, y: -0.13168295, z: -0.19838484, w: 0.97086513}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine2_jnt
+      position: {x: -0.0066686114, y: 0.0012453406, z: 0.008652777}
+      rotation: {x: 0.70591986, y: 0.040953994, z: -0.70591986, w: 0.040953994}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A00B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:spine2_jnt
+      position: {x: -0.006668615, y: 0.0012453188, z: -0.00865278}
+      rotation: {x: -0.040954027, y: 0.7059198, z: 0.040954027, w: 0.7059198}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail1_jnt
+      parentName: Monster_walk_ref3:Monster_v3:root_jnt
+      position: {x: 0.0014023491, y: 0.00011753339, z: -1.4210854e-16}
+      rotation: {x: -0.006184909, y: 0.009768717, z: 0.987632, w: -0.15636337}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail2_jnt
+      parentName: Monster_walk_ref3:Monster_v3:tail1_jnt
+      position: {x: -0.021815402, y: -3.5527136e-17, z: 2.4219962e-18}
+      rotation: {x: -0.012590027, y: 0.002639168, z: -0.1672736, w: 0.9858266}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail3_jnt
+      parentName: Monster_walk_ref3:Monster_v3:tail2_jnt
+      position: {x: -0.02174546, y: 1.4210854e-16, z: -2.0522624e-19}
+      rotation: {x: -0.007744004, y: 0.016461192, z: -0.20311774, w: 0.9789853}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail4_jnt
+      parentName: Monster_walk_ref3:Monster_v3:tail3_jnt
+      position: {x: -0.021739539, y: -8.8817837e-17, z: 1.4225546e-18}
+      rotation: {x: -0.0016962995, y: 0.014425597, z: -0.2097121, w: 0.9776553}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail5_jnt
+      parentName: Monster_walk_ref3:Monster_v3:tail4_jnt
+      position: {x: -0.021693595, y: 5.3290704e-17, z: -9.570099e-20}
+      rotation: {x: 0.0027763897, y: 0.010690838, z: -0.24192272, w: 0.97023267}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:tail6_jnt
+      parentName: Monster_walk_ref3:Monster_v3:tail5_jnt
+      position: {x: -0.021693463, y: -6.661338e-17, z: 1.1995863e-18}
+      rotation: {x: 0.0063657416, y: 0.008035983, z: -0.19520223, w: 0.98070943}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.70974433, y: 0.18972105, z: -27.774405}
+      rotation: {x: -0.70575553, y: -0.5689114, z: 0.15997581, w: 0.3907131}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1A01B_jnt
+      position: {x: -0.010650738, y: 0, z: 0}
+      rotation: {x: -0.2349595, y: -0.15620847, z: 0.017661907, w: 0.95920855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1A02B_jnt
+      position: {x: -0.010626414, y: 0, z: -9.094947e-15}
+      rotation: {x: -0.16646463, y: 0.011611985, z: -0.05262609, w: 0.9845736}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1A03B_jnt
+      position: {x: -0.010617899, y: -4.5474734e-15, z: 0}
+      rotation: {x: -0.58822453, y: -0.039084587, z: -0.17423558, w: 0.7887371}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1A04B_jnt
+      position: {x: -0.01064227, y: 6.992513e-10, z: 3.5397532e-10}
+      rotation: {x: -0.6598166, y: 0.6839076, z: -0.30567372, w: 0.058958653}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1B01B_jnt
+      position: {x: -0.0066918866, y: 1.1368684e-15, z: -3.410605e-15}
+      rotation: {x: 0.08554826, y: 0.0015328613, z: 0.027278464, w: 0.99595934}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1B02B_jnt
+      position: {x: -0.00667437, y: -1.1368684e-15, z: 0}
+      rotation: {x: 0.08463353, y: -0.012094242, z: 0.044696733, w: 0.9953357}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1B03B_jnt
+      position: {x: -0.0066795815, y: -2.2737367e-15, z: -1.1368684e-15}
+      rotation: {x: 0.08334253, y: -0.022136018, z: 0.06775423, w: 0.99396855}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1B04B_jnt
+      position: {x: -0.006675368, y: -1.3093313e-10, z: -4.2890632e-11}
+      rotation: {x: 0.09981791, y: -0.053508077, z: 0.89760315, w: -0.4260069}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1C01B_jnt
+      position: {x: -0.028053224, y: 0, z: 2.2737367e-15}
+      rotation: {x: 0.0027264156, y: 0.022473373, z: 0.07521669, w: 0.9969102}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1C02B_jnt
+      position: {x: -0.02803119, y: 0, z: 0}
+      rotation: {x: -0.004194603, y: 0.039886147, z: 0.08108314, w: 0.99590015}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1C03B_jnt
+      position: {x: -0.028040769, y: 0, z: -4.5474734e-15}
+      rotation: {x: -0.008339246, y: 0.036906265, z: 0.06336148, w: 0.99727315}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll1DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll1C04B_jnt
+      position: {x: -0.028060623, y: -4.5474734e-15, z: 0}
+      rotation: {x: 0.022104628, y: -0.24417926, z: 0.0874058, w: 0.96553}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.70970356, y: 0.18733938, z: -27.787754}
+      rotation: {x: 0.8722993, y: 0.31325534, z: -0.16422673, w: 0.33763084}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2A01B_jnt
+      position: {x: -0.0116206175, y: 2.2737367e-15, z: 0}
+      rotation: {x: -0.041156225, y: 0.09888426, z: 0.031647556, w: 0.99374366}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2A02B_jnt
+      position: {x: -0.013544311, y: -6.82121e-15, z: 0}
+      rotation: {x: -0.038523864, y: 0.11863513, z: 0.07744579, w: 0.98916316}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2A03B_jnt
+      position: {x: -0.014811743, y: 4.5474734e-15, z: 4.5474734e-15}
+      rotation: {x: -0.0451262, y: 0.07869634, z: 0.09446, w: 0.99138683}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2A04B_jnt
+      position: {x: -0.0150876315, y: 2.2737367e-15, z: -2.046363e-14}
+      rotation: {x: -0.057514142, y: -0.0105939, z: 0.88907075, w: 0.45401883}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2B01B_jnt
+      position: {x: -0.015216438, y: 0, z: 2.2737367e-15}
+      rotation: {x: -0.034858573, y: -0.017766219, z: 0.07696665, w: 0.9962657}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2B02B_jnt
+      position: {x: -0.014262375, y: -4.5474734e-15, z: -6.82121e-15}
+      rotation: {x: -0.03694505, y: -0.019586878, z: 0.05363951, w: 0.9976844}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2B03B_jnt
+      position: {x: -0.013208948, y: 4.5474734e-15, z: 4.5474734e-15}
+      rotation: {x: -0.03717856, y: -0.017214509, z: 0.029594164, w: 0.998722}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2B04B_jnt
+      position: {x: -0.013624869, y: 0, z: -4.5474734e-15}
+      rotation: {x: -0.016982183, y: 0.007855863, z: 0.97891015, w: -0.2034328}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2C01B_jnt
+      position: {x: -0.036356524, y: 0, z: 4.5474734e-15}
+      rotation: {x: -0.01799926, y: -0.0031038555, z: 0.038731493, w: 0.99908274}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2C02B_jnt
+      position: {x: -0.036505688, y: -2.2737367e-15, z: 4.5474734e-15}
+      rotation: {x: -0.017949704, y: 0.0055742, z: 0.04957636, w: 0.9985935}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2C03B_jnt
+      position: {x: -0.042163085, y: 4.5474734e-15, z: -9.094947e-15}
+      rotation: {x: -0.015353368, y: 0.015350265, z: 0.05746158, w: 0.9981116}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll2DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll2C04B_jnt
+      position: {x: -0.0423183, y: -2.2737367e-15, z: 9.094947e-15}
+      rotation: {x: 0.031049866, y: 0.24320267, z: -0.12277745, w: 0.96167254}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.70524, y: 0.1871342, z: -27.800861}
+      rotation: {x: 0.980723, y: 0.044456765, z: 0.18150662, w: 0.05710802}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3A01B_jnt
+      position: {x: -0.012497489, y: 5.684342e-16, z: -4.5474734e-15}
+      rotation: {x: 0.0891173, y: 0.13810624, z: -0.08234856, w: 0.9829565}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3A02B_jnt
+      position: {x: -0.012477386, y: 2.842171e-16, z: 9.094947e-15}
+      rotation: {x: 0.011187799, y: 0.1437284, z: -0.04292747, w: 0.98862237}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3A03B_jnt
+      position: {x: -0.012508356, y: -5.684342e-16, z: -4.5474734e-15}
+      rotation: {x: -0.04772111, y: 0.11375452, z: 0.026398977, w: 0.99201095}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3A04B_jnt
+      position: {x: -0.01252045, y: 0, z: 2.2737367e-15}
+      rotation: {x: -0.0029050529, y: 0.004154897, z: 0.22391714, w: 0.974595}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3B01B_jnt
+      position: {x: -0.015779797, y: 0, z: -2.2737367e-15}
+      rotation: {x: -0.075083196, y: 0.04767809, z: 0.154728, w: 0.9839454}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3B02B_jnt
+      position: {x: -0.01578084, y: 0, z: 4.5474734e-15}
+      rotation: {x: -0.06403899, y: 0.010000957, z: 0.12464889, w: 0.99008167}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3B03B_jnt
+      position: {x: -0.015831094, y: -2.2737367e-15, z: -2.2737367e-15}
+      rotation: {x: -0.06319916, y: -0.015464136, z: 0.0654353, w: 0.99573344}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3B04B_jnt
+      position: {x: -0.015842203, y: 2.2671656e-10, z: 1.6859986e-10}
+      rotation: {x: 0.09055669, y: -0.073669575, z: -0.76077306, w: 0.638433}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3C01B_jnt
+      position: {x: -0.04692375, y: 0, z: 0}
+      rotation: {x: -0.0023636867, y: -0.013326792, z: 0.041967094, w: 0.9990273}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3C02B_jnt
+      position: {x: -0.046903003, y: 2.2737367e-15, z: 4.5474734e-15}
+      rotation: {x: -0.0035863258, y: -0.00046654724, z: 0.047163382, w: 0.9988807}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3C03B_jnt
+      position: {x: -0.046910983, y: -4.5474734e-15, z: 0}
+      rotation: {x: -0.002172165, y: 0.012367076, z: 0.048136786, w: 0.99876183}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:lt_legRoll3DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:lt_legRoll3C04B_jnt
+      position: {x: -0.04690934, y: -5.6843415e-15, z: -2.2737367e-15}
+      rotation: {x: -0.0020347175, y: -0.024792092, z: -0.08177091, w: 0.9963407}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.6791383, y: 0.18972105, z: -27.774405}
+      rotation: {x: 0.45031807, y: -0.25504762, z: -0.50724506, w: 0.6891059}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1A01B_jnt
+      position: {x: 0.010650695, y: 0.000000016275163, z: 0.000000029329389}
+      rotation: {x: -0.31010675, y: -0.1571167, z: 0.00525009, w: 0.9376143}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1A02B_jnt
+      position: {x: 0.010626482, y: -0.000000026659768, z: 0.000000019224716}
+      rotation: {x: -0.27884263, y: 0.040533196, z: -0.060521252, w: 0.95757043}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1A03B_jnt
+      position: {x: 0.010617892, y: -0.0000000046924864, z: -0.000000008075303}
+      rotation: {x: -0.5566147, y: 0.025835035, z: -0.17668936, w: 0.8113529}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1A04B_jnt
+      position: {x: 0.010642253, y: 0.000000058939175, z: 0.000000022286136}
+      rotation: {x: 0.7441885, y: -0.5177581, z: 0.27311814, w: -0.32173982}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1B01B_jnt
+      position: {x: 0.0066918368, y: -0.00000007280392, z: -0.000000012756896}
+      rotation: {x: 0.08016457, y: 0.001386355, z: 0.02727922, w: 0.99640733}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1B02B_jnt
+      position: {x: 0.006674388, y: 0.000000020261963, z: 0.000000002892221}
+      rotation: {x: 0.081337065, y: -0.012727992, z: 0.044522833, w: 0.9956104}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1B03B_jnt
+      position: {x: 0.006679593, y: -0.0000000013039971, z: -0.00000005127071}
+      rotation: {x: 0.08808262, y: -0.022982689, z: 0.06746736, w: 0.99355996}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1B04B_jnt
+      position: {x: 0.006675376, y: 0.00000001814159, z: 0.00000007435449}
+      rotation: {x: 0.091955595, y: -0.069635004, z: 0.95035243, w: -0.2890077}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1C01B_jnt
+      position: {x: 0.028053246, y: 0.000000065942814, z: -0.000000066509614}
+      rotation: {x: -0.017228864, y: 0.020964561, z: 0.07565638, w: 0.99676466}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1C02B_jnt
+      position: {x: 0.028031059, y: -0.0000002200363, z: 0.0000000043314894}
+      rotation: {x: -0.011764981, y: 0.035978448, z: 0.082889125, w: 0.99583966}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1C03B_jnt
+      position: {x: 0.028040664, y: -0.00000015953447, z: -0.00000006389327}
+      rotation: {x: -0.0052360664, y: 0.033557393, z: 0.06519311, w: 0.99729455}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll1DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll1C04B_jnt
+      position: {x: 0.028060757, y: 1.2256167e-17, z: 8.881784e-18}
+      rotation: {x: -0.014144046, y: -0.09304101, z: -0.14962642, w: 0.9842537}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.67917913, y: 0.1873394, z: -27.787754}
+      rotation: {x: -0.33260167, y: 0.017427607, z: -0.29571053, w: 0.8953366}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2A01B_jnt
+      position: {x: 0.0137811825, y: -4.5474734e-15, z: -4.5474734e-15}
+      rotation: {x: -0.037024595, y: 0.11146862, z: 0.037887715, w: 0.992355}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2A02B_jnt
+      position: {x: 0.013746804, y: 4.5474734e-15, z: 9.094947e-15}
+      rotation: {x: -0.036235064, y: 0.11398221, z: 0.0770452, w: 0.9898278}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2A03B_jnt
+      position: {x: 0.013757059, y: -2.2737367e-15, z: -2.2737367e-15}
+      rotation: {x: -0.03997497, y: 0.070117615, z: 0.08452165, w: 0.9931473}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2A04B_jnt
+      position: {x: 0.01378463, y: -1.5369778e-10, z: 8.1163305e-11}
+      rotation: {x: -0.048036806, y: -0.006746881, z: 0.86096656, w: 0.50634325}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2B01B_jnt
+      position: {x: 0.014078311, y: -4.5474734e-15, z: 2.2737367e-15}
+      rotation: {x: -0.033390705, y: -0.016827438, z: 0.07425647, w: 0.996538}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2B02B_jnt
+      position: {x: 0.014068829, y: 6.8478556e-15, z: 2.2826185e-15}
+      rotation: {x: -0.03613748, y: -0.020081628, z: 0.056517445, w: 0.9975453}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2B03B_jnt
+      position: {x: 0.014077589, y: -4.510281e-15, z: -2.2915003e-15}
+      rotation: {x: -0.03649886, y: -0.018176313, z: 0.032163557, w: 0.99865055}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2B04B_jnt
+      position: {x: 0.014090323, y: -5.380343e-11, z: -4.683443e-11}
+      rotation: {x: 0.47284803, y: 0.18997544, z: 0.751839, w: -0.4184044}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2C01B_jnt
+      position: {x: 0.0393521, y: -1.8651746e-16, z: 4.4497737e-15}
+      rotation: {x: 0.008421182, y: 0.004525844, z: 0.042319685, w: 0.99905837}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2C02B_jnt
+      position: {x: 0.039329935, y: 6.8245426e-10, z: 0.000000002817814}
+      rotation: {x: -0.0007986904, y: 0.016987452, z: 0.04767747, w: 0.998718}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2C03B_jnt
+      position: {x: 0.03933308, y: 2.974349e-10, z: 0.00000000201262}
+      rotation: {x: -0.002767567, y: 0.02730999, z: 0.04852161, w: 0.99844486}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll2DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll2C04B_jnt
+      position: {x: 0.039331988, y: -8.881784e-18, z: -7.105427e-17}
+      rotation: {x: -0.05888502, y: 0.056506637, z: -0.17314392, w: 0.98150945}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:skeleton_grp
+      position: {x: -0.68364275, y: 0.1871342, z: -27.800861}
+      rotation: {x: -0.10324772, y: 0.06543117, z: -0.095699534, w: 0.98787665}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3A01B_jnt
+      position: {x: 0.012497542, y: 0.00000004436321, z: -0.000000017802067}
+      rotation: {x: 0.15924825, y: 0.13185753, z: -0.09201891, w: 0.97405654}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3A02B_jnt
+      position: {x: 0.0124773225, y: -0.000000062428796, z: -0.000000014496349}
+      rotation: {x: 0.09090777, y: 0.13059968, z: -0.073790394, w: 0.9844971}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3A04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3A03B_jnt
+      position: {x: 0.012508361, y: 0.000000021497412, z: 0.000000017377852}
+      rotation: {x: 0.10218179, y: 0.11376011, z: -0.026382037, w: 0.98788744}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3A04B_jnt
+      position: {x: 0.012520447, y: -0.000000040346958, z: 0.000000076367506}
+      rotation: {x: -0.3321722, y: 0.299482, z: 0.39125907, w: 0.8042938}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3B01B_jnt
+      position: {x: 0.015779773, y: 0.000000011590377, z: -0.000000019982117}
+      rotation: {x: -0.07560924, y: 0.04759543, z: 0.15475638, w: 0.9839047}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3B02B_jnt
+      position: {x: 0.015780872, y: -0.0000000733837, z: -0.000000025547903}
+      rotation: {x: -0.061923653, y: 0.0101356795, z: 0.12463459, w: 0.9902166}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3B04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3B03B_jnt
+      position: {x: 0.015831146, y: 0.000000056650265, z: 0.000000026856444}
+      rotation: {x: -0.07585252, y: -0.016088814, z: 0.065283276, w: 0.99484956}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C01B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3B04B_jnt
+      position: {x: 0.01584213, y: 0.00000012965398, z: -0.00000005821158}
+      rotation: {x: -0.07045957, y: 0.0893567, z: 0.88281804, w: -0.45572266}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C02B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3C01B_jnt
+      position: {x: 0.046924107, y: -0.00000031339945, z: 0.000000012196869}
+      rotation: {x: 0.0016058811, y: -0.013156798, z: 0.0420152, w: 0.99902904}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C03B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3C02B_jnt
+      position: {x: 0.04690316, y: 0.00000013528579, z: 0.00000030198166}
+      rotation: {x: 0.0003918776, y: 0.0000884828, z: 0.04717068, w: 0.99888676}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3C04B_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3C03B_jnt
+      position: {x: 0.04691042, y: -0.0000003656607, z: -0.00000043034015}
+      rotation: {x: 0.0024040074, y: 0.013355106, z: 0.047869083, w: 0.9987615}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Monster_walk_ref3:Monster_v3:rt_legRoll3DEnd_jnt
+      parentName: Monster_walk_ref3:Monster_v3:rt_legRoll3C04B_jnt
+      position: {x: 0.04690936, y: -8.881784e-18, z: 3.5527136e-17}
+      rotation: {x: 0.004925001, y: 0.049783573, z: -0.09832441, w: 0.9938962}
+      scale: {x: 1, y: 1, z: 1}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
