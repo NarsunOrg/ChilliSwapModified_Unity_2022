@@ -19,11 +19,11 @@ public class LaserDestructionScript : MonoBehaviour
     {
         if(other.transform.tag == "Hurdle")
         {
-            Destroy(other.transform.gameObject);
+            Destroy(other.transform.parent.gameObject);
         }
         if (other.transform.tag == "HurdleDie")
         {
-            Destroy(other.transform.gameObject);
+            Destroy(other.transform.parent.gameObject);
         }
     }
 }

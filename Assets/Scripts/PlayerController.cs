@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SlidingCollider;
     public GameObject Parent;
     public string State;
-    float speed;
+    float speed, CurrentSpeed;
     float Jumpforce;
     int Line = 0;
     bool changingline = false;
@@ -512,6 +512,7 @@ public class PlayerController : MonoBehaviour
         if (!powerUpInUse)
         {
             PlayerAnim.SetFloat("RunningSpeed", 2);
+            CurrentSpeed = speed;
             speed = speed * 4;
             SuperSpeedBool = true;
             StartCoroutine(ResetPowerUp(SuperSpeed));
@@ -528,6 +529,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
+            CurrentSpeed = speed;
             speed = speed / 2;
             PlayerAnim.SetFloat("RunningSpeed", 0.7f);
             StartCoroutine(ResetPowerUp(SlowingDown));
@@ -635,9 +637,8 @@ public class PlayerController : MonoBehaviour
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 250;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        speed = speed / 4;
+        speed = CurrentSpeed;
         SuperSpeedBool = false;
-        speed = speed * 2;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         LaserToUse.SetActive(false);
     }

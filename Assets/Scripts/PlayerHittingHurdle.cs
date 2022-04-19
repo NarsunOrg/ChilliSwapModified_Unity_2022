@@ -66,6 +66,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     }
                     else
                     {
+                        PC.DisablePowerUps();
                         Invoke("RespawnPlayerDelayCall", 3f);
                     }
                 }
