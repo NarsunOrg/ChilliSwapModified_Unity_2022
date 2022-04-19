@@ -21,5 +21,9 @@ public class LaserDestructionScript : MonoBehaviour
         {
             Destroy(other.transform.gameObject);
         }
+        if (other.transform.tag == "HurdleDie")
+        {
+            Destroy(other.transform.gameObject);
+        }
     }
 }
