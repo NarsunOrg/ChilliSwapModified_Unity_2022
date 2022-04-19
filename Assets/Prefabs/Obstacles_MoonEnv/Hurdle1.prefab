@@ -25,14 +25,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693741187731970473}
-  m_LocalRotation: {x: 0, y: 0.32556805, z: 0, w: 0.9455186}
+  m_LocalRotation: {x: 0, y: 0.32969064, z: 0, w: 0.94408906}
   m_LocalPosition: {x: 7.75, y: 1.83, z: -0.83}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 6661505214015906098}
   m_Father: {fileID: 2304766282550383758}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 38, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 38.5, z: 0}
 --- !u!33 &3127023830557068470
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -56,6 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -80,6 +81,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6180116213347343551
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,6 +162,7 @@ MeshRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -184,6 +187,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &6661505214016681862
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -237,13 +241,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9075194143255493976}
-  m_LocalRotation: {x: -0, y: -0.6878378, z: -0, w: 0.7258645}
-  m_LocalPosition: {x: 17.85, y: 2.18, z: -0.6670056}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 17.79, y: 2.18, z: -1.29}
   m_LocalScale: {x: 0.28635, y: 0.22888415, z: 14.531}
   m_Children: []
   m_Father: {fileID: 2304766282550383758}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -86.91801, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!33 &1926830706665376867
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -267,6 +271,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -291,6 +296,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &1624871951816596232
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -302,5 +308,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.99999964, z: 2.4155905}
-  m_Center: {x: -0.000011701253, y: 0, z: 2.0855951}
+  m_Size: {x: 3.0279698, y: 7.13202, z: 2.1127384}
+  m_Center: {x: 1.1465487, y: 0.20366617, z: 1.9341651}

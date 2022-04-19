@@ -73,6 +73,11 @@ public class PlayerHittingHurdle : MonoBehaviour
             }
         }
 
+        if (other.gameObject.tag == "MachineHurdle")
+        {
+            other.transform.parent.gameObject.SetActive(false);
+        }
+
     }
 
     IEnumerator StumbleWait()
