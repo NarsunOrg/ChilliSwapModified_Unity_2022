@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     bool powerUpInUse;
     public bool AlreadyHit = false;
     public GameObject Monster;
+    bool slide = false;
 
     // Start is called before the first frame update
     void Start()
@@ -72,7 +73,7 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform)
+        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform && !slide)
         {
             Down();
         }
@@ -189,6 +190,7 @@ public class PlayerController : MonoBehaviour
         if (!dead)
         {
             Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+           
         }
 
         #endregion
@@ -428,21 +430,33 @@ public class PlayerController : MonoBehaviour
 
     public void Down()
     {
+        slide = true;
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0), 1);
         transform.DOLocalMoveY(0, 0.25f);
         //PlayerAnim.SetTrigger("Sliding 0");
         PlayerAnim.SetBool("Sliding", true);
         PlayerAnim.SetBool("Running", false);
-        StartCoroutine("DelatPos");
+        Invoke("SlideDelayCall", 0.9f);
+        //StartCoroutine("DelatPos");
         //PlayerAnim.SetBool("Sliding", false);
     }
-    IEnumerator DelatPos()
+
+    public void SlideDelayCall()
     {
-        yield return new WaitForSeconds(0.9f);
+        
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0), 1);
         PlayerAnim.SetBool("Sliding", false);
         PlayerAnim.SetBool("Running", true);
+        slide = false;
     }
+    //IEnumerator DelatPos()
+    //{
+    //    yield return new WaitForSeconds(0.9f);
+    //    SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.9f, 0), 1);
+    //    PlayerAnim.SetBool("Sliding", false);
+    //    PlayerAnim.SetBool("Running", true);
+
+    //}
     public void ChangeState(string str)
     {
         //State = nextTransformPosition.transform.tag;
