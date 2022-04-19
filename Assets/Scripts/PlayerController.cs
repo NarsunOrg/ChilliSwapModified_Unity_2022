@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SlidingCollider;
     public GameObject Parent;
     public string State;
-    float speed, CurrentSpeed;
+    public float speed, CurrentSpeed;
     float Jumpforce;
     int Line = 0;
     bool changingline = false;
@@ -215,6 +215,12 @@ public class PlayerController : MonoBehaviour
         middle = true;
         left = false;
         right = false;
+        //AlreadyHit = false;
+        //powerUpInUse = false;
+        //InvisibilityBool = false;
+        //SuperSpeedBool = false;
+        //Jumpforce = 250;
+        //speed = 10;
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
@@ -249,6 +255,7 @@ public class PlayerController : MonoBehaviour
                     }
                     else
                     {
+                        DisablePowerUps();
                         Invoke("RespwanPlayer", 3f);
                     }
                     //Invoke("PanelDelayCall", 2f);
@@ -484,6 +491,7 @@ public class PlayerController : MonoBehaviour
         {
             InvisibilityBool = true;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
+            rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
             StartCoroutine(ResetPowerUp(Invisibility));
         }
         else
@@ -491,6 +499,7 @@ public class PlayerController : MonoBehaviour
             powerUpInUse = false;
             InvisibilityBool = false;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+            rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         }
     }
     public void SuperJump()
@@ -637,7 +646,7 @@ public class PlayerController : MonoBehaviour
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 250;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        speed = CurrentSpeed;
+        //speed = CurrentSpeed;
         SuperSpeedBool = false;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         LaserToUse.SetActive(false);
