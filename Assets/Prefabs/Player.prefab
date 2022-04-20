@@ -31,6 +31,7 @@ Transform:
   m_Children:
   - {fileID: 8185838961244256029}
   - {fileID: 685640092213629449}
+  - {fileID: 685640091690768359}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -125,7 +126,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 685640091007603134}
-  - {fileID: 685640091690768359}
   m_Father: {fileID: 8185838961244256029}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -215,6 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 685640091690768359}
+  - component: {fileID: 2034539073021227640}
   m_Layer: 0
   m_Name: CameraOffset
   m_TagString: Untagged
@@ -230,12 +231,25 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685640091690768358}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: -5}
+  m_LocalPosition: {x: 0, y: 2.4, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 685640091301602099}
-  m_RootOrder: 1
+  m_Father: {fileID: 685640090825999768}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2034539073021227640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685640091690768358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b116183bb1179f488ba9d68c01f1c9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dummy: {fileID: 8185838961244220157}
 --- !u!1 &685640092213629448
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,7 +2199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185838961244220153}
   m_LocalRotation: {x: 0.70710695, y: 0, z: -0, w: 0.7071066}
-  m_LocalPosition: {x: -0, y: 0, z: -1.4901147e-10}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8185838961244256029}
@@ -2407,6 +2421,8 @@ MonoBehaviour:
   SlidingCollider: {fileID: 685640091301602098}
   Parent: {fileID: 685640090825999770}
   State: 
+  speed: 0
+  CurrentSpeed: 0
   ChangingPlatform: 0
   dead: 0
   CurrentRespectiveState: 
@@ -2610,6 +2626,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 685640092213629449}
     m_Modifications:
+    - target: {fileID: 585042308699411585, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8567850816520101007, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
         type: 3}
       propertyPath: m_Name
@@ -2623,17 +2644,17 @@ PrefabInstance:
     - target: {fileID: 9055839728456746549, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9055839728456746549, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9055839728456746549, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 9055839728456746549, guid: 9b52b5acbae5cc041a144fcaefdf7e56,
         type: 3}

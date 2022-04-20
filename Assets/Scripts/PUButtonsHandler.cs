@@ -25,6 +25,30 @@ public class PUButtonsHandler : MonoBehaviour
             time = time - Time.deltaTime;
             currenttext.text = ((int)time).ToString();
         }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            setPowerUpInvisibility(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            setPowerUpSuperJump(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            setPowerUpSuperSpeed(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            setPowerUpSlowingDown(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad5))
+        {
+            setPowerUpTeleportation(4);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            setPowerUpLaserGoggles(5);
+        }
     }
     public void setPowerUpInvisibility(int btnNmbr)
     {
