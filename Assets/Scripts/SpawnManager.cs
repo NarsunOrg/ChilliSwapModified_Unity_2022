@@ -23,7 +23,9 @@ public class SpawnManager : MonoBehaviour
     public GameObject BlueChilliPrefab;
     public GameObject[] HurdlesPrefabs;
     public int PatternIndex = 0;
+    int randomhurdle;
     private GameObject spawnObj;
+    private int spawnHurdle = -1;
     public GameObject[] _ENV;
     void Start()
     {
@@ -59,7 +61,16 @@ public class SpawnManager : MonoBehaviour
                     spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
                 case "hurdle":
-                    spawnObj = Instantiate(HurdlesPrefabs[Random.Range(0, HurdlesPrefabs.Length)], t[i].position, t[i].rotation);
+                    randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+                    
+                    while (randomhurdle == spawnHurdle)
+                    {
+                        randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+                       
+                    }
+                    spawnObj = Instantiate(HurdlesPrefabs[randomhurdle], t[i].position, t[i].rotation);
+                    spawnHurdle = randomhurdle;
+                    //spawnObj = Instantiate(HurdlesPrefabs[Random.Range(0, HurdlesPrefabs.Length)], t[i].position, t[i].rotation);
                     break;
                
             }
