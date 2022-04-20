@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
-        Jumpforce = 250;
+        Jumpforce = 500;
         speed = 10;
         State = "Front";
         middle = true;
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
         right = false;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
+        
     }
 
     // Update is called once per frame
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            speed += speed * 0.05f;
+            speed += speed * 0.1f;
             speedTimer = 0;
         }
         #endregion
@@ -105,30 +106,7 @@ public class PlayerController : MonoBehaviour
         {
             ChangeState("Right");
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            Invisibility();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            SuperJump();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            SuperSpeed();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            SlowingDown();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            Teleportation();
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad6))
-        {
-            LaserGoggles();
-        }
+        
         #endregion
 
         #region Touch Input
@@ -157,11 +135,11 @@ public class PlayerController : MonoBehaviour
                 if (Mathf.Abs(xDifference) >= Mathf.Abs(yDifference))
                 {
                     //move left or right
-                    if (xDifference > 0 && ChangingPlatform)
+                    if (xDifference > 0 && ChangingPlatform && !dead)
                     {
                         ChangeState("Left");
                     }
-                    else if (xDifference < 0 && ChangingPlatform)
+                    else if (xDifference < 0 && ChangingPlatform && !dead)
                     {
                         ChangeState("Right");
                     }
@@ -171,11 +149,17 @@ public class PlayerController : MonoBehaviour
                     //jump or slide
                     if (yDifference > 0)
                     {
-                        Down();
+                        if(!slide && !dead && isGrounded)
+                        {
+                            Down();
+                        }
                     }
                     else
                     {
-                        Up();
+                        if(isGrounded && !ChangingPlatform && !dead)
+                        {
+                            Up();
+                        }
                     }
                 }
 
@@ -196,11 +180,12 @@ public class PlayerController : MonoBehaviour
         #endregion
 
         #region Gyro Movement
-        if (Input.acceleration.x != 0)
+        if (Input.acceleration.x != 0 && !dead)
         {
             if (Mathf.Abs(Input.acceleration.x) > 0.05)
             {
-                transform.DOLocalMoveX(Mathf.Clamp(Input.acceleration.x * Time.deltaTime * 120, -1, 1), 0.35f);
+                transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x*2) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
+                Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x * 3) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
             }
         }
         #endregion
@@ -232,6 +217,7 @@ public class PlayerController : MonoBehaviour
         transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
+        
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
@@ -248,6 +234,7 @@ public class PlayerController : MonoBehaviour
                     dead = true;
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
+                    MonsterMovement(2);
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
@@ -370,6 +357,7 @@ public class PlayerController : MonoBehaviour
                 if (Line == -1)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = -1;
@@ -380,6 +368,7 @@ public class PlayerController : MonoBehaviour
                 if (Line == 0)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 0;
@@ -395,6 +384,7 @@ public class PlayerController : MonoBehaviour
                 if (Line == 1)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 1;
@@ -403,6 +393,7 @@ public class PlayerController : MonoBehaviour
                 if (Line == 0)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 0;
@@ -506,13 +497,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            Jumpforce = 300;
+            Jumpforce = 650;
             StartCoroutine(ResetPowerUp(SuperJump));
         }
         else
         {
             powerUpInUse = false;
-            Jumpforce = 250;
+            Jumpforce = 500;
         }
 
     }
@@ -552,7 +543,21 @@ public class PlayerController : MonoBehaviour
     }
     public void Teleportation()
     {
-
+        if(!powerUpInUse)
+        {
+            PlayerAnim.SetFloat("RunningSpeed", 3);
+            CurrentSpeed = speed;
+            speed = speed * 20;
+            SuperSpeedBool = true;
+            StartCoroutine("TeleportReset");
+        }
+        else
+        {
+            PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+            powerUpInUse = false;
+            speed = speed / 20;
+            SuperSpeedBool = false;
+        }
     }
     public void LaserGoggles()
     {
@@ -644,7 +649,7 @@ public class PlayerController : MonoBehaviour
     {
         InvisibilityBool = false;
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-        Jumpforce = 250;
+        Jumpforce = 500;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         //speed = CurrentSpeed;
         SuperSpeedBool = false;
@@ -665,5 +670,11 @@ public class PlayerController : MonoBehaviour
         {
             Monster.transform.DOLocalMoveZ(-1, 0.5f);
         }
+    }
+    IEnumerator TeleportReset()
+    {
+        powerUpInUse = true;
+        yield return new WaitForSeconds(3);
+        Teleportation();
     }
 }

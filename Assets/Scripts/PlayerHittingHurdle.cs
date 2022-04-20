@@ -8,6 +8,12 @@ public class PlayerHittingHurdle : MonoBehaviour
     public PlayerController PC;
     public GameObject restartPanel;
 
+    private void Start()
+    {
+        PC.MonsterMovement(1);
+        StartCoroutine("StumbleWait");
+    }
+
     public void OnTriggerEnter(Collider other)
     {
        
@@ -18,12 +24,13 @@ public class PlayerHittingHurdle : MonoBehaviour
 
                 if (PC.AlreadyHit)
                 {
+                    PC.MonsterMovement(2);
                     if (PC.dead == false)
                     {
                         PC.dead = true;
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
-                        PC.MonsterMovement(2);
+                        
                         GameManager.instance.CurrentLives -= 1;
                         if (GameManager.instance.CurrentLives < 1)
                         {
@@ -54,6 +61,7 @@ public class PlayerHittingHurdle : MonoBehaviour
         {
             if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
             {
+                PC.MonsterMovement(2);
                 if (PC.dead == false)
                 {
                     PC.dead = true;
@@ -93,6 +101,8 @@ public class PlayerHittingHurdle : MonoBehaviour
     public void RespawnPlayerDelayCall()
     {
         PC.RespwanPlayer();
+        PC.MonsterMovement(1);
+        StartCoroutine("StumbleWait");
     }
 
     public void PanelDelayCall()
