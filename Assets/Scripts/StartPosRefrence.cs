@@ -6,14 +6,8 @@ using DG.Tweening;
 public class StartPosRefrence : MonoBehaviour
 {
     public GameObject NextPosition;
-    // Start is called before the first frame update
+  
     void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
@@ -23,11 +17,7 @@ public class StartPosRefrence : MonoBehaviour
         {
             if(other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedBool)
             {
-                Debug.Log("Super Speed Called");
-                //other.transform.gameObject.GetComponent<PlayerController>().EnteredPlatformTrigger(NextPosition);
                 other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedTurn(NextPosition,this.gameObject);
-                //other.transform.gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
-                //other.transform.parent.DOLocalMove(NextPosition.transform.position, 1);
             }
             else
             {

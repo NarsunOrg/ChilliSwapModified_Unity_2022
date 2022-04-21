@@ -27765,7 +27765,7 @@ MonoBehaviour:
     - green
     - green
     - green
-    - green
+    - invisibility
     - hurdle
     - hurdle
     - hurdle
@@ -27794,7 +27794,7 @@ MonoBehaviour:
     - hurdle
     - hurdle
     - hurdle
-    - hurdle
+    - invisibility
   - SpawnObjectsPattern:
     - hurdle
     - hurdle
@@ -27830,7 +27830,7 @@ MonoBehaviour:
     - green
     - hurdle
     - hurdle
-    - hurdle
+    - invisibility
     - hurdle
     - hurdle
     - hurdle
@@ -27865,7 +27865,7 @@ MonoBehaviour:
     - green
     - green
     - green
-    - green
+    - invisibility
   - SpawnObjectsPattern:
     - red
     - red
@@ -27901,7 +27901,7 @@ MonoBehaviour:
     - red
     - red
     - red
-    - green
+    - invisibility
     - green
     - green
     - green
@@ -27935,7 +27935,7 @@ MonoBehaviour:
     - green
     - green
     - red
-    - red
+    - invisibility
   SpawnObjectsPattern: []
   GreenChilliPrefab: {fileID: 6921616879740572675, guid: 281c536444daac7498d65fb7025d4a5c,
     type: 3}
@@ -27957,6 +27957,8 @@ MonoBehaviour:
   - {fileID: 4324392109090344604, guid: 6e7b06a7cc7d10c4bb742bd98b2bd10c, type: 3}
   - {fileID: 2256086450850617647, guid: 61237e16a526132469e8a2389fcadfe3, type: 3}
   - {fileID: 7628667483707132247, guid: 68ad1273518975946b1bb8583d727e5c, type: 3}
+  InvisibilityPrefab: {fileID: 7176862760897726579, guid: 1b16282b5f9a5e44fa562bc30bc626a4,
+    type: 3}
   PatternIndex: 0
   _ENV:
   - {fileID: 713335843}
@@ -28106,6 +28108,7 @@ MonoBehaviour:
   - {fileID: 1938779329}
   - {fileID: 930850285}
   - {fileID: 713335843}
+  os: {fileID: 0}
 --- !u!4 &8949130773729382347
 Transform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class PlayerTriggering : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("enterring playerrrrrr");
             anim.Play();
         }
     }
