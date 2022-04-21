@@ -262,6 +262,7 @@ GameObject:
   - component: {fileID: 685640092213629452}
   - component: {fileID: 685640092213629455}
   - component: {fileID: 685640092213629454}
+  - component: {fileID: 4010118087451512599}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -277,7 +278,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685640092213629448}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -5}
+  m_LocalPosition: {x: 0, y: 0.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3625378374820504685}
@@ -344,8 +345,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.9758683, y: 0.49448586, z: 1.6895161}
+  m_Center: {x: -0.020321786, y: 0.25275707, z: -0.056580544}
+--- !u!54 &4010118087451512599
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685640092213629448}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 122
+  m_CollisionDetection: 0
 --- !u!1 &908336936220585985
 GameObject:
   m_ObjectHideFlags: 0
@@ -2412,15 +2429,11 @@ MonoBehaviour:
   Transparent: {fileID: 2100000, guid: 75f6f11c806810340800c866dba8155b, type: 2}
   rendererRef: {fileID: 8185838961244220153}
   PlayerAnim: {fileID: 8185838961236826247}
-  middle: 0
-  left: 0
-  right: 0
   rb: {fileID: 0}
   isGrounded: 0
   isMoved: 0
   SlidingCollider: {fileID: 685640091301602098}
   Parent: {fileID: 685640090825999770}
-  State: 
   speed: 0
   CurrentSpeed: 0
   ChangingPlatform: 0
@@ -2432,6 +2445,7 @@ MonoBehaviour:
   speedTimer: 0
   AlreadyHit: 0
   Monster: {fileID: 685640092213629448}
+  Portal: {fileID: 0}
 --- !u!1 &8185838961244220159
 GameObject:
   m_ObjectHideFlags: 0
