@@ -31,10 +31,14 @@ public class SpawnManager : MonoBehaviour
         instance = this;
     }
 
-    public void SpawnObjects( ObjectSpawner OS, Transform[] t)
+    public void SpawnObjects( ObjectSpawner OS, Transform[] t, Transform[] ht)
     {
         os = OS;
         GameObject[] ObjectSpwaned = new GameObject[t.Length];
+
+
+
+
 
         for (int i = 0; i < t.Length; i++)
         {
@@ -57,16 +61,16 @@ public class SpawnManager : MonoBehaviour
                     spawnObj = Instantiate(BlueChilliPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
                     spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
                     break;
-                case "hurdle":
-                    randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
-                    while (randomhurdle == spawnHurdle)
-                    {
-                        randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
-                    }
-                    spawnObj = Instantiate(HurdlesPrefabs[randomhurdle], t[i].position, t[i].rotation);
-                    spawnHurdle = randomhurdle;
+                //case "hurdle":
+                //    randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+                //    while (randomhurdle == spawnHurdle)
+                //    {
+                //        randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+                //    }
+                //    spawnObj = Instantiate(HurdlesPrefabs[randomhurdle], t[i].position, t[i].rotation);
+                //    spawnHurdle = randomhurdle;
                     
-                    break;
+                //    break;
                 case "invisibility":
                     spawnObj = Instantiate(InvisibilityPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);
                     spawnObj.transform.localPosition = new Vector3(spawnObj.transform.localPosition.x, spawnObj.transform.localPosition.y, spawnObj.transform.localPosition.z + (Random.Range(-1, 2) * 1f));
@@ -81,6 +85,21 @@ public class SpawnManager : MonoBehaviour
             }
 
         }
+
+
+        for (int j = 0; j < ht.Length; j++)
+        {
+            randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+            while (randomhurdle == spawnHurdle)
+            {
+                randomhurdle = Random.Range(0, HurdlesPrefabs.Length);
+            }
+            spawnObj = Instantiate(HurdlesPrefabs[randomhurdle], ht[j].position, ht[j].rotation);
+            spawnHurdle = randomhurdle;
+
+            //ObjectSpwaned[j + PatternIndex] = spawnObj;
+        }
+
 
         OS.ObjectsSpawned = ObjectSpwaned;
     }
