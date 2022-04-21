@@ -195,9 +195,9 @@ public class PlayerController : MonoBehaviour
         Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
         Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
         transform.DOLocalMoveX(0, 0.1f);
+        Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
-        
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
@@ -220,6 +220,7 @@ public class PlayerController : MonoBehaviour
                     {
                         DisablePowerUps();
                         Invoke("RespwanPlayer", 3f);
+                        StartCoroutine("StumbleWaitWall");
                     }
                     
                 }
@@ -246,7 +247,10 @@ public class PlayerController : MonoBehaviour
                 if (Line == -1)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
-                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                if(!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = -1;
@@ -257,7 +261,10 @@ public class PlayerController : MonoBehaviour
                 if (Line == 0)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
-                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                if (!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 0;
@@ -273,7 +280,10 @@ public class PlayerController : MonoBehaviour
                 if (Line == 1)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
-                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                if (!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 1;
@@ -282,7 +292,10 @@ public class PlayerController : MonoBehaviour
                 if (Line == 0)
                     break;
                 transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
-                Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                if (!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
                 Line = 0;
@@ -563,7 +576,7 @@ public class PlayerController : MonoBehaviour
     {
         if (i == 0)
         {
-            Monster.transform.DOLocalMoveZ(-5, 0.5f);
+            Monster.transform.DOLocalMoveZ(-8, 0.5f);
         }
         else if (i == 1)
         {
@@ -579,5 +592,12 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = true;
         yield return new WaitForSeconds(3);
         Teleportation();
+    }
+    IEnumerator StumbleWaitWall()
+    {
+        yield return new WaitForSeconds(3);
+        MonsterMovement(1);
+        yield return new WaitForSeconds(3);
+        MonsterMovement(0);
     }
 }
