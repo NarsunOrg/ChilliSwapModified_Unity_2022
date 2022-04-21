@@ -11,14 +11,12 @@ public class PlayerController : MonoBehaviour
     public Material Normal, Transparent;
     public GameObject rendererRef;
     public Animator PlayerAnim;
-    public bool middle, left, right;
     public Rigidbody rb;
     public bool isGrounded, isMoved;
     Vector2 initialTouchPosition, endTouchPosition;
     float xDifference, yDifference;
     public GameObject SlidingCollider;
     public GameObject Parent;
-    public string State;
     public float speed, CurrentSpeed;
     float Jumpforce;
     int Line = 0;
@@ -38,8 +36,9 @@ public class PlayerController : MonoBehaviour
     public bool AlreadyHit = false;
     public GameObject Monster;
     bool slide = false;
+    public GameObject Portal;
 
-    // Start is called before the first frame update
+   
     void Start()
     {
         AlreadyHit = false;
@@ -48,13 +47,8 @@ public class PlayerController : MonoBehaviour
         SuperSpeedBool = false;
         Jumpforce = 500;
         speed = 10;
-        State = "Front";
-        middle = true;
-        left = false;
-        right = false;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
-        
     }
 
     // Update is called once per frame
@@ -90,14 +84,7 @@ public class PlayerController : MonoBehaviour
         {
             MoveRight();
         }
-        //if (Input.GetKeyDown(KeyCode.LeftArrow) && ChangingPlatform && CurrentRespectiveState == "Left")
-        //{
-        //    ChangeState();
-        //}
-        //if (Input.GetKeyDown(KeyCode.RightArrow) && ChangingPlatform && CurrentRespectiveState == "Right")
-        //{
-        //    ChangeState();
-        //}
+        
         if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform && !dead)
         {
             ChangeState("Left");
@@ -118,10 +105,7 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved && !isMoved)
         {
-            //if (!EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId))
-            //{
             hasSwiped = true;
-            //}
         }
         if (hasSwiped)
         {
@@ -170,11 +154,10 @@ public class PlayerController : MonoBehaviour
         #region Parent Movement
         float x = Parent.transform.position.x;
         float z = Parent.transform.position.z;
-        //CalculateParentMovement(z, x);
+       
         if (!dead)
         {
             Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
-           
         }
 
         #endregion
@@ -193,19 +176,16 @@ public class PlayerController : MonoBehaviour
 
     public void RespwanPlayer()
     {
+        RespawnInvisibility();
         ChangingPlatform = false;
         changingline = false;
         Line = 0;
-        State = "Front";
-        middle = true;
-        left = false;
-        right = false;
-        //AlreadyHit = false;
-        //powerUpInUse = false;
-        //InvisibilityBool = false;
-        //SuperSpeedBool = false;
-        //Jumpforce = 250;
-        //speed = 10;
+        AlreadyHit = false;
+        powerUpInUse = false;
+        InvisibilityBool = false;
+        SuperSpeedBool = false;
+        Jumpforce = 500;
+        speed = 10;
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
@@ -222,12 +202,8 @@ public class PlayerController : MonoBehaviour
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("collideddd");
         switch (collision.transform.tag)
-        {
-            case "Floor":
-                //isGrounded = true;
-                break;
+        {  
             case "Wall":
                 if (dead == false)
                 {
@@ -238,110 +214,23 @@ public class PlayerController : MonoBehaviour
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
-                        SceneManager.LoadScene(0);
+                        Invoke("LoadSceneDelayCall", 3f);
                     }
                     else
                     {
                         DisablePowerUps();
                         Invoke("RespwanPlayer", 3f);
                     }
-                    //Invoke("PanelDelayCall", 2f);
-                }
-                break;
-
-            //case "Hurdle":
-            //    if (!InvisibilityBool && !SuperSpeedBool)
-            //    {
-            //        if(!AlreadyHit)
-            //        {
-            //            AlreadyHit = true;
-            //            PlayerAnim.SetTrigger("Stumble");
-            //            StartCoroutine("StumbleWait");
-            //        }
-            //        else if(AlreadyHit)
-            //        {
-            //            dead = true;
-            //            PlayerAnim.SetTrigger("Death");
-            //        }
-            //    }
-            //    break;
-            case "PowerUpInvisibility":
-                if (!powerUpInUse)
-                {
-                    Invisibility();
-                }
-                break;
-            case "PowerUpJump":
-                if (!powerUpInUse)
-                {
-                    SuperJump();
-                }
-                break;
-            case "PowerUpSpeed":
-                if (!powerUpInUse)
-                {
-                    SuperSpeed();
-                }
-                break;
-            case "PowerUpSlow":
-                if (!powerUpInUse)
-                {
-                    SlowingDown();
-                }
-                break;
-            case "PowerUpTeleportation":
-                if (!powerUpInUse)
-                {
-                    Teleportation();
-                }
-                break;
-            case "PowerUpLaser":
-                if (!powerUpInUse)
-                {
-                    LaserGoggles();
+                    
                 }
                 break;
         }
-        #region commented code
-        //if(collision.transform.tag == "Floor")
-        //{
-        //    isGrounded = true;
-        //}
-        //if (collision.transform.tag == "Wall")
-        //{
-        //    dead = true;
-        //    PlayerAnim.SetTrigger("Death");
-        //}
-        //if (collision.transform.tag == "Hurdle" && !InvisibilityBool && !SuperSpeedBool)
-        //{
-        //    dead = true;
-        //    PlayerAnim.SetTrigger("Death");
-        //}
-        //if (collision.transform.tag == "PowerUpInvisibility")
-        //{
-        //    Invisibility();
-        //}
-        //if (collision.transform.tag == "PowerUpJump")
-        //{
-        //    SuperJump();
-        //}
-        //if (collision.transform.tag == "PowerUpSpeed")
-        //{
-        //    SuperSpeed();
-        //}
-        //if (collision.transform.tag == "PowerUpSlow")
-        //{
-        //    SlowingDown();
-        //}
-        //if (collision.transform.tag == "PowerUpTeleportation")
-        //{
-        //    Teleportation();
-        //}
-        //if (collision.transform.tag == "PowerUpLaser")
-        //{
-        //    LaserGoggles();
-        //}
-        #endregion
+       
+    }
+
+    public void LoadSceneDelayCall()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void PanelDelayCall()
@@ -447,7 +336,6 @@ public class PlayerController : MonoBehaviour
    
     public void ChangeState(string str)
     {
-        //State = nextTransformPosition.transform.tag;
         if (str == "Left")
         {
             Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
@@ -459,11 +347,8 @@ public class PlayerController : MonoBehaviour
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
         ChangingPlatform = false;
-
         Invoke("resetfollowspeed", 1.5f);
     }
-
-
     public void resetfollowspeed()
     {
         FollowPlayer.lookatspeed = 1f;
@@ -476,6 +361,18 @@ public class PlayerController : MonoBehaviour
     }
     #region PowerUps
 
+    public void RespawnInvisibility()
+    {
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        Invoke("RespawnInvisibilityDelayCall", 3f);
+    }
+
+    public void RespawnInvisibilityDelayCall()
+    {
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+    }
     public void Invisibility()
     {
         if (!powerUpInUse)
@@ -545,11 +442,16 @@ public class PlayerController : MonoBehaviour
     {
         if(!powerUpInUse)
         {
-            PlayerAnim.SetFloat("RunningSpeed", 3);
-            CurrentSpeed = speed;
-            speed = speed * 20;
-            SuperSpeedBool = true;
-            StartCoroutine("TeleportReset");
+            if (SpawnManager.instance.os != null)
+            {
+                SpawnManager.instance.os.DestroyObjects();
+            }
+            GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
+            //PlayerAnim.SetFloat("RunningSpeed", 3);
+            //CurrentSpeed = speed;
+            //speed = speed * 20;
+            //SuperSpeedBool = true;
+            //StartCoroutine("TeleportReset");
         }
         else
         {
@@ -575,7 +477,6 @@ public class PlayerController : MonoBehaviour
     #endregion
     public void SuperSpeedTurn(GameObject NextPosition, GameObject currentTag)
     {
-        //gameObject.GetComponent<PlayerController>().State = NextPosition.transform.tag;
         nextTransformPosition = NextPosition;
         FollowPlayer.lookatspeed = 0.001f;
         ChangingPlatform = true;
@@ -587,7 +488,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enter")
         {
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
-            Debug.Log("enter");
+           
         }
         switch (other.gameObject.tag)
         {
@@ -612,12 +513,16 @@ public class PlayerController : MonoBehaviour
                 break;
             case "BlueChilli":
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
-                Debug.Log("blue chilli call");
                 Destroy(other.gameObject);
                 if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
                 {
                     GameManager.instance.CurrentLives = GameManager.instance.CurrentLives + GameConstants.BlueChilliCount;
                 }
+                break;
+            case "invisibility":
+                other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                Destroy(other.gameObject);
+                Invisibility();
                 break;
         }
     }
@@ -627,7 +532,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Exit")
         {
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyObjects();
-            Debug.Log("exit");
         }
     }
 
@@ -651,7 +555,6 @@ public class PlayerController : MonoBehaviour
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        //speed = CurrentSpeed;
         SuperSpeedBool = false;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         LaserToUse.SetActive(false);

@@ -34,7 +34,8 @@ public class PlayerHittingHurdle : MonoBehaviour
                         GameManager.instance.CurrentLives -= 1;
                         if (GameManager.instance.CurrentLives < 1)
                         {
-                            SceneManager.LoadScene(0);
+                            Invoke("LoadSceneDelayCall", 3f);
+                            
                         }
                         else
                         {
@@ -42,8 +43,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                             Invoke("RespawnPlayerDelayCall", 3f);
                         }
                     }
-                    //Invoke("PanelDelayCall", 2f);
-                    // Destroy(other.gameObject.transform.parent.gameObject);
+                  
                 }
                 if (!PC.AlreadyHit)
                 {
@@ -51,7 +51,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     PC.PlayerAnim.SetBool("Sliding", false);
                     PC.MonsterMovement(1);
                     StartCoroutine("StumbleWait");
-                    //   Destroy(other.gameObject.transform.parent.gameObject);
+                    
                 }
 
             }
@@ -70,7 +70,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
-                        SceneManager.LoadScene(0);
+                        Invoke("LoadSceneDelayCall", 3f);
                     }
                     else
                     {
@@ -78,7 +78,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                         Invoke("RespawnPlayerDelayCall", 3f);
                     }
                 }
-                //Invoke("PanelDelayCall", 2f);
+               
             }
         }
 
@@ -86,7 +86,6 @@ public class PlayerHittingHurdle : MonoBehaviour
         {
             other.transform.parent.gameObject.SetActive(false);
         }
-
     }
 
     IEnumerator StumbleWait()
@@ -108,5 +107,10 @@ public class PlayerHittingHurdle : MonoBehaviour
     public void PanelDelayCall()
     {
         restartPanel.SetActive(true);
+    }
+
+    public void LoadSceneDelayCall()
+    {
+        SceneManager.LoadScene(0);
     }
 }

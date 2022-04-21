@@ -10,8 +10,7 @@ public class ObjectSpawner : MonoBehaviour
 
     void Start()
     {
-       // Invoke("SpawnObjects", 3f);
-        //Invoke("DestroyObjects", 5f);
+       
     }
 
     public void SpawnObjects()
@@ -44,6 +43,4 @@ public class ObjectSpawner : MonoBehaviour
             Destroy(obj);
         }
     }
-
-    
 }
