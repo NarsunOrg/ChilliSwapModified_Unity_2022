@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnim;
     public Rigidbody rb;
     public bool isGrounded, isMoved;
+    public float GroundedTime;
     Vector2 initialTouchPosition, endTouchPosition;
     float xDifference, yDifference;
     public GameObject SlidingCollider;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
         InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
+        GroundedTime = 0.8f;
         speed = 10;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -185,6 +187,7 @@ public class PlayerController : MonoBehaviour
         InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
+        GroundedTime = 0.8f;
         speed = 10;
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
@@ -318,7 +321,7 @@ public class PlayerController : MonoBehaviour
         PlayerAnim.SetBool("Running", false);
         PlayerAnim.SetBool("Sliding", false);
         rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
-        Invoke("DelayCall", 0.8f);
+        Invoke("DelayCall", GroundedTime);
     }
     public void DelayCall()
     {
@@ -408,10 +411,12 @@ public class PlayerController : MonoBehaviour
         if (!powerUpInUse)
         {
             Jumpforce = 650;
+            GroundedTime = 1.1f;
             StartCoroutine(ResetPowerUp(SuperJump));
         }
         else
         {
+            GroundedTime = 0.8f;
             powerUpInUse = false;
             Jumpforce = 500;
         }
@@ -567,6 +572,7 @@ public class PlayerController : MonoBehaviour
         InvisibilityBool = false;
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
+        GroundedTime = 0.8f;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         SuperSpeedBool = false;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
