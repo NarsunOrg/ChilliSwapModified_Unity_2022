@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjectSpawner : MonoBehaviour
 {
-    public Transform[] ObjectsSpawnPoints;
+    public Transform[] ChilliesSpawnPoints;
+    public Transform[] HurdlesSpawnPoints;
     public GameObject[] ObjectsSpawned;
     public bool IsObjectSpawned = false;
 
@@ -17,7 +18,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (!IsObjectSpawned)
         {
-            SpawnManager.instance.SpawnObjects(this, ObjectsSpawnPoints);
+            SpawnManager.instance.SpawnObjects(this, ChilliesSpawnPoints, HurdlesSpawnPoints);
             IsObjectSpawned = true;
         }
 
