@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     float xDifference, yDifference;
     public GameObject SlidingCollider;
     public GameObject Parent;
-    public float speed, CurrentSpeed;
+    public float speed, CurrentSpeed, IncreasedSpeed;
     float Jumpforce;
     int Line = 0;
     bool changingline = false;
@@ -64,6 +64,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             speed += speed * 0.1f;
+            IncreasedSpeed = speed;
             speedTimer = 0;
         }
         #endregion
@@ -188,7 +189,7 @@ public class PlayerController : MonoBehaviour
         SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
-        speed = 10;
+        speed = IncreasedSpeed;
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
@@ -462,7 +463,7 @@ public class PlayerController : MonoBehaviour
         {
             if (SpawnManager.instance.os != null)
             {
-                SpawnManager.instance.os.DestroyObjects();
+                //SpawnManager.instance.os.DestroyObjects();
             }
             GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
             //PlayerAnim.SetFloat("RunningSpeed", 3);
@@ -538,6 +539,7 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "invisibility":
+                SpawnManager.instance.IsInvisible = true;
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
                 Invisibility();
@@ -549,7 +551,8 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Exit")
         {
-            other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyObjects();
+            other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyChillies();
+            other.gameObject.transform.GetComponentInParent<ObjectSpawner>().DestroyHurdles();
         }
     }
 
@@ -558,6 +561,8 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = true;
         yield return new WaitForSeconds(10);
         callBackMethod();
+        yield return new WaitForSeconds(20);
+        SpawnManager.instance.IsInvisible = false;
     }
     IEnumerator StumbleWait()
     {
