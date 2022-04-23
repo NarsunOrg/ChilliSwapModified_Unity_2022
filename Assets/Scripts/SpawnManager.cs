@@ -90,7 +90,7 @@ public class SpawnManager : MonoBehaviour
             }
             ChilliesSpwaned[i] = spawnObj;
             PatternIndex++;
-            if (PatternIndex == SpawnObjectsPatterns[Random.Range(0, SpawnObjectsPatterns.Length)].SpawnObjectsPattern.Length)
+            if (PatternIndex == RandomPattern.SpawnObjectsPattern.Length)
             {
                 PatternIndex = 0;
             }
