@@ -23379,66 +23379,40 @@ MonoBehaviour:
     - green
     - green
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - golden
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
-    - green
-    - green
-    - invisibility
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
     - green
     - green
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
     - invisibility
+    - green
+    - green
+    - blue
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - golden
+    - blue
+    - red
+    - red
   - SpawnObjectsPattern:
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
@@ -23448,123 +23422,71 @@ MonoBehaviour:
     - red
     - red
     - golden
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
     - green
     - green
     - green
-    - hurdle
-    - hurdle
+    - red
+    - golden
     - invisibility
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - blue
+    - green
+    - green
+    - green
+    - green
+    - green
     - golden
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
-    - green
-    - green
-    - green
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
     - green
     - green
     - green
     - green
-    - green
-    - invisibility
+    - red
   - SpawnObjectsPattern:
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
     - green
     - green
     - green
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - golden
     - blue
     - red
     - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - invisibility
+    - green
+    - red
+    - blue
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
     - golden
     - red
     - red
-    - red
-    - invisibility
-    - green
-    - green
-    - green
-    - green
-    - green
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
     - blue
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
     - green
     - green
     - green
@@ -23572,7 +23494,6 @@ MonoBehaviour:
     - green
     - green
     - red
-    - invisibility
   SpawnObjectsPattern: []
   GreenChilliPrefab: {fileID: 6921616879740572675, guid: 281c536444daac7498d65fb7025d4a5c,
     type: 3}
@@ -23746,6 +23667,11 @@ MonoBehaviour:
   - {fileID: 4611878378231376926}
   - {fileID: 8018713310510289008}
   os: {fileID: 0}
+  ChilliesSpwaned: []
+  HurdlesSpwaned: []
+  RandomPattern:
+    SpawnObjectsPattern: []
+  IsInvisible: 0
 --- !u!4 &7564304841249170107
 Transform:
   m_ObjectHideFlags: 0
