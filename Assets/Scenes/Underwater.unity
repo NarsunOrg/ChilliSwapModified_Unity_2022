@@ -8193,7 +8193,7 @@ MonoBehaviour:
   volumeTrigger: {fileID: 717783545}
   volumeLayer:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
   antialiasingMode: 0
@@ -27742,66 +27742,40 @@ MonoBehaviour:
     - green
     - green
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - golden
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
-    - green
-    - green
-    - invisibility
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
     - green
     - green
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
     - invisibility
+    - green
+    - green
+    - blue
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - golden
+    - blue
+    - red
+    - red
   - SpawnObjectsPattern:
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
@@ -27811,123 +27785,71 @@ MonoBehaviour:
     - red
     - red
     - golden
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
     - green
     - green
     - green
-    - hurdle
-    - hurdle
+    - red
+    - golden
     - invisibility
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - green
+    - green
+    - red
+    - blue
+    - green
+    - green
+    - green
+    - green
+    - green
     - golden
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - green
-    - green
-    - green
-    - green
-    - green
-    - green
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - blue
     - green
     - green
     - green
     - green
-    - green
-    - invisibility
+    - red
   - SpawnObjectsPattern:
     - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
     - green
     - green
     - green
     - green
     - green
     - green
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - golden
     - blue
     - red
     - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
+    - green
+    - green
+    - green
+    - invisibility
+    - green
+    - red
+    - blue
+    - red
+    - green
+    - green
+    - green
+    - green
+    - green
     - golden
     - red
     - red
-    - red
-    - invisibility
-    - green
-    - green
-    - green
-    - green
-    - green
-    - red
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - red
     - blue
-    - red
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
-    - hurdle
+    - green
     - green
     - green
     - green
@@ -27935,7 +27857,6 @@ MonoBehaviour:
     - green
     - green
     - red
-    - invisibility
   SpawnObjectsPattern: []
   GreenChilliPrefab: {fileID: 6921616879740572675, guid: 281c536444daac7498d65fb7025d4a5c,
     type: 3}
@@ -28109,6 +28030,11 @@ MonoBehaviour:
   - {fileID: 930850285}
   - {fileID: 713335843}
   os: {fileID: 0}
+  ChilliesSpwaned: []
+  HurdlesSpwaned: []
+  RandomPattern:
+    SpawnObjectsPattern: []
+  IsInvisible: 0
 --- !u!4 &8949130773729382347
 Transform:
   m_ObjectHideFlags: 0
