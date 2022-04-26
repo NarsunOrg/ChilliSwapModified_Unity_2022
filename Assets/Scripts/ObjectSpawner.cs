@@ -10,11 +10,7 @@ public class ObjectSpawner : MonoBehaviour
     public GameObject[] HurdlesSpawned;
     public bool IsObjectSpawned = false;
 
-    void Start()
-    {
-       
-    }
-
+   
     public void SpawnObjects()
     {
         if (!IsObjectSpawned)
