@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour
         Jumpforce = 500;
         GroundedTime = 0.8f;
         speed = 10;
+        IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
     }
@@ -463,9 +464,12 @@ public class PlayerController : MonoBehaviour
         {
             if (SpawnManager.instance.os != null)
             {
-                //SpawnManager.instance.os.DestroyObjects();
+                SpawnManager.instance.os.DestroyChillies();
+                SpawnManager.instance.os.DestroyHurdles();
             }
-            GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
+            Portal.transform.GetChild(0).gameObject.SetActive(true);
+            Portal.transform.SetParent(null);
+            //GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
             //PlayerAnim.SetFloat("RunningSpeed", 3);
             //CurrentSpeed = speed;
             //speed = speed * 20;
@@ -509,6 +513,21 @@ public class PlayerController : MonoBehaviour
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
            
         }
+
+        if (other.gameObject.tag == "portal")
+        {
+            FollowPlayer.lookatspeed = 0;
+            int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
+            Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
+            Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+            Portal.transform.SetParent(Parent.transform);
+            Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
+            Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
+            Portal.transform.GetChild(0).gameObject.SetActive(false);
+            Portal.transform.GetChild(1).gameObject.SetActive(true);
+            Portal.transform.SetParent(null);
+            Invoke("DelayPortalCall", 5f);
+        }
         switch (other.gameObject.tag)
         {
             case "GreenChilli":
@@ -545,6 +564,15 @@ public class PlayerController : MonoBehaviour
                 Invisibility();
                 break;
         }
+    }
+
+    public void DelayPortalCall()
+    {
+        Portal.transform.SetParent(Parent.transform);
+        Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
+        Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
+        Portal.transform.GetChild(0).gameObject.SetActive(false);
+        Portal.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     public void OnTriggerExit(Collider other)
