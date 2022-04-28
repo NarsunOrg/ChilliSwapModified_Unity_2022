@@ -34,13 +34,14 @@ public class PlayerHittingHurdle : MonoBehaviour
                         GameManager.instance.CurrentLives -= 1;
                         if (GameManager.instance.CurrentLives < 1)
                         {
-                            Invoke("LoadSceneDelayCall", 3f);
-                            
+                            //Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
+                            Invoke("PanelDelayCall", 3f);
                         }
                         else
                         {
                             PC.DisablePowerUps();
-                            Invoke("RespawnPlayerDelayCall", 3f);
+                            //Invoke("RespawnPlayerDelayCall", 3f);    //on after this chus of restart
+                            Invoke("PanelDelayCall", 3f);
                         }
                     }
                   
@@ -70,12 +71,14 @@ public class PlayerHittingHurdle : MonoBehaviour
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
-                        Invoke("LoadSceneDelayCall", 3f);
+                        //Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
+                        Invoke("PanelDelayCall", 3f);
                     }
                     else
                     {
                         PC.DisablePowerUps();
-                        Invoke("RespawnPlayerDelayCall", 3f);
+                        //Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
+                        Invoke("PanelDelayCall", 3f);
                     }
                 }
                
