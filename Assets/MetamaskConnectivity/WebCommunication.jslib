@@ -7,7 +7,7 @@ mergeInto(LibraryManager.library, {
 
   getTokenUnity: function() {
     getToken();
-  };
+  },
 
   getBalanceUnity: function (str) {
     balanceOf();

@@ -72,6 +72,11 @@ public class WebglMetamask : MonoBehaviour
         stakeUnity(Amount);
     }
 
+    public void OnTokenFetch(string token)
+    {
+        Debug.Log("Fetched token " + token);
+    }
+
     public void OnWalletAddressFetch(string address)
     {
         _walletaddress = address;
