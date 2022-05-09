@@ -17941,6 +17941,7 @@ MonoBehaviour:
   - {fileID: 2059874340}
   - {fileID: 966486647}
   - {fileID: 224186368}
+  powerupInUse: 0
 --- !u!4 &514696977
 Transform:
   m_ObjectHideFlags: 0
@@ -37863,7 +37864,7 @@ PrefabInstance:
     - target: {fileID: 5990112604267223275, guid: e18c351ac3f6ed7409f6cae5ba1302eb,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e18c351ac3f6ed7409f6cae5ba1302eb, type: 3}
@@ -48385,6 +48386,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 685640091785270983}
     m_Modifications:
+    - target: {fileID: 76094576179086759, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094576431992119, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094576765405590, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 76094576986992440, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
         type: 3}
       propertyPath: m_RootOrder
@@ -48464,6 +48480,46 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577064643924, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577064643925, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577172860477, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577172860478, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577193546413, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577193546579, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577279950341, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 76094577279950347, guid: e52ca29aab15c6d4887e707bfdd7a0e6,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e52ca29aab15c6d4887e707bfdd7a0e6, type: 3}
@@ -64844,7 +64900,6 @@ MonoBehaviour:
   SlidingCollider: {fileID: 685640090367537261}
   Parent: {fileID: 685640091785270981}
   speed: 0
-  CurrentSpeed: 0
   IncreasedSpeed: 0
   ChangingPlatform: 0
   dead: 0
@@ -64853,9 +64908,11 @@ MonoBehaviour:
   SuperSpeedBool: 0
   LaserToUse: {fileID: 1585892013262469298}
   speedTimer: 0
+  powerUpInUse: 0
   AlreadyHit: 0
   Monster: {fileID: 685640091069776215}
   Portal: {fileID: 1545154279}
+  PUButtonhandlerRef: {fileID: 0}
 --- !u!33 &685640090903798306
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -65122,7 +65179,6 @@ MonoBehaviour:
   SlidingCollider: {fileID: 685640090903798310}
   Parent: {fileID: 685640091248968846}
   speed: 0
-  CurrentSpeed: 0
   IncreasedSpeed: 0
   ChangingPlatform: 0
   dead: 0
@@ -65131,9 +65187,11 @@ MonoBehaviour:
   SuperSpeedBool: 0
   LaserToUse: {fileID: 1585892012726070009}
   speedTimer: 0
+  powerUpInUse: 0
   AlreadyHit: 0
   Monster: {fileID: 685640090532369180}
   Portal: {fileID: 0}
+  PUButtonhandlerRef: {fileID: 0}
 --- !u!136 &685640091123170847
 CapsuleCollider:
   m_ObjectHideFlags: 0
