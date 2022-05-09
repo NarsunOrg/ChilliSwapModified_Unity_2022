@@ -1145,6 +1145,7 @@ MonoBehaviour:
   - {fileID: 637148630}
   - {fileID: 1547409679}
   - {fileID: 484607965}
+  powerupInUse: 0
 --- !u!4 &371852096
 Transform:
   m_ObjectHideFlags: 0
@@ -1327,6 +1328,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
+      propertyPath: PUButtonhandlerRef
+      value: 
+      objectReference: {fileID: 371852095}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
 --- !u!1 &411628725 stripped

@@ -9545,6 +9545,7 @@ MonoBehaviour:
   - {fileID: 2073961889}
   - {fileID: 658583854}
   - {fileID: 2127503458}
+  powerupInUse: 0
 --- !u!4 &823520336
 Transform:
   m_ObjectHideFlags: 0
@@ -24126,6 +24127,10 @@ PrefabInstance:
       propertyPath: restartPanel
       value: 
       objectReference: {fileID: 795426928}
+    - target: {fileID: 399179193, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 685640090825999768, guid: b348f4e4334123f41bfb0c08a74a49d4,
         type: 3}
       propertyPath: m_RootOrder
@@ -24186,6 +24191,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
+      propertyPath: PUButtonhandlerRef
+      value: 
+      objectReference: {fileID: 823520335}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
 --- !u!114 &1937597315 stripped

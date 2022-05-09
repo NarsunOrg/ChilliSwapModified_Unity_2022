@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     float xDifference, yDifference;
     public GameObject SlidingCollider;
     public GameObject Parent;
-    public float speed, CurrentSpeed, IncreasedSpeed;
+    public float speed, IncreasedSpeed; //CurrentSpeed
     float Jumpforce;
     int Line = 0;
     bool changingline = false;
@@ -33,12 +33,12 @@ public class PlayerController : MonoBehaviour
     public float speedTimer;
     bool isCollidingEnter = false;
     bool isCollidingExit = false;
-    bool powerUpInUse;
+    public bool powerUpInUse = false;
     public bool AlreadyHit = false;
     public GameObject Monster;
     bool slide = false;
     public GameObject Portal;
-
+    public PUButtonsHandler PUButtonhandlerRef;
    
     void Start()
     {
@@ -429,7 +429,7 @@ public class PlayerController : MonoBehaviour
         if (!powerUpInUse)
         {
             PlayerAnim.SetFloat("RunningSpeed", 2);
-            CurrentSpeed = speed;
+            //CurrentSpeed = speed;
             speed = speed * 4;
             SuperSpeedBool = true;
             StartCoroutine(ResetPowerUp(SuperSpeed));
@@ -446,7 +446,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            CurrentSpeed = speed;
+            //CurrentSpeed = speed;
             speed = speed / 2;
             PlayerAnim.SetFloat("RunningSpeed", 0.7f);
             StartCoroutine(ResetPowerUp(SlowingDown));
@@ -516,17 +516,17 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "portal")
         {
-            FollowPlayer.lookatspeed = 0;
-            int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-            Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
-            Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-            Portal.transform.SetParent(Parent.transform);
-            Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
-            Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
-            Portal.transform.GetChild(0).gameObject.SetActive(false);
-            Portal.transform.GetChild(1).gameObject.SetActive(true);
-            Portal.transform.SetParent(null);
-            Invoke("DelayPortalCall", 5f);
+                FollowPlayer.lookatspeed = 0;
+                int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
+                Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
+                Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+                Portal.transform.SetParent(Parent.transform);
+                Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
+                Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
+                Portal.transform.GetChild(0).gameObject.SetActive(false);
+                Portal.transform.GetChild(1).gameObject.SetActive(true);
+                Portal.transform.SetParent(null);
+                Invoke("DelayPortalCall", 5f);
         }
         switch (other.gameObject.tag)
         {
@@ -558,11 +558,16 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "invisibility":
-                SpawnManager.instance.IsInvisible = true;
-                other.gameObject.GetComponent<BoxCollider>().enabled = false;
-                Destroy(other.gameObject);
-                Invisibility();
+                if (!powerUpInUse)
+                {
+                    SpawnManager.instance.IsInvisible = true;
+                    other.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    Destroy(other.gameObject);
+                    //Invisibility();
+                    PUButtonhandlerRef.setPowerUpInvisibility(0);
+                }
                 break;
+
         }
     }
 

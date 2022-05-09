@@ -10220,6 +10220,7 @@ MonoBehaviour:
   - {fileID: 2059874340}
   - {fileID: 966486647}
   - {fileID: 224186368}
+  powerupInUse: 0
 --- !u!4 &514696977
 Transform:
   m_ObjectHideFlags: 0
@@ -26122,6 +26123,11 @@ PrefabInstance:
       propertyPath: PlayerModelInside
       value: 
       objectReference: {fileID: 1123984270}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
+      propertyPath: PUButtonhandlerRef
+      value: 
+      objectReference: {fileID: 514696976}
     - target: {fileID: 685640091488730901, guid: b348f4e4334123f41bfb0c08a74a49d4,
         type: 3}
       propertyPath: m_Mass
@@ -32271,7 +32277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583357643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.7177649, y: 0.80489063, z: -0.30734062}
+  m_LocalPosition: {x: -1.7177649, y: 0, z: -0.30734062}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 1291104707}
