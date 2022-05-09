@@ -8,7 +8,7 @@ public class PUButtonsHandler : MonoBehaviour
     public PlayerController PURefrence;
     public List<Button> buttonsList;
     Text currenttext;
-    bool powerupInUse;
+    public bool powerupInUse;
     float time;
     // Start is called before the first frame update
     void Start()

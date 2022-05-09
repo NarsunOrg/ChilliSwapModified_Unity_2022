@@ -2013,6 +2013,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
+      propertyPath: PUButtonhandlerRef
+      value: 
+      objectReference: {fileID: 2107087020}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
 --- !u!1 &71691973 stripped
@@ -22780,6 +22785,7 @@ MonoBehaviour:
   - {fileID: 1346591810}
   - {fileID: 103306293}
   - {fileID: 1073379583}
+  powerupInUse: 0
 --- !u!4 &2107087021
 Transform:
   m_ObjectHideFlags: 0
