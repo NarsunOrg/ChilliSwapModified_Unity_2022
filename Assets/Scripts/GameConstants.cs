@@ -9,4 +9,5 @@ public static class GameConstants
     public static int RedChilliCount = -100;
     public static int BlueChilliCount = 1;
     public static int GoldenChilliCount = 10;
+    public static string CharacterType = "Boy";
 }

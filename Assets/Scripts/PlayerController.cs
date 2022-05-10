@@ -39,7 +39,21 @@ public class PlayerController : MonoBehaviour
     bool slide = false;
     public GameObject Portal;
     public PUButtonsHandler PUButtonhandlerRef;
-   
+
+    public GameObject Boy, Girl;
+    public Avatar BoyAvatar, GirlAvatar;
+
+    public void SettingBoy()
+    {
+        Boy.SetActive(true);
+        PlayerAnim.avatar = BoyAvatar;
+    }
+    public void SettingGirl()
+    {
+        Girl.SetActive(true);
+        PlayerAnim.avatar = GirlAvatar;
+    }
+
     void Start()
     {
         AlreadyHit = false;

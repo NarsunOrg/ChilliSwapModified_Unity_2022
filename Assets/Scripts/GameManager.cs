@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        if(GameConstants.CharacterType == "Boy")
+        {
+            _Player.transform.GetChild(0).gameObject.GetComponent<PlayerController>().SettingBoy();
+        }
+        else if (GameConstants.CharacterType == "Girl")
+        {
+            _Player.transform.GetChild(0).gameObject.GetComponent<PlayerController>().SettingGirl();
+        }
         CurrentLives = GameConstants.PlayerLives;
         ENV.SetActive(true);
     }
