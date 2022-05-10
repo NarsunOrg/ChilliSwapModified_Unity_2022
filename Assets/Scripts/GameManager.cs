@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int CurrentLives;
     public int CollectedChillis;
     public GameObject ENV;
-
+    
     private void Awake()
     {
         instance = this;
