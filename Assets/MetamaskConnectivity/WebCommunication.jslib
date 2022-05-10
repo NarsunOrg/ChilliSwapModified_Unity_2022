@@ -5,6 +5,10 @@ mergeInto(LibraryManager.library, {
 	getWalletAddress();
   },
 
+  getTokenUnity: function() {
+    getToken();
+  },
+
   getBalanceUnity: function (str) {
     balanceOf();
   },
