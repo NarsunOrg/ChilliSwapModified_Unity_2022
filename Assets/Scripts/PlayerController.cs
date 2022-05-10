@@ -43,6 +43,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Boy, Girl;
     public Avatar BoyAvatar, GirlAvatar;
 
+    public GameObject LaserEffect, GravityEffect;
+
     public void SettingBoy()
     {
         Boy.SetActive(true);
@@ -503,12 +505,14 @@ public class PlayerController : MonoBehaviour
         if (!powerUpInUse)
         {
             LaserToUse.SetActive(true);
+            LaserEffect.SetActive(true);
             StartCoroutine(ResetPowerUp(LaserGoggles));
         }
         else
         {
             powerUpInUse = false;
             LaserToUse.SetActive(false);
+            LaserEffect.SetActive(false);
         }
     }
     #endregion
