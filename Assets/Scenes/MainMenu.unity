@@ -2829,27 +2829,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921054575}
-  - component: {fileID: 1921054574}
   m_Layer: 0
   m_Name: MetaMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1921054574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1921054573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58672818cfab5c044930bfeea3670336, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tokentext: {fileID: 733804300}
+  m_IsActive: 0
 --- !u!4 &1921054575
 Transform:
   m_ObjectHideFlags: 0
