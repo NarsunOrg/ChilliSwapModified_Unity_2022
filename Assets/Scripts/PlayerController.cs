@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public Animator PlayerAnim;
     public Rigidbody rb;
     public bool isGrounded, isMoved;
-    public float GroundedTime;
+    private float GroundedTime;
     Vector2 initialTouchPosition, endTouchPosition;
     float xDifference, yDifference;
     public GameObject SlidingCollider;
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Boy, Girl;
     public Avatar BoyAvatar, GirlAvatar;
 
-    public GameObject LaserEffect, GravityEffect;
+    public GameObject LaserEffect, GravityEffect, motionEffect;
 
     public void SettingBoy()
     {
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        motionEffect = Camera.main.gameObject.transform.GetChild(0).gameObject;
         AlreadyHit = false;
         powerUpInUse = false;
         InvisibilityBool = false;
@@ -88,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow)  && !ChangingPlatform && !slide && !dead) //&& isGrounded
+        if (Input.GetKeyDown(KeyCode.DownArrow)  && !ChangingPlatform && !slide && !dead && isGrounded)
         {
             Down();
         }
@@ -333,8 +334,12 @@ public class PlayerController : MonoBehaviour
     }
     public void Up()
     {
-        GravityEffect.SetActive(true);
-        StartCoroutine("gravityFunction");
+
+        if (Jumpforce == 650)
+        {
+            GravityEffect.SetActive(true);
+            StartCoroutine("gravityFunction");
+        }
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
         PlayerAnim.SetBool("Jump", true);
@@ -345,11 +350,14 @@ public class PlayerController : MonoBehaviour
     }
     public void DelayCall()
     {
-        GravityEffect.SetActive(true);
-        StartCoroutine("gravityFunction");
         PlayerAnim.SetBool("Jump", false);
         PlayerAnim.SetBool("Running", true);
         isGrounded = true;
+        if (Jumpforce == 650)
+        {
+            GravityEffect.SetActive(true);
+            StartCoroutine("gravityFunction");
+        }
     }
     IEnumerator gravityFunction()
     {
@@ -438,7 +446,7 @@ public class PlayerController : MonoBehaviour
         if (!powerUpInUse)
         {
             Jumpforce = 650;
-            GroundedTime = 1.1f;
+            GroundedTime = 0.8f;
             StartCoroutine(ResetPowerUp(SuperJump));
         }
         else
@@ -453,6 +461,7 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
+            motionEffect.SetActive(true);
             PlayerAnim.SetFloat("RunningSpeed", 2);
             //CurrentSpeed = speed;
             speed = speed * 4;
@@ -461,6 +470,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            motionEffect.SetActive(false);
             PlayerAnim.SetFloat("RunningSpeed", 1.2f);
             powerUpInUse = false;
             speed = speed / 4;

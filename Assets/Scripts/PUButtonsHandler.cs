@@ -25,27 +25,27 @@ public class PUButtonsHandler : MonoBehaviour
             time = time - Time.deltaTime;
             currenttext.text = ((int)time).ToString();
         }
-        if (Input.GetKeyDown(KeyCode.Keypad1))
+        if (Input.GetKeyDown(KeyCode.Keypad1) && !powerupInUse)
         {
             setPowerUpInvisibility(0);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad2))
+        if (Input.GetKeyDown(KeyCode.Keypad2) && !powerupInUse)
         {
             setPowerUpSuperJump(1);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
+        if (Input.GetKeyDown(KeyCode.Keypad3) && !powerupInUse)
         {
             setPowerUpSuperSpeed(2);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
+        if (Input.GetKeyDown(KeyCode.Keypad4) && !powerupInUse)
         {
             setPowerUpSlowingDown(3);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad5))
+        if (Input.GetKeyDown(KeyCode.Keypad5) && !powerupInUse)
         {
             setPowerUpTeleportation(4);
         }
-        if (Input.GetKeyDown(KeyCode.Keypad6))
+        if (Input.GetKeyDown(KeyCode.Keypad6) && !powerupInUse)
         {
             setPowerUpLaserGoggles(5);
         }
@@ -118,7 +118,14 @@ public class PUButtonsHandler : MonoBehaviour
     }
     IEnumerator EndPowerup(int nmbr)
     {
-        yield return new WaitForSeconds(10);
+        if (nmbr == 4)
+        {
+            yield return new WaitForSeconds(4);
+        }
+        else
+        {
+            yield return new WaitForSeconds(10);
+        }
         for (int i = 0; i < buttonsList.Count; i++)
         {
             buttonsList[i].interactable = true;
