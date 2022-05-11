@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow) && isGrounded && !ChangingPlatform && !slide && !dead)
+        if (Input.GetKeyDown(KeyCode.DownArrow)  && !ChangingPlatform && !slide && !dead) //&& isGrounded
         {
             Down();
         }
