@@ -26121,8 +26121,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Portal
       value: 
-      objectReference: {fileID: 6551534943106225218, guid: 24f036a1525a6fa4cac2f504fb44aaac,
-        type: 3}
+      objectReference: {fileID: 1272173410}
     - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
         type: 3}
       propertyPath: PlayerModelInside
@@ -26168,6 +26167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66984db5bb0aac341a9a55685e013433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1272173410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 399179192, guid: b348f4e4334123f41bfb0c08a74a49d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1272173407}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1278317029 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7704832694483389340, guid: 86b8a98a78dbc45639cd14c6f81cddd7,
