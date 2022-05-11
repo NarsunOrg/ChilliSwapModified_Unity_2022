@@ -333,6 +333,8 @@ public class PlayerController : MonoBehaviour
     }
     public void Up()
     {
+        GravityEffect.SetActive(true);
+        StartCoroutine("gravityFunction");
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
         PlayerAnim.SetBool("Jump", true);
@@ -343,9 +345,16 @@ public class PlayerController : MonoBehaviour
     }
     public void DelayCall()
     {
+        GravityEffect.SetActive(true);
+        StartCoroutine("gravityFunction");
         PlayerAnim.SetBool("Jump", false);
         PlayerAnim.SetBool("Running", true);
         isGrounded = true;
+    }
+    IEnumerator gravityFunction()
+    {
+        yield return new WaitForSeconds(0.5f);
+        GravityEffect.SetActive(false);
     }
 
     public void Down()
