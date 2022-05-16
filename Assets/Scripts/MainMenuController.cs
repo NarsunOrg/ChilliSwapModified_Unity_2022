@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class MainMenuController : MonoBehaviour
 {
-    public Text CharacterText;
+    //public Text CharacterText;
+    public GameObject boy, girl;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +23,16 @@ public class MainMenuController : MonoBehaviour
         if (GameConstants.CharacterType == "Boy")
         {
             GameConstants.CharacterType = "Girl";
-            CharacterText.text = GameConstants.CharacterType;
+            //CharacterText.text = GameConstants.CharacterType;
+            girl.SetActive(true);
+            boy.SetActive(false);
         }
         else if (GameConstants.CharacterType == "Girl")
         {
             GameConstants.CharacterType = "Boy";
-            CharacterText.text = GameConstants.CharacterType;
+            //CharacterText.text = GameConstants.CharacterType;
+            boy.SetActive(true);
+            girl.SetActive(false);
         }
     }
 }
