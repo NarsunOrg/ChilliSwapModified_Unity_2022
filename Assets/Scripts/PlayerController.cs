@@ -214,8 +214,9 @@ public class PlayerController : MonoBehaviour
 
         AlreadyHit = false;
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-        Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
-        Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+        //Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
+        //Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+          //Parent.transform.position = new Vector3()
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
