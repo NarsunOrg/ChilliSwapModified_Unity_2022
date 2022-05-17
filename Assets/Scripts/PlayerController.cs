@@ -208,12 +208,12 @@ public class PlayerController : MonoBehaviour
     public void RespwanPlayer()
     {
         RespawnInvisibility();
-        ChangingPlatform = false;
-        changingline = false;
-        Line = 0;
+        //ChangingPlatform = false;
+        //changingline = false;
+        //Line = 0;
         AlreadyHit = false;
         powerUpInUse = false;
-        InvisibilityBool = false;
+        //InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
@@ -224,11 +224,11 @@ public class PlayerController : MonoBehaviour
 
         AlreadyHit = false;
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-        Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
-        Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-        //Parent.transform.position = PlayerRespawnTransform.position;
-        //Parent.transform.rotation = PlayerRespawnTransform.rotation;
-        //PlayerRespawnTransform.SetParent(Parent.transform);
+        //Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
+        //Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+        Parent.transform.position = PlayerRespawnTransform.position;
+        Parent.transform.rotation = PlayerRespawnTransform.rotation;
+        PlayerRespawnTransform.SetParent(Parent.transform);
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
@@ -242,7 +242,7 @@ public class PlayerController : MonoBehaviour
             case "Wall":
                 if (dead == false)
                 {
-                    //PlayerRespawnTransform.SetParent(null);
+                    PlayerRespawnTransform.SetParent(null);
                     dead = true;
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
@@ -286,6 +286,7 @@ public class PlayerController : MonoBehaviour
                 if(!InvisibilityBool)
                 {
                     Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                    PlayerRespawnTransform.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
@@ -300,6 +301,7 @@ public class PlayerController : MonoBehaviour
                 if (!InvisibilityBool)
                 {
                     Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
+                    PlayerRespawnTransform.transform.DOLocalMoveX(gameObject.transform.localPosition.x - 1, 0.1f);
                 }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
@@ -319,6 +321,7 @@ public class PlayerController : MonoBehaviour
                 if (!InvisibilityBool)
                 {
                     Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                    PlayerRespawnTransform.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
@@ -331,6 +334,7 @@ public class PlayerController : MonoBehaviour
                 if (!InvisibilityBool)
                 {
                     Monster.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
+                    PlayerRespawnTransform.transform.DOLocalMoveX(gameObject.transform.localPosition.x + 1, 0.1f);
                 }
                 changingline = true;
                 Invoke("LineChnaged", 0.1f);
@@ -429,15 +433,17 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnInvisibility()
     {
-        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
-        rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
+        //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        InvisibilityBool = true;
         Invoke("RespawnInvisibilityDelayCall", 3f);
     }
 
     public void RespawnInvisibilityDelayCall()
     {
-        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-        rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        InvisibilityBool = false;
+        //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+        //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
     }
     public void Invisibility()
     {

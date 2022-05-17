@@ -1333,6 +1333,11 @@ PrefabInstance:
       propertyPath: PUButtonhandlerRef
       value: 
       objectReference: {fileID: 371852095}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
+      propertyPath: PlayerRespawnTransform
+      value: 
+      objectReference: {fileID: 411628729}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
 --- !u!1 &411628725 stripped
@@ -1365,6 +1370,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66984db5bb0aac341a9a55685e013433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &411628729 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 993349083393172219, guid: b348f4e4334123f41bfb0c08a74a49d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 411628724}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &426937680
 GameObject:
   m_ObjectHideFlags: 0

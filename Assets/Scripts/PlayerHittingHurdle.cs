@@ -27,6 +27,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     PC.MonsterMovement(2);
                     if (PC.dead == false)
                     {
+                        PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
@@ -65,6 +66,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 PC.MonsterMovement(2);
                 if (PC.dead == false)
                 {
+                    PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
                     PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);
