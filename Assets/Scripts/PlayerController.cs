@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Portal;
     public PUButtonsHandler PUButtonhandlerRef;
 
+    
+
     public GameObject Boy, Girl;
     public Avatar BoyAvatar, GirlAvatar;
 
@@ -48,11 +50,13 @@ public class PlayerController : MonoBehaviour
     public void SettingBoy()
     {
         Boy.SetActive(true);
+        Girl.SetActive(false);
         PlayerAnim.avatar = BoyAvatar;
     }
     public void SettingGirl()
     {
         Girl.SetActive(true);
+        Boy.SetActive(false);
         PlayerAnim.avatar = GirlAvatar;
     }
 
@@ -63,6 +67,7 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
+        
         Jumpforce = 500;
         GroundedTime = 0.8f;
         speed = 10;
@@ -93,7 +98,7 @@ public class PlayerController : MonoBehaviour
         {
             Down();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform && !dead)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform && !dead && !slide)
         {
             Up();
         }
@@ -189,7 +194,10 @@ public class PlayerController : MonoBehaviour
             if (Mathf.Abs(Input.acceleration.x) > 0.05)
             {
                 transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x*2) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
-                Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x * 3) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
+                if (!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x * 3) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
+                }
             }
         }
         #endregion
