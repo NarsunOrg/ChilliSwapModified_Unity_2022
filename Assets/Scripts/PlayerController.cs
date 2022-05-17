@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     public Avatar BoyAvatar, GirlAvatar;
 
     public GameObject LaserEffect, GravityEffect, motionEffect;
+    public Transform PlayerRespawnTransform;
 
     public void SettingBoy()
     {
@@ -224,7 +225,9 @@ public class PlayerController : MonoBehaviour
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
         //Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
         //Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-          //Parent.transform.position = new Vector3()
+        Parent.transform.position = PlayerRespawnTransform.position;
+        Parent.transform.rotation = PlayerRespawnTransform.rotation;
+        PlayerRespawnTransform.SetParent(Parent.transform);
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
@@ -238,6 +241,7 @@ public class PlayerController : MonoBehaviour
             case "Wall":
                 if (dead == false)
                 {
+                    PlayerRespawnTransform.SetParent(null);
                     dead = true;
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
