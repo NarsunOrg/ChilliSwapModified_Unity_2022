@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Portal;
     public PUButtonsHandler PUButtonhandlerRef;
 
-    
+    string TurnTag;
 
     public GameObject Boy, Girl;
     public Avatar BoyAvatar, GirlAvatar;
@@ -112,12 +112,13 @@ public class PlayerController : MonoBehaviour
             MoveRight();
         }
         
-        if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform && !dead)
+        if (Input.GetKey(KeyCode.LeftArrow) && ChangingPlatform && !dead  && TurnTag == "Left")
         {
             ChangeState("Left");
         }
-        if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform && !dead)
+        if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform && !dead && TurnTag == "Right")
         {
+            Debug.Log("right");
             ChangeState("Right");
         }
         
@@ -223,11 +224,11 @@ public class PlayerController : MonoBehaviour
 
         AlreadyHit = false;
         int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-        //Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
-        //Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-        Parent.transform.position = PlayerRespawnTransform.position;
-        Parent.transform.rotation = PlayerRespawnTransform.rotation;
-        PlayerRespawnTransform.SetParent(Parent.transform);
+        Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
+        Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+        //Parent.transform.position = PlayerRespawnTransform.position;
+        //Parent.transform.rotation = PlayerRespawnTransform.rotation;
+        //PlayerRespawnTransform.SetParent(Parent.transform);
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
@@ -241,7 +242,7 @@ public class PlayerController : MonoBehaviour
             case "Wall":
                 if (dead == false)
                 {
-                    PlayerRespawnTransform.SetParent(null);
+                    //PlayerRespawnTransform.SetParent(null);
                     dead = true;
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
@@ -417,9 +418,10 @@ public class PlayerController : MonoBehaviour
     {
         FollowPlayer.lookatspeed = 1f;
     }
-    public void EnteredPlatformTrigger(GameObject obj)
+    public void EnteredPlatformTrigger(GameObject obj,string tag)
     {
         nextTransformPosition = obj;
+        TurnTag = tag;
         ChangingPlatform = true;
         FollowPlayer.lookatspeed = 0.001f;
     }
@@ -551,6 +553,7 @@ public class PlayerController : MonoBehaviour
     public void SuperSpeedTurn(GameObject NextPosition, GameObject currentTag)
     {
         nextTransformPosition = NextPosition;
+        
         FollowPlayer.lookatspeed = 0.001f;
         ChangingPlatform = true;
         ChangeState(currentTag.transform.tag);

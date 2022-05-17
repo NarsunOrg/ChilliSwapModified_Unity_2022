@@ -21,7 +21,7 @@ public class StartPosRefrence : MonoBehaviour
             }
             else
             {
-                other.transform.gameObject.GetComponent<PlayerController>().EnteredPlatformTrigger(NextPosition);
+                other.transform.gameObject.GetComponent<PlayerController>().EnteredPlatformTrigger(NextPosition,this.gameObject.tag);
             }
         }
     }
