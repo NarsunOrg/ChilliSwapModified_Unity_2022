@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Mathf.Abs(Input.acceleration.x) > 0.07)
             {
-                transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x*2) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
+                transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
                 if (!InvisibilityBool)
                 {
                     Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x * 3) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
