@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class WebglMetamask : MonoBehaviour
 {
+#if UNITY_EDITOR || WebGL
     public static WebglMetamask instance;
     public Text tokentext;
 
@@ -48,7 +49,7 @@ public class WebglMetamask : MonoBehaviour
     }
 
 
-
+#endif
 
 
 
