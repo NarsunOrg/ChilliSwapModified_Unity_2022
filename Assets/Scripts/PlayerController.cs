@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
             endTouchPosition = Input.GetTouch(0).position;
             xDifference = initialTouchPosition.x - endTouchPosition.x;
             yDifference = initialTouchPosition.y - endTouchPosition.y;
-            if (Mathf.Abs(xDifference) > 10 || Mathf.Abs(yDifference) > 10)
+            if (Mathf.Abs(xDifference) > 8 || Mathf.Abs(yDifference) > 8)
             {
                 isMoved = true;
                 if (Mathf.Abs(xDifference) >= Mathf.Abs(yDifference))
@@ -187,13 +187,17 @@ public class PlayerController : MonoBehaviour
         {
             Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
         }
+        if (gameObject.transform.localPosition.z > 0.0001 || gameObject.transform.localPosition.z < -0.0001)
+        {
+            gameObject.transform.DOLocalMoveZ(0, 0.01f);
+        }
 
         #endregion
 
         #region Gyro Movement
         if (Input.acceleration.x != 0 && !dead)
         {
-            if (Mathf.Abs(Input.acceleration.x) > 0.05)
+            if (Mathf.Abs(Input.acceleration.x) > 0.07)
             {
                 transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x*2) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
                 if (!InvisibilityBool)
@@ -203,6 +207,8 @@ public class PlayerController : MonoBehaviour
             }
         }
         #endregion
+
+
     }
 
     public void RespwanPlayer()
