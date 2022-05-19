@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MainMenuController : MonoBehaviour
 {
     //public Text CharacterText;
-    public GameObject boy, girl;
+    public GameObject cam;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,15 +25,13 @@ public class MainMenuController : MonoBehaviour
         {
             GameConstants.CharacterType = "Girl";
             //CharacterText.text = GameConstants.CharacterType;
-            girl.SetActive(true);
-            boy.SetActive(false);
+            cam.transform.DOLocalRotate(new Vector3(18, 0, 0), 0.5f);
         }
         else if (GameConstants.CharacterType == "Girl")
         {
             GameConstants.CharacterType = "Boy";
             //CharacterText.text = GameConstants.CharacterType;
-            boy.SetActive(true);
-            girl.SetActive(false);
+            cam.transform.DOLocalRotate(new Vector3(18, 180, 0), 0.5f);
         }
     }
 }
