@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
                 transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
                 if (!InvisibilityBool)
                 {
-                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x * 3) * Time.deltaTime * 80, -1.2f, 1.2f), 0.5f);
+                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 0.5f);
                 }
             }
         }
