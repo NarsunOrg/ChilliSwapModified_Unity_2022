@@ -4,6 +4,7 @@ using UnityEngine;
 using Proyecto26;
 using System;
 using UnityEngine.Networking;
+using UnityEngine.UI;
 
 //GetProfile API STRUCTURE
 [Serializable]
@@ -18,7 +19,14 @@ public class GetProfileData
 }
 //GetProfile API STRUCTURE END
 
-//GetAllTournamnets API STRUCTURE
+//GetAllTournaments API STRUCTURE
+[Serializable]
+public class GetAllTournamnetsAPIResponse
+{
+    public string currentDate;
+    public AllTournamentsData[] data;
+}
+
 [Serializable]
 public class AllTournamentsData
 {
@@ -30,10 +38,10 @@ public class AllTournamentsData
     public string duration;
     public string timestamp;
 }
-//GetAllTournamnets API STRUCTURE END
+//GetAllTournaments API STRUCTURE END
 
 
-//PostTournamnetResult API STRUCTURE
+//PostTournamentResult API STRUCTURE
 [Serializable]
 public class TournamentResultData
 {
@@ -43,7 +51,7 @@ public class TournamentResultData
     public string collected_chillies;
    
 }
-//PostTournamnetResult API STRUCTURE END
+//PostTournamentResult API STRUCTURE END
 
 
 //GetLeaderboard API STRUCTURE
@@ -70,6 +78,11 @@ public class APIManager : MonoBehaviour
     private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
     private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
     private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/6269242b287e913281f770f3";
+    public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
+    public GameObject TournamentButton;
+    public Transform TournamentScrollContent;
+    private TimeSpan diffStartTime;
+    private TimeSpan diffEndTime;
 
     void Start()
     {
@@ -82,10 +95,10 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-        GetProfileAPI();
+        //GetProfileAPI();
         GetAllTournamentsAPI();
-        PostTournamentResultApi();
-        GetLeaderboardAPI();
+        //PostTournamentResultApi();
+        //GetLeaderboardAPI();
     }
 
     public void GetProfileAPI()
@@ -116,7 +129,6 @@ public class APIManager : MonoBehaviour
 
             Uri = FindAllTournamentURL,
             Method = "GET",
-            //CertificateHandler = new AcceptAllCertificatesSignedWithASpecificPublicKey(),
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
             },
@@ -125,15 +137,59 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log("responce received of GetAllTournamentsAPI");
             Debug.Log(res.Text);
+            GetAllTournamnetsAPIResponseVar = new GetAllTournamnetsAPIResponse();
+            GetAllTournamnetsAPIResponseVar = JsonUtility.FromJson<GetAllTournamnetsAPIResponse>(res.Text);
 
+            Debug.Log(GetAllTournamnetsAPIResponseVar.currentDate);
+            string CurrentDateTime = GetAllTournamnetsAPIResponseVar.currentDate;
+            DateTime currentTime = DateTime.Parse(CurrentDateTime).ToUniversalTime();
+            print(currentTime.ToString("HH:mm:ss"));
 
+            Debug.Log(GetAllTournamnetsAPIResponseVar.data[0]._id);
+            Debug.Log(GetAllTournamnetsAPIResponseVar.data.Length);
+            for (int i = 0; i < GetAllTournamnetsAPIResponseVar.data.Length; i++)
+            {
+                GameObject TournamentObj = Instantiate(TournamentButton, TournamentScrollContent);
+                TournamentDetail _TournamentDetails = TournamentObj.GetComponent<TournamentDetail>();
+                _TournamentDetails.TournamentName_Text.text = GetAllTournamnetsAPIResponseVar.data[i].tournament_name;
+                _TournamentDetails.TournamentDuration_Text.text = GetAllTournamnetsAPIResponseVar.data[i].duration;
 
+                string StartDateTime = GetAllTournamnetsAPIResponseVar.data[i].start_date;
+                DateTime startTime = DateTime.Parse(StartDateTime).ToUniversalTime();
+                startTime.AddHours(1);
+
+                string EndDateTime = GetAllTournamnetsAPIResponseVar.data[i].end_date;
+                DateTime endTime = DateTime.Parse(EndDateTime).ToUniversalTime();
+                endTime.AddHours(2);
+
+                diffStartTime = startTime - currentTime;
+                diffEndTime = endTime - currentTime;
+
+                if (diffStartTime > TimeSpan.Zero)
+                {
+                    TournamentObj.GetComponent<Button>().interactable = false;
+                }
+                else
+                {
+                    if (diffEndTime > TimeSpan.Zero)
+                    {
+                        TournamentObj.GetComponent<Button>().interactable = true;
+                    }
+                    else
+                    {
+                        TournamentObj.GetComponent<Button>().interactable = false;
+                    }
+                }
+                _TournamentDetails.Timer = diffStartTime;
+               
+                //_TournamentDetails.Timer_Text.text = string.Format("{0:00}:{1:00}:{2}", diffStartTime.Hours, diffStartTime.Minutes, diffStartTime.Seconds.ToString().Substring(0, 2));
+                
+            }
+            
         }).Catch(err =>
         {
             Debug.Log(err);
         });
-
-
     }
 
     public void PostTournamentResultApi()
