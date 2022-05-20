@@ -157,26 +157,34 @@ public class APIManager : MonoBehaviour
                 string StartDateTime = GetAllTournamnetsAPIResponseVar.data[i].start_date;
                 DateTime startTime = DateTime.Parse(StartDateTime).ToUniversalTime();
                 startTime.AddHours(1);
+                Debug.Log("Start Time: " + startTime);
 
                 string EndDateTime = GetAllTournamnetsAPIResponseVar.data[i].end_date;
                 DateTime endTime = DateTime.Parse(EndDateTime).ToUniversalTime();
                 endTime.AddHours(2);
+                Debug.Log("End Time: " + endTime);
 
-                diffStartTime = startTime - currentTime;
+
+                diffStartTime = (startTime - currentTime);
                 diffEndTime = endTime - currentTime;
+                Debug.Log("Diff Start time: " + diffStartTime.TotalSeconds);
+                Debug.Log("Diff End Time: " + diffEndTime);
 
                 if (diffStartTime > TimeSpan.Zero)
                 {
+                    Debug.Log("diffStartTime > TimeSpan.Zero");
                     TournamentObj.GetComponent<Button>().interactable = false;
                 }
                 else
                 {
                     if (diffEndTime > TimeSpan.Zero)
                     {
+                        Debug.Log("diffEndTime > TimeSpan.Zero");
                         TournamentObj.GetComponent<Button>().interactable = true;
                     }
                     else
                     {
+                        Debug.Log("diffEndTime > TimeSpan.Zero  elseeeeee");
                         TournamentObj.GetComponent<Button>().interactable = false;
                     }
                 }
