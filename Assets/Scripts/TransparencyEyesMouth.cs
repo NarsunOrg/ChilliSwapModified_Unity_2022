@@ -29,10 +29,12 @@ public class TransparencyEyesMouth : MonoBehaviour
         if (playerRef.InvisibilityBool && !materialsChanged)
         {
             gameObject.GetComponent<SkinnedMeshRenderer>().materials = TransparentMaterials;
+            gameObject.GetComponent<SkinnedMeshRenderer>().enabled = false;
         }
         else
         {
             gameObject.GetComponent<SkinnedMeshRenderer>().materials = AllMaterials;
+            gameObject.GetComponent<SkinnedMeshRenderer>().enabled = true;
         }
     }
 }
