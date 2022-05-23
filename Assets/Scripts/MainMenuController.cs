@@ -19,19 +19,42 @@ public class MainMenuController : MonoBehaviour
     {
         
     }
-    public void characterSetter()
+    public void characterSetterForward()
     {
         if (GameConstants.CharacterType == "Boy")
         {
             GameConstants.CharacterType = "Girl";
             //CharacterText.text = GameConstants.CharacterType;
-            cam.transform.DOLocalRotate(new Vector3(18, 0, 0), 0.5f);
+            float angel = cam.transform.rotation.y + 180;
+            cam.transform.DORotate(new Vector3(18, angel, 0), 0.5f);
+            Debug.Log(angel);
         }
         else if (GameConstants.CharacterType == "Girl")
         {
             GameConstants.CharacterType = "Boy";
             //CharacterText.text = GameConstants.CharacterType;
-            cam.transform.DOLocalRotate(new Vector3(18, 180, 0), 0.5f);
+            float angel = cam.transform.rotation.y + 180;
+            cam.transform.DORotate(new Vector3(18, angel, 0), 0.5f);
+            Debug.Log(angel);
+        }
+    }
+    public void characterSetterBackward()
+    {
+        if (GameConstants.CharacterType == "Boy")
+        {
+            GameConstants.CharacterType = "Girl";
+            //CharacterText.text = GameConstants.CharacterType;
+            float angel = cam.transform.rotation.y + 180;
+            cam.transform.DORotate(new Vector3(18, angel, 0), 0.5f);
+            Debug.Log(angel);
+        }
+        else if (GameConstants.CharacterType == "Girl")
+        {
+            GameConstants.CharacterType = "Boy";
+            //CharacterText.text = GameConstants.CharacterType;
+            float angel = cam.transform.rotation.y + 180;
+            cam.transform.DORotate(new Vector3(18, angel, 0), 0.5f);
+            Debug.Log(angel);
         }
     }
 }
