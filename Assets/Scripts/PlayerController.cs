@@ -202,7 +202,7 @@ public class PlayerController : MonoBehaviour
                 transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
                 if (!InvisibilityBool)
                 {
-                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 0.5f);
+                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
                 }
             }
         }
@@ -433,7 +433,7 @@ public class PlayerController : MonoBehaviour
         nextTransformPosition = obj;
         TurnTag = tag;
         ChangingPlatform = true;
-        FollowPlayer.lookatspeed = 0.001f;
+        FollowPlayer.lookatspeed = 0.2f;
     }
     #region PowerUps
 
@@ -566,7 +566,7 @@ public class PlayerController : MonoBehaviour
     {
         nextTransformPosition = NextPosition;
         
-        FollowPlayer.lookatspeed = 0.001f;
+        FollowPlayer.lookatspeed = 0.2f;
         ChangingPlatform = true;
         ChangeState(currentTag.transform.tag);
     }
@@ -591,7 +591,7 @@ public class PlayerController : MonoBehaviour
                 Portal.transform.GetChild(0).gameObject.SetActive(false);
                 Portal.transform.GetChild(1).gameObject.SetActive(true);
                 Portal.transform.SetParent(null);
-                Invoke("DelayPortalCall", 5f);
+                Invoke("DelayPortalCall", 1f);
         }
         switch (other.gameObject.tag)
         {
@@ -643,6 +643,7 @@ public class PlayerController : MonoBehaviour
         Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
         Portal.transform.GetChild(0).gameObject.SetActive(false);
         Portal.transform.GetChild(1).gameObject.SetActive(false);
+        FollowPlayer.lookatspeed = 1f;
     }
 
     public void OnTriggerExit(Collider other)

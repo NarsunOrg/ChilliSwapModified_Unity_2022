@@ -18,7 +18,7 @@ public class FollowPlayer : MonoBehaviour
    
     void Update()
     {
-        gameObject.transform.DOLocalMove(PositionToSet.transform.position, 0.10f);
+        gameObject.transform.DOLocalMove(PositionToSet.transform.position, 0.2f);
         gameObject.transform.DOLookAt(Player.transform.position, lookatspeed);
     }
 }
