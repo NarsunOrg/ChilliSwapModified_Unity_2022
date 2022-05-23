@@ -8,14 +8,12 @@ using UnityEngine.UI;
 
 //GetProfile API STRUCTURE
 [Serializable]
-public class GetProfileData
+public class GetProfileAPIResponse
 {
-    public int[] tokenIds;
+    public string[] nftTokenIds;
     public int ChilliTokenAmount;
     public string UserName;
     public int CollectedChillis;
-    //public string ConfiguredCharacters;
-    
 }
 //GetProfile API STRUCTURE END
 
@@ -49,7 +47,6 @@ public class TournamentResultData
     public string distance;
     public string time;
     public string collected_chillies;
-   
 }
 //PostTournamentResult API STRUCTURE END
 
@@ -63,10 +60,21 @@ public class LeaderboardData
     public string distance;
     public string time;
     public string collected_chillies;
-    
 }
 //GetLeaderboard API STRUCTURE END
 
+
+//SetCharacter API STRUCTURE
+[Serializable]
+public class SetCharacterData
+{
+    public string skintone;
+    public string hairstyle;
+    public string eyecolor;
+    public string[] clothes;
+    public string[] accessories;
+}
+//SetCharacter API STRUCTURE END
 
 public class APIManager : MonoBehaviour
 {
@@ -78,7 +86,11 @@ public class APIManager : MonoBehaviour
     private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
     private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
     private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/6269242b287e913281f770f3";
+    private string SetCharacterURL = "http://54.179.83.173/api/character/set";
+    private string GetCharacterURL = "http://54.179.83.173/api/character/get";
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
+    public GetProfileAPIResponse GetProfileAPIResponseVar;
+    public SetCharacterData[] SetCharacter;
     public GameObject TournamentButton;
     public Transform TournamentScrollContent;
     private TimeSpan diffStartTime;
@@ -95,10 +107,13 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-        //GetProfileAPI();
+        SetCharacter = new SetCharacterData[2];
+        GetProfileAPI();
         GetAllTournamentsAPI();
         //PostTournamentResultApi();
         //GetLeaderboardAPI();
+        Invoke("SetCharacterApi", 6f);
+        //SetCharacterApi();
     }
 
     public void GetProfileAPI()
@@ -115,6 +130,13 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log("responce received of GetProfileAPI");
             Debug.Log(res.Text);
+            GetProfileAPIResponseVar = new GetProfileAPIResponse();
+            GetProfileAPIResponseVar = JsonUtility.FromJson<GetProfileAPIResponse>(res.Text);
+
+            Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
+            Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
+            Debug.Log(GetProfileAPIResponseVar.CollectedChillis);
+            Debug.Log(GetProfileAPIResponseVar.UserName);
 
         }).Catch(err =>
         {
@@ -164,10 +186,11 @@ public class APIManager : MonoBehaviour
                 endTime.AddHours(2);
                 Debug.Log("End Time: " + endTime);
 
-
-                diffStartTime = (startTime - currentTime);
+                diffStartTime = new TimeSpan(((currentTime.Hour - 24) * 1) + startTime.Hour , ((currentTime.Minute - 60) * 1) + startTime.Minute , ((currentTime.Second - 60) * 1) + startTime.Second);
+                //diffStartTime = (startTime - currentTime);
                 diffEndTime = endTime - currentTime;
-                Debug.Log("Diff Start time: " + diffStartTime.TotalSeconds);
+              //  Debug.Log("" + (((currentTime.Hour - 24) * 1) + startTime.Hour + startTime.Minute + startTime.Second));
+                Debug.Log("Diff Start time: " + diffStartTime);
                 Debug.Log("Diff End Time: " + diffEndTime);
 
                 if (diffStartTime > TimeSpan.Zero)
@@ -184,14 +207,15 @@ public class APIManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("diffEndTime > TimeSpan.Zero  elseeeeee");
+                        Debug.Log("diffEndTime > TimeSpan.Zero elseeeeee");
                         TournamentObj.GetComponent<Button>().interactable = false;
                     }
                 }
+                Debug.Log("Diff Start time: " + diffStartTime + " " +"hours"+ " " + diffStartTime.Hours);
                 _TournamentDetails.Timer = diffStartTime;
-               
-                //_TournamentDetails.Timer_Text.text = string.Format("{0:00}:{1:00}:{2}", diffStartTime.Hours, diffStartTime.Minutes, diffStartTime.Seconds.ToString().Substring(0, 2));
                 
+                //_TournamentDetails.Timer_Text.text = string.Format("{0:00}:{1:00}:{2}", diffStartTime.Hours, diffStartTime.Minutes, diffStartTime.Seconds.ToString().Substring(0, 2));
+
             }
             
         }).Catch(err =>
@@ -247,6 +271,40 @@ public class APIManager : MonoBehaviour
         }).Catch(err =>
         {
             Debug.Log(err);
+        });
+    }
+
+    public void SetCharacterApi()
+    {
+        SetCharacter[0].skintone = "Coin";
+        SetCharacter[0].hairstyle = "test data";
+        SetCharacter[0].eyecolor = "test data";
+        SetCharacter[0].clothes = new string[2];
+        SetCharacter[0].clothes[0] = "Shirt";
+        SetCharacter[0].accessories = new string[2];
+        SetCharacter[0].accessories[0] = "Apple";
+
+        RestClient.Request(new RequestHelper
+        {
+
+            Uri = SetCharacterURL,
+            Method = "POST",
+            //FormData = TournamentResultData,
+            BodyRaw = new System.Text.UTF8Encoding().GetBytes(JsonUtility.ToJson(SetCharacter[0])),
+            Headers = new Dictionary<string, string> {
+                         { "x-access-token", authToken }
+                
+                     },
+            
+        }).Then(res =>
+        {
+            Debug.Log("responce received of SetCharacterApi");
+            Debug.Log(res.Text);
+
+        }).Catch(err =>
+        {
+            Debug.Log(JsonUtility.ToJson(SetCharacter[0]));
+            Debug.Log("Error Response" + err);
         });
     }
 }
