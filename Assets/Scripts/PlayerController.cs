@@ -48,6 +48,9 @@ public class PlayerController : MonoBehaviour
     public GameObject LaserEffect, GravityEffect, motionEffect;
     public Transform PlayerRespawnTransform;
 
+    //public int TotalTimeSpend = 0;
+    public Vector3 PlayerLastStoredTransform;
+
     public void SettingBoy()
     {
         Boy.SetActive(true);
@@ -75,6 +78,24 @@ public class PlayerController : MonoBehaviour
         IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
+        InvokeRepeating("TotalTimeCount", 1, 1);
+        InvokeRepeating("StoreLastPlayerPosition", 5, 1);
+    }
+
+    public void StoreLastPlayerPosition()
+    {
+        PlayerLastStoredTransform = Parent.transform.localPosition;
+    }
+
+    public void TotalTimeCount()
+    {
+        GameManager.instance.TotalTimeSpend = GameManager.instance.TotalTimeSpend + 1;
+    }
+
+    public void CancelFunctionsInvoke()
+    {
+        CancelInvoke("TotalTimeCount");
+        CancelInvoke("StoreLastPlayerPosition");
     }
 
     // Update is called once per frame
@@ -91,6 +112,7 @@ public class PlayerController : MonoBehaviour
             IncreasedSpeed = speed;
             speedTimer = 0;
         }
+        GameManager.instance.TotalDIstanceCovered = (int)speed * GameManager.instance.TotalTimeSpend;
         #endregion
 
         #region Keyboard Input
@@ -227,18 +249,23 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
-
         AlreadyHit = false;
-        int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-        //Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;  //commented for testing
-        //Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-        Parent.transform.position = PlayerRespawnTransform.position;
-        Parent.transform.rotation = PlayerRespawnTransform.rotation;
-        PlayerRespawnTransform.SetParent(Parent.transform);
+        if (PlayerLastStoredTransform.z < Parent.transform.localPosition.z)
+        {
+            Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z - 10);
+
+        }
+        else
+        {
+            Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z + 10);
+
+        }
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
+        InvokeRepeating("TotalTimeCount", 1, 1);
+        InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
@@ -250,6 +277,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
+                    CancelFunctionsInvoke();
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
                     MonsterMovement(2);

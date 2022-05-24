@@ -29,6 +29,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     {
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
+                        PC.CancelFunctionsInvoke();
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
                         
@@ -68,6 +69,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
+                    PC.CancelFunctionsInvoke();
                     PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);
                     GameManager.instance.CurrentLives -= 1;
@@ -101,7 +103,7 @@ public class PlayerHittingHurdle : MonoBehaviour
         PC.AlreadyHit = false;
         PC.MonsterMovement(0);
     }
-
+    
     public void RespawnPlayerDelayCall()
     {
         PC.RespwanPlayer();
