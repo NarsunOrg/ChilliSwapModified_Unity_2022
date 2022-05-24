@@ -107,13 +107,14 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-      //  SetCharacter = new SetCharacterData[2];
-        //GetProfileAPI();
+         //SetCharacter = new SetCharacterData[2];
+        GetProfileAPI();
         //GetAllTournamentsAPI();
         //PostTournamentResultApi();
         //GetLeaderboardAPI();
-        Invoke("SetCharacterApi", 2f);
+        //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
+        //GetCharacterAPI();
     }
 
     public void GetProfileAPI()
@@ -305,6 +306,27 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log(temp);
             Debug.Log("Error Response" + err);
+        });
+    }
+
+    public void GetCharacterAPI()
+    {
+        RestClient.Request(new RequestHelper
+        {
+            Uri = GetCharacterURL,
+            Method = "GET",
+            Headers = new Dictionary<string, string> {
+                         { "x-access-token", authToken }
+            },
+
+        }).Then(res =>
+        {
+            Debug.Log("responce received of GetCharacterAPI");
+            Debug.Log(res.Text);
+
+        }).Catch(err =>
+        {
+            Debug.Log(err);
         });
     }
 }

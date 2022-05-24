@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     private int _PlayerRandomSpawnPos;
     public int CurrentLives;
     public int CollectedChillis;
+    public int TotalTimeSpend = 0;
+    public int TotalDIstanceCovered = 0;
     public GameObject ENV;
     
     private void Awake()
