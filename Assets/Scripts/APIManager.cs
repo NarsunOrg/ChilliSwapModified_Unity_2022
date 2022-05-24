@@ -68,9 +68,9 @@ public class LeaderboardData
 [Serializable]
 public class SetCharacterData
 {
-    public string skintone;
-    public string hairstyle;
-    public string eyecolor;
+    public string skintone = "";
+    public string hairstyle = "";
+    public string eyecolor = "";
     public string[] clothes;
     public string[] accessories;
 }
@@ -107,12 +107,12 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-        SetCharacter = new SetCharacterData[2];
-        GetProfileAPI();
-        GetAllTournamentsAPI();
+      //  SetCharacter = new SetCharacterData[2];
+        //GetProfileAPI();
+        //GetAllTournamentsAPI();
         //PostTournamentResultApi();
         //GetLeaderboardAPI();
-        Invoke("SetCharacterApi", 6f);
+        Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
     }
 
@@ -283,14 +283,14 @@ public class APIManager : MonoBehaviour
         SetCharacter[0].clothes[0] = "Shirt";
         SetCharacter[0].accessories = new string[2];
         SetCharacter[0].accessories[0] = "Apple";
-
+        string temp = JsonUtility.ToJson( SetCharacter, true );
         RestClient.Request(new RequestHelper
         {
 
             Uri = SetCharacterURL,
             Method = "POST",
             //FormData = TournamentResultData,
-            BodyRaw = new System.Text.UTF8Encoding().GetBytes(JsonUtility.ToJson(SetCharacter[0])),
+            BodyRaw = new System.Text.UTF8Encoding().GetBytes(("["+temp+"]")),
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
                 
@@ -303,7 +303,7 @@ public class APIManager : MonoBehaviour
 
         }).Catch(err =>
         {
-            Debug.Log(JsonUtility.ToJson(SetCharacter[0]));
+            Debug.Log(temp);
             Debug.Log("Error Response" + err);
         });
     }
