@@ -435,12 +435,12 @@ public class PlayerController : MonoBehaviour
    
     public void ChangeState(string str)
     {
-        if (str == "Left")
+        if (str == "Left" && TurnTag == "Left")
         {
             Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
         }
-        else if (str == "Right")
+        else if (str == "Right" && TurnTag == "Right")
         {
             Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
             Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
@@ -594,6 +594,20 @@ public class PlayerController : MonoBehaviour
         ChangingPlatform = true;
         ChangeState(currentTag.transform.tag);
     }
+    public void DisablePowerUps()
+    {
+        InvisibilityBool = false;
+        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+        Jumpforce = 500;
+        GroundedTime = 0.8f;
+        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+        SuperSpeedBool = false;
+        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+        LaserToUse.SetActive(false);
+        motionEffect.SetActive(false);
+        LaserEffect.SetActive(false);
+        GravityEffect.SetActive(false);
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -695,17 +709,6 @@ public class PlayerController : MonoBehaviour
         AlreadyHit = false;
     }
 
-    public void DisablePowerUps()
-    {
-        InvisibilityBool = false;
-        rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-        Jumpforce = 500;
-        GroundedTime = 0.8f;
-        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        SuperSpeedBool = false;
-        PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        LaserToUse.SetActive(false);
-    }
     public void MonsterMovement(int i)
     {
         if (i == 0)

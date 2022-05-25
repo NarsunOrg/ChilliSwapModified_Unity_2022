@@ -10,6 +10,7 @@ public class PUButtonsHandler : MonoBehaviour
     Text currenttext;
     public bool powerupInUse;
     float time;
+    int number;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,16 @@ public class PUButtonsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(PURefrence.dead)
+        {
+            for (int i = 0; i < buttonsList.Count; i++)
+            {
+                buttonsList[i].interactable = true;
+            }
+            currenttext.text = (number + 1).ToString();
+            time = 10;
+            powerupInUse = false;
+        }
         if(powerupInUse)
         {
             time = time - Time.deltaTime;
@@ -118,6 +129,7 @@ public class PUButtonsHandler : MonoBehaviour
     }
     IEnumerator EndPowerup(int nmbr)
     {
+        number = nmbr;
         if (nmbr == 4)
         {
             yield return new WaitForSeconds(4);
