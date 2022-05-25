@@ -108,7 +108,7 @@ public class APIManager : MonoBehaviour
             Destroy(this);
         }
          //SetCharacter = new SetCharacterData[2];
-        GetProfileAPI();
+        //GetProfileAPI();
         //GetAllTournamentsAPI();
         //PostTournamentResultApi();
         //GetLeaderboardAPI();
