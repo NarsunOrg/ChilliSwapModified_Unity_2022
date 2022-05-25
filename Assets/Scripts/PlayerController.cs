@@ -236,12 +236,13 @@ public class PlayerController : MonoBehaviour
     public void RespwanPlayer()
     {
         RespawnInvisibility();
+        DisablePowerUps();
         //ChangingPlatform = false;
         //changingline = false;
         //Line = 0;
         AlreadyHit = false;
         powerUpInUse = false;
-        //InvisibilityBool = false;
+        InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
@@ -253,7 +254,7 @@ public class PlayerController : MonoBehaviour
         if (PlayerLastStoredTransform.z < Parent.transform.localPosition.z)
         {
             Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z - 10);
-
+            
         }
         else
         {
