@@ -79,13 +79,13 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
         InvokeRepeating("TotalTimeCount", 1, 1);
-        InvokeRepeating("StoreLastPlayerPosition", 5, 1);
+        //InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
 
-    public void StoreLastPlayerPosition()
-    {
-        PlayerLastStoredTransform = Parent.transform.localPosition;
-    }
+    //public void StoreLastPlayerPosition()
+    //{
+    //    PlayerLastStoredTransform = Parent.transform.localPosition;
+    //}
 
     public void TotalTimeCount()
     {
@@ -95,12 +95,14 @@ public class PlayerController : MonoBehaviour
     public void CancelFunctionsInvoke()
     {
         CancelInvoke("TotalTimeCount");
-        CancelInvoke("StoreLastPlayerPosition");
+        //CancelInvoke("StoreLastPlayerPosition");
     }
 
     // Update is called once per frame
     void Update()
     {
+     //   Debug.Log(Parent.gameObject.transform.position);
+
         #region speed
         if (speedTimer < 20)
         {
@@ -251,22 +253,15 @@ public class PlayerController : MonoBehaviour
         PlayerAnim.SetBool("Running", true);
         PlayerAnim.SetBool("Death", false);
         AlreadyHit = false;
-        if (PlayerLastStoredTransform.z < Parent.transform.localPosition.z)
-        {
-            Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z - 10);
-            
-        }
-        else
-        {
-            Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z + 10);
-
-        }
+        // Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z + 10);
+        Parent.transform.localPosition = (Parent.transform.forward * -10f) + Parent.transform.localPosition;
+        
         transform.DOLocalMoveX(0, 0.1f);
         Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
         InvokeRepeating("TotalTimeCount", 1, 1);
-        InvokeRepeating("StoreLastPlayerPosition", 5, 1);
+       // InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
