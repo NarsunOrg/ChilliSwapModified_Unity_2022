@@ -25,7 +25,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 if (PC.AlreadyHit)
                 {
                     PC.MonsterMovement(2);
-                    if (PC.dead == false)
+                    if (PC.dead == false && PC.PortalUse == false)
                     {
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
@@ -65,7 +65,7 @@ public class PlayerHittingHurdle : MonoBehaviour
             if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
             {
                 PC.MonsterMovement(2);
-                if (PC.dead == false)
+                if (PC.dead == false && PC.PortalUse == false)
                 {
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;

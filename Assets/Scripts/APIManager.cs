@@ -12,9 +12,36 @@ public class GetProfileAPIResponse
 {
     public string[] nftTokenIds;
     public int ChilliTokenAmount;
-    public string UserName;
+    public float coversionRate;
+    public string minChilliConvert;
     public int CollectedChillis;
+    public ConfiguredCharactersData ConfiguredCharacters;
 }
+[Serializable]
+public class ConfiguredCharactersData
+{
+    public string _id;
+    public string userAddress;
+    public string userId;
+    public GetProfileCharactersData[] characterData;
+}
+[Serializable]
+public class GetProfileCharactersData
+{
+    public string _id;
+    public string skintone;
+    public string hairstyle;
+    public string headwear;
+    public string eyecolor;
+    public string[] clothes;
+    public string goggles;
+    public string headphones;
+    public string shoes;
+    public string bodytype;
+    public string backpack;
+    public string watch;
+}
+
 //GetProfile API STRUCTURE END
 
 //GetAllTournaments API STRUCTURE
@@ -87,7 +114,8 @@ public class APIManager : MonoBehaviour
     private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
     private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/6269242b287e913281f770f3";
     private string SetCharacterURL = "http://54.179.83.173/api/character/set";
-    private string GetCharacterURL = "http://54.179.83.173/api/character/get";
+    private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
     public SetCharacterData[] SetCharacter;
@@ -107,15 +135,14 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-         //SetCharacter = new SetCharacterData[2];
+        //SetCharacter = new SetCharacterData[2];
         //GetProfileAPI();
         //GetAllTournamentsAPI();
         //PostTournamentResultApi();
         //GetLeaderboardAPI();
         //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
-        //GetCharacterAPI();
-      
+        GetSwapChilliesApi();
     }
 
     public void GetProfileAPI()
@@ -138,7 +165,10 @@ public class APIManager : MonoBehaviour
             Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
             Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
             Debug.Log(GetProfileAPIResponseVar.CollectedChillis);
-            Debug.Log(GetProfileAPIResponseVar.UserName);
+            Debug.Log(GetProfileAPIResponseVar.coversionRate);
+            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters._id);
+            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.userAddress);
+            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.characterData[0]._id);
 
         }).Catch(err =>
         {
@@ -243,7 +273,7 @@ public class APIManager : MonoBehaviour
             BodyRaw = new System.Text.UTF8Encoding().GetBytes(JsonUtility.ToJson(_TournamentResultData)),
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
-                     },
+            },
         }).Then(res =>
         {
             Debug.Log("responce received of PostTournamentResultApi");
@@ -288,7 +318,6 @@ public class APIManager : MonoBehaviour
         string temp = JsonUtility.ToJson( SetCharacter, true );
         RestClient.Request(new RequestHelper
         {
-
             Uri = SetCharacterURL,
             Method = "POST",
             //FormData = TournamentResultData,
@@ -296,7 +325,7 @@ public class APIManager : MonoBehaviour
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
                 
-                     },
+            },
             
         }).Then(res =>
         {
@@ -310,24 +339,23 @@ public class APIManager : MonoBehaviour
         });
     }
 
-    public void GetCharacterAPI()
+    public void GetSwapChilliesApi()
     {
         RestClient.Request(new RequestHelper
         {
-            Uri = GetCharacterURL,
-            Method = "GET",
+            Uri = GetSwapChilliesURL,
+            Method = "POST",
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
             },
-
         }).Then(res =>
         {
-            Debug.Log("responce received of GetCharacterAPI");
+            Debug.Log("responce received of GetSwapChilliesApi");
             Debug.Log(res.Text);
 
         }).Catch(err =>
         {
-            Debug.Log(err);
+            Debug.Log("Error Response" + err);
         });
     }
 }

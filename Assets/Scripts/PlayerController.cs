@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 PlayerLastStoredTransform;
 
     Coroutine ResetRef;
+    public bool PortalUse = false;
 
     public void SettingBoy()
     {
@@ -264,8 +265,12 @@ public class PlayerController : MonoBehaviour
         FollowPlayer.lookatspeed = 1;
         dead = false;
         InvokeRepeating("TotalTimeCount", 1, 1);
-        StopCoroutine(ResetRef);
-       // InvokeRepeating("StoreLastPlayerPosition", 5, 1);
+        if (ResetRef != null)
+        {
+            StopCoroutine(ResetRef);
+
+        }
+        // InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
@@ -273,7 +278,7 @@ public class PlayerController : MonoBehaviour
         switch (collision.transform.tag)
         {  
             case "Wall":
-                if (dead == false)
+                if (dead == false && PortalUse == false)
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
@@ -386,7 +391,6 @@ public class PlayerController : MonoBehaviour
     }
     public void Up()
     {
-
         if (Jumpforce == 650)
         {
             GravityEffect.SetActive(true);
@@ -552,6 +556,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!powerUpInUse)
         {
+            PortalUse = true;
             if (SpawnManager.instance.os != null)
             {
                 SpawnManager.instance.os.DestroyChillies();
@@ -619,22 +624,21 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enter")
         {
             other.gameObject.transform.GetComponentInParent<ObjectSpawner>().SpawnNextPatchObjects();
-           
         }
 
         if (other.gameObject.tag == "portal")
         {
-                FollowPlayer.lookatspeed = 0;
-                int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
-                Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
-                Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
-                Portal.transform.SetParent(Parent.transform);
-                Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
-                Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
-                Portal.transform.GetChild(0).gameObject.SetActive(false);
-                Portal.transform.GetChild(1).gameObject.SetActive(true);
-                Portal.transform.SetParent(null);
-                Invoke("DelayPortalCall", 1f);
+            FollowPlayer.lookatspeed = 0;
+            int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
+            Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
+            Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
+            Portal.transform.SetParent(Parent.transform);
+            Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
+            Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
+            Portal.transform.GetChild(0).gameObject.SetActive(false);
+            Portal.transform.GetChild(1).gameObject.SetActive(true);
+            Portal.transform.SetParent(null);
+            Invoke("DelayPortalCall", 1f);
         }
         switch (other.gameObject.tag)
         {
@@ -687,6 +691,7 @@ public class PlayerController : MonoBehaviour
         Portal.transform.GetChild(0).gameObject.SetActive(false);
         Portal.transform.GetChild(1).gameObject.SetActive(false);
         FollowPlayer.lookatspeed = 1f;
+        PortalUse = false;
     }
 
     public void OnTriggerExit(Collider other)
