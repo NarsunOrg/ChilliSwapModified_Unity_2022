@@ -7,7 +7,7 @@ public class PUButtonsHandler : MonoBehaviour
 {
     public PlayerController PURefrence;
     public List<Button> buttonsList;
-    Text currenttext;
+    Text currenttext = null;
     public bool powerupInUse;
     float time;
     int number;
@@ -22,16 +22,21 @@ public class PUButtonsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(PURefrence.dead)
+        if (PURefrence.dead)
         {
             for (int i = 0; i < buttonsList.Count; i++)
             {
                 buttonsList[i].interactable = true;
             }
-            currenttext.text = (number + 1).ToString();
+            if (currenttext.text != null)
+            {
+                currenttext.text = (number + 1).ToString();
+
+            }
             time = 10;
             powerupInUse = false;
         }
+        
         if(powerupInUse)
         {
             time = time - Time.deltaTime;
