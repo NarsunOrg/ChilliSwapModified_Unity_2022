@@ -115,6 +115,7 @@ public class APIManager : MonoBehaviour
         //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
         //GetCharacterAPI();
+      
     }
 
     public void GetProfileAPI()
