@@ -51,6 +51,8 @@ public class PlayerController : MonoBehaviour
     //public int TotalTimeSpend = 0;
     public Vector3 PlayerLastStoredTransform;
 
+    Coroutine ResetRef;
+
     public void SettingBoy()
     {
         Boy.SetActive(true);
@@ -66,6 +68,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        
         motionEffect = Camera.main.gameObject.transform.GetChild(0).gameObject;
         AlreadyHit = false;
         powerUpInUse = false;
@@ -239,7 +242,7 @@ public class PlayerController : MonoBehaviour
     {
         RespawnInvisibility();
         DisablePowerUps();
-        //ChangingPlatform = false;
+        ChangingPlatform = false;
         //changingline = false;
         //Line = 0;
         AlreadyHit = false;
@@ -261,6 +264,7 @@ public class PlayerController : MonoBehaviour
         FollowPlayer.lookatspeed = 1;
         dead = false;
         InvokeRepeating("TotalTimeCount", 1, 1);
+        StopCoroutine(ResetRef);
        // InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
     //Player dummy collider to check if its on ground
@@ -482,7 +486,7 @@ public class PlayerController : MonoBehaviour
             InvisibilityBool = true;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
             rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            StartCoroutine(ResetPowerUp(Invisibility));
+            ResetRef = StartCoroutine(ResetPowerUp(Invisibility));
         }
         else
         {
@@ -498,7 +502,7 @@ public class PlayerController : MonoBehaviour
         {
             Jumpforce = 650;
             GroundedTime = 0.8f;
-            StartCoroutine(ResetPowerUp(SuperJump));
+            ResetRef = StartCoroutine(ResetPowerUp(SuperJump));
         }
         else
         {
@@ -517,7 +521,7 @@ public class PlayerController : MonoBehaviour
             //CurrentSpeed = speed;
             speed = speed * 4;
             SuperSpeedBool = true;
-            StartCoroutine(ResetPowerUp(SuperSpeed));
+            ResetRef = StartCoroutine(ResetPowerUp(SuperSpeed));
         }
         else
         {
@@ -535,7 +539,7 @@ public class PlayerController : MonoBehaviour
             //CurrentSpeed = speed;
             speed = speed / 2;
             PlayerAnim.SetFloat("RunningSpeed", 0.7f);
-            StartCoroutine(ResetPowerUp(SlowingDown));
+            ResetRef = StartCoroutine(ResetPowerUp(SlowingDown));
         }
         else
         {
@@ -555,6 +559,7 @@ public class PlayerController : MonoBehaviour
             }
             Portal.transform.GetChild(0).gameObject.SetActive(true);
             Portal.transform.SetParent(null);
+            ChangingPlatform = false;
             //GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
             //PlayerAnim.SetFloat("RunningSpeed", 3);
             //CurrentSpeed = speed;
@@ -576,7 +581,7 @@ public class PlayerController : MonoBehaviour
         {
             LaserToUse.SetActive(true);
             LaserEffect.SetActive(true);
-            StartCoroutine(ResetPowerUp(LaserGoggles));
+            ResetRef = StartCoroutine(ResetPowerUp(LaserGoggles));
         }
         else
         {

@@ -14,6 +14,7 @@ public class PUButtonsHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        number = 0;
         powerupInUse = false;
         time = 10;
     }
