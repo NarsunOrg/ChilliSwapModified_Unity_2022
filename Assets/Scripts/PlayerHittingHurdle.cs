@@ -29,6 +29,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     {
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
+                        PC.MonsterAttackAnim();
                         PC.CancelFunctionsInvoke();
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
@@ -69,6 +70,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
+                    PC.MonsterAttackAnim();
                     PC.CancelFunctionsInvoke();
                     PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);

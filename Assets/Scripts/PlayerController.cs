@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     bool slide = false;
     public GameObject Portal;
     public PUButtonsHandler PUButtonhandlerRef;
+    public Animator MonsterAnim;
 
     string TurnTag;
 
@@ -272,6 +273,7 @@ public class PlayerController : MonoBehaviour
         //Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
+        MonsterAnim.SetBool("Attack", false);
         InvokeRepeating("TotalTimeCount", 1, 1);
         if (ResetRef != null)
         {
@@ -279,6 +281,10 @@ public class PlayerController : MonoBehaviour
 
         }
         // InvokeRepeating("StoreLastPlayerPosition", 5, 1);
+    }
+    public void MonsterAttackAnim()
+    {
+        MonsterAnim.SetBool("Attack", true);
     }
     //Player dummy collider to check if its on ground
     private void OnCollisionEnter(Collision collision)
@@ -290,6 +296,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
+                    MonsterAnim.SetBool("Attack", true);
                     CancelFunctionsInvoke();
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
