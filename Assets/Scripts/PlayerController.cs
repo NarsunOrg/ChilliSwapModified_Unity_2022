@@ -596,13 +596,13 @@ public class PlayerController : MonoBehaviour
         }
     }
     #endregion
-    public void SuperSpeedTurn(GameObject NextPosition, GameObject currentTag)
+    public void SuperSpeedTurn(GameObject NextPosition, string currentTag)
     {
         nextTransformPosition = NextPosition;
-        
         FollowPlayer.lookatspeed = 0.2f;
         ChangingPlatform = true;
-        ChangeState(currentTag.transform.tag);
+        TurnTag = currentTag;
+        ChangeState(currentTag);
     }
     public void DisablePowerUps()
     {
