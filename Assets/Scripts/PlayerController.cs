@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Parent;
     public float speed, IncreasedSpeed; //CurrentSpeed
     float Jumpforce;
-    int Line = 0;
+  public  int Line = 0;
     bool changingline = false;
     public bool ChangingPlatform = false;
     GameObject nextTransformPosition;
@@ -268,8 +268,8 @@ public class PlayerController : MonoBehaviour
         // Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z + 10);
         Parent.transform.localPosition = (Parent.transform.forward * -10f) + Parent.transform.localPosition;
         
-        transform.DOLocalMoveX(0, 0.1f);
-        Monster.transform.DOLocalMoveX(0, 0.1f);
+        //transform.DOLocalMoveX(0, 0.1f);
+        //Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
         dead = false;
         InvokeRepeating("TotalTimeCount", 1, 1);
