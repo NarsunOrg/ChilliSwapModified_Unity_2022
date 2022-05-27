@@ -28,11 +28,11 @@ public class PUButtonsHandler : MonoBehaviour
             {
                 buttonsList[i].interactable = true;
             }
-            if (currenttext.text != null)
-            {
-                currenttext.text = (number + 1).ToString();
+            //if (currenttext.text != null)
+            //{
+            //    currenttext.text = (number + 1).ToString();
 
-            }
+            //}
             time = 10;
             powerupInUse = false;
         }
