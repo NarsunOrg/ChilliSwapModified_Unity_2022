@@ -499,10 +499,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            InvisibilityBool = true;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-            ResetRef = StartCoroutine(ResetPowerUp(Invisibility));
+            if (!dead)
+            {
+                InvisibilityBool = true;
+                rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
+                rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                ResetRef = StartCoroutine(ResetPowerUp(Invisibility));
+            }
         }
         else
         {
@@ -516,9 +519,12 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            Jumpforce = 650;
-            GroundedTime = 0.8f;
-            ResetRef = StartCoroutine(ResetPowerUp(SuperJump));
+            if (!dead)
+            {
+                Jumpforce = 650;
+                GroundedTime = 0.8f;
+                ResetRef = StartCoroutine(ResetPowerUp(SuperJump));
+            }
         }
         else
         {
@@ -532,12 +538,15 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            motionEffect.SetActive(true);
-            PlayerAnim.SetFloat("RunningSpeed", 2);
-            //CurrentSpeed = speed;
-            speed = speed * 4;
-            SuperSpeedBool = true;
-            ResetRef = StartCoroutine(ResetPowerUp(SuperSpeed));
+            if (!dead)
+            {
+                motionEffect.SetActive(true);
+                PlayerAnim.SetFloat("RunningSpeed", 2);
+                //CurrentSpeed = speed;
+                speed = speed * 4;
+                SuperSpeedBool = true;
+                ResetRef = StartCoroutine(ResetPowerUp(SuperSpeed));
+            }
         }
         else
         {
@@ -552,10 +561,13 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            //CurrentSpeed = speed;
-            speed = speed / 2;
-            PlayerAnim.SetFloat("RunningSpeed", 0.7f);
-            ResetRef = StartCoroutine(ResetPowerUp(SlowingDown));
+            if (!dead)
+            {
+                //CurrentSpeed = speed;
+                speed = speed / 2;
+                PlayerAnim.SetFloat("RunningSpeed", 0.7f);
+                ResetRef = StartCoroutine(ResetPowerUp(SlowingDown));
+            }
         }
         else
         {
@@ -568,15 +580,19 @@ public class PlayerController : MonoBehaviour
     {
         if(!powerUpInUse)
         {
-            PortalUse = true;
-            if (SpawnManager.instance.os != null)
+            if (!dead)
             {
-                SpawnManager.instance.os.DestroyChillies();
-                SpawnManager.instance.os.DestroyHurdles();
+                PortalUse = true;
+                if (SpawnManager.instance.os != null)
+                {
+                    SpawnManager.instance.os.DestroyChillies();
+                    SpawnManager.instance.os.DestroyHurdles();
+                }
+                Portal.transform.GetChild(0).gameObject.SetActive(true);
+                Portal.transform.SetParent(null);
+                ChangingPlatform = false;
             }
-            Portal.transform.GetChild(0).gameObject.SetActive(true);
-            Portal.transform.SetParent(null);
-            ChangingPlatform = false;
+            
             //GameObject teleportPortal = Instantiate(Portal, new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y, this.gameObject.transform.position.z - 15f), this.gameObject.transform.rotation);
             //PlayerAnim.SetFloat("RunningSpeed", 3);
             //CurrentSpeed = speed;
@@ -596,9 +612,12 @@ public class PlayerController : MonoBehaviour
     {
         if (!powerUpInUse)
         {
-            LaserToUse.SetActive(true);
-            LaserEffect.SetActive(true);
-            ResetRef = StartCoroutine(ResetPowerUp(LaserGoggles));
+            if (!dead)
+            {
+                LaserToUse.SetActive(true);
+                LaserEffect.SetActive(true);
+                ResetRef = StartCoroutine(ResetPowerUp(LaserGoggles));
+            }
         }
         else
         {
