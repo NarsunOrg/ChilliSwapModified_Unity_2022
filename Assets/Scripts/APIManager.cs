@@ -143,6 +143,7 @@ public class APIManager : MonoBehaviour
         //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
         GetSwapChilliesApi();
+        //
     }
 
     public void GetProfileAPI()
