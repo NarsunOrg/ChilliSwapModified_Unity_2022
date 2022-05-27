@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
     Coroutine ResetRef;
     public bool PortalUse = false;
+    public float portalDistanceMultiplier = 0.5f;
+    public int portaldistance = 0;
+
 
     public void SettingBoy()
     {
@@ -105,8 +108,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     //   Debug.Log(Parent.gameObject.transform.position);
-
         #region speed
         if (speedTimer < 20)
         {
@@ -118,7 +119,15 @@ public class PlayerController : MonoBehaviour
             IncreasedSpeed = speed;
             speedTimer = 0;
         }
-        GameManager.instance.TotalDIstanceCovered = (int)speed * GameManager.instance.TotalTimeSpend;
+        if (PortalUse)
+        {
+            portaldistance = ((int)speed * GameManager.instance.TotalTimeSpend) * (int)portalDistanceMultiplier;
+        }
+        else
+        {
+            GameManager.instance.TotalDIstanceCovered = ((int)speed * GameManager.instance.TotalTimeSpend) + portaldistance;
+        }
+
         #endregion
 
         #region Keyboard Input
@@ -146,7 +155,6 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.RightArrow) && ChangingPlatform && !dead && TurnTag == "Right")
         {
-            Debug.Log("right");
             ChangeState("Right");
         }
         
@@ -248,7 +256,7 @@ public class PlayerController : MonoBehaviour
         //Line = 0;
         AlreadyHit = false;
         powerUpInUse = false;
-        InvisibilityBool = false;
+        //InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
@@ -606,7 +614,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DisablePowerUps()
     {
-        InvisibilityBool = false;
+        //InvisibilityBool = false;
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
         GroundedTime = 0.8f;
@@ -628,6 +636,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.tag == "portal")
         {
+            portalDistanceMultiplier = 2;
             FollowPlayer.lookatspeed = 0;
             int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
             Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
@@ -685,6 +694,7 @@ public class PlayerController : MonoBehaviour
 
     public void DelayPortalCall()
     {
+        portalDistanceMultiplier = 1;
         Portal.transform.SetParent(Parent.transform);
         Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
         Portal.transform.localRotation = Quaternion.EulerAngles(0, 0, 0);
