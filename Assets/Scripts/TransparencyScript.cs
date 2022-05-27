@@ -19,9 +19,11 @@ public class TransparencyScript : MonoBehaviour
         if(playerRef.InvisibilityBool)
         {
             gameObject.GetComponent<SkinnedMeshRenderer>().material = transparent;
+            gameObject.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
         }
         else
         {
+            gameObject.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
             gameObject.GetComponent<SkinnedMeshRenderer>().material = OwnMaterial;
         }
     }
