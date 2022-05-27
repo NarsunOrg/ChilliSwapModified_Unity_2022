@@ -402,7 +402,8 @@ public class PlayerController : MonoBehaviour
         if (Jumpforce == 650)
         {
             GravityEffect.SetActive(true);
-            StartCoroutine("gravityFunction");
+            //StartCoroutine("gravityFunction");
+            Invoke("gravityFunction", 0.5f);
         }
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
@@ -419,14 +420,17 @@ public class PlayerController : MonoBehaviour
         isGrounded = true;
         if (Jumpforce == 650)
         {
-            GravityEffect.SetActive(true);
-            StartCoroutine("gravityFunction");
+            Invoke("gravityDownFunction", 0.3f);
         }
     }
-    IEnumerator gravityFunction()
+    public void gravityFunction()
     {
-        yield return new WaitForSeconds(0.5f);
         GravityEffect.SetActive(false);
+    }
+    public void gravityDownFunction()
+    {
+        GravityEffect.SetActive(true);
+        Invoke("gravityFunction", 0.5f);
     }
 
     public void Down()
