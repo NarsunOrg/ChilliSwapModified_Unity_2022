@@ -15,7 +15,7 @@ public class OffsetFollower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.DOLocalMoveX(dummy.transform.localPosition.x, 0.5f);
-        gameObject.transform.DOLocalMoveY(dummy.transform.localPosition.y + 2.4f, 0.5f);
+        gameObject.transform.DOLocalMoveX(dummy.transform.localPosition.x, 0.1f);
+        gameObject.transform.DOLocalMoveY(dummy.transform.localPosition.y + 3.5f, 0.5f);
     }
 }
