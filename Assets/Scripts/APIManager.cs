@@ -79,6 +79,11 @@ public class TournamentResultData
 
 
 //GetLeaderboard API STRUCTURE
+public class GetLeaderboardAPIResponse
+{
+    //public LeaderboardData[] ;
+}
+
 [Serializable]
 public class LeaderboardData
 {
@@ -119,6 +124,8 @@ public class APIManager : MonoBehaviour
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
     public SetCharacterData[] SetCharacter;
+    public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
+    public LeaderboardData LeaderboardData;
     public GameObject TournamentButton;
     public Transform TournamentScrollContent;
     private TimeSpan diffStartTime;
@@ -136,13 +143,13 @@ public class APIManager : MonoBehaviour
             Destroy(this);
         }
         //SetCharacter = new SetCharacterData[2];
-        //GetProfileAPI();
+        GetProfileAPI();
         //GetAllTournamentsAPI();
         //PostTournamentResultApi();
-        //GetLeaderboardAPI();
+        GetLeaderboardAPI();
         //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
-        GetSwapChilliesApi();
+        //GetSwapChilliesApi();
         //
     }
 
@@ -162,6 +169,9 @@ public class APIManager : MonoBehaviour
             Debug.Log(res.Text);
             GetProfileAPIResponseVar = new GetProfileAPIResponse();
             GetProfileAPIResponseVar = JsonUtility.FromJson<GetProfileAPIResponse>(res.Text);
+
+            UISelectionManager.instance.UserTokens.text = GetProfileAPIResponseVar.ChilliTokenAmount.ToString();
+            UISelectionManager.instance.UserTotalCollectedChillies.text = GetProfileAPIResponseVar.CollectedChillis.ToString();
 
             Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
             Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
@@ -207,7 +217,8 @@ public class APIManager : MonoBehaviour
                 GameObject TournamentObj = Instantiate(TournamentButton, TournamentScrollContent);
                 TournamentDetail _TournamentDetails = TournamentObj.GetComponent<TournamentDetail>();
                 _TournamentDetails.TournamentName_Text.text = GetAllTournamnetsAPIResponseVar.data[i].tournament_name;
-                _TournamentDetails.TournamentDuration_Text.text = GetAllTournamnetsAPIResponseVar.data[i].duration;
+                _TournamentDetails.Tournamentid = GetAllTournamnetsAPIResponseVar.data[i]._id;
+                //_TournamentDetails.TournamentDuration_Text.text = GetAllTournamnetsAPIResponseVar.data[i].duration;
 
                 string StartDateTime = GetAllTournamnetsAPIResponseVar.data[i].start_date;
                 DateTime startTime = DateTime.Parse(StartDateTime).ToUniversalTime();
@@ -300,6 +311,11 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log("responce received of GetLeaderboardAPI");
             Debug.Log(res.Text);
+            GetLeaderboardAPIResponseVar = new GetLeaderboardAPIResponse();
+            GetLeaderboardAPIResponseVar = JsonUtility.FromJson<GetLeaderboardAPIResponse>(res.Text);
+
+            
+           
 
         }).Catch(err =>
         {

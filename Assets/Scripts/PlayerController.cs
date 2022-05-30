@@ -767,11 +767,11 @@ public class PlayerController : MonoBehaviour
         }
         else if (i == 1)
         {
-            Monster.transform.DOLocalMoveZ(-2, 0.5f);
+            Monster.transform.DOLocalMoveZ(-2.5f, 0.5f);
         }
         else
         {
-            Monster.transform.DOLocalMoveZ(-1, 0.5f);
+            Monster.transform.DOLocalMoveZ(-2.5f, 0.5f);
         }
     }
     IEnumerator TeleportReset()

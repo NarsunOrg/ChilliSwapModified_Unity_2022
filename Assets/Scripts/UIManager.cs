@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
     public Text PlayerTotalTimeSpendText;
     public Text PlayerTotalDistanceCoveredText;
 
+
     public void Update()
     {
         ChilliCountText.text = GameManager.instance.CollectedChillis.ToString();

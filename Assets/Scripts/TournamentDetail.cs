@@ -6,8 +6,11 @@ using System;
 
 public class TournamentDetail : MonoBehaviour
 {
+    public string Tournamentid;
     public Text TournamentName_Text;
-    public Text Timer_Text;
+    public Text TimerHour_Text;
+    public Text TimerMinutes_Text;
+    public Text TimerSeconds_Text;
     public Text TournamentDuration_Text;
     public TimeSpan Timer;
     public double RemainingTimeSeconds;
@@ -49,6 +52,15 @@ public class TournamentDetail : MonoBehaviour
     private void Update()
     {
         //Timer_Text.text = ( ((int)RemainingTimeSeconds/60)/60).ToString()+"h"+ ((int)RemainingTimeSeconds / 60).ToString()+ "m" + ((int)RemainingTimeSeconds %60).ToString()+"s";
-        Timer_Text.text = (int)RemainingTimeHours + "h" + (int)RemainingTimeMinutes + "m" + (int)RemainingTimeSeconds + "s";
+        //Timer_Text.text = RemainingTimeHours.ToString("00")+":"+RemainingTimeMinutes.ToString("00")+":"+RemainingTimeSeconds.ToString("00");
+        TimerHour_Text.text = RemainingTimeHours.ToString("00");
+        TimerMinutes_Text.text = RemainingTimeMinutes.ToString("00");
+        TimerSeconds_Text.text = RemainingTimeSeconds.ToString("00");
+    }
+
+    public void OnButtonClick()
+    {
+        UISelectionManager.instance.TournamentId = Tournamentid;
+        UISelectionManager.instance.EnvironmentsSelectionPanel.SetActive(true);
     }
 }
