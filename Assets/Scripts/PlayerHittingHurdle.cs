@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,7 +31,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
                         PC.MonsterAttackAnim();
-                        PC.CancelFunctionsInvoke();
+                        //PC.CancelFunctionsInvoke();
                         PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
                         
@@ -71,7 +72,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
                     PC.MonsterAttackAnim();
-                    PC.CancelFunctionsInvoke();
+                    //PC.CancelFunctionsInvoke();
                     PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);
                     GameManager.instance.CurrentLives -= 1;
@@ -120,6 +121,12 @@ public class PlayerHittingHurdle : MonoBehaviour
 
     public void LoadSceneDelayCall()
     {
-        SceneManager.LoadScene(0);
+        UIManager.instance.GameOverPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
+        UIManager.instance.GameOverPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
+        UIManager.instance.GameOverPanelTimeMinuteText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Minutes).ToString("00");
+        UIManager.instance.GameOverPanelTimeSecondsText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Seconds).ToString("00");
+        UIManager.instance.GameOverPanelDistanceCoveredText.text = (GameManager.instance.TotalDIstanceCovered / 10000).ToString();
+        UIManager.instance.GameOverPanel.SetActive(true);
+        //SceneManager.LoadScene(0);
     }
 }

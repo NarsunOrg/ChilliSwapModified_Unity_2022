@@ -8,6 +8,8 @@ using DG.Tweening;
 public class UISelectionManager : MonoBehaviour
 {
     public static UISelectionManager instance;
+    public GameObject ProfileInnerPanel;
+    public GameObject SwapChilliMessagePanel;
     public GameObject EnvironmentsSelectionPanel;
     public GameObject LeaderboardPanel;
     public string TournamentId;
@@ -17,6 +19,7 @@ public class UISelectionManager : MonoBehaviour
     public int EnvNumber = 1;
     public GameObject[] EnvImagesList;
     public GameObject cam;
+
 
 
     void Start()
@@ -113,5 +116,6 @@ public class UISelectionManager : MonoBehaviour
     public void OnPowerUpSelectButton()
     {
         SceneManager.LoadScene(EnvNumber);
+        GameConstants.SceneLoaded = EnvNumber;
     }
 }

@@ -79,9 +79,10 @@ public class TournamentResultData
 
 
 //GetLeaderboard API STRUCTURE
+[Serializable]
 public class GetLeaderboardAPIResponse
 {
-    //public LeaderboardData[] ;
+    public LeaderboardData[] Data;
 }
 
 [Serializable]
@@ -125,9 +126,11 @@ public class APIManager : MonoBehaviour
     public GetProfileAPIResponse GetProfileAPIResponseVar;
     public SetCharacterData[] SetCharacter;
     public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
-    public LeaderboardData LeaderboardData;
+    //public LeaderboardData[] leaderboard;
     public GameObject TournamentButton;
     public Transform TournamentScrollContent;
+    public GameObject LeaderboardRow;
+    public Transform LeaderboardScrollContent;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
 
@@ -314,8 +317,19 @@ public class APIManager : MonoBehaviour
             GetLeaderboardAPIResponseVar = new GetLeaderboardAPIResponse();
             GetLeaderboardAPIResponseVar = JsonUtility.FromJson<GetLeaderboardAPIResponse>(res.Text);
 
-            
-           
+            for (int i = 1; i <= GetLeaderboardAPIResponseVar.Data.Length; i++)
+            {
+                GameObject LeaderboardObj = Instantiate(LeaderboardRow, LeaderboardScrollContent);
+                LeaderboardDetails _LeaderboardDetails = LeaderboardObj.GetComponent<LeaderboardDetails>();
+                _LeaderboardDetails.RankText.text = i.ToString();
+                _LeaderboardDetails.UserNameText.text = GetLeaderboardAPIResponseVar.Data[i].user;
+                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Hours); 
+                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Minutes);
+                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Seconds);
+                //_LeaderboardDetails.TimeSpendText.text = GetLeaderboardAPIResponseVar.Data[i].time;
+                _LeaderboardDetails.DistanceCoveredText.text = GetLeaderboardAPIResponseVar.Data[i].distance;
+                _LeaderboardDetails.ChilliesCollectedText.text = GetLeaderboardAPIResponseVar.Data[i].collected_chillies;
+            }
 
         }).Catch(err =>
         {
@@ -369,9 +383,15 @@ public class APIManager : MonoBehaviour
         {
             Debug.Log("responce received of GetSwapChilliesApi");
             Debug.Log(res.Text);
+            if (int.Parse(UISelectionManager.instance.UserTotalCollectedChillies.text) < 500)
+            {
+                UISelectionManager.instance.ProfileInnerPanel.SetActive(false);
+                UISelectionManager.instance.SwapChilliMessagePanel.SetActive(true);
+            }
 
         }).Catch(err =>
         {
+            
             Debug.Log("Error Response" + err);
         });
     }

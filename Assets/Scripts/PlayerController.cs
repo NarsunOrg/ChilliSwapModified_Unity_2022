@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System;
 
 public class PlayerController : MonoBehaviour
 {
@@ -56,6 +57,7 @@ public class PlayerController : MonoBehaviour
     public bool PortalUse = false;
     public float portalDistanceMultiplier = 0.5f;
     public int portaldistance = 0;
+    public int SuperSpeedDistance = 0;
 
 
     public void SettingBoy()
@@ -120,15 +122,10 @@ public class PlayerController : MonoBehaviour
             IncreasedSpeed = speed;
             speedTimer = 0;
         }
-        if (PortalUse)
+        if (!dead)
         {
-            portaldistance = ((int)speed * GameManager.instance.TotalTimeSpend) * (int)portalDistanceMultiplier;
+            GameManager.instance.TotalDIstanceCovered += ((int)speed * GameManager.instance.TotalTimeSpend);
         }
-        else
-        {
-            GameManager.instance.TotalDIstanceCovered = ((int)speed * GameManager.instance.TotalTimeSpend) + portaldistance;
-        }
-
         #endregion
 
         #region Keyboard Input
@@ -321,7 +318,13 @@ public class PlayerController : MonoBehaviour
 
     public void LoadSceneDelayCall()
     {
-        SceneManager.LoadScene(0);
+        UIManager.instance.GameOverPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
+        UIManager.instance.GameOverPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
+        UIManager.instance.GameOverPanelTimeMinuteText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Minutes).ToString("00");
+        UIManager.instance.GameOverPanelTimeSecondsText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Seconds).ToString("00");
+        UIManager.instance.GameOverPanelDistanceCoveredText.text = (GameManager.instance.TotalDIstanceCovered / 10000).ToString();
+        UIManager.instance.GameOverPanel.SetActive(true);
+        //SceneManager.LoadScene(0);
     }
 
     public void PanelDelayCall()
@@ -668,7 +671,7 @@ public class PlayerController : MonoBehaviour
         {
             portalDistanceMultiplier = 2;
             FollowPlayer.lookatspeed = 0;
-            int randompoint = Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
+            int randompoint = UnityEngine.Random.Range(0, GameManager.instance._playerSpawnPoints.Length);
             Parent.transform.position = GameManager.instance._playerSpawnPoints[randompoint].position;
             Parent.transform.rotation = GameManager.instance._playerSpawnPoints[randompoint].rotation;
             Portal.transform.SetParent(Parent.transform);
