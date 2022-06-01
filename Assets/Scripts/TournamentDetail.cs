@@ -60,7 +60,7 @@ public class TournamentDetail : MonoBehaviour
 
     public void OnButtonClick()
     {
-        UISelectionManager.instance.TournamentId = Tournamentid;
+        GameConstants.JoinedTournamentId = Tournamentid;
         UISelectionManager.instance.EnvironmentsSelectionPanel.SetActive(true);
     }
 }

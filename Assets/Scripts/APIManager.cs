@@ -271,13 +271,13 @@ public class APIManager : MonoBehaviour
         });
     }
 
-    public void PostTournamentResultApi()
+    public void PostTournamentResultApi(string _TournamentId, string _Distance, string _Time, string _CollectedChillis)
     {
         TournamentResultData _TournamentResultData = new TournamentResultData() ;
-        _TournamentResultData.tournament_id = "6269242b287e913281f770f3";
-        _TournamentResultData.distance = "2";
-        _TournamentResultData.time = "9 am";
-        _TournamentResultData.collected_chillies = "test";
+        _TournamentResultData.tournament_id = _TournamentId;
+        _TournamentResultData.distance = _Distance;
+        _TournamentResultData.time = _Time;
+        _TournamentResultData.collected_chillies = _CollectedChillis;
        
         RestClient.Request(new RequestHelper
         {

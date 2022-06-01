@@ -4085,7 +4085,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &184715321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12002,7 +12002,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &612754349
 RectTransform:
   m_ObjectHideFlags: 0
@@ -29258,8 +29258,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -131, y: -164}
-  m_SizeDelta: {x: 192, y: 219}
+  m_AnchoredPosition: {x: -139, y: -148}
+  m_SizeDelta: {x: 192, y: 179}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1397476419
 MonoBehaviour:
@@ -29337,9 +29337,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f1218d0b0c80e89439551890f7ba1a36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9dabdb3b3b5b3d946b3fab9c23518a6c, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -33801,7 +33801,6 @@ MonoBehaviour:
   SwapChilliMessagePanel: {fileID: 113620206}
   EnvironmentsSelectionPanel: {fileID: 1737651636}
   LeaderboardPanel: {fileID: 464381980}
-  TournamentId: 
   UserTokens: {fileID: 734680726}
   UserTotalCollectedChillies: {fileID: 751991664}
   EnvNameText: {fileID: 199960513}
@@ -33814,6 +33813,7 @@ MonoBehaviour:
   - {fileID: 1320355976}
   - {fileID: 1654595619}
   cam: {fileID: 1823933839}
+  CharacterNameText: {fileID: 1397023227}
 --- !u!4 &1637134122
 Transform:
   m_ObjectHideFlags: 0

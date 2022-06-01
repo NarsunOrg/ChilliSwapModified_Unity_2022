@@ -12,4 +12,5 @@ public static class GameConstants
     public static string CharacterType = "Boy";
     public static string GameType = "Single";
     public static int SceneLoaded = 0;
+    public static string JoinedTournamentId;
 }

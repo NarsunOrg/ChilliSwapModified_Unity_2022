@@ -122,7 +122,7 @@ public class PlayerController : MonoBehaviour
             IncreasedSpeed = speed;
             speedTimer = 0;
         }
-        if (!dead)
+        if (!dead && UIManager.instance.IsPaused == false)
         {
             GameManager.instance.TotalDIstanceCovered += ((int)speed * GameManager.instance.TotalTimeSpend);
         }
@@ -301,6 +301,10 @@ public class PlayerController : MonoBehaviour
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
                     {
+                        if (GameConstants.GameType == "Tournament")
+                        {
+                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, GameManager.instance.TotalDIstanceCovered.ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                        }
                         Invoke("LoadSceneDelayCall", 3f);
                     }
                     else
@@ -324,7 +328,19 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.GameOverPanelTimeSecondsText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Seconds).ToString("00");
         UIManager.instance.GameOverPanelDistanceCoveredText.text = (GameManager.instance.TotalDIstanceCovered / 10000).ToString();
         UIManager.instance.GameOverPanel.SetActive(true);
-        //SceneManager.LoadScene(0);
+        if (GameConstants.GameType == "Tournament")
+        {
+            UIManager.instance.HomeButton.SetActive(false);
+            UIManager.instance.RestartButton.SetActive(false);
+            UIManager.instance.GameOverHomeButton.SetActive(true);
+        }
+        else
+        {
+            UIManager.instance.HomeButton.SetActive(true);
+            UIManager.instance.RestartButton.SetActive(true);
+            UIManager.instance.GameOverHomeButton.SetActive(false);
+        }
+            //SceneManager.LoadScene(0);
     }
 
     public void PanelDelayCall()

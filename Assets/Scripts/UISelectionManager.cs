@@ -12,14 +12,14 @@ public class UISelectionManager : MonoBehaviour
     public GameObject SwapChilliMessagePanel;
     public GameObject EnvironmentsSelectionPanel;
     public GameObject LeaderboardPanel;
-    public string TournamentId;
+    //public string TournamentId;
     public Text UserTokens;
     public Text UserTotalCollectedChillies;
     public Text EnvNameText;
     public int EnvNumber = 1;
     public GameObject[] EnvImagesList;
     public GameObject cam;
-
+    public Text CharacterNameText;
 
 
     void Start()
@@ -78,7 +78,7 @@ public class UISelectionManager : MonoBehaviour
         if (GameConstants.CharacterType == "Boy")
         {
             GameConstants.CharacterType = "Girl";
-            //CharacterText.text = GameConstants.CharacterType;
+            CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
             Debug.Log(angel);
@@ -86,7 +86,7 @@ public class UISelectionManager : MonoBehaviour
         else if (GameConstants.CharacterType == "Girl")
         {
             GameConstants.CharacterType = "Boy";
-            //CharacterText.text = GameConstants.CharacterType;
+            CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
             Debug.Log(angel);
@@ -98,7 +98,7 @@ public class UISelectionManager : MonoBehaviour
         if (GameConstants.CharacterType == "Boy")
         {
             GameConstants.CharacterType = "Girl";
-            //CharacterText.text = GameConstants.CharacterType;
+            CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
             Debug.Log(angel);
@@ -106,7 +106,7 @@ public class UISelectionManager : MonoBehaviour
         else if (GameConstants.CharacterType == "Girl")
         {
             GameConstants.CharacterType = "Boy";
-            //CharacterText.text = GameConstants.CharacterType;
+            CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
             Debug.Log(angel);

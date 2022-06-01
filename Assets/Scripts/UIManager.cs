@@ -8,8 +8,12 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
+    public bool IsPaused = false;
     public GameObject PausedPanel;
     public GameObject GameOverPanel;
+    public GameObject HomeButton;
+    public GameObject RestartButton;
+    public GameObject GameOverHomeButton;
 
     //For Gameplay text fields
     public Text ChilliCountText;
@@ -33,7 +37,10 @@ public class UIManager : MonoBehaviour
     public Text GameOverPanelTimeSecondsText;
     public Text GameOverPanelDistanceCoveredText;
 
-
+    public void Awake()
+    {
+        instance = this;
+    }
 
     public void Update()
     {
@@ -48,6 +55,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPausedButton()
     {
+        IsPaused = true;
         Time.timeScale = 0;
         PausedPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
         PausedPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
@@ -60,6 +68,7 @@ public class UIManager : MonoBehaviour
     public void OnReplayButton()
     {
         Time.timeScale = 1;
+        IsPaused = false;
         PausedPanel.SetActive(false);
     }
 
