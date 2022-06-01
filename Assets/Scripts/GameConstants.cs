@@ -13,4 +13,5 @@ public static class GameConstants
     public static string GameType = "Single";
     public static int SceneLoaded = 0;
     public static string JoinedTournamentId;
+    public static bool IsPaused = false;
 }

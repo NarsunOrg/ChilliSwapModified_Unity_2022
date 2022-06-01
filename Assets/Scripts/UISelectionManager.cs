@@ -11,8 +11,6 @@ public class UISelectionManager : MonoBehaviour
     public GameObject ProfileInnerPanel;
     public GameObject SwapChilliMessagePanel;
     public GameObject EnvironmentsSelectionPanel;
-    public GameObject LeaderboardPanel;
-    //public string TournamentId;
     public Text UserTokens;
     public Text UserTotalCollectedChillies;
     public Text EnvNameText;
@@ -25,14 +23,6 @@ public class UISelectionManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        if (GameConstants.GameType == "Single")
-        {
-            LeaderboardPanel.SetActive(false);
-        }
-        else
-        {
-            LeaderboardPanel.SetActive(true);
-        }
     }
 
     public void OnSingleButton()

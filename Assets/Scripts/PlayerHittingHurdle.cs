@@ -20,7 +20,7 @@ public class PlayerHittingHurdle : MonoBehaviour
        
         if (other.gameObject.tag == "Hurdle")
         {
-            if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
+            if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
             {
 
                 if (PC.AlreadyHit)
@@ -40,7 +40,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                         {
                             if (GameConstants.GameType == "Tournament")
                             {
-                                APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, GameManager.instance.TotalDIstanceCovered.ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                                APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 1000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
                             }
                             Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
                             //Invoke("PanelDelayCall", 3f);
@@ -68,7 +68,7 @@ public class PlayerHittingHurdle : MonoBehaviour
 
         if (other.gameObject.tag == "HurdleDie")
         {
-            if (!PC.InvisibilityBool && !PC.SuperSpeedBool)
+            if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
             {
                 PC.MonsterMovement(2);
                 if (PC.dead == false && PC.PortalUse == false)
@@ -84,7 +84,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     {
                         if (GameConstants.GameType == "Tournament")
                         {
-                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, GameManager.instance.TotalDIstanceCovered.ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
                         }
                         Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
                         //Invoke("PanelDelayCall", 3f);
