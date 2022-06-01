@@ -9,6 +9,7 @@ public class LeaderboardDetails : MonoBehaviour
     public Text UserNameText;
     public Text TimeHoursText;
     public Text TimeMinutesText;
+    public Text TimeSecondsText;
     public Text ChilliesCollectedText;
     public Text DistanceCoveredText;
 

@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public string CurrentRespectiveState;
     bool hasSwiped;
     public bool InvisibilityBool;
+    public bool RespawnInvisibilityBool;
     public bool SuperSpeedBool;
     public GameObject LaserToUse;
     public float speedTimer;
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour
             IncreasedSpeed = speed;
             speedTimer = 0;
         }
-        if (!dead && UIManager.instance.IsPaused == false)
+        if (!dead && GameConstants.IsPaused == false)
         {
             GameManager.instance.TotalDIstanceCovered += ((int)speed * GameManager.instance.TotalTimeSpend);
         }
@@ -247,6 +248,7 @@ public class PlayerController : MonoBehaviour
 
     public void RespwanPlayer()
     {
+        dead = false;
         RespawnInvisibility();
         DisablePowerUps();
         ChangingPlatform = false;
@@ -254,7 +256,7 @@ public class PlayerController : MonoBehaviour
         //Line = 0;
         AlreadyHit = false;
         powerUpInUse = false;
-        //InvisibilityBool = false;
+        InvisibilityBool = false;
         SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
@@ -264,12 +266,12 @@ public class PlayerController : MonoBehaviour
         PlayerAnim.SetBool("Death", false);
         AlreadyHit = false;
         // Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z + 10);
-        Parent.transform.localPosition = (Parent.transform.forward * -10f) + Parent.transform.localPosition;
+        Parent.transform.localPosition = (Parent.transform.forward * -20f) + Parent.transform.localPosition;
         
         //transform.DOLocalMoveX(0, 0.1f);
         //Monster.transform.DOLocalMoveX(0, 0.1f);
         FollowPlayer.lookatspeed = 1;
-        dead = false;
+        
         MonsterAnim.SetBool("Attack", false);
         InvokeRepeating("TotalTimeCount", 1, 1);
         if (ResetRef != null)
@@ -303,7 +305,8 @@ public class PlayerController : MonoBehaviour
                     {
                         if (GameConstants.GameType == "Tournament")
                         {
-                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, GameManager.instance.TotalDIstanceCovered.ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                            Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
                         }
                         Invoke("LoadSceneDelayCall", 3f);
                     }
@@ -509,18 +512,63 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnInvisibility()
     {
-        //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
-        //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
-        InvisibilityBool = true;
-        Invoke("RespawnInvisibilityDelayCall", 3f);
+        RespawnInvisibilityBool = true;
+        if (GameConstants.CharacterType == "Boy")
+        {
+            StartCoroutine(OnRespawnInvisibilityofBoy());
+        }
+        else
+        {
+            StartCoroutine(OnRespawnInvisibilityofGirl());
+        }
+        Invoke("RespawnInvisibilityDelayCall", 0.5f);
     }
 
     public void RespawnInvisibilityDelayCall()
     {
-        InvisibilityBool = false;
-        //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-        //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        if (GameConstants.CharacterType == "Boy")
+        {
+            StopCoroutine(OnRespawnInvisibilityofBoy());
+        }
+        else
+        {
+            StopCoroutine(OnRespawnInvisibilityofGirl());
+        }
+        RespawnInvisibilityBool = false;
+
+
     }
+
+    IEnumerator OnRespawnInvisibilityofBoy()
+    {
+        float re = 0;
+
+        while (re < 0.5 && !dead)
+        {
+            Boy.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            Boy.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            re += 0.1f;
+        }
+
+    }
+
+    IEnumerator OnRespawnInvisibilityofGirl()
+    {
+        float re = 0;
+        
+        while (re < 0.5 && !dead)
+        {
+            Girl.SetActive(false);
+            yield return new WaitForSeconds(0.1f);
+            Girl.SetActive(true);
+            yield return new WaitForSeconds(0.1f);
+            re += 0.1f;
+        }
+
+    }
+
     public void Invisibility()
     {
         if (!powerUpInUse)
@@ -663,7 +711,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DisablePowerUps()
     {
-        //InvisibilityBool = false;
+        InvisibilityBool = false;
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
         GroundedTime = 0.8f;

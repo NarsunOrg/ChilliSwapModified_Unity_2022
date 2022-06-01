@@ -118,7 +118,7 @@ public class APIManager : MonoBehaviour
     private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
     private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
     private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
-    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/6269242b287e913281f770f3";
+    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
     private string SetCharacterURL = "http://54.179.83.173/api/character/set";
     private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
 
@@ -149,7 +149,7 @@ public class APIManager : MonoBehaviour
         GetProfileAPI();
         //GetAllTournamentsAPI();
         //PostTournamentResultApi();
-        GetLeaderboardAPI();
+        //GetLeaderboardAPI();
         //Invoke("SetCharacterApi", 2f);
         //SetCharacterApi();
         //GetSwapChilliesApi();
@@ -300,11 +300,11 @@ public class APIManager : MonoBehaviour
         });
     }
 
-    public void GetLeaderboardAPI()
+    public void GetLeaderboardAPI(Transform LeaderboardContent)
     {
         RestClient.Request(new RequestHelper
         {
-            Uri = GetLeaderBoardURL,
+            Uri = GetLeaderBoardURL + GameConstants.JoinedTournamentId, 
             Method = "GET",
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
@@ -319,14 +319,13 @@ public class APIManager : MonoBehaviour
 
             for (int i = 1; i <= GetLeaderboardAPIResponseVar.Data.Length; i++)
             {
-                GameObject LeaderboardObj = Instantiate(LeaderboardRow, LeaderboardScrollContent);
+                GameObject LeaderboardObj = Instantiate(LeaderboardRow, LeaderboardContent);
                 LeaderboardDetails _LeaderboardDetails = LeaderboardObj.GetComponent<LeaderboardDetails>();
                 _LeaderboardDetails.RankText.text = i.ToString();
                 _LeaderboardDetails.UserNameText.text = GetLeaderboardAPIResponseVar.Data[i].user;
-                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Hours); 
-                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Minutes);
-                Debug.Log(TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Seconds);
-                //_LeaderboardDetails.TimeSpendText.text = GetLeaderboardAPIResponseVar.Data[i].time;
+                _LeaderboardDetails.TimeHoursText.text = (TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Hours).ToString("00");
+                _LeaderboardDetails.TimeMinutesText.text = (TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Minutes).ToString("00");
+                _LeaderboardDetails.TimeSecondsText.text = (TimeSpan.FromSeconds(float.Parse(GetLeaderboardAPIResponseVar.Data[i].time)).Seconds).ToString("00");
                 _LeaderboardDetails.DistanceCoveredText.text = GetLeaderboardAPIResponseVar.Data[i].distance;
                 _LeaderboardDetails.ChilliesCollectedText.text = GetLeaderboardAPIResponseVar.Data[i].collected_chillies;
             }

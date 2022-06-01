@@ -8,9 +8,10 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    public bool IsPaused = false;
     public GameObject PausedPanel;
     public GameObject GameOverPanel;
+    public GameObject LeaderboardPanel;
+    public Transform LeaderboardScrollContent;
     public GameObject HomeButton;
     public GameObject RestartButton;
     public GameObject GameOverHomeButton;
@@ -55,7 +56,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPausedButton()
     {
-        IsPaused = true;
+        GameConstants.IsPaused = true;
         Time.timeScale = 0;
         PausedPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
         PausedPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
@@ -68,7 +69,7 @@ public class UIManager : MonoBehaviour
     public void OnReplayButton()
     {
         Time.timeScale = 1;
-        IsPaused = false;
+        GameConstants.IsPaused = false;
         PausedPanel.SetActive(false);
     }
 
@@ -79,6 +80,19 @@ public class UIManager : MonoBehaviour
     }
 
     public void OnHomeButton()
+    {
+        if (GameConstants.GameType == "Tournament")
+        {
+            LeaderboardPanel.SetActive(true);
+            APIManager.instance.GetLeaderboardAPI(LeaderboardScrollContent);
+        }
+        else
+        {
+            SceneManager.LoadScene(0);
+        }
+    }
+
+    public void OnLeaderBoardCloseButton()
     {
         SceneManager.LoadScene(0);
     }
