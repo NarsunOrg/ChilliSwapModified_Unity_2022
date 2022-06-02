@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        
+        SoundManager.instance.ASBg.Play();
         motionEffect = Camera.main.gameObject.transform.GetChild(0).gameObject;
         AlreadyHit = false;
         powerUpInUse = false;
@@ -222,7 +222,7 @@ public class PlayerController : MonoBehaviour
         {
             Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
         }
-        if (gameObject.transform.localPosition.z > 0.0001 || gameObject.transform.localPosition.z < -0.0001)
+        if ((gameObject.transform.localPosition.z > 0.0001 || gameObject.transform.localPosition.z < -0.0001) && !dead)
         {
             gameObject.transform.DOLocalMoveZ(0, 0.01f);
         }
@@ -295,6 +295,16 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
+                    if (GameConstants.CharacterType == "Boy")
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
+                    else
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
                     MonsterAnim.SetBool("Attack", true);
                     CancelFunctionsInvoke();
                     PlayerAnim.SetBool("Running", false);
@@ -437,6 +447,16 @@ public class PlayerController : MonoBehaviour
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
         PlayerAnim.SetBool("Jump", true);
+        if(GameConstants.CharacterType == "Boy")
+        {
+            SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyJumpClip;
+            SoundManager.instance.ASPlayer.Play();
+        }
+        else
+        {
+            SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlJumpClip;
+            SoundManager.instance.ASPlayer.Play();
+        }
         PlayerAnim.SetBool("Running", false);
         PlayerAnim.SetBool("Sliding", false);
         rb.AddForce((new Vector3(0f, 2f, 0f)) * Jumpforce);
@@ -749,11 +769,15 @@ public class PlayerController : MonoBehaviour
         switch (other.gameObject.tag)
         {
             case "GreenChilli":
+                SoundManager.instance.ASChillies.clip = SoundManager.instance.GreenChilliClip;
+                SoundManager.instance.ASChillies.Play();
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
                 GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GreenChilliCount;
                 break;
             case "RedChilli":
+                SoundManager.instance.ASChillies.clip = SoundManager.instance.RedChilliClip;
+                SoundManager.instance.ASChillies.Play();
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
                 GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.RedChilliCount;
@@ -763,11 +787,15 @@ public class PlayerController : MonoBehaviour
                 }
                 break;
             case "GoldenChilli":
+                SoundManager.instance.ASChillies.clip = SoundManager.instance.GoldenChilliClip;
+                SoundManager.instance.ASChillies.Play();
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
                 GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GoldenChilliCount;
                 break;
             case "BlueChilli":
+                SoundManager.instance.ASChillies.clip = SoundManager.instance.BlueChilliClip;
+                SoundManager.instance.ASChillies.Play();
                 other.gameObject.GetComponent<BoxCollider>().enabled = false;
                 Destroy(other.gameObject);
                 if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
@@ -778,6 +806,8 @@ public class PlayerController : MonoBehaviour
             case "invisibility":
                 if (!powerUpInUse)
                 {
+                    SoundManager.instance.ASChillies.clip = SoundManager.instance.PowerUpClip;
+                    SoundManager.instance.ASChillies.Play();
                     SpawnManager.instance.IsInvisible = true;
                     other.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Destroy(other.gameObject);

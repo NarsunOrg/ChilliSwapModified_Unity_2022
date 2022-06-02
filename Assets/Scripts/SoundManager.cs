@@ -7,9 +7,19 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
     public Button[] MainmenuButtons;
-    public AudioClip ButtonsSounds;
-    public AudioClip GameplaySound;
+    public AudioClip ButtonsClip;
+    public AudioClip GreenChilliClip;
+    public AudioClip RedChilliClip;
+    public AudioClip BlueChilliClip;
+    public AudioClip GoldenChilliClip;
+    public AudioClip PowerUpClip;
+    public AudioClip GirlDeathClip;
+    public AudioClip BoyDeathClip;
+    public AudioClip GirlJumpClip;
+    public AudioClip BoyJumpClip;
     public AudioSource AS;
+    public AudioSource ASPlayer;
+    public AudioSource ASChillies;
     public AudioSource ASBg;
 
     void Start()
@@ -31,7 +41,7 @@ public class SoundManager : MonoBehaviour
 
     public void OnButtonClick()
     {
-        AS.clip = ButtonsSounds;
+        AS.clip = ButtonsClip;
         AS.Play();
     }
 }

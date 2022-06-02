@@ -30,6 +30,16 @@ public class PlayerHittingHurdle : MonoBehaviour
                     {
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
+                        if (GameConstants.CharacterType == "Boy")
+                        {
+                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                            SoundManager.instance.ASPlayer.Play();
+                        }
+                        else
+                        {
+                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                            SoundManager.instance.ASPlayer.Play();
+                        }
                         PC.MonsterAttackAnim();
                         //PC.CancelFunctionsInvoke();
                         PC.PlayerAnim.SetBool("Running", false);
@@ -75,6 +85,16 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
+                    if (GameConstants.CharacterType == "Boy")
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
+                    else
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
                     PC.MonsterAttackAnim();
                     //PC.CancelFunctionsInvoke();
                     PC.PlayerAnim.SetBool("Running", false);

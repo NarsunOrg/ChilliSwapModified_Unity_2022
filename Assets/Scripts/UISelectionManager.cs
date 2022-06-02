@@ -23,6 +23,7 @@ public class UISelectionManager : MonoBehaviour
     void Start()
     {
         instance = this;
+        GameConstants.CharacterType = "Boy";
     }
 
     public void OnSingleButton()
