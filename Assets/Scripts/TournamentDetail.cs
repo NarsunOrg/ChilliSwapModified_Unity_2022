@@ -27,23 +27,27 @@ public class TournamentDetail : MonoBehaviour
 
     public void MinusTime()
     {
-        if (RemainingTimeSeconds < 0)
+        if (RemainingTimeSeconds > 0)
         {
-            RemainingTimeSeconds = RemainingTimeSeconds + 1;
+            RemainingTimeSeconds = RemainingTimeSeconds - 1;
         }
         else
         {
-            if (RemainingTimeMinutes < 0)
+            if (RemainingTimeMinutes > 0)
             {
-                RemainingTimeMinutes = RemainingTimeMinutes + 1;
-                RemainingTimeSeconds = -60;
+                RemainingTimeMinutes = RemainingTimeMinutes - 1;
+                RemainingTimeSeconds = 60;
             }
             else
             {
-                if (RemainingTimeHours < 0)
+                if (RemainingTimeHours > 0)
                 {
-                    RemainingTimeHours = RemainingTimeHours + 1;
-                    RemainingTimeMinutes = -60;
+                    RemainingTimeHours = RemainingTimeHours - 1;
+                    RemainingTimeMinutes = 60;
+                }
+                else
+                {
+                    this.GetComponent<Button>().interactable = true;
                 }
             }
         }

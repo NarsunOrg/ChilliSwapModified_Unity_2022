@@ -38,9 +38,20 @@ public class UIManager : MonoBehaviour
     public Text GameOverPanelTimeSecondsText;
     public Text GameOverPanelDistanceCoveredText;
 
+    //For Sounds
+    public Button[] GameplayButtons;
+
     public void Awake()
     {
         instance = this;
+    }
+
+    public void Start()
+    {
+        foreach (Button b in GameplayButtons)
+        {
+            b.onClick.AddListener(SoundManager.instance.OnButtonClick);
+        }
     }
 
     public void Update()
