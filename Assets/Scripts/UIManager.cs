@@ -52,6 +52,10 @@ public class UIManager : MonoBehaviour
         {
             b.onClick.AddListener(SoundManager.instance.OnButtonClick);
         }
+        if (GameConstants.GameType == "Tournament")
+        {
+            GameplayButtons[5].gameObject.SetActive(false);
+        }
     }
 
     public void Update()
