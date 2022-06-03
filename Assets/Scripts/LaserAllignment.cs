@@ -17,11 +17,11 @@ public class LaserAllignment : MonoBehaviour
     {
         if (GameConstants.CharacterType == "Boy")
         {
-            gameObject.transform.DOMove((BoyHead.transform.position), 0.1f);
+            gameObject.transform.DOMove((BoyHead.transform.position), 0.01f);
         }
         if (GameConstants.CharacterType == "Girl")
         {
-            gameObject.transform.DOMove((BoyHead.transform.position), 0.1f);
+            gameObject.transform.DOMove((BoyHead.transform.position), 0.01f);
         }
     }
 }
