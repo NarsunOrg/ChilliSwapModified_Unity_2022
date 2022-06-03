@@ -554,15 +554,15 @@ RectTransform:
   m_GameObject: {fileID: 21279090}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 262434548}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: 0, y: 0.000073433}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &21279092
 MonoBehaviour:
@@ -601,18 +601,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPECIAL SHOES
+  m_Text: SLOW MO
 --- !u!222 &21279094
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2818,9 +2818,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2123584200}
-        m_TargetAssemblyTypeName: APIManager, Assembly-CSharp
-        m_MethodName: GetSwapChilliesApi
+      - m_Target: {fileID: 1637134121}
+        m_TargetAssemblyTypeName: UISelectionManager, Assembly-CSharp
+        m_MethodName: OnProfileSwapButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3736,15 +3736,15 @@ RectTransform:
   m_GameObject: {fileID: 152910781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1240543081}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: 0, y: 0.000026703}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &152910783
 MonoBehaviour:
@@ -3783,18 +3783,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPECIAL SHOES
+  m_Text: SUPER SPEED
 --- !u!222 &152910785
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4001,15 +4001,15 @@ RectTransform:
   m_GameObject: {fileID: 160743132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1993923445}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: -0.0000076293945, y: -0.00009203}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &160743134
 MonoBehaviour:
@@ -4024,7 +4024,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0.11764707, g: 0.23137257, b: 0.27058825, a: 1}
-  m_EffectDistance: {x: 0, y: -4}
+  m_EffectDistance: {x: 0, y: -5}
   m_UseGraphicAlpha: 1
 --- !u!114 &160743135
 MonoBehaviour:
@@ -4048,18 +4048,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 125
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPECIAL SHOES
+  m_Text: INVISIBILITY CLOAK
 --- !u!222 &160743136
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23649,18 +23649,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 2123584200}
-        m_TargetAssemblyTypeName: APIManager, Assembly-CSharp
-        m_MethodName: GetAllTournamentsAPI
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
       - m_Target: {fileID: 1637134121}
         m_TargetAssemblyTypeName: UISelectionManager, Assembly-CSharp
         m_MethodName: OnTournamentButton
@@ -25441,7 +25429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00033569, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -0.00033569336, y: 0.0000076293945}
   m_SizeDelta: {x: 418, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224305100
@@ -29885,15 +29873,15 @@ RectTransform:
   m_GameObject: {fileID: 1409139510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 1515360530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -7.0812, y: 0.00054741}
+  m_SizeDelta: {x: 501.1254, y: 200.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409139512
 MonoBehaviour:
@@ -29932,11 +29920,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 45
+    m_FontSize: 120
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 45
+    m_MinSize: 1
+    m_MaxSize: 120
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -31580,15 +31568,15 @@ RectTransform:
   m_GameObject: {fileID: 1476911500}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 1108029050}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: 0, y: -0.000073433}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1476911502
 MonoBehaviour:
@@ -31627,18 +31615,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPECIAL SHOES
+  m_Text: TELEPORT
 --- !u!222 &1476911504
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -35277,7 +35265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1696122275
 Transform:
   m_ObjectHideFlags: 0
@@ -38759,15 +38747,15 @@ RectTransform:
   m_GameObject: {fileID: 1894993894}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 467142684}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: 0, y: 0.000073433}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1894993896
 MonoBehaviour:
@@ -38806,18 +38794,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SPECIAL SHOES
+  m_Text: LASER GOGGLES
 --- !u!222 &1894993898
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -39687,15 +39675,15 @@ RectTransform:
   m_GameObject: {fileID: 1918788501}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 2034967806}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 229, y: 49}
+  m_AnchoredPosition: {x: 0, y: -0.00014877}
+  m_SizeDelta: {x: 1145, y: 245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918788503
 MonoBehaviour:
@@ -39734,11 +39722,11 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 4d805797c8dafa2418ced3370560c99b, type: 3}
-    m_FontSize: 28
+    m_FontSize: 138
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 1
+    m_MaxSize: 160
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -44573,7 +44561,6 @@ MonoBehaviour:
   TournamentScrollContent: {fileID: 2081722874}
   LeaderboardRow: {fileID: 7912155852372650728, guid: b71da0937a9086544b1534ef872f82f8,
     type: 3}
-  LeaderboardScrollContent: {fileID: 241848335}
 --- !u!4 &2123584201
 Transform:
   m_ObjectHideFlags: 0

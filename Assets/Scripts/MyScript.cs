@@ -6,40 +6,40 @@ using System.Runtime.InteropServices;
 public class MyScript : MonoBehaviour
 {
 
-    public static MyScript instance;
-    [DllImport("__Internal")]
-    private static extern void registerVisibilityChangeEvent();
+    //public static MyScript instance;
+    //[DllImport("__Internal")]
+    //private static extern void registerVisibilityChangeEvent();
 
-    public void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this);
+    //public void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(this);
 
-        }
-        else
-        {
-            Destroy(this);
-        }
-    }
-    void Start()
-    {
+    //    }
+    //    else
+    //    {
+    //        Destroy(this);
+    //    }
+    //}
+    //void Start()
+    //{
 
-        registerVisibilityChangeEvent();
-    }
+    //    registerVisibilityChangeEvent();
+    //}
 
-    void OnVisibilityChange(string visibilityState)
-    {
-        System.Console.WriteLine("[" + System.DateTime.Now + "] the game switched to " + (visibilityState == "visible" ? "foreground" : "background"));
-        if (visibilityState == "visible")
-        {
-            Time.timeScale = 1;
-        }
-        else
-        {
-            Time.timeScale = 0;
-        }
-    }
+    //void OnVisibilityChange(string visibilityState)
+    //{
+    //    System.Console.WriteLine("[" + System.DateTime.Now + "] the game switched to " + (visibilityState == "visible" ? "foreground" : "background"));
+    //    if (visibilityState == "visible")
+    //    {
+    //        Time.timeScale = 1;
+    //    }
+    //    else
+    //    {
+    //        Time.timeScale = 0;
+    //    }
+    //}
 
 }

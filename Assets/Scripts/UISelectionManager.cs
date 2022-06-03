@@ -34,6 +34,12 @@ public class UISelectionManager : MonoBehaviour
     public void OnTournamentButton()
     {
         GameConstants.GameType = "Tournament";
+        APIManager.instance.GetAllTournamentsAPI();
+    }
+
+    public void OnProfileSwapButton()
+    {
+        APIManager.instance.GetSwapChilliesApi();
     }
 
     public void OnEnvSelectionForwardButton()
