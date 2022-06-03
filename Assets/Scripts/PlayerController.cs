@@ -131,11 +131,11 @@ public class PlayerController : MonoBehaviour
 
         #region Keyboard Input
         //Keyboard Input
-        if (Input.GetKeyDown(KeyCode.DownArrow)  && !ChangingPlatform && !slide && !dead && isGrounded)
+        if (Input.GetKeyDown(KeyCode.DownArrow)  && !ChangingPlatform && !slide && !dead)
         {
             Down();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform && !dead && !slide)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded && !ChangingPlatform && !dead)
         {
             Up();
         }
@@ -442,6 +442,7 @@ public class PlayerController : MonoBehaviour
         if (Jumpforce == 650)
         {
             GravityEffect.SetActive(true);
+            SlideDelayCall();
             //StartCoroutine("gravityFunction");
             Invoke("gravityFunction", 0.5f);
         }
@@ -487,7 +488,7 @@ public class PlayerController : MonoBehaviour
     {
         slide = true;
         SlidingCollider.transform.DOLocalMove(new Vector3(0, 0.1f, 0), 1);
-        transform.DOLocalMoveY(0, 0.25f);
+        transform.DOLocalMoveY(0, 0.05f);
         PlayerAnim.SetBool("Sliding", true);
         PlayerAnim.SetBool("Jump", false);
         PlayerAnim.SetBool("Running", false);
