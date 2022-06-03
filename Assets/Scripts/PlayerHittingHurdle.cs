@@ -149,6 +149,7 @@ public class PlayerHittingHurdle : MonoBehaviour
 
     public void LoadSceneDelayCall()
     {
+        PC.CancelFunctionsInvoke();
         UIManager.instance.GameOverPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
         UIManager.instance.GameOverPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
         UIManager.instance.GameOverPanelTimeMinuteText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Minutes).ToString("00");

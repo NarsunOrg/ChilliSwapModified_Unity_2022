@@ -306,7 +306,6 @@ public class PlayerController : MonoBehaviour
                         SoundManager.instance.ASPlayer.Play();
                     }
                     MonsterAnim.SetBool("Attack", true);
-                    CancelFunctionsInvoke();
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
                     MonsterMovement(2);
@@ -335,6 +334,8 @@ public class PlayerController : MonoBehaviour
 
     public void LoadSceneDelayCall()
     {
+        CancelFunctionsInvoke();
+
         UIManager.instance.GameOverPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
         UIManager.instance.GameOverPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
         UIManager.instance.GameOverPanelTimeMinuteText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Minutes).ToString("00");

@@ -95,6 +95,7 @@ public class UIManager : MonoBehaviour
         if (GameConstants.GameType == "Tournament")
         {
             LeaderboardPanel.SetActive(true);
+            GameOverPanel.SetActive(false);
             APIManager.instance.GetLeaderboardAPI(LeaderboardScrollContent);
         }
         else

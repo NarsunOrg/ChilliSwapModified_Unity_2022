@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 
 public class MyScript : MonoBehaviour
 {
-#if WebGL
+
     public static MyScript instance;
     [DllImport("__Internal")]
     private static extern void registerVisibilityChangeEvent();
@@ -41,5 +41,5 @@ public class MyScript : MonoBehaviour
             Time.timeScale = 0;
         }
     }
-#endif
+
 }
