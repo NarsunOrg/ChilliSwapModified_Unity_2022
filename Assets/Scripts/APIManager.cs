@@ -130,7 +130,6 @@ public class APIManager : MonoBehaviour
     public GameObject TournamentButton;
     public Transform TournamentScrollContent;
     public GameObject LeaderboardRow;
-    public Transform LeaderboardScrollContent;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
 
@@ -258,6 +257,8 @@ public class APIManager : MonoBehaviour
                         _TournamentDetails.TimerHour_Text.text = "00";
                         _TournamentDetails.TimerMinutes_Text.text = "00";
                         _TournamentDetails.TimerSeconds_Text.text = "00";
+                        _TournamentDetails.TimerImage.SetActive(false);
+                        _TournamentDetails.JoinButton.SetActive(true);
                     }
                     else
                     {

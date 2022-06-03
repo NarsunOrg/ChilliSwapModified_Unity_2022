@@ -16,6 +16,8 @@ public class TournamentDetail : MonoBehaviour
     public double RemainingTimeSeconds;
     public double RemainingTimeMinutes;
     public double RemainingTimeHours;
+    public GameObject TimerImage;
+    public GameObject JoinButton;
 
     void Start()
     {
@@ -48,6 +50,8 @@ public class TournamentDetail : MonoBehaviour
                 else
                 {
                     this.GetComponent<Button>().interactable = true;
+                    TimerImage.SetActive(false);
+                    JoinButton.SetActive(true);
                 }
             }
         }
