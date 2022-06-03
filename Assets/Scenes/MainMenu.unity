@@ -25441,7 +25441,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00033569, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -0.00033569336, y: 0.0000076293945}
   m_SizeDelta: {x: 418, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1224305100
@@ -44573,7 +44573,6 @@ MonoBehaviour:
   TournamentScrollContent: {fileID: 2081722874}
   LeaderboardRow: {fileID: 7912155852372650728, guid: b71da0937a9086544b1534ef872f82f8,
     type: 3}
-  LeaderboardScrollContent: {fileID: 241848335}
 --- !u!4 &2123584201
 Transform:
   m_ObjectHideFlags: 0
@@ -45424,6 +45423,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4866398549558894864, guid: 15eb89af599f1b74592448f9e1f14167,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7016036226785488649, guid: 15eb89af599f1b74592448f9e1f14167,
         type: 3}
       propertyPath: m_RootOrder
