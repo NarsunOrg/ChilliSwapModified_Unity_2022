@@ -29880,7 +29880,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7.0812, y: 0.00054741}
+  m_AnchoredPosition: {x: -7.0811996, y: 0.0005493164}
   m_SizeDelta: {x: 501.1254, y: 200.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1409139512
@@ -34440,6 +34440,7 @@ MonoBehaviour:
   - {fileID: 1654595619}
   cam: {fileID: 1823933839}
   CharacterNameText: {fileID: 1397023227}
+  TournamentScrollContent: {fileID: 2081722874}
 --- !u!4 &1637134122
 Transform:
   m_ObjectHideFlags: 0
@@ -35265,7 +35266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1696122275
 Transform:
   m_ObjectHideFlags: 0
@@ -44558,7 +44559,6 @@ MonoBehaviour:
     Data: []
   TournamentButton: {fileID: 8677373325361121160, guid: 861a0622685962d40a15cffa3392b92f,
     type: 3}
-  TournamentScrollContent: {fileID: 2081722874}
   LeaderboardRow: {fileID: 7912155852372650728, guid: b71da0937a9086544b1534ef872f82f8,
     type: 3}
 --- !u!4 &2123584201

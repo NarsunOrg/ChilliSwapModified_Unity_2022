@@ -115,20 +115,20 @@ public class APIManager : MonoBehaviour
 
 
     private string authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmE1Mjk2ZmQ0Yzg1MTk5MzVhZGM2OCIsInB1YmxpY0FkZHJlc3MiOiIweDBjNzI5YzFmODFlOGE1Y2UxNzYwN2UwMDMzODFkOGQ0NDhlYTU1ZGYiLCJpYXQiOjE2NTExMzY4OTl9.Iw_n8y0TEkIDrHFhW3iJWwAmmOP5ohtzufRlodU-tX4";
-    //private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
-    //private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
-    //private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
-    //private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
-    //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
-    //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
+    private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
+    private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
+    private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
+    private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
+    private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
+    private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
 
-        //For editor
-    private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
-    private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
-    private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
-    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
-    private string SetCharacterURL = "http://54.179.83.173/api/character/set";
-    private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+    //For editor
+    //private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
+    //private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
+    //private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
+    //private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
+    //private string SetCharacterURL = "http://54.179.83.173/api/character/set";
+    //private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
 
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
@@ -136,7 +136,7 @@ public class APIManager : MonoBehaviour
     public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
     //public LeaderboardData[] leaderboard;
     public GameObject TournamentButton;
-    public Transform TournamentScrollContent;
+    //public Transform TournamentScrollContent;
     public GameObject LeaderboardRow;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
@@ -224,7 +224,7 @@ public class APIManager : MonoBehaviour
             Debug.Log(GetAllTournamnetsAPIResponseVar.data.Length);
             for (int i = 0; i < GetAllTournamnetsAPIResponseVar.data.Length; i++)
             {
-                GameObject TournamentObj = Instantiate(TournamentButton, TournamentScrollContent);
+                GameObject TournamentObj = Instantiate(TournamentButton, UISelectionManager.instance.TournamentScrollContent);
                 TournamentDetail _TournamentDetails = TournamentObj.GetComponent<TournamentDetail>();
                 _TournamentDetails.TournamentName_Text.text = GetAllTournamnetsAPIResponseVar.data[i].tournament_name;
                 _TournamentDetails.Tournamentid = GetAllTournamnetsAPIResponseVar.data[i]._id;
@@ -252,7 +252,7 @@ public class APIManager : MonoBehaviour
                 if (diffStartTime > TimeSpan.Zero)
                 {
                     Debug.Log("diffStartTime > TimeSpan.Zero");
-                    TournamentObj.GetComponent<Button>().interactable = false;
+                    //TournamentObj.GetComponent<Button>().interactable = false;
                     _TournamentDetails.Timer = diffStartTime;
 
                 }
@@ -261,7 +261,7 @@ public class APIManager : MonoBehaviour
                     if (diffEndTime > TimeSpan.Zero)
                     {
                         Debug.Log("diffEndTime > TimeSpan.Zero");
-                        TournamentObj.GetComponent<Button>().interactable = true;
+                        //TournamentObj.GetComponent<Button>().interactable = true;
                         _TournamentDetails.TimerHour_Text.text = "00";
                         _TournamentDetails.TimerMinutes_Text.text = "00";
                         _TournamentDetails.TimerSeconds_Text.text = "00";
@@ -271,7 +271,8 @@ public class APIManager : MonoBehaviour
                     else
                     {
                         Debug.Log("diffEndTime > TimeSpan.Zero e     lseeeeee");
-                        TournamentObj.GetComponent<Button>().interactable = false;
+                        //TournamentObj.GetComponent<Button>().interactable = false;
+                        _TournamentDetails.JoinButton.SetActive(false);
                     }
                 }
                 Debug.Log("Diff Start time: " + diffStartTime + " " +"hours"+ " " + diffStartTime.Hours);

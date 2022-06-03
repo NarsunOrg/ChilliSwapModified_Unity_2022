@@ -18,6 +18,7 @@ public class UISelectionManager : MonoBehaviour
     public GameObject[] EnvImagesList;
     public GameObject cam;
     public Text CharacterNameText;
+    public Transform TournamentScrollContent;
 
 
     void Start()

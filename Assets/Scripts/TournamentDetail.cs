@@ -49,7 +49,7 @@ public class TournamentDetail : MonoBehaviour
                 }
                 else
                 {
-                    this.GetComponent<Button>().interactable = true;
+                    //this.GetComponent<Button>().interactable = true;
                     TimerImage.SetActive(false);
                     JoinButton.SetActive(true);
                 }
