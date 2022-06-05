@@ -101,11 +101,23 @@ public class LeaderboardData
 [Serializable]
 public class SetCharacterData
 {
+    public string[] clothes=  { "", "" };
+    public string bodytype = "";
     public string skintone = "";
     public string hairstyle = "";
     public string eyecolor = "";
-    public string[] clothes;
-    public string[] accessories;
+    public string goggles = "";
+    public string headphones = "";
+    public string backpack = "";
+    public string watch = "";
+    public string shoes = "";
+    public string headwear = "";
+}
+
+[Serializable]
+public class SetCharacterAPIData
+{
+    public SetCharacterData[] SetCharacter;
 }
 //SetCharacter API STRUCTURE END
 
@@ -115,24 +127,24 @@ public class APIManager : MonoBehaviour
 
 
     private string authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmE1Mjk2ZmQ0Yzg1MTk5MzVhZGM2OCIsInB1YmxpY0FkZHJlc3MiOiIweDBjNzI5YzFmODFlOGE1Y2UxNzYwN2UwMDMzODFkOGQ0NDhlYTU1ZGYiLCJpYXQiOjE2NTExMzY4OTl9.Iw_n8y0TEkIDrHFhW3iJWwAmmOP5ohtzufRlodU-tX4";
-    private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
-    private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
-    private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
-    private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
-    private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
-    private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
+    //private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
+    //private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
+    //private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
+    //private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
+    //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
+    //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
 
     //For editor
-    //private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
-    //private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
-    //private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
-    //private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
-    //private string SetCharacterURL = "http://54.179.83.173/api/character/set";
-    //private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+    private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
+    private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
+    private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
+    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
+    private string SetCharacterURL = "http://54.179.83.173/api/character/set";
+    private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
 
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
-    public SetCharacterData[] SetCharacter;
+    public SetCharacterAPIData CharacterAPIData;
     public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
     //public LeaderboardData[] leaderboard;
     public GameObject TournamentButton;
@@ -140,6 +152,7 @@ public class APIManager : MonoBehaviour
     public GameObject LeaderboardRow;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
+  
 
     void Start()
     {
@@ -183,13 +196,40 @@ public class APIManager : MonoBehaviour
             UISelectionManager.instance.UserTokens.text = GetProfileAPIResponseVar.ChilliTokenAmount.ToString();
             UISelectionManager.instance.UserTotalCollectedChillies.text = GetProfileAPIResponseVar.CollectedChillis.ToString();
 
-            Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
-            Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
-            Debug.Log(GetProfileAPIResponseVar.CollectedChillis);
-            Debug.Log(GetProfileAPIResponseVar.coversionRate);
-            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters._id);
-            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.userAddress);
-            Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.characterData[0]._id);
+            //Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
+            //Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
+            //Debug.Log(GetProfileAPIResponseVar.CollectedChillis);
+            //Debug.Log(GetProfileAPIResponseVar.coversionRate);
+            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters._id);
+            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.userAddress);
+            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.characterData[0]._id);
+
+
+            for (int p = 0; p < 6; p++)
+            {
+                // Debug.Log(p);
+                CharacterData CD = new CharacterData();
+
+                CD.bodytype = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].bodytype;
+                CD.skintone = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].skintone;
+                CD.hairstyle = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].hairstyle;
+                CD.eyecolor = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].eyecolor;
+                CD.goggles = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].goggles;
+                CD.headphones = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].headphones;
+                CD.backpack = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].backpack;
+                CD.watch = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].watch;
+                CD.shoes = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].watch;
+                CD.headwear = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].headwear;
+
+                //SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().ChangeData(CD);
+
+            }
+
+
+
+
+
+
 
         }).Catch(err =>
         {
@@ -355,20 +395,33 @@ public class APIManager : MonoBehaviour
 
     public void SetCharacterApi()
     {
-        SetCharacter[0].skintone = "Coin";
-        SetCharacter[0].hairstyle = "test data";
-        SetCharacter[0].eyecolor = "test data";
-        SetCharacter[0].clothes = new string[2];
-        SetCharacter[0].clothes[0] = "Shirt";
-        SetCharacter[0].accessories = new string[2];
-        SetCharacter[0].accessories[0] = "Apple";
-        string temp = JsonUtility.ToJson( SetCharacter, true );
+
+        for (int p = 0; p < 6; p++)
+        {
+
+            CharacterData CD = SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().MyData;
+
+            CharacterAPIData.SetCharacter[p].clothes = CD.clothes;
+            CharacterAPIData.SetCharacter[p].bodytype = CD.bodytype;
+            CharacterAPIData.SetCharacter[p].skintone = CD.skintone;
+            CharacterAPIData.SetCharacter[p].hairstyle = CD.hairstyle;
+            CharacterAPIData.SetCharacter[p].eyecolor = CD.eyecolor;
+            CharacterAPIData.SetCharacter[p].goggles = CD.goggles;
+            CharacterAPIData.SetCharacter[p].headphones = CD.headphones;
+            CharacterAPIData.SetCharacter[p].backpack = CD.backpack;
+            CharacterAPIData.SetCharacter[p].watch = CD.watch;
+            CharacterAPIData.SetCharacter[p].shoes = CD.watch;
+            CharacterAPIData.SetCharacter[p].headwear = CD.headwear;
+        }
+        
+        string temp = "[" + JsonUtility.ToJson(CharacterAPIData) + "]";
+        Debug.Log( temp );
         RestClient.Request(new RequestHelper
         {
             Uri = SetCharacterURL,
             Method = "POST",
             //FormData = TournamentResultData,
-            BodyRaw = new System.Text.UTF8Encoding().GetBytes(("["+temp+"]")),
+            BodyRaw = new System.Text.UTF8Encoding().GetBytes(temp),
             Headers = new Dictionary<string, string> {
                          { "x-access-token", authToken }
                 

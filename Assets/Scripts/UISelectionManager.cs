@@ -24,7 +24,7 @@ public class UISelectionManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        GameConstants.CharacterType = "Boy";
+        GameConstants.CharacterType = "boy";
     }
 
     public void OnSingleButton()
@@ -73,17 +73,17 @@ public class UISelectionManager : MonoBehaviour
 
     public void OnCharacterSelectionForwardButton()
     {
-        if (GameConstants.CharacterType == "Boy")
+        if (GameConstants.CharacterType == "boy")
         {
-            GameConstants.CharacterType = "Girl";
+            GameConstants.CharacterType = "girl";
             CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
             Debug.Log(angel);
         }
-        else if (GameConstants.CharacterType == "Girl")
+        else if (GameConstants.CharacterType == "girl")
         {
-            GameConstants.CharacterType = "Boy";
+            GameConstants.CharacterType = "boy";
             CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
@@ -93,17 +93,17 @@ public class UISelectionManager : MonoBehaviour
 
     public void OnCharacterSelectionBackwardButton()
     {
-        if (GameConstants.CharacterType == "Boy")
+        if (GameConstants.CharacterType == "boy")
         {
-            GameConstants.CharacterType = "Girl";
+            GameConstants.CharacterType = "girl";
             CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
             Debug.Log(angel);
         }
-        else if (GameConstants.CharacterType == "Girl")
+        else if (GameConstants.CharacterType == "girl")
         {
-            GameConstants.CharacterType = "Boy";
+            GameConstants.CharacterType = "boy";
             CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
@@ -115,5 +115,10 @@ public class UISelectionManager : MonoBehaviour
     {
         SceneManager.LoadScene(EnvNumber);
         GameConstants.SceneLoaded = EnvNumber;
+    }
+
+    public void OnCloseStore()
+    {
+        APIManager.instance.SetCharacterApi();
     }
 }

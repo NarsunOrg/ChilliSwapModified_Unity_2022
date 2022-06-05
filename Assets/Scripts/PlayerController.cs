@@ -63,15 +63,19 @@ public class PlayerController : MonoBehaviour
 
     public void SettingBoy()
     {
+        
         Boy.SetActive(true);
         Girl.SetActive(false);
         PlayerAnim.avatar = BoyAvatar;
+        Boy.GetComponent<CharacterCustomizer>().ChangeData(GameConstants.SelectedPlayerForGame);
     }
     public void SettingGirl()
     {
         Girl.SetActive(true);
         Boy.SetActive(false);
         PlayerAnim.avatar = GirlAvatar;
+        Girl.GetComponent<CharacterCustomizer>().ChangeData(GameConstants.SelectedPlayerForGame);
+
     }
 
     void Start()
@@ -295,7 +299,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
-                    if (GameConstants.CharacterType == "Boy")
+                    if (GameConstants.CharacterType == "boy")
                     {
                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
                         SoundManager.instance.ASPlayer.Play();
@@ -449,7 +453,7 @@ public class PlayerController : MonoBehaviour
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
         PlayerAnim.SetBool("Jump", true);
-        if(GameConstants.CharacterType == "Boy")
+        if(GameConstants.CharacterType == "boy")
         {
             SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyJumpClip;
             SoundManager.instance.ASPlayer.Play();
@@ -535,7 +539,7 @@ public class PlayerController : MonoBehaviour
     public void RespawnInvisibility()
     {
         RespawnInvisibilityBool = true;
-        if (GameConstants.CharacterType == "Boy")
+        if (GameConstants.CharacterType == "boy")
         {
             StartCoroutine(OnRespawnInvisibilityofBoy());
         }
@@ -548,7 +552,7 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnInvisibilityDelayCall()
     {
-        if (GameConstants.CharacterType == "Boy")
+        if (GameConstants.CharacterType == "boy")
         {
             StopCoroutine(OnRespawnInvisibilityofBoy());
         }

@@ -26023,12 +26023,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 472184338}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1123984270 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8185838961244220157, guid: b348f4e4334123f41bfb0c08a74a49d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1272173407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1126822041
 GameObject:
   m_ObjectHideFlags: 0
@@ -29764,15 +29758,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 147528689, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
-      propertyPath: restartPanel
-      value: 
-      objectReference: {fileID: 1648002559}
-    - target: {fileID: 128072060774013358, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.222
-      objectReference: {fileID: 0}
     - target: {fileID: 685640090825999768, guid: b348f4e4334123f41bfb0c08a74a49d4,
         type: 3}
       propertyPath: m_RootOrder
@@ -29833,56 +29818,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: Portal
-      value: 
-      objectReference: {fileID: 1272173410}
-    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: PlayerModelInside
-      value: 
-      objectReference: {fileID: 1123984270}
-    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: PUButtonhandlerRef
-      value: 
-      objectReference: {fileID: 514696976}
-    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: PlayerRespawnTransform
-      value: 
-      objectReference: {fileID: 1272173411}
-    - target: {fileID: 685640091488730901, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5752351692757467090, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7203428123480187509, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185838961241040453, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185838961241040453, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8185838961244220157, guid: b348f4e4334123f41bfb0c08a74a49d4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b348f4e4334123f41bfb0c08a74a49d4, type: 3}
 --- !u!1 &1272173408 stripped
@@ -29897,24 +29832,12 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1272173407}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1123984270}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66984db5bb0aac341a9a55685e013433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1272173410 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 399179192, guid: b348f4e4334123f41bfb0c08a74a49d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1272173407}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1272173411 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 993349083393172219, guid: b348f4e4334123f41bfb0c08a74a49d4,
-    type: 3}
-  m_PrefabInstance: {fileID: 1272173407}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1272603555
 GameObject:
   m_ObjectHideFlags: 0

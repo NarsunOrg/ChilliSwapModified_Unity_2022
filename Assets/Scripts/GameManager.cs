@@ -19,20 +19,22 @@ public class GameManager : MonoBehaviour
     {
         
         instance = this;
-        if(GameConstants.CharacterType == "Boy")
+       
+    }
+
+    void Start()
+    {
+        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             _Player.transform.GetChild(0).gameObject.GetComponent<PlayerController>().SettingBoy();
+
         }
-        else if (GameConstants.CharacterType == "Girl")
+        else if (GameConstants.SelectedPlayerForGame.bodytype == "girl")
         {
             _Player.transform.GetChild(0).gameObject.GetComponent<PlayerController>().SettingGirl();
         }
         CurrentLives = GameConstants.PlayerLives;
         ENV.SetActive(true);
-    }
-
-    void Start()
-    {
         _PlayerRandomSpawnPos = Random.Range(0, _playerSpawnPoints.Length);
         _Player.transform.position = _playerSpawnPoints[_PlayerRandomSpawnPos].position;
         _Player.transform.rotation = _playerSpawnPoints[_PlayerRandomSpawnPos].rotation;
