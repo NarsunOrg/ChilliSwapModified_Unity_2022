@@ -622,7 +622,7 @@ public class PlayerController : MonoBehaviour
             if (!dead)
             {
                 Jumpforce = 650;
-                GroundedTime = 0.8f;
+                GroundedTime = 0.89f;
                 ResetRef = StartCoroutine(ResetPowerUp(SuperJump));
             }
         }
