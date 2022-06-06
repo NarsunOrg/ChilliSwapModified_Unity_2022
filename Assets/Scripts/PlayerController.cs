@@ -640,6 +640,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                MonsterMovement(0);
                 motionEffect.SetActive(true);
                 PlayerAnim.SetFloat("RunningSpeed", 2);
                 //CurrentSpeed = speed;
@@ -866,7 +867,7 @@ public class PlayerController : MonoBehaviour
     {
         if (i == 0)
         {
-            Monster.transform.DOLocalMoveZ(-8, 0.5f);
+            Monster.transform.DOLocalMoveZ(-10, 0.5f);
         }
         else if (i == 1)
         {
