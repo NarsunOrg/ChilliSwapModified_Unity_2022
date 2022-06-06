@@ -127,6 +127,8 @@ public class APIManager : MonoBehaviour
 
 
     private string authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmE1Mjk2ZmQ0Yzg1MTk5MzVhZGM2OCIsInB1YmxpY0FkZHJlc3MiOiIweDBjNzI5YzFmODFlOGE1Y2UxNzYwN2UwMDMzODFkOGQ0NDhlYTU1ZGYiLCJpYXQiOjE2NTExMzY4OTl9.Iw_n8y0TEkIDrHFhW3iJWwAmmOP5ohtzufRlodU-tX4";
+
+    //For WEBGL
     //private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
     //private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
     //private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
@@ -134,7 +136,7 @@ public class APIManager : MonoBehaviour
     //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
     //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
 
-    //For editor
+    //For EDITOR
     private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
     private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
     private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
@@ -146,9 +148,7 @@ public class APIManager : MonoBehaviour
     public GetProfileAPIResponse GetProfileAPIResponseVar;
     public SetCharacterAPIData CharacterAPIData;
     public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
-    //public LeaderboardData[] leaderboard;
     public GameObject TournamentButton;
-    //public Transform TournamentScrollContent;
     public GameObject LeaderboardRow;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
@@ -165,15 +165,8 @@ public class APIManager : MonoBehaviour
         {
             Destroy(this);
         }
-        //SetCharacter = new SetCharacterData[2];
+        
         GetProfileAPI();
-        //GetAllTournamentsAPI();
-        //PostTournamentResultApi();
-        //GetLeaderboardAPI();
-        //Invoke("SetCharacterApi", 2f);
-        //SetCharacterApi();
-        //GetSwapChilliesApi();
-        //
     }
 
     public void GetProfileAPI()
@@ -196,15 +189,6 @@ public class APIManager : MonoBehaviour
             UISelectionManager.instance.UserTokens.text = GetProfileAPIResponseVar.ChilliTokenAmount.ToString();
             UISelectionManager.instance.UserTotalCollectedChillies.text = GetProfileAPIResponseVar.CollectedChillis.ToString();
 
-            //Debug.Log(GetProfileAPIResponseVar.nftTokenIds[0]);
-            //Debug.Log(GetProfileAPIResponseVar.ChilliTokenAmount);
-            //Debug.Log(GetProfileAPIResponseVar.CollectedChillis);
-            //Debug.Log(GetProfileAPIResponseVar.coversionRate);
-            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters._id);
-            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.userAddress);
-            //Debug.Log(GetProfileAPIResponseVar.ConfiguredCharacters.characterData[0]._id);
-
-
             for (int p = 0; p < 6; p++)
             {
                 // Debug.Log(p);
@@ -222,14 +206,7 @@ public class APIManager : MonoBehaviour
                 CD.headwear = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].headwear;
 
                 //SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().ChangeData(CD);
-
             }
-
-
-
-
-
-
 
         }).Catch(err =>
         {
@@ -268,40 +245,24 @@ public class APIManager : MonoBehaviour
                 TournamentDetail _TournamentDetails = TournamentObj.GetComponent<TournamentDetail>();
                 _TournamentDetails.TournamentName_Text.text = GetAllTournamnetsAPIResponseVar.data[i].tournament_name;
                 _TournamentDetails.Tournamentid = GetAllTournamnetsAPIResponseVar.data[i]._id;
-                //_TournamentDetails.TournamentDuration_Text.text = GetAllTournamnetsAPIResponseVar.data[i].duration;
 
                 string StartDateTime = GetAllTournamnetsAPIResponseVar.data[i].start_date;
                 DateTime startTime = DateTime.Parse(StartDateTime).ToUniversalTime();
-                //startTime.AddHours(1);
-                Debug.Log("Start Time: " + startTime);
-
+               
                 string EndDateTime = GetAllTournamnetsAPIResponseVar.data[i].end_date;
                 DateTime endTime = DateTime.Parse(EndDateTime).ToUniversalTime();
-                //endTime.AddHours(2);
-                Debug.Log("End Time: " + endTime);
-
-                //diffStartTime = new TimeSpan(((currentTime.Hour - 24) * 1) + startTime.Hour , ((currentTime.Minute - 60) * 1) + startTime.Minute , ((currentTime.Second - 60) * 1) + startTime.Second);
+               
                 diffStartTime = new TimeSpan(startTime.Hour - currentTime.Hour, startTime.Minute - currentTime.Minute , startTime.Second - currentTime.Second);
-
-                //diffStartTime = (startTime - currentTime);
                 diffEndTime = endTime - currentTime;
-              //  Debug.Log("" + (((currentTime.Hour - 24) * 1) + startTime.Hour + startTime.Minute + startTime.Second));
-                Debug.Log("Diff Start time: " + diffStartTime);
-                Debug.Log("Diff End Time: " + diffEndTime);
-
+              
                 if (diffStartTime > TimeSpan.Zero)
                 {
-                    Debug.Log("diffStartTime > TimeSpan.Zero");
-                    //TournamentObj.GetComponent<Button>().interactable = false;
                     _TournamentDetails.Timer = diffStartTime;
-
                 }
                 else
                 {
                     if (diffEndTime > TimeSpan.Zero)
                     {
-                        Debug.Log("diffEndTime > TimeSpan.Zero");
-                        //TournamentObj.GetComponent<Button>().interactable = true;
                         _TournamentDetails.TimerHour_Text.text = "00";
                         _TournamentDetails.TimerMinutes_Text.text = "00";
                         _TournamentDetails.TimerSeconds_Text.text = "00";
@@ -310,16 +271,10 @@ public class APIManager : MonoBehaviour
                     }
                     else
                     {
-                        Debug.Log("diffEndTime > TimeSpan.Zero e     lseeeeee");
-                        //TournamentObj.GetComponent<Button>().interactable = false;
                         _TournamentDetails.JoinButton.SetActive(false);
                     }
                 }
-                Debug.Log("Diff Start time: " + diffStartTime + " " +"hours"+ " " + diffStartTime.Hours);
-                //_TournamentDetails.Timer = diffStartTime;
-                
-                //_TournamentDetails.Timer_Text.text = string.Format("{0:00}:{1:00}:{2}", diffStartTime.Hours, diffStartTime.Minutes, diffStartTime.Seconds.ToString().Substring(0, 2));
-
+               
             }
             
         }).Catch(err =>

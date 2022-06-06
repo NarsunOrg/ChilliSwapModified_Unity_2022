@@ -88,6 +88,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.SuperJump();
+        UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperSpeed(int btnNmbr)

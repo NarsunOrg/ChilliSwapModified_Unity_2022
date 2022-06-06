@@ -15,4 +15,5 @@ public static class GameConstants
     public static string JoinedTournamentId;
     public static bool IsPaused = false;
     public static CharacterData SelectedPlayerForGame;
+    public static int SelectedPowerupNumber;
 }

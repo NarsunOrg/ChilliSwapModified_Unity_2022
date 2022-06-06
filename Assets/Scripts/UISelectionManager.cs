@@ -19,6 +19,7 @@ public class UISelectionManager : MonoBehaviour
     public GameObject cam;
     public Text CharacterNameText;
     public Transform TournamentScrollContent;
+    public GameObject[] PowerupsSelectButtons;
 
 
     void Start()
@@ -120,5 +121,18 @@ public class UISelectionManager : MonoBehaviour
     public void OnCloseStore()
     {
         APIManager.instance.SetCharacterApi();
+    }
+
+    public void OnSelectPowerup(int powerupindex)
+    {
+        foreach (GameObject g in PowerupsSelectButtons)
+        {
+            g.GetComponent<Button>().interactable = true;
+            g.GetComponentInChildren<Text>().text = "SELECT";
+        }
+        PowerupsSelectButtons[powerupindex].GetComponent<Button>().interactable = false;
+        PowerupsSelectButtons[powerupindex].GetComponentInChildren<Text>().text = "SELECTED";
+        GameConstants.SelectedPowerupNumber = powerupindex;
+       
     }
 }
