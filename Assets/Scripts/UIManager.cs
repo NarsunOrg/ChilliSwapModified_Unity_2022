@@ -41,6 +41,11 @@ public class UIManager : MonoBehaviour
     //For Sounds
     public Button[] GameplayButtons;
 
+    public GameObject[] PowerupsButtons;
+    public GameObject PowerUpTimerImage;
+    public GameObject PowerUpTimerFillImage;
+    private int PowerUpRefreshTime = 10;
+
     public void Awake()
     {
         instance = this;
@@ -56,6 +61,9 @@ public class UIManager : MonoBehaviour
         {
             GameplayButtons[5].gameObject.SetActive(false);
         }
+
+        PowerupsButtons[GameConstants.SelectedPowerupNumber].SetActive(true);
+        CallPowerUpRefreshTimer();
     }
 
     public void Update()
@@ -112,4 +120,51 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void CallPowerUpRefreshTimer()
+    {
+        StartCoroutine(PowerUpRefreshTimer());
+    }
+    public IEnumerator PowerUpRefreshTimer()
+    {
+        PowerUpTimerImage.SetActive(true);
+        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+
+        while (PowerUpTimerFillImage.GetComponent<Image>().fillAmount < 1)
+        {
+            PowerUpTimerFillImage.GetComponent<Image>().fillAmount += 0.066f / 8;
+
+            yield return new WaitForSeconds(1f / 8);
+            
+        }
+
+        PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = true;
+        PowerUpTimerImage.SetActive(false);
+        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+        StopCoroutine(PowerUpRefreshTimer());
+    }
+
+
+    public void CallPowerUpDurationTimer()
+    {
+        StartCoroutine(PowerUpDurationTimer());
+    }
+    public IEnumerator PowerUpDurationTimer()
+    {
+        PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+        PowerUpTimerImage.SetActive(true);
+        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 1;
+
+        while (PowerUpTimerFillImage.GetComponent<Image>().fillAmount > 0)
+        {
+            PowerUpTimerFillImage.GetComponent<Image>().fillAmount -= 0.1f / 8;
+            yield return new WaitForSeconds(1f / 8);
+        }
+
+        PowerUpTimerImage.SetActive(false);
+        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+        CallPowerUpRefreshTimer();
+    }
+
+
 }
