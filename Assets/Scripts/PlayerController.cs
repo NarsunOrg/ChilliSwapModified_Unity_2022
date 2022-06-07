@@ -346,6 +346,7 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.GameOverPanelTimeSecondsText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Seconds).ToString("00");
         UIManager.instance.GameOverPanelDistanceCoveredText.text = (GameManager.instance.TotalDIstanceCovered / 10000).ToString();
         UIManager.instance.GameOverPanel.SetActive(true);
+        APIManager.instance.PostChilliesApi(GameManager.instance.CollectedChillis);
         if (GameConstants.GameType == "Tournament")
         {
             UIManager.instance.HomeButton.SetActive(false);

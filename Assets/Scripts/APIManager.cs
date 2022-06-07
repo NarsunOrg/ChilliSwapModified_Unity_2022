@@ -121,6 +121,21 @@ public class SetCharacterAPIData
 }
 //SetCharacter API STRUCTURE END
 
+//PostChillies API STRUCTURE
+[Serializable]
+public class ChilliesData
+{
+    public int chillis;
+}
+
+[Serializable]
+public class GetEarnChilliesAPIResponse
+{
+    public int chillis;
+}
+//PostChillies API STRUCTURE END
+
+
 public class APIManager : MonoBehaviour
 {
     public static APIManager instance;
@@ -135,6 +150,7 @@ public class APIManager : MonoBehaviour
     //private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
     //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
     //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
+    //private string PostChilliesURL = "https://game-api.chilliswap.org/api/users/earnChilli";
 
     //For EDITOR
     private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
@@ -143,11 +159,13 @@ public class APIManager : MonoBehaviour
     private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
     private string SetCharacterURL = "http://54.179.83.173/api/character/set";
     private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+    private string PostChilliesURL = "http://54.179.83.173/api/users/earnChilli";
 
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
     public SetCharacterAPIData CharacterAPIData;
     public GetLeaderboardAPIResponse GetLeaderboardAPIResponseVar;
+    public GetEarnChilliesAPIResponse GetEarnChilliesAPIResponseVar;
     public GameObject TournamentButton;
     public GameObject LeaderboardRow;
     private TimeSpan diffStartTime;
@@ -168,6 +186,7 @@ public class APIManager : MonoBehaviour
         }
         
         GetProfileAPI();
+        
     }
 
     public void GetProfileAPI()
@@ -418,6 +437,33 @@ public class APIManager : MonoBehaviour
         }).Catch(err =>
         {
             
+            Debug.Log("Error Response" + err);
+        });
+    }
+
+    public void PostChilliesApi(int ChilliesAmount)
+    {
+        ChilliesData _ChilliesData = new ChilliesData();
+        _ChilliesData.chillis = ChilliesAmount;
+        Debug.Log(JsonUtility.ToJson(_ChilliesData));
+        RestClient.Request(new RequestHelper
+        {
+            Uri = PostChilliesURL,
+            Method = "POST",
+            //FormData = TournamentResultData,
+            BodyRaw = new System.Text.UTF8Encoding().GetBytes(JsonUtility.ToJson(_ChilliesData)),
+            Headers = new Dictionary<string, string> {
+                         { "x-access-token", authToken }
+            },
+        }).Then(res =>
+        {
+            Debug.Log("responce received of PostTournamentResultApi");
+            Debug.Log(res.Text);
+            GetEarnChilliesAPIResponseVar = new GetEarnChilliesAPIResponse();
+            GetEarnChilliesAPIResponseVar = JsonUtility.FromJson<GetEarnChilliesAPIResponse>(res.Text);
+            GetProfileAPIResponseVar.CollectedChillis = GetEarnChilliesAPIResponseVar.chillis;
+        }).Catch(err =>
+        {
             Debug.Log("Error Response" + err);
         });
     }
