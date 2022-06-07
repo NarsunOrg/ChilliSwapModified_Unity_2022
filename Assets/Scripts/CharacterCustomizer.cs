@@ -10,6 +10,13 @@ public struct BodyParts
     public string id;
     public GameObject bodypartobj;
 }
+
+[Serializable]
+public struct BodyMaterials
+{
+    public string id;
+    public Material Bodymat;
+}
 public class CharacterCustomizer : MonoBehaviour
 {
     public BodyParts[] BoyHairsPart;
@@ -31,6 +38,28 @@ public class CharacterCustomizer : MonoBehaviour
     public BodyParts[] GirlWatchPart;
 
     public CharacterData MyData;
+
+    public BodyMaterials[] BoyEyeColorMat;
+    public BodyMaterials[] BoySkinMat;
+
+    public BodyMaterials[] GirlEyeColorMat;
+    public BodyMaterials[] GirlSkinMat;
+
+    public GameObject BoyLEye;
+    public GameObject BoyREye;
+    public GameObject BoyLegs;
+    public GameObject Boyface;
+    public GameObject BoyArms;
+    public GameObject BoyHands;
+
+    public GameObject GirlLEye;
+    public GameObject GirlREye;
+    public GameObject GirlLegs;
+    public GameObject Girlface;
+    public GameObject GirlArms;
+    public GameObject GirlHands;
+    public GameObject GirlShoulders;
+    public GameObject GirlStomach;
 
     void Start()
     {
@@ -173,6 +202,31 @@ public class CharacterCustomizer : MonoBehaviour
             }
         }
 
+
+        //eyecolor
+        foreach (BodyMaterials B in BoyEyeColorMat)
+        {
+            if (B.id == NewData.eyecolor)
+            {
+                BoyLEye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                BoyREye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+            }
+            
+        }
+
+        //Skin
+        foreach (BodyMaterials B in BoySkinMat)
+        {
+            if (B.id == NewData.skintone)
+            {
+                BoyLegs.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                Boyface.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                BoyArms.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                BoyHands.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+            }
+            
+        }
+
         //Boyyyyyyyyyyy Enddddd
 
         //GIRLSTART
@@ -306,6 +360,32 @@ public class CharacterCustomizer : MonoBehaviour
                     B.bodypartobj.SetActive(false);
                 }
             }
+        }
+
+        //eyecolor
+        foreach (BodyMaterials B in GirlEyeColorMat)
+        {
+            if (B.id == NewData.eyecolor)
+            {
+                BoyLEye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                BoyREye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+            }
+
+        }
+
+        //Skin
+        foreach (BodyMaterials B in GirlSkinMat)
+        {
+            if (B.id == NewData.skintone)
+            {
+                GirlLegs.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlShoulders.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlArms.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlHands.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlStomach.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                Girlface.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+            }
+
         }
 
         //Girlllll ENDDDDD

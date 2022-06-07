@@ -152,7 +152,8 @@ public class APIManager : MonoBehaviour
     public GameObject LeaderboardRow;
     private TimeSpan diffStartTime;
     private TimeSpan diffEndTime;
-  
+
+    public CharacterData CD;
 
     void Start()
     {
@@ -192,7 +193,7 @@ public class APIManager : MonoBehaviour
             for (int p = 0; p < 6; p++)
             {
                 // Debug.Log(p);
-                CharacterData CD = new CharacterData();
+              //  CharacterData CD = new CharacterData();
 
                 CD.bodytype = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].bodytype;
                 CD.skintone = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].skintone;
@@ -202,10 +203,11 @@ public class APIManager : MonoBehaviour
                 CD.headphones = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].headphones;
                 CD.backpack = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].backpack;
                 CD.watch = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].watch;
-                CD.shoes = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].watch;
+                CD.shoes = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].shoes;
                 CD.headwear = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].headwear;
+                CD.clothes = GetProfileAPIResponseVar.ConfiguredCharacters.characterData[p].clothes;
 
-                //SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().ChangeData(CD);
+                SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().ChangeData(CD);
             }
 
         }).Catch(err =>

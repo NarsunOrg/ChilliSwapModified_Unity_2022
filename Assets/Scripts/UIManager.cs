@@ -42,8 +42,8 @@ public class UIManager : MonoBehaviour
     public Button[] GameplayButtons;
 
     public GameObject[] PowerupsButtons;
-    public GameObject PowerUpTimerImage;
-    public GameObject PowerUpTimerFillImage;
+    public GameObject[] PowerUpTimerImage;
+    public GameObject[] PowerUpTimerFillImage;
     private int PowerUpRefreshTime = 10;
 
     public void Awake()
@@ -127,20 +127,20 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator PowerUpRefreshTimer()
     {
-        PowerUpTimerImage.SetActive(true);
-        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
 
-        while (PowerUpTimerFillImage.GetComponent<Image>().fillAmount < 1)
+        while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount < 1)
         {
-            PowerUpTimerFillImage.GetComponent<Image>().fillAmount += 0.066f / 8;
+            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
 
             yield return new WaitForSeconds(1f / 8);
             
         }
 
         PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = true;
-        PowerUpTimerImage.SetActive(false);
-        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
         StopCoroutine(PowerUpRefreshTimer());
     }
 
@@ -152,18 +152,47 @@ public class UIManager : MonoBehaviour
     public IEnumerator PowerUpDurationTimer()
     {
         PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
-        PowerUpTimerImage.SetActive(true);
-        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 1;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
 
-        while (PowerUpTimerFillImage.GetComponent<Image>().fillAmount > 0)
+        while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
         {
-            PowerUpTimerFillImage.GetComponent<Image>().fillAmount -= 0.1f / 8;
+            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
             yield return new WaitForSeconds(1f / 8);
         }
 
-        PowerUpTimerImage.SetActive(false);
-        PowerUpTimerFillImage.GetComponent<Image>().fillAmount = 0;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
         CallPowerUpRefreshTimer();
+    }
+
+    public void CallPowerUpInvisibilityDurationTimer()
+    {
+        PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+        StopCoroutine(PowerUpRefreshTimer());
+        
+        StartCoroutine(PowerUpInvisibilityDurationTimer());
+    }
+    public IEnumerator PowerUpInvisibilityDurationTimer()
+    {
+        PowerupsButtons[0].GetComponent<Button>().interactable = false;
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
+
+        while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
+        {
+            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
+            yield return new WaitForSeconds(1f / 8);
+        }
+
+        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+        PowerupsButtons[0].SetActive(false);
+        StartCoroutine(PowerUpRefreshTimer());
+        StopCoroutine(PowerUpInvisibilityDurationTimer());
+        
     }
 
 

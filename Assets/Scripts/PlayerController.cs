@@ -819,6 +819,7 @@ public class PlayerController : MonoBehaviour
                     other.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Destroy(other.gameObject);
                     //Invisibility();
+                    UIManager.instance.PowerupsButtons[0].SetActive(true);
                     PUButtonhandlerRef.setPowerUpInvisibility(0);
                 }
                 break;

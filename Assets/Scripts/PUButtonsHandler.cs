@@ -77,6 +77,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.Invisibility();
+        UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperJump(int btnNmbr)
@@ -138,7 +139,7 @@ public class PUButtonsHandler : MonoBehaviour
     IEnumerator EndPowerup(int nmbr)
     {
         number = nmbr;
-        if (nmbr == 4)
+        if (nmbr == 3)
         {
             yield return new WaitForSeconds(4);
         }
