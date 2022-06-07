@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region speed
-        if (speedTimer < 20)
+        if (speedTimer < 10)
         {
             speedTimer += Time.deltaTime;
         }
