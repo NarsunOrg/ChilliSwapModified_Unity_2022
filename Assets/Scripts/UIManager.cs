@@ -63,6 +63,7 @@ public class UIManager : MonoBehaviour
         }
 
         PowerupsButtons[GameConstants.SelectedPowerupNumber].SetActive(true);
+        PowerupsButtons[0].SetActive(false);
         CallPowerUpRefreshTimer();
     }
 
