@@ -5,6 +5,7 @@ using DG.Tweening;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -606,7 +607,18 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
-                UIManager.instance.CallPowerUpInvisibilityDurationTimer();
+                //UIManager.instance.CallPowerUpInvisibilityDurationTimer();
+                if (GameConstants.SelectedPowerupNumber != 0)
+                {
+                    UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+                    UIManager.instance.PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
+                    StopCoroutine(UIManager.instance.PowerUpRefreshTimer());
+                    StopCoroutine(UIManager.instance.PowerUpDurationTimer());
+                    UIManager.instance.PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
+                    UIManager.instance.PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+
+                }
+
                 InvisibilityBool = true;
                 rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
                 rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
@@ -615,6 +627,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            UIManager.instance.CallPowerUpRefreshTimer();
             powerUpInUse = false;
             InvisibilityBool = false;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
@@ -830,7 +843,7 @@ public class PlayerController : MonoBehaviour
                     other.gameObject.GetComponent<BoxCollider>().enabled = false;
                     Destroy(other.gameObject);
                     //Invisibility();
-                    UIManager.instance.PowerupsButtons[0].SetActive(true);
+                    //UIManager.instance.PowerupsButtons[0].SetActive(true);
                     PUButtonhandlerRef.setPowerUpInvisibility(0);
                 }
                 break;
