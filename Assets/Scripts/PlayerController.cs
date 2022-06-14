@@ -125,6 +125,7 @@ public class PlayerController : MonoBehaviour
         {
             speed += speed * 0.1f;
             IncreasedSpeed = speed;
+            //PlayerAnim.speed += 0.2f;
             speedTimer = 0;
         }
         if (!dead && GameConstants.IsPaused == false)
@@ -550,7 +551,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(OnRespawnInvisibilityofGirl());
         }
-        Invoke("RespawnInvisibilityDelayCall", 0.5f);
+        Invoke("RespawnInvisibilityDelayCall", 1f);
     }
 
     public void RespawnInvisibilityDelayCall()
@@ -573,12 +574,8 @@ public class PlayerController : MonoBehaviour
     {
         float re = 0;
 
-        while (re < 0.5 && !dead)
+        while (re < 1 && !dead)
         {
-
-
-
-
             Boy.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             Boy.SetActive(true);
@@ -592,7 +589,7 @@ public class PlayerController : MonoBehaviour
     {
         float re = 0;
         
-        while (re < 0.5 && !dead)
+        while (re < 1 && !dead)
         {
             Girl.SetActive(false);
             yield return new WaitForSeconds(0.1f);
@@ -843,7 +840,7 @@ public class PlayerController : MonoBehaviour
 
     public void DelayPortalCall()
     {
-        GameManager.instance.TotalDIstanceCovered = GameManager.instance.TotalDIstanceCovered + 100;
+        GameManager.instance.TotalDIstanceCovered = GameManager.instance.TotalDIstanceCovered + 10000;
         portalDistanceMultiplier = 1;
         Portal.transform.SetParent(Parent.transform);
         Portal.transform.localPosition = new Vector3(0f, 0f, 0f);

@@ -162,8 +162,8 @@ public class UIManager : MonoBehaviour
 
         while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
         {
-            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
-            yield return new WaitForSeconds(1f / 8);
+                PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
+                yield return new WaitForSeconds(1f / 8);
         }
 
         PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);

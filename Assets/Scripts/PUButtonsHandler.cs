@@ -143,14 +143,14 @@ public class PUButtonsHandler : MonoBehaviour
     IEnumerator EndPowerup(int nmbr)
     {
         number = nmbr;
-        if (nmbr == 3)
-        {
-            yield return new WaitForSeconds(4);
-        }
-        else
-        {
+        //if (nmbr == 3)
+        //{
+        //    yield return new WaitForSeconds(4);
+        //}
+        //else
+        //{
             yield return new WaitForSeconds(10);
-        }
+        //}
         for (int i = 0; i < buttonsList.Count; i++)
         {
             buttonsList[i].interactable = true;

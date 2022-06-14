@@ -20,12 +20,15 @@ public class UISelectionManager : MonoBehaviour
     public Text CharacterNameText;
     public Transform TournamentScrollContent;
     public GameObject[] PowerupsSelectButtons;
-
+    public int Sound = 1;
+    public int Music = 1;
 
     void Start()
     {
         instance = this;
         GameConstants.CharacterType = "boy";
+
+       
     }
 
     public void OnSingleButton()
@@ -134,5 +137,33 @@ public class UISelectionManager : MonoBehaviour
         PowerupsSelectButtons[powerupindex].GetComponentInChildren<Text>().text = "SELECTED";
         GameConstants.SelectedPowerupNumber = powerupindex;
        
+    }
+
+    public void OnSoundButtonOn()
+    {
+        SoundManager.instance.AS.enabled = false;
+        SoundManager.instance.ASChillies.enabled = false;
+        SoundManager.instance.ASPlayer.enabled = false;
+        Sound = 0;
+    }
+
+    public void OnSoundButtonOff()
+    {
+        SoundManager.instance.AS.enabled = true;
+        SoundManager.instance.ASChillies.enabled = true;
+        SoundManager.instance.ASPlayer.enabled = true;
+        Sound = 1;
+    }
+
+    public void OnMusicButtonOn()
+    {
+        SoundManager.instance.ASBg.enabled = false;
+        Music = 0;
+    }
+
+    public void OnMusicButtonOff()
+    {
+        SoundManager.instance.ASBg.enabled = true;
+        Music = 1;
     }
 }

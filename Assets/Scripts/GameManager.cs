@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public int CurrentLives;
     public int CollectedChillis;
     public int TotalTimeSpend = 0;
-    public int TotalDIstanceCovered = 0;
+    public int TotalDIstanceCovered = 10000;
     public GameObject ENV;
     
     private void Awake()
