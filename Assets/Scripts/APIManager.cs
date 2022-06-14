@@ -386,7 +386,7 @@ public class APIManager : MonoBehaviour
             CharacterAPIData.SetCharacter[p].headphones = CD.headphones;
             CharacterAPIData.SetCharacter[p].backpack = CD.backpack;
             CharacterAPIData.SetCharacter[p].watch = CD.watch;
-            CharacterAPIData.SetCharacter[p].shoes = CD.watch;
+            CharacterAPIData.SetCharacter[p].shoes = CD.shoes;
             CharacterAPIData.SetCharacter[p].headwear = CD.headwear;
         }
         

@@ -367,8 +367,8 @@ public class CharacterCustomizer : MonoBehaviour
         {
             if (B.id == NewData.eyecolor)
             {
-                BoyLEye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
-                BoyREye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlLEye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
+                GirlREye.GetComponent<SkinnedMeshRenderer>().material = B.Bodymat;
             }
 
         }

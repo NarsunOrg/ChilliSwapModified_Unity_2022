@@ -100,6 +100,7 @@ public class UIManager : MonoBehaviour
     public void OnRestartButton()
     {
         Time.timeScale = 1;
+        GameConstants.IsPaused = false;
         SceneManager.LoadScene(GameConstants.SceneLoaded);
     }
 
@@ -110,9 +111,13 @@ public class UIManager : MonoBehaviour
             LeaderboardPanel.SetActive(true);
             GameOverPanel.SetActive(false);
             APIManager.instance.GetLeaderboardAPI(LeaderboardScrollContent);
+            Time.timeScale = 1;
+            GameConstants.IsPaused = false;
         }
         else
         {
+            Time.timeScale = 1;
+            GameConstants.IsPaused = false;
             SceneManager.LoadScene(0);
         }
     }
@@ -128,15 +133,14 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator PowerUpRefreshTimer()
     {
+        PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
         PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
         PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
 
         while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount < 1)
         {
             PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
-
             yield return new WaitForSeconds(1f / 8);
-            
         }
 
         PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = true;
@@ -164,14 +168,21 @@ public class UIManager : MonoBehaviour
 
         PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
         PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
-        CallPowerUpRefreshTimer();
+        if (GameConstants.SelectedPowerupNumber != 0)
+        {
+            CallPowerUpRefreshTimer();
+        }
+        else
+        {
+           PowerupsButtons[0].SetActive(false);
+        }
     }
 
     public void CallPowerUpInvisibilityDurationTimer()
     {
-        PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
-        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
-        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+        PowerupsButtons[0].GetComponent<Button>().interactable = false;
+        PowerUpTimerImage[0].SetActive(false);
+        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
         StopCoroutine(PowerUpRefreshTimer());
         
         StartCoroutine(PowerUpInvisibilityDurationTimer());
@@ -179,17 +190,17 @@ public class UIManager : MonoBehaviour
     public IEnumerator PowerUpInvisibilityDurationTimer()
     {
         PowerupsButtons[0].GetComponent<Button>().interactable = false;
-        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
-        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
+        PowerUpTimerImage[0].SetActive(true);
+        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 1;
 
-        while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
+        while (PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount > 0)
         {
-            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
+            PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount -= 0.1f / 8;
             yield return new WaitForSeconds(1f / 8);
         }
 
-        PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
-        PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+        PowerUpTimerImage[0].SetActive(false);
+        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
         PowerupsButtons[0].SetActive(false);
         StartCoroutine(PowerUpRefreshTimer());
         StopCoroutine(PowerUpInvisibilityDurationTimer());

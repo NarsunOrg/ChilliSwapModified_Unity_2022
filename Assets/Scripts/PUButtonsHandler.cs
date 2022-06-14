@@ -77,7 +77,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.Invisibility();
-        UIManager.instance.CallPowerUpDurationTimer();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperJump(int btnNmbr)
@@ -89,7 +89,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.SuperJump();
-        UIManager.instance.CallPowerUpDurationTimer();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperSpeed(int btnNmbr)
@@ -101,6 +101,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.SuperSpeed();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSlowingDown(int btnNmbr)
@@ -112,6 +113,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.SlowingDown();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpTeleportation(int btnNmbr)
@@ -123,6 +125,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.Teleportation();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpLaserGoggles(int btnNmbr)
@@ -134,6 +137,7 @@ public class PUButtonsHandler : MonoBehaviour
             buttonsList[i].interactable = false;
         }
         PURefrence.LaserGoggles();
+        //UIManager.instance.CallPowerUpDurationTimer();
         StartCoroutine(EndPowerup(btnNmbr));
     }
     IEnumerator EndPowerup(int nmbr)

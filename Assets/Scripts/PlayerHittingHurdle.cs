@@ -30,7 +30,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                     {
                         PC.PlayerRespawnTransform.SetParent(null);
                         PC.dead = true;
-                        if (GameConstants.CharacterType == "boy")
+                        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
                         {
                             SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
                             SoundManager.instance.ASPlayer.Play();
@@ -85,7 +85,7 @@ public class PlayerHittingHurdle : MonoBehaviour
                 {
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
-                    if (GameConstants.CharacterType == "boy")
+                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
                     {
                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
                         SoundManager.instance.ASPlayer.Play();

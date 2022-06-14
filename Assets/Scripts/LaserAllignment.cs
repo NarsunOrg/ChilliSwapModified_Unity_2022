@@ -15,11 +15,11 @@ public class LaserAllignment : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameConstants.CharacterType == "boy")
+        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             gameObject.transform.DOMove((BoyHead.transform.position), 0.01f);
         }
-        if (GameConstants.CharacterType == "girl")
+        if (GameConstants.SelectedPlayerForGame.bodytype == "girl")
         {
             gameObject.transform.DOMove((BoyHead.transform.position), 0.01f);
         }

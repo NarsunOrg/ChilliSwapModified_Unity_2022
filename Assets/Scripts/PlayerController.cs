@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public bool RespawnInvisibilityBool;
     public bool SuperSpeedBool;
     public GameObject LaserToUse;
-    public float speedTimer;
+    private float speedTimer;
     bool isCollidingEnter = false;
     bool isCollidingExit = false;
     public bool powerUpInUse = false;
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region speed
-        if (speedTimer < 10)
+        if (speedTimer < 5)
         {
             speedTimer += Time.deltaTime;
         }
@@ -299,7 +299,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
-                    if (GameConstants.CharacterType == "boy")
+                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
                     {
                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
                         SoundManager.instance.ASPlayer.Play();
@@ -454,7 +454,7 @@ public class PlayerController : MonoBehaviour
         SlidingCollider.transform.localPosition = new Vector3(0, 0.9f, 0);
         isGrounded = false;
         PlayerAnim.SetBool("Jump", true);
-        if(GameConstants.CharacterType == "boy")
+        if(GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyJumpClip;
             SoundManager.instance.ASPlayer.Play();
@@ -539,10 +539,12 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnInvisibility()
     {
+        
         RespawnInvisibilityBool = true;
-        if (GameConstants.CharacterType == "boy")
+        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             StartCoroutine(OnRespawnInvisibilityofBoy());
+            Debug.Log("**************************************************");
         }
         else
         {
@@ -553,7 +555,8 @@ public class PlayerController : MonoBehaviour
 
     public void RespawnInvisibilityDelayCall()
     {
-        if (GameConstants.CharacterType == "boy")
+
+        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             StopCoroutine(OnRespawnInvisibilityofBoy());
         }
@@ -572,6 +575,10 @@ public class PlayerController : MonoBehaviour
 
         while (re < 0.5 && !dead)
         {
+
+
+
+
             Boy.SetActive(false);
             yield return new WaitForSeconds(0.1f);
             Boy.SetActive(true);
@@ -602,6 +609,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpInvisibilityDurationTimer();
                 InvisibilityBool = true;
                 rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
                 rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
@@ -622,6 +630,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpDurationTimer();
                 Jumpforce = 650;
                 GroundedTime = 0.89f;
                 ResetRef = StartCoroutine(ResetPowerUp(SuperJump));
@@ -641,6 +650,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpDurationTimer();
                 MonsterMovement(0);
                 motionEffect.SetActive(true);
                 PlayerAnim.SetFloat("RunningSpeed", 2);
@@ -665,6 +675,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpDurationTimer();
                 //CurrentSpeed = speed;
                 speed = speed / 2;
                 PlayerAnim.SetFloat("RunningSpeed", 0.7f);
@@ -684,6 +695,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpDurationTimer();
                 PortalUse = true;
                 if (SpawnManager.instance.os != null)
                 {
@@ -716,6 +728,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!dead)
             {
+                UIManager.instance.CallPowerUpDurationTimer();
                 LaserToUse.SetActive(true);
                 LaserEffect.SetActive(true);
                 ResetRef = StartCoroutine(ResetPowerUp(LaserGoggles));
@@ -830,6 +843,7 @@ public class PlayerController : MonoBehaviour
 
     public void DelayPortalCall()
     {
+        GameManager.instance.TotalDIstanceCovered = GameManager.instance.TotalDIstanceCovered + 100;
         portalDistanceMultiplier = 1;
         Portal.transform.SetParent(Parent.transform);
         Portal.transform.localPosition = new Vector3(0f, 0f, 0f);
