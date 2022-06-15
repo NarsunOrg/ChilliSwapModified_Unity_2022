@@ -256,7 +256,9 @@ public class PlayerController : MonoBehaviour
     {
         dead = false;
         RespawnInvisibility();
-        DisablePowerUps();
+        UIManager.instance.DisablePowerupUsage = false;
+        UIManager.instance.CallPowerUpRefreshTimer();
+        //DisablePowerUps();
         ChangingPlatform = false;
         //changingline = false;
         //Line = 0;
@@ -301,6 +303,7 @@ public class PlayerController : MonoBehaviour
                 {
                     PlayerRespawnTransform.SetParent(null);
                     dead = true;
+                    
                     if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
                     {
                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
@@ -314,6 +317,7 @@ public class PlayerController : MonoBehaviour
                     MonsterAnim.SetBool("Attack", true);
                     PlayerAnim.SetBool("Running", false);
                     PlayerAnim.SetBool("Death", true);
+                    DisablePowerUps();
                     MonsterMovement(2);
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)
@@ -567,8 +571,6 @@ public class PlayerController : MonoBehaviour
             StopCoroutine(OnRespawnInvisibilityofGirl());
         }
         RespawnInvisibilityBool = false;
-
-
     }
 
     IEnumerator OnRespawnInvisibilityofBoy()
@@ -627,7 +629,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            UIManager.instance.CallPowerUpRefreshTimer();
+          //  UIManager.instance.CallPowerUpRefreshTimer();
             powerUpInUse = false;
             InvisibilityBool = false;
             rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
@@ -762,6 +764,7 @@ public class PlayerController : MonoBehaviour
     }
     public void DisablePowerUps()
     {
+        UIManager.instance.DisablePowerupUsage = true;
         InvisibilityBool = false;
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
@@ -773,6 +776,18 @@ public class PlayerController : MonoBehaviour
         motionEffect.SetActive(false);
         LaserEffect.SetActive(false);
         GravityEffect.SetActive(false);
+        if (GameConstants.SelectedPowerupNumber != 0)
+        {
+           
+            StopCoroutine(UIManager.instance.PowerUpRefreshTimer());
+            StopCoroutine(UIManager.instance.PowerUpDurationTimer());
+            UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+            UIManager.instance.PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
+            UIManager.instance.PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+
+            Debug.Log("inside respawnnnnnnnnnnn");
+
+        }
     }
 
     public void OnTriggerEnter(Collider other)

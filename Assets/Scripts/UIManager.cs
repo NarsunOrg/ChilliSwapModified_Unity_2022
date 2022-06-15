@@ -45,6 +45,8 @@ public class UIManager : MonoBehaviour
     public GameObject[] PowerUpTimerImage;
     public GameObject[] PowerUpTimerFillImage;
     private int PowerUpRefreshTime = 10;
+    public PlayerController pc;
+    public bool DisablePowerupUsage = false;
 
     public void Awake()
     {
@@ -133,7 +135,6 @@ public class UIManager : MonoBehaviour
     }
     public IEnumerator PowerUpRefreshTimer()
     {
-        
         if (GameConstants.SelectedPowerupNumber != 0)
         {
             Debug.Log(GameConstants.SelectedPowerupNumber);
@@ -143,15 +144,29 @@ public class UIManager : MonoBehaviour
 
             while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount < 1)
             {
+                if (DisablePowerupUsage == true)
+                {
+                    break;
+                }
+                Debug.Log("nvnfhfhfdhfhfghfhfghfhfhf");
                 PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
                 PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
                 yield return new WaitForSeconds(1f / 8);
             }
+            if (DisablePowerupUsage == true)
+            {
+                
+            }
+            else
+            {
 
-            PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = true;
-            PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
-            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
-            StopCoroutine(PowerUpRefreshTimer());
+
+
+                PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+                //PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+                StopCoroutine(PowerUpRefreshTimer());
+                PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = true;
+            }
         }
     }
 
@@ -170,45 +185,47 @@ public class UIManager : MonoBehaviour
             PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
             while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
             {
+                
                 PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
                 yield return new WaitForSeconds(1f / 8);
             }
-            PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
-            PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
-            StopCoroutine(PowerUpDurationTimer());
-            CallPowerUpRefreshTimer();
+           
+                PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+                //PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
+                StopCoroutine(PowerUpDurationTimer());
+                CallPowerUpRefreshTimer();
         }
        
     }
 
-    public void CallPowerUpInvisibilityDurationTimer()
-    {
-        PowerupsButtons[0].GetComponent<Button>().interactable = false;
-        PowerUpTimerImage[0].SetActive(false);
-        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
-        StopCoroutine(PowerUpRefreshTimer());
+    //public void CallPowerUpInvisibilityDurationTimer()
+    //{
+    //    PowerupsButtons[0].GetComponent<Button>().interactable = false;
+    //    PowerUpTimerImage[0].SetActive(false);
+    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
+    //    StopCoroutine(PowerUpRefreshTimer());
         
-        StartCoroutine(PowerUpInvisibilityDurationTimer());
-    }
-    public IEnumerator PowerUpInvisibilityDurationTimer()
-    {
-        PowerupsButtons[0].GetComponent<Button>().interactable = false;
-        PowerUpTimerImage[0].SetActive(true);
-        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 1;
+    //    StartCoroutine(PowerUpInvisibilityDurationTimer());
+    //}
+    //public IEnumerator PowerUpInvisibilityDurationTimer()
+    //{
+    //    PowerupsButtons[0].GetComponent<Button>().interactable = false;
+    //    PowerUpTimerImage[0].SetActive(true);
+    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 1;
 
-        while (PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount > 0)
-        {
-            PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount -= 0.1f / 8;
-            yield return new WaitForSeconds(1f / 8);
-        }
+    //    while (PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount > 0)
+    //    {
+    //        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount -= 0.1f / 8;
+    //        yield return new WaitForSeconds(1f / 8);
+    //    }
 
-        PowerUpTimerImage[0].SetActive(false);
-        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
-        PowerupsButtons[0].SetActive(false);
-        StartCoroutine(PowerUpRefreshTimer());
-        StopCoroutine(PowerUpInvisibilityDurationTimer());
+    //    PowerUpTimerImage[0].SetActive(false);
+    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
+    //    PowerupsButtons[0].SetActive(false);
+    //    StartCoroutine(PowerUpRefreshTimer());
+    //    StopCoroutine(PowerUpInvisibilityDurationTimer());
         
-    }
+    //}
 
 
 }
