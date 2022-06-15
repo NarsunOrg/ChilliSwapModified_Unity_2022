@@ -90,11 +90,24 @@ public class CharacterCustomizer : MonoBehaviour
         {
             if (B.id == NewData.clothes[0])
             {
+                switch (NewData.clothes[0])
+                {
+                    case "shrit-01":
+                        BoyArms.SetActive(false);
+
+                        break;
+                }
                 B.bodypartobj.SetActive(true);
             }
             else if(B.id == NewData.clothes[1])
             {
+                switch (NewData.clothes[0])
+                {
+                    case "shrit-05":
+                        BoyArms.SetActive(false);
 
+                        break;
+                }
                 B.bodypartobj.SetActive(true);
             }
             else
@@ -253,10 +266,25 @@ public class CharacterCustomizer : MonoBehaviour
             if (B.id == NewData.clothes[0])
             {
                 B.bodypartobj.SetActive(true);
+
+                switch (NewData.clothes[0])
+                {
+                    case "shrit-01":
+                        GirlStomach.SetActive(false);
+                        
+                        break;
+                }
+
             }
             else if (B.id == NewData.clothes[1])
             {
+                switch (NewData.clothes[0])
+                {
+                    case "shrit-05":
+                        GirlStomach.SetActive(false);
 
+                        break;
+                }
                 B.bodypartobj.SetActive(true);
             }
             else
