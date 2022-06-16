@@ -113,11 +113,12 @@ public class PlayerController : MonoBehaviour
 
     public void CancelFunctionsInvoke()
     {
-        CancelInvoke("TotalTimeCount");
+        StopCoroutine(TotalTimeCount());
+        //CancelInvoke("TotalTimeCount");
         //CancelInvoke("StoreLastPlayerPosition");
     }
 
-    // Update is called once per frame
+   
     void Update()
     {
         #region speed
@@ -347,8 +348,8 @@ public class PlayerController : MonoBehaviour
 
     public void LoadSceneDelayCall()
     {
-        CancelFunctionsInvoke();
-
+        
+        StopCoroutine(TotalTimeCount());
         UIManager.instance.GameOverPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
         UIManager.instance.GameOverPanelTimeHourText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Hours).ToString("00");
         UIManager.instance.GameOverPanelTimeMinuteText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Minutes).ToString("00");

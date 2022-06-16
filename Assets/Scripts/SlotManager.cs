@@ -74,8 +74,8 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot1 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot1;
-              
-
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
                 break;
 
             case "2":
@@ -87,7 +87,9 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot2 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot2;
-            
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+
                 break;
 
             case "3":
@@ -99,7 +101,9 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot3 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot3;
-          
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+
                 break;
 
             case "4":
@@ -111,7 +115,9 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot4 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot4;
-             
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+
                 break;
 
             case "5":
@@ -123,7 +129,9 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot5 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot5;
-         
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+
                 break;
 
             case "6":
@@ -135,7 +143,9 @@ public class SlotManager : MonoBehaviour
                 SelectedCharacter.SetActive(true);
                 slot6 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot6;
-        
+                UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+
                 break;
         }
     }
@@ -551,7 +561,14 @@ public class SlotManager : MonoBehaviour
                 g.SetActive(false);
             }
             CharacterList[CharacterNumber].SetActive(true);
-            
+            if (CharacterNumber == 0 || CharacterNumber == 2 || CharacterNumber == 4)
+            {
+                UISelectionManager.instance.CharacterNameText.text = "MIKE";
+            }
+            else
+            {
+                UISelectionManager.instance.CharacterNameText.text = "SARAH";
+            }
         }
     }
 
@@ -565,7 +582,14 @@ public class SlotManager : MonoBehaviour
                 g.SetActive(false);
             }
             CharacterList[CharacterNumber].SetActive(true);
-            
+            if (CharacterNumber == 0 || CharacterNumber == 2 || CharacterNumber == 4)
+            {
+                UISelectionManager.instance.CharacterNameText.text = "MIKE";
+            }
+            else
+            {
+                UISelectionManager.instance.CharacterNameText.text = "SARAH";
+            }
         }
     }
 

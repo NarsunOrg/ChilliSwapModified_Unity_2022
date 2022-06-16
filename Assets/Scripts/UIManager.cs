@@ -133,6 +133,7 @@ public class UIManager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
         SoundManager.instance.ASBg.Stop();
+        GameConstants.SelectedPowerupNumber = 0;
     }
 
     public void OnLeaderBoardCloseButton()

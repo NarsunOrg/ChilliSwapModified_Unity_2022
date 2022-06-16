@@ -18,6 +18,8 @@ public class UISelectionManager : MonoBehaviour
     public GameObject[] EnvImagesList;
     public GameObject cam;
     public Text CharacterNameText;
+    public Text OutfitPanelCharacterNameText;
+    public Text SkinsPanelCharacterNameText;
     public Transform TournamentScrollContent;
     public GameObject[] PowerupsSelectButtons;
     public int Sound = 1;
