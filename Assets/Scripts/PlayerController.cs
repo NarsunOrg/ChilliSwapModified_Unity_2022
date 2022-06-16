@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
     public float portalDistanceMultiplier = 0.5f;
     public int portaldistance = 0;
     public int SuperSpeedDistance = 0;
-
+    public GameObject InvisibilityBooster;
 
     public void SettingBoy()
     {
@@ -94,7 +94,8 @@ public class PlayerController : MonoBehaviour
         IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
-        InvokeRepeating("TotalTimeCount", 1, 1);
+        //InvokeRepeating("TotalTimeCount", 1, 1);
+        StartCoroutine(TotalTimeCount());
         //InvokeRepeating("StoreLastPlayerPosition", 5, 1);
     }
 
@@ -103,9 +104,11 @@ public class PlayerController : MonoBehaviour
     //    PlayerLastStoredTransform = Parent.transform.localPosition;
     //}
 
-    public void TotalTimeCount()
+    IEnumerator TotalTimeCount()
     {
+        yield return new WaitForSecondsRealtime(1f);
         GameManager.instance.TotalTimeSpend = GameManager.instance.TotalTimeSpend + 1;
+        StartCoroutine(TotalTimeCount());
     }
 
     public void CancelFunctionsInvoke()
@@ -517,16 +520,20 @@ public class PlayerController : MonoBehaviour
    
     public void ChangeState(string str)
     {
-        if (str == "Left" && TurnTag == "Left")
+        if (!dead)
         {
-            Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
-            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+            if (str == "Left" && TurnTag == "Left")
+            {
+                Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
+                Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+            }
+            else if (str == "Right" && TurnTag == "Right")
+            {
+                Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
+                Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+            }
         }
-        else if (str == "Right" && TurnTag == "Right")
-        {
-            Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
-            Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
-        }
+        
         ChangingPlatform = false;
         Invoke("resetfollowspeed", 1.5f);
     }
@@ -622,8 +629,9 @@ public class PlayerController : MonoBehaviour
                 }
 
                 InvisibilityBool = true;
-                rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
-                rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+                InvisibilityBooster.SetActive(true);
+                //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
+                //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
                 ResetRef = StartCoroutine(ResetPowerUp(Invisibility));
             }
         }
@@ -632,8 +640,9 @@ public class PlayerController : MonoBehaviour
           //  UIManager.instance.CallPowerUpRefreshTimer();
             powerUpInUse = false;
             InvisibilityBool = false;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
-            rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+            InvisibilityBooster.SetActive(false);
+            //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
+            //rendererRef.GetComponent<SkinnedMeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
         }
     }
     public void SuperJump()

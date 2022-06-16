@@ -85,6 +85,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPausedButton()
     {
+        SoundManager.instance.ASBg.Stop();
         GameConstants.IsPaused = true;
         Time.timeScale = 0;
         PausedPanelChilliCountText.text = GameManager.instance.CollectedChillis.ToString();
@@ -100,6 +101,7 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1;
         GameConstants.IsPaused = false;
         PausedPanel.SetActive(false);
+        SoundManager.instance.ASBg.Play();
     }
 
     public void OnRestartButton()
@@ -108,6 +110,7 @@ public class UIManager : MonoBehaviour
         GameConstants.IsPaused = false;
         PausedPanel.SetActive(false);
         GameOverPanel.SetActive(false);
+        SoundManager.instance.ASBg.Play();
         SceneManager.LoadScene(GameConstants.SceneLoaded);
     }
 
@@ -167,9 +170,6 @@ public class UIManager : MonoBehaviour
             }
             else
             {
-
-
-
                 PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
                 //PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
                 StopCoroutine(PowerUpRefreshTimer());

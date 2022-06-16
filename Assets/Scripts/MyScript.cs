@@ -32,7 +32,7 @@ public class MyScript : MonoBehaviour
     void OnVisibilityChange(string visibilityState)
     {
         System.Console.WriteLine("[" + System.DateTime.Now + "] the game switched to " + (visibilityState == "visible" ? "foreground" : "background"));
-        if (visibilityState == "visible")
+        if (visibilityState == "visible" && GameConstants.IsPaused == false)
         {
             Time.timeScale = 1;
         }
