@@ -2518,9 +2518,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 71691972}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &81922103 stripped
+--- !u!4 &71691977 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8185838961244256029, guid: b348f4e4334123f41bfb0c08a74a49d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 71691972}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &71691978 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 685640091690768358, guid: b348f4e4334123f41bfb0c08a74a49d4,
+  m_CorrespondingSourceObject: {fileID: 3047432279594427565, guid: b348f4e4334123f41bfb0c08a74a49d4,
     type: 3}
   m_PrefabInstance: {fileID: 71691972}
   m_PrefabAsset: {fileID: 0}
@@ -24911,8 +24917,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 71691974}
-  PositionToSet: {fileID: 81922103}
+  PositionToSet: {fileID: 71691978}
   offset: {x: 0, y: 0, z: 0}
+  Target: {fileID: 71691977}
+  Offset: {x: 0, y: 3.15, z: 5}
+  SmoothTime: 0.3
 --- !u!1 &1704171663
 GameObject:
   m_ObjectHideFlags: 0
