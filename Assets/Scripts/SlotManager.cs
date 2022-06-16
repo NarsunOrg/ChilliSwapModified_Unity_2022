@@ -575,4 +575,15 @@ public class SlotManager : MonoBehaviour
         GameConstants.SelectedPlayerForGame = CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData;
         Debug.Log(GameConstants.SelectedPlayerForGame.hairstyle + CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData.hairstyle);
     }
+
+    public void OnCustomizationResetButton()
+    {
+        SelectedSlot.skintone = "Skintone-00";
+        SelectedSlot.hairstyle = "Hairs-00";
+        SelectedSlot.eyecolor = "Eye-00";
+        SelectedSlot.clothes[0] = "Cloth-00";
+        SelectedSlot.clothes[1] = "Cloth-000";
+        SelectedSlot.shoes = "Shoes-00";
+        ApplyChanges();
+    }
 }

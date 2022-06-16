@@ -47,6 +47,8 @@ public class UIManager : MonoBehaviour
     private int PowerUpRefreshTime = 10;
     public PlayerController pc;
     public bool DisablePowerupUsage = false;
+    public GameObject LoadingPanel;
+    public Slider LoadingSlider;
 
     public void Awake()
     {
@@ -55,6 +57,7 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
+        StartCoroutine(LoadingBar());
         foreach (Button b in GameplayButtons)
         {
             b.onClick.AddListener(SoundManager.instance.OnButtonClick);
@@ -103,6 +106,8 @@ public class UIManager : MonoBehaviour
     {
         Time.timeScale = 1;
         GameConstants.IsPaused = false;
+        PausedPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
         SceneManager.LoadScene(GameConstants.SceneLoaded);
     }
 
@@ -119,9 +124,12 @@ public class UIManager : MonoBehaviour
         else
         {
             Time.timeScale = 1;
+            GameOverPanel.SetActive(false);
+            PausedPanel.SetActive(false);
             GameConstants.IsPaused = false;
             SceneManager.LoadScene(0);
         }
+        SoundManager.instance.ASBg.Stop();
     }
 
     public void OnLeaderBoardCloseButton()
@@ -185,7 +193,6 @@ public class UIManager : MonoBehaviour
             PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
             while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
             {
-                
                 PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
                 yield return new WaitForSeconds(1f / 8);
             }
@@ -195,37 +202,19 @@ public class UIManager : MonoBehaviour
                 StopCoroutine(PowerUpDurationTimer());
                 CallPowerUpRefreshTimer();
         }
-       
     }
 
-    //public void CallPowerUpInvisibilityDurationTimer()
-    //{
-    //    PowerupsButtons[0].GetComponent<Button>().interactable = false;
-    //    PowerUpTimerImage[0].SetActive(false);
-    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
-    //    StopCoroutine(PowerUpRefreshTimer());
-        
-    //    StartCoroutine(PowerUpInvisibilityDurationTimer());
-    //}
-    //public IEnumerator PowerUpInvisibilityDurationTimer()
-    //{
-    //    PowerupsButtons[0].GetComponent<Button>().interactable = false;
-    //    PowerUpTimerImage[0].SetActive(true);
-    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 1;
-
-    //    while (PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount > 0)
-    //    {
-    //        PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount -= 0.1f / 8;
-    //        yield return new WaitForSeconds(1f / 8);
-    //    }
-
-    //    PowerUpTimerImage[0].SetActive(false);
-    //    PowerUpTimerFillImage[0].GetComponent<Image>().fillAmount = 0;
-    //    PowerupsButtons[0].SetActive(false);
-    //    StartCoroutine(PowerUpRefreshTimer());
-    //    StopCoroutine(PowerUpInvisibilityDurationTimer());
-        
-    //}
-
-
+    IEnumerator LoadingBar()
+    {
+        yield return new WaitForSeconds(0.1f);
+        if (LoadingSlider.value < 0.9)
+        {
+            LoadingSlider.value += 0.1f;
+            StartCoroutine(LoadingBar());
+        }
+        else
+        {
+            LoadingPanel.SetActive(false);
+        }
+    }
 }

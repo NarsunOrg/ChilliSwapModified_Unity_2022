@@ -92,20 +92,51 @@ public class CharacterCustomizer : MonoBehaviour
             {
                 switch (NewData.clothes[0])
                 {
-                    case "shrit-01":
-                        BoyArms.SetActive(false);
 
+                    case "Cloth-00":
+                        BoyArms.SetActive(true);
+                        break;
+
+                    case "Cloth-01":
+                        BoyArms.SetActive(true);
+                        break;
+
+                    case "Cloth-02":
+                        BoyArms.SetActive(true);
+                        break;
+
+                    case "Cloth-03":
+                        BoyArms.SetActive(false);
+                        break;
+
+                    case "Cloth-04":
+                        BoyArms.SetActive(false);
                         break;
                 }
                 B.bodypartobj.SetActive(true);
             }
             else if(B.id == NewData.clothes[1])
             {
-                switch (NewData.clothes[0])
+                switch (NewData.clothes[1])
                 {
-                    case "shrit-05":
-                        BoyArms.SetActive(false);
+                    case "Cloth-000":
+                        BoyLegs.SetActive(false);
+                        break;
 
+                    case "Cloth-05":
+                        BoyLegs.SetActive(true);
+                        break;
+
+                    case "Cloth-06":
+                        BoyLegs.SetActive(true);
+                        break;
+
+                    case "Cloth-07":
+                        BoyLegs.SetActive(false);
+                        break;
+
+                    case "Cloth-08":
+                        BoyLegs.SetActive(false);
                         break;
                 }
                 B.bodypartobj.SetActive(true);
@@ -269,21 +300,55 @@ public class CharacterCustomizer : MonoBehaviour
 
                 switch (NewData.clothes[0])
                 {
-                    case "shrit-01":
+
+                    case "Cloth-00":
+                        GirlStomach.SetActive(true);
+                        GirlArms.SetActive(true);
+                        break;
+
+                    case "Cloth-01":
                         GirlStomach.SetActive(false);
-                        
+                        GirlArms.SetActive(true);
+                        break;
+
+                    case "Cloth-02":
+                        GirlStomach.SetActive(false);
+                        GirlArms.SetActive(true);
+                        break;
+
+                    case "Cloth-03":
+                        GirlStomach.SetActive(false);
+                        GirlArms.SetActive(true);
+                        break;
+
+                    case "Cloth-04":
+                        GirlStomach.SetActive(true);
+                        GirlArms.SetActive(false);
                         break;
                 }
 
             }
             else if (B.id == NewData.clothes[1])
             {
-                switch (NewData.clothes[0])
+                switch (NewData.clothes[1])
                 {
-                    case "shrit-05":
-                        GirlStomach.SetActive(false);
 
+                    case "Cloth-000":
+                        GirlLegs.SetActive(true);
                         break;
+
+                    case "Cloth-05":
+                        GirlLegs.SetActive(false);
+                        break;
+
+                    case "Cloth-06":
+                        GirlLegs.SetActive(false);
+                        break;
+
+                    case "Cloth-07":
+                        GirlLegs.SetActive(false);
+                        break;
+
                 }
                 B.bodypartobj.SetActive(true);
             }

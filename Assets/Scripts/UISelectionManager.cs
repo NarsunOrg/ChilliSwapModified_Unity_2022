@@ -22,13 +22,15 @@ public class UISelectionManager : MonoBehaviour
     public GameObject[] PowerupsSelectButtons;
     public int Sound = 1;
     public int Music = 1;
+    public GameObject LoadingPanel;
+    public Slider LoadingSlider;
+    public float SliderTime = 1f;
 
     void Start()
     {
         instance = this;
         GameConstants.CharacterType = "boy";
-
-       
+        StartCoroutine(LoadingBar());
     }
 
     public void OnSingleButton()
@@ -165,5 +167,44 @@ public class UISelectionManager : MonoBehaviour
     {
         SoundManager.instance.ASBg.enabled = true;
         Music = 1;
+    }
+
+    IEnumerator LoadingBar()
+    {
+        yield return new WaitForSeconds(SliderTime);
+        if (LoadingSlider.value < 0.9)
+        {
+            LoadingSlider.value += 0.01f;
+            StartCoroutine(LoadingBar());
+        }
+        else
+        {
+            LoadingPanel.SetActive(false);
+        }
+    }
+
+    public void StoreBackButton()
+    {
+        SlotManager.instance.BoyskintoneScreen.SetActive(false);
+        SlotManager.instance.BoyhairstyleScreen.SetActive(false);
+        SlotManager.instance.BoyeyecolorScreen.SetActive(false);
+        SlotManager.instance.BoyclothesScreen.SetActive(false);
+        SlotManager.instance.BoyheadwearScreen.SetActive(false);
+        SlotManager.instance.BoygogglesScreen.SetActive(false);
+        SlotManager.instance.BoyheadphonesScreen.SetActive(false);
+        SlotManager.instance.BoyshoesScreen.SetActive(false);
+        SlotManager.instance.BoybackpackScreen.SetActive(false);
+        SlotManager.instance.BoywatchScreen.SetActive(false);
+
+        SlotManager.instance.GirlskintoneScreen.SetActive(false);
+        SlotManager.instance.GirlhairstyleScreen.SetActive(false);
+        SlotManager.instance.GirleyecolorScreen.SetActive(false);
+        SlotManager.instance.GirlclothesScreen.SetActive(false);
+        SlotManager.instance.GirlheadwearScreen.SetActive(false);
+        SlotManager.instance.GirlgogglesScreen.SetActive(false);
+        SlotManager.instance.GirlheadphonesScreen.SetActive(false);
+        SlotManager.instance.GirlshoesScreen.SetActive(false);
+        SlotManager.instance.GirlbackpackScreen.SetActive(false);
+        SlotManager.instance.GirlwatchScreen.SetActive(false);
     }
 }
