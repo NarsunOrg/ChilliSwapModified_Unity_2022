@@ -585,7 +585,7 @@ public class PlayerController : MonoBehaviour
     {
         float re = 0;
 
-        while (re < 1 && !dead)
+        while (re < 1.5 && !dead)
         {
             Boy.SetActive(false);
             yield return new WaitForSeconds(0.1f);
@@ -600,7 +600,7 @@ public class PlayerController : MonoBehaviour
     {
         float re = 0;
         
-        while (re < 1 && !dead)
+        while (re < 1.5 && !dead)
         {
             Girl.SetActive(false);
             yield return new WaitForSeconds(0.1f);
