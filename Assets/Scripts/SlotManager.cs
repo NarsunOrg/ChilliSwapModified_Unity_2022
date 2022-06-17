@@ -600,14 +600,19 @@ public class SlotManager : MonoBehaviour
         Debug.Log(GameConstants.SelectedPlayerForGame.hairstyle + CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData.hairstyle);
     }
 
-    public void OnCustomizationResetButton()
+    public void OnOutfitResetButton()
+    {
+        SelectedSlot.clothes[0] = "Cloth-00";
+        SelectedSlot.clothes[1] = "Cloth-000";
+        SelectedSlot.shoes = "Shoes-00";
+        ApplyChanges();
+    }
+
+    public void OnSkinsResetButton()
     {
         SelectedSlot.skintone = "Skintone-00";
         SelectedSlot.hairstyle = "Hairs-00";
         SelectedSlot.eyecolor = "Eye-00";
-        SelectedSlot.clothes[0] = "Cloth-00";
-        SelectedSlot.clothes[1] = "Cloth-000";
-        SelectedSlot.shoes = "Shoes-00";
         ApplyChanges();
     }
 }

@@ -21,7 +21,7 @@ public class LaserAllignment : MonoBehaviour
         }
         if (GameConstants.SelectedPlayerForGame.bodytype == "girl")
         {
-            gameObject.transform.DOMove((BoyHead.transform.position), 0.01f);
+            gameObject.transform.DOMove((GirlHead.transform.position), 0.01f);
         }
     }
 }

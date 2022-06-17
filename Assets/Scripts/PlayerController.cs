@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
     public int portaldistance = 0;
     public int SuperSpeedDistance = 0;
     public GameObject InvisibilityBooster;
-
+    public bool isonturn = false;
     public void SettingBoy()
     {
         
@@ -107,13 +107,14 @@ public class PlayerController : MonoBehaviour
     IEnumerator TotalTimeCount()
     {
         yield return new WaitForSecondsRealtime(1f);
+        if(UIManager.instance.pc.dead==false && GameConstants.IsPaused == false)
         GameManager.instance.TotalTimeSpend = GameManager.instance.TotalTimeSpend + 1;
         StartCoroutine(TotalTimeCount());
     }
 
     public void CancelFunctionsInvoke()
     {
-        StopCoroutine(TotalTimeCount());
+        //StopCoroutine(TotalTimeCount());
         //CancelInvoke("TotalTimeCount");
         //CancelInvoke("StoreLastPlayerPosition");
     }
@@ -122,19 +123,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         #region speed
-        if (speedTimer < 5)
-        {
-            speedTimer += Time.deltaTime;
-        }
-        else
-        {
-            speed += speed * 0.1f;
-            IncreasedSpeed = speed;
-            //PlayerAnim.speed += 0.2f;
-            speedTimer = 0;
-        }
+       
         if (!dead && GameConstants.IsPaused == false)
         {
+            if (speedTimer < 5)
+            {
+                speedTimer += Time.deltaTime;
+            }
+            else
+            {
+                speed += speed * 0.1f;
+                IncreasedSpeed = speed;
+                //PlayerAnim.speed += 0.2f;
+                speedTimer = 0;
+            }
             GameManager.instance.TotalDIstanceCovered += ((int)speed * GameManager.instance.TotalTimeSpend);
         }
         #endregion
@@ -526,12 +528,16 @@ public class PlayerController : MonoBehaviour
             if (str == "Left" && TurnTag == "Left")
             {
                 Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
-                Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+                //  Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+              
+                    Parent.transform.DOMove(new Vector3( nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z), 0.10f);
             }
             else if (str == "Right" && TurnTag == "Right")
             {
                 Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
-                Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+                //Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+                Parent.transform.DOMove(new Vector3(nextTransformPosition.transform.position.x, 0f,nextTransformPosition.transform.position.z), 0.10f);
+
             }
         }
         
@@ -628,7 +634,7 @@ public class PlayerController : MonoBehaviour
                     UIManager.instance.PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
 
                 }
-
+                UIManager.instance.DisablePowerupUsage = true;
                 InvisibilityBool = true;
                 InvisibilityBooster.SetActive(true);
                 //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Transparent;
@@ -638,8 +644,9 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-          //  UIManager.instance.CallPowerUpRefreshTimer();
+            UIManager.instance.CallPowerUpRefreshTimer();
             powerUpInUse = false;
+            UIManager.instance.DisablePowerupUsage = false;
             InvisibilityBool = false;
             InvisibilityBooster.SetActive(false);
             //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
@@ -776,6 +783,7 @@ public class PlayerController : MonoBehaviour
     {
         UIManager.instance.DisablePowerupUsage = true;
         InvisibilityBool = false;
+        InvisibilityBooster.SetActive(false);
         rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
         Jumpforce = 500;
         GroundedTime = 0.8f;

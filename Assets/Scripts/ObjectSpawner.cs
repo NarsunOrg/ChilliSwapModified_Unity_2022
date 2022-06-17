@@ -32,7 +32,7 @@ public class ObjectSpawner : MonoBehaviour
             if (SpawnManager.instance._ENV[i] == this.transform.parent.gameObject)
             {
                 
-                if(i!= SpawnManager.instance._ENV.Length)
+                if(i!= SpawnManager.instance._ENV.Length-1)
                 SpawnManager.instance._ENV[i + 1].GetComponentInChildren<ObjectSpawner>().SpawnObjects();
                 
 

@@ -15,7 +15,8 @@ public class StartPosRefrence : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            if(other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedBool)
+            other.transform.gameObject.GetComponent<PlayerController>().isonturn = true;
+            if (other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedBool)
             {
                 other.transform.gameObject.GetComponent<PlayerController>().SuperSpeedTurn(NextPosition,this.gameObject.tag);
             }
@@ -25,4 +26,12 @@ public class StartPosRefrence : MonoBehaviour
             }
         }
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.transform.tag == "Player")
+        {
+            other.transform.gameObject.GetComponent<PlayerController>().isonturn = false;
+        }
+    }
+
 }

@@ -70,37 +70,48 @@ public class PUButtonsHandler : MonoBehaviour
     public void setPowerUpInvisibility(int btnNmbr)
     {
         //powerupInUse = true;
+        if(UIManager.instance.pc.isonturn==false)
         PURefrence.Invisibility();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperJump(int btnNmbr)
     {
         //powerupInUse = true;
-        PURefrence.SuperJump();
+        if (UIManager.instance.pc.isonturn == false)
+
+            PURefrence.SuperJump();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSuperSpeed(int btnNmbr)
     {
         //powerupInUse = true;
-        PURefrence.SuperSpeed();
+        if(UIManager.instance.pc.isonturn==false)
+         PURefrence.SuperSpeed();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpSlowingDown(int btnNmbr)
     {
         //powerupInUse = true;
-        PURefrence.SlowingDown();
+        if (UIManager.instance.pc.isonturn == false)
+
+            PURefrence.SlowingDown();
+
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpTeleportation(int btnNmbr)
     {
         //powerupInUse = true;
-        PURefrence.Teleportation();
+        if (UIManager.instance.pc.isonturn == false)
+
+            PURefrence.Teleportation();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     public void setPowerUpLaserGoggles(int btnNmbr)
     {
         //powerupInUse = true;
-        PURefrence.LaserGoggles();
+        if (UIManager.instance.pc.isonturn == false)
+
+            PURefrence.LaserGoggles();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
     IEnumerator EndPowerup(int nmbr)

@@ -26,7 +26,7 @@ public class FollowPlayer : MonoBehaviour
     // offset between camera and target
     public Vector3 Offset;
     // change this value to get desired smoothness
-    public float SmoothTime = 0.01f;
+    private float SmoothTime = 0.07f;
 
     // This value will change at the runtime depending on target movement. Initialize with zero vector.
     private Vector3 velocity = Vector3.zero;
@@ -44,6 +44,7 @@ public class FollowPlayer : MonoBehaviour
 
         // update rotation
         transform.LookAt(Target);
+        //SmoothTime = SmoothTime / UIManager.instance.pc.IncreasedSpeed;  
     }
 
 }
