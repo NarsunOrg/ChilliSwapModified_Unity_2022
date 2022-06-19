@@ -18,7 +18,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (!IsObjectSpawned)
         {
-            Debug.Log("call");
+            //Debug.Log("call");
             SpawnManager.instance.SpawnObjects(this, ChilliesSpawnPoints, HurdlesSpawnPoints);
             IsObjectSpawned = true;
             

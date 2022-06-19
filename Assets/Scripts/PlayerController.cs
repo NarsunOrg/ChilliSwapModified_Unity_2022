@@ -62,9 +62,10 @@ public class PlayerController : MonoBehaviour
     public int SuperSpeedDistance = 0;
     public GameObject InvisibilityBooster;
     public bool isonturn = false;
+    private float MaxSpeed = 200f;
+
     public void SettingBoy()
     {
-        
         Boy.SetActive(true);
         Girl.SetActive(false);
         PlayerAnim.avatar = BoyAvatar;
@@ -132,8 +133,16 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                speed += speed * 0.1f;
-                IncreasedSpeed = speed;
+                if (speed < MaxSpeed)
+                {
+                    speed += speed * 0.1f;
+                    IncreasedSpeed = speed;
+                }
+                else
+                {
+                    speed = MaxSpeed;
+                    IncreasedSpeed = speed;
+                }
                 //PlayerAnim.speed += 0.2f;
                 speedTimer = 0;
             }
@@ -226,42 +235,46 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
-        #region Parent Movement
-        float x = Parent.transform.position.x;
-        float z = Parent.transform.position.z;
+        //#region Parent Movement
+        //float x = Parent.transform.position.x;
+        //float z = Parent.transform.position.z;
        
-        if (!dead)
-        {
-            Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
-        }
-        if ((gameObject.transform.localPosition.z > 0.0001 || gameObject.transform.localPosition.z < -0.0001) && !dead)
-        {
-            gameObject.transform.DOLocalMoveZ(0, 0.01f);
-        }
+        //if (!dead)
+        //{
+        //    Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+        //}
+        //if ((gameObject.transform.localPosition.z > 0.0001 || gameObject.transform.localPosition.z < -0.0001) && !dead)
+        //{
+        //    gameObject.transform.DOLocalMoveZ(0, 0.01f);
+        //}
 
-        #endregion
+        //#endregion
 
-        #region Gyro Movement
-        if (Input.acceleration.x != 0 && !dead)
-        {
-            if (Mathf.Abs(Input.acceleration.x) > 0.07)
-            {
-                transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
-                if (!InvisibilityBool)
-                {
-                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
-                }
-            }
-        }
-        #endregion
+        //#region Gyro Movement
+        //if (Input.acceleration.x != 0 && !dead)
+        //{
+        //    if (Mathf.Abs(Input.acceleration.x) > 0.07)
+        //    {
+        //        transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
+        //        if (!InvisibilityBool)
+        //        {
+        //            Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
+        //        }
+        //    }
+        //}
+        //#endregion
 
 
+    }
+    private void FixedUpdate()
+    {
+       
     }
 
     public void RespwanPlayer()
     {
         dead = false;
-        RespawnInvisibility();
+       // RespawnInvisibility();
         UIManager.instance.DisablePowerupUsage = false;
         UIManager.instance.CallPowerUpRefreshTimer();
         //DisablePowerUps();
@@ -271,7 +284,7 @@ public class PlayerController : MonoBehaviour
         AlreadyHit = false;
         powerUpInUse = false;
         InvisibilityBool = false;
-        SuperSpeedBool = false;
+       // SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
         speed = IncreasedSpeed;
@@ -300,53 +313,53 @@ public class PlayerController : MonoBehaviour
         MonsterAnim.SetBool("Attack", true);
     }
     //Player dummy collider to check if its on ground
-    private void OnCollisionEnter(Collision collision)
-    {
-        switch (collision.transform.tag)
-        {  
-            case "Wall":
-                if (dead == false && PortalUse == false)
-                {
-                    PlayerRespawnTransform.SetParent(null);
-                    dead = true;
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    switch (collision.transform.tag)
+    //    {  
+            //case "Wall":
+                //if (dead == false && PortalUse == false)
+                //{
+                //    PlayerRespawnTransform.SetParent(null);
+                //    dead = true;
                     
-                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
-                    {
-                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
-                        SoundManager.instance.ASPlayer.Play();
-                    }
-                    else
-                    {
-                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
-                        SoundManager.instance.ASPlayer.Play();
-                    }
-                    MonsterAnim.SetBool("Attack", true);
-                    PlayerAnim.SetBool("Running", false);
-                    PlayerAnim.SetBool("Death", true);
-                    DisablePowerUps();
-                    MonsterMovement(2);
-                    GameManager.instance.CurrentLives -= 1;
-                    if (GameManager.instance.CurrentLives < 1)
-                    {
-                        if (GameConstants.GameType == "Tournament")
-                        {
-                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
-                            Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
-                        }
-                        Invoke("LoadSceneDelayCall", 3f);
-                    }
-                    else
-                    {
-                        DisablePowerUps();
-                        Invoke("RespwanPlayer", 3f);
-                        StartCoroutine("StumbleWaitWall");
-                    }
+                //    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                //    {
+                //        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                //        SoundManager.instance.ASPlayer.Play();
+                //    }
+                //    else
+                //    {
+                //        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                //        SoundManager.instance.ASPlayer.Play();
+                //    }
+                //    MonsterAnim.SetBool("Attack", true);
+                //    PlayerAnim.SetBool("Running", false);
+                //    PlayerAnim.SetBool("Death", true);
+                //    DisablePowerUps();
+                //    MonsterMovement(2);
+                //    GameManager.instance.CurrentLives -= 1;
+                //    if (GameManager.instance.CurrentLives < 1)
+                //    {
+                //        if (GameConstants.GameType == "Tournament")
+                //        {
+                //            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                //            Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
+                //        }
+                //        Invoke("LoadSceneDelayCall", 3f);
+                //    }
+                //    else
+                //    {
+                //        DisablePowerUps();
+                //        Invoke("RespwanPlayer", 3f);
+                //        StartCoroutine("StumbleWaitWall");
+                //    }
                     
-                }
-                break;
-        }
+                //}
+                //break;
+    //    }
        
-    }
+    //}
 
     public void LoadSceneDelayCall()
     {
@@ -523,21 +536,26 @@ public class PlayerController : MonoBehaviour
    
     public void ChangeState(string str)
     {
-        if (!dead)
+       // if (!dead)
         {
             if (str == "Left" && TurnTag == "Left")
             {
-                Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
+               // Parent.transform.DORotate(new Vector3(0f, -90f, 0f), 0.10f).SetRelative();
+                Parent.transform.Rotate(new Vector3(0f, -90f, 0f),Space.Self);
                 //  Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
-              
-                    Parent.transform.DOMove(new Vector3( nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z), 0.10f);
+                Parent.transform.position = new Vector3(nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z);
+                Debug.Log("turning to leftttttttttt");
+                   // Parent.transform.DOMove(new Vector3( nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z), 0.10f);
             }
             else if (str == "Right" && TurnTag == "Right")
             {
-                Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
-                //Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
-                Parent.transform.DOMove(new Vector3(nextTransformPosition.transform.position.x, 0f,nextTransformPosition.transform.position.z), 0.10f);
+                Parent.transform.Rotate(new Vector3(0f, 90f, 0f), Space.Self);
 
+               // Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
+                Debug.Log("turning to righttttttttttt");
+                //Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
+                //Parent.transform.DOMove(new Vector3(nextTransformPosition.transform.position.x, 0f,nextTransformPosition.transform.position.z), 0.10f);
+                Parent.transform.position = new Vector3(nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z);
             }
         }
         
@@ -685,17 +703,21 @@ public class PlayerController : MonoBehaviour
                 PlayerAnim.SetFloat("RunningSpeed", 2);
                 //CurrentSpeed = speed;
                 speed = speed * 4;
+                if (speed > MaxSpeed)
+                {
+                    speed = MaxSpeed;
+                }
                 SuperSpeedBool = true;
                 ResetRef = StartCoroutine(ResetPowerUp(SuperSpeed));
             }
         }
         else
         {
-            motionEffect.SetActive(false);
-            PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-            powerUpInUse = false;
-            speed = speed / 4;
-            SuperSpeedBool = false;
+            //motionEffect.SetActive(false);
+            //PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+            //powerUpInUse = false;
+            //speed = speed / 4;
+            //SuperSpeedBool = false;
         }
     }
     public void SlowingDown()
@@ -715,6 +737,10 @@ public class PlayerController : MonoBehaviour
         {
             powerUpInUse = false;
             speed = speed * 2;
+            if (speed > MaxSpeed)
+            {
+                speed = MaxSpeed;
+            }
             PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         }
     }
@@ -748,7 +774,7 @@ public class PlayerController : MonoBehaviour
             PlayerAnim.SetFloat("RunningSpeed", 1.2f);
             powerUpInUse = false;
             speed = speed / 20;
-            SuperSpeedBool = false;
+            //SuperSpeedBool = false;
         }
     }
     public void LaserGoggles()
@@ -773,9 +799,10 @@ public class PlayerController : MonoBehaviour
     #endregion
     public void SuperSpeedTurn(GameObject NextPosition, string currentTag)
     {
+        ChangingPlatform = true;
         nextTransformPosition = NextPosition;
         FollowPlayer.lookatspeed = 0.2f;
-        ChangingPlatform = true;
+        
         TurnTag = currentTag;
         ChangeState(currentTag);
     }
@@ -788,7 +815,7 @@ public class PlayerController : MonoBehaviour
         Jumpforce = 500;
         GroundedTime = 0.8f;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-        SuperSpeedBool = false;
+      //  SuperSpeedBool = false;
         PlayerAnim.SetFloat("RunningSpeed", 1.2f);
         LaserToUse.SetActive(false);
         motionEffect.SetActive(false);
@@ -803,7 +830,7 @@ public class PlayerController : MonoBehaviour
             UIManager.instance.PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
             UIManager.instance.PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
 
-            Debug.Log("inside respawnnnnnnnnnnn");
+            //Debug.Log("inside respawnnnnnnnnnnn");
 
         }
     }
@@ -942,6 +969,13 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = true;
         yield return new WaitForSeconds(3);
         Teleportation();
+    }
+    public void RespwanPlayer_Fn()
+    {
+        Invoke("RespwanPlayer", 3f);
+    }
+    public void StumbleWaitWall_Fn() {
+        StartCoroutine("StumbleWaitWall");
     }
     IEnumerator StumbleWaitWall()
     {

@@ -79,7 +79,7 @@ public class SpawnManager : MonoBehaviour
                     
                 //    break;
                 case "invisibility":
-                    Debug.Log("invisibility" + SpawnObjectsPatterns[Random.Range(0, SpawnObjectsPatterns.Length)] + PatternIndex);
+                    //Debug.Log("invisibility" + SpawnObjectsPatterns[Random.Range(0, SpawnObjectsPatterns.Length)] + PatternIndex);
                     if (!IsInvisible)
                     {
                         spawnObj = Instantiate(InvisibilityPrefab, new Vector3(t[i].transform.position.x, 1.6f, t[i].transform.position.z), t[i].rotation);

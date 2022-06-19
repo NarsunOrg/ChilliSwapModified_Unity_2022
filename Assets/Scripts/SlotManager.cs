@@ -597,7 +597,7 @@ public class SlotManager : MonoBehaviour
     {
         Debug.Log(CharacterNumber);
         GameConstants.SelectedPlayerForGame = CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData;
-        Debug.Log(GameConstants.SelectedPlayerForGame.hairstyle + CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData.hairstyle);
+        //Debug.Log(GameConstants.SelectedPlayerForGame.hairstyle + CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData.hairstyle);
     }
 
     public void OnOutfitResetButton()

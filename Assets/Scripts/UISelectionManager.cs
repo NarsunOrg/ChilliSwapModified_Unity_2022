@@ -28,6 +28,11 @@ public class UISelectionManager : MonoBehaviour
     public Slider LoadingSlider;
     public float SliderTime = 1f;
 
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 0;
+    }
     void Start()
     {
         instance = this;

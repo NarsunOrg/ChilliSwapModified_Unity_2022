@@ -160,7 +160,7 @@ public class UIManager : MonoBehaviour
                 {
                     break;
                 }
-                Debug.Log("nvnfhfhfdhfhfghfhfghfhfhf");
+                //Debug.Log("nvnfhfhfdhfhfghfhfghfhfhf");
                 PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
                 PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
                 yield return new WaitForSeconds(1f / 8);

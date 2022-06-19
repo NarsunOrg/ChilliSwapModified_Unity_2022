@@ -13,8 +13,123 @@ public class PlayerHittingHurdle : MonoBehaviour
     {
         PC.MonsterMovement(1);
         StartCoroutine("StumbleWait");
+        StartCoroutine(StartCall());
     }
 
+    void Update()
+    {
+        
+        
+
+       
+
+    }
+
+    IEnumerator StartCall()
+    {
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        if (Physics.Raycast(this.transform.position, this.transform.TransformDirection(Vector3.forward), out hit, 2, LayerMask.GetMask("Col")))
+        {
+            if (hit.collider.transform.tag == "Wall")
+            {
+                if (PC.dead == false && PC.PortalUse == false)
+                {
+                    PC.PlayerRespawnTransform.SetParent(null);
+                    PC.dead = true;
+
+                    //if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                    //{
+                    //    SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                    //    SoundManager.instance.ASPlayer.Play();
+                    //}
+                    //else
+                    //{
+                    //    SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                    //    SoundManager.instance.ASPlayer.Play();
+                    //}
+                    PC.MonsterAnim.SetBool("Attack", true);
+                    PC.PlayerAnim.SetBool("Running", false);
+                    PC.PlayerAnim.SetBool("Death", true);
+                    // PC.DisablePowerUps();
+                    //  PC.MonsterMovement(2);
+                    //GameManager.instance.CurrentLives -= 1;
+                    //if (GameManager.instance.CurrentLives < 1)
+                    //{
+                    //    if (GameConstants.GameType == "Tournament")
+                    //    {
+                    //        APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                    //        Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
+                    //    }
+                    //    Invoke("LoadSceneDelayCall", 3f);
+                    //}
+                    //else
+                    {
+                        PC.DisablePowerUps();
+                        // Invoke("RespwanPlayer", 3f);
+                        PC.RespwanPlayer_Fn();
+                        // StartCoroutine("StumbleWaitWall");
+                        // PC.StumbleWaitWall_Fn();
+                    }
+
+                }
+            }
+
+            if (hit.collider.gameObject.GetComponent<StartPosRefrence>() != null)
+            {
+                PC.isonturn = true;
+                if (PC.SuperSpeedBool)
+                {
+                    PC.SuperSpeedTurn(hit.collider.gameObject.GetComponent<StartPosRefrence>().NextPosition, hit.collider.gameObject.tag);
+                }
+                else
+                {
+                    PC.EnteredPlatformTrigger(hit.collider.gameObject.GetComponent<StartPosRefrence>().NextPosition, hit.collider.gameObject.tag);
+                    Debug.Log("Hittingggggggggggggggggggggg :" + hit.collider.gameObject.tag);
+                }
+            }
+            else
+            {
+                PC.isonturn = false;
+            }
+            Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.yellow);
+            Debug.Log("Did Hit");
+
+        }
+        else
+        {
+            PC.isonturn = false;
+            Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
+            Debug.Log("Did not Hit");
+        }
+       
+        #region Parent Movement
+        float x = PC.Parent.transform.position.x;
+        float z = PC.Parent.transform.position.z;
+
+        if (!PC.dead)
+        {
+            // Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+            //  Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z-( speed * Time.deltaTime));
+            PC.Parent.transform.localPosition = Vector3.Lerp(PC.Parent.transform.localPosition, (PC.Parent.transform.localPosition + PC.Parent.transform.forward * PC.speed), 0.016f); //PC.Parent.transform.forward * PC.speed * Time.deltaTime;
+
+        }
+        if ((PC.gameObject.transform.localPosition.z > 0.0001 || PC.gameObject.transform.localPosition.z < -0.0001) && !PC.dead)
+        {
+            // gameObject.transform.DOLocalMoveZ(0, 0.01f);
+            PC.gameObject.transform.localPosition = new Vector3(PC.gameObject.transform.localPosition.x, PC.gameObject.transform.localPosition.y, 0.01f);
+
+        }
+        yield return new WaitForSecondsRealtime(0.016f);
+        StartCoroutine(StartCall());
+        #endregion
+    }
+
+    private void FixedUpdate()
+    {
+        
+        
+    }
     public void OnTriggerEnter(Collider other)
     {
        
