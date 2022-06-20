@@ -10687,6 +10687,11 @@ MonoBehaviour:
   GirlshoesScreen: {fileID: 1463540364}
   GirlbackpackScreen: {fileID: 1541256676}
   GirlwatchScreen: {fileID: 1233424135}
+  OutfitListobj:
+  - {fileID: 1919033976}
+  - {fileID: 138759141}
+  - {fileID: 2097909749}
+  OutfitScrollView: {fileID: 1491758103}
 --- !u!1 &266049629
 GameObject:
   m_ObjectHideFlags: 0
@@ -38365,7 +38370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f50194d73d7e8434c98cdbd1e035483a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 32f516a6c5f82f7479569b40fdaf6568, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -50999,7 +51004,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 41b2d3906d7447b49a07514178272a5b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 29c62285d45b98d4ca0f62230e422add, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -61795,7 +61800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1696122275
 Transform:
   m_ObjectHideFlags: 0
@@ -80903,16 +80908,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 193107179177922438, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1282777755179754906, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_RootOrder
@@ -80968,22 +80963,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1463558780099820479, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_Name
       value: female
       objectReference: {fileID: 0}
     - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8664333348323857923, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -81061,6 +81046,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy.blend1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901430527373130358, guid: ff4e12c1771f1f14a88765f00e6fb094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4e12c1771f1f14a88765f00e6fb094, type: 3}

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 
 [Serializable]
@@ -51,6 +52,9 @@ public class SlotManager : MonoBehaviour
     public GameObject GirlbackpackScreen;
     public GameObject GirlwatchScreen;
 
+    public GameObject[] OutfitListobj;
+    public ScrollRect OutfitScrollView;
+
     private void Awake()
     {
         instance = this;
@@ -77,6 +81,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot1;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(true);
+                    OutfitScrollView.vertical = true;
+                }
                 break;
 
             case "2":
@@ -91,7 +100,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot2;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
-
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(false);
+                    OutfitScrollView.vertical = false;
+                }
                 break;
 
             case "3":
@@ -106,7 +119,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot3;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
-
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(true);
+                    OutfitScrollView.vertical = true;
+                }
                 break;
 
             case "4":
@@ -121,7 +138,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot4;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
-
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(false);
+                    OutfitScrollView.vertical = false;
+                }
                 break;
 
             case "5":
@@ -136,7 +157,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot5;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
-
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(true);
+                    OutfitScrollView.vertical = true;
+                }
                 break;
 
             case "6":
@@ -151,7 +176,11 @@ public class SlotManager : MonoBehaviour
                 SelectedSlot = slot6;
                 UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
                 UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
-
+                foreach (GameObject o in OutfitListobj)
+                {
+                    o.SetActive(false);
+                    OutfitScrollView.vertical = false;
+                }
                 break;
         }
     }

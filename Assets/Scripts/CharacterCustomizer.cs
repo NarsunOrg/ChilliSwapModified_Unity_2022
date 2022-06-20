@@ -60,6 +60,7 @@ public class CharacterCustomizer : MonoBehaviour
     public GameObject GirlHands;
     public GameObject GirlShoulders;
     public GameObject GirlStomach;
+    public GameObject GirlBaseArmDesignBand;
 
     void Start()
     {
@@ -304,26 +305,31 @@ public class CharacterCustomizer : MonoBehaviour
                     case "Cloth-00":
                         GirlStomach.SetActive(true);
                         GirlArms.SetActive(true);
+                        GirlBaseArmDesignBand.SetActive(true);
                         break;
 
                     case "Cloth-01":
                         GirlStomach.SetActive(false);
                         GirlArms.SetActive(true);
+                        GirlBaseArmDesignBand.SetActive(false);
                         break;
 
                     case "Cloth-02":
                         GirlStomach.SetActive(false);
-                        GirlArms.SetActive(true);
+                        GirlArms.SetActive(false);
+                        GirlBaseArmDesignBand.SetActive(false);
                         break;
 
                     case "Cloth-03":
                         GirlStomach.SetActive(false);
-                        GirlArms.SetActive(true);
+                        GirlArms.SetActive(false);
+                        GirlBaseArmDesignBand.SetActive(false);
                         break;
 
                     case "Cloth-04":
                         GirlStomach.SetActive(true);
                         GirlArms.SetActive(false);
+                        GirlBaseArmDesignBand.SetActive(false);
                         break;
                 }
 
