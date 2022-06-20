@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         
         Jumpforce = 500;
         GroundedTime = 0.8f;
-        speed = 10;
+        speed = 50;
         IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -141,6 +141,7 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     speed = MaxSpeed;
+                    if(!SuperSpeedBool)
                     IncreasedSpeed = speed;
                 }
                 //PlayerAnim.speed += 0.2f;
@@ -274,17 +275,17 @@ public class PlayerController : MonoBehaviour
     public void RespwanPlayer()
     {
         dead = false;
-       // RespawnInvisibility();
+        RespawnInvisibility();
         UIManager.instance.DisablePowerupUsage = false;
         UIManager.instance.CallPowerUpRefreshTimer();
-        //DisablePowerUps();
+        DisablePowerUps();
         ChangingPlatform = false;
         //changingline = false;
         //Line = 0;
         AlreadyHit = false;
         powerUpInUse = false;
         InvisibilityBool = false;
-       // SuperSpeedBool = false;
+        SuperSpeedBool = false;
         Jumpforce = 500;
         GroundedTime = 0.8f;
         speed = IncreasedSpeed;
@@ -536,7 +537,7 @@ public class PlayerController : MonoBehaviour
    
     public void ChangeState(string str)
     {
-       // if (!dead)
+        if (!dead)
         {
             if (str == "Left" && TurnTag == "Left")
             {
@@ -544,7 +545,7 @@ public class PlayerController : MonoBehaviour
                 Parent.transform.Rotate(new Vector3(0f, -90f, 0f),Space.Self);
                 //  Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
                 Parent.transform.position = new Vector3(nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z);
-                Debug.Log("turning to leftttttttttt");
+                //Debug.Log("turning to leftttttttttt");
                    // Parent.transform.DOMove(new Vector3( nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z), 0.10f);
             }
             else if (str == "Right" && TurnTag == "Right")
@@ -552,7 +553,7 @@ public class PlayerController : MonoBehaviour
                 Parent.transform.Rotate(new Vector3(0f, 90f, 0f), Space.Self);
 
                // Parent.transform.DORotate(new Vector3(0f, 90f, 0f), 0.10f).SetRelative();
-                Debug.Log("turning to righttttttttttt");
+              //  Debug.Log("turning to righttttttttttt");
                 //Parent.transform.DOMove(nextTransformPosition.transform.position, 0.10f);
                 //Parent.transform.DOMove(new Vector3(nextTransformPosition.transform.position.x, 0f,nextTransformPosition.transform.position.z), 0.10f);
                 Parent.transform.position = new Vector3(nextTransformPosition.transform.position.x, 0f, nextTransformPosition.transform.position.z);
@@ -582,7 +583,7 @@ public class PlayerController : MonoBehaviour
         if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
         {
             StartCoroutine(OnRespawnInvisibilityofBoy());
-            Debug.Log("**************************************************");
+         //   Debug.Log("**************************************************");
         }
         else
         {
@@ -662,9 +663,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            UIManager.instance.CallPowerUpRefreshTimer();
+           
             powerUpInUse = false;
             UIManager.instance.DisablePowerupUsage = false;
+            UIManager.instance.CallPowerUpRefreshTimer();
             InvisibilityBool = false;
             InvisibilityBooster.SetActive(false);
             //rendererRef.GetComponent<SkinnedMeshRenderer>().material = Normal;
@@ -702,7 +704,7 @@ public class PlayerController : MonoBehaviour
                 motionEffect.SetActive(true);
                 PlayerAnim.SetFloat("RunningSpeed", 2);
                 //CurrentSpeed = speed;
-                speed = speed * 4;
+                speed = MaxSpeed;//speed * 4;
                 if (speed > MaxSpeed)
                 {
                     speed = MaxSpeed;
@@ -713,11 +715,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            //motionEffect.SetActive(false);
-            //PlayerAnim.SetFloat("RunningSpeed", 1.2f);
-            //powerUpInUse = false;
-            //speed = speed / 4;
-            //SuperSpeedBool = false;
+            motionEffect.SetActive(false);
+            PlayerAnim.SetFloat("RunningSpeed", 1.2f);
+            powerUpInUse = false;
+            speed = IncreasedSpeed;
+            SuperSpeedBool = false;
         }
     }
     public void SlowingDown()

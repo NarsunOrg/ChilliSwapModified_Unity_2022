@@ -44,7 +44,7 @@ public class WebglMetamask : MonoBehaviour
 
     public void OnTokenFetch(string token)
     {
-        Debug.Log("Fetched token " + token);
+      //  Debug.Log("Fetched token " + token);
         tokentext.text = token;
     }
 

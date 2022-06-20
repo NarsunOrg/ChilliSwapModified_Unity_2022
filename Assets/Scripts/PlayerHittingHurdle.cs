@@ -8,7 +8,11 @@ public class PlayerHittingHurdle : MonoBehaviour
 {
     public PlayerController PC;
     public GameObject restartPanel;
-
+    public Rigidbody PRB;
+    private void Awake()
+    {
+        PRB = PC.Parent.transform.GetComponent<Rigidbody>();
+    }
     private void Start()
     {
         PC.MonsterMovement(1);
@@ -16,14 +20,7 @@ public class PlayerHittingHurdle : MonoBehaviour
         StartCoroutine(StartCall());
     }
 
-    void Update()
-    {
-        
-        
-
-       
-
-    }
+   
 
     IEnumerator StartCall()
     {
@@ -38,38 +35,38 @@ public class PlayerHittingHurdle : MonoBehaviour
                     PC.PlayerRespawnTransform.SetParent(null);
                     PC.dead = true;
 
-                    //if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
-                    //{
-                    //    SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
-                    //    SoundManager.instance.ASPlayer.Play();
-                    //}
-                    //else
-                    //{
-                    //    SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
-                    //    SoundManager.instance.ASPlayer.Play();
-                    //}
+                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
+                    else
+                    {
+                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                        SoundManager.instance.ASPlayer.Play();
+                    }
                     PC.MonsterAnim.SetBool("Attack", true);
                     PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);
-                    // PC.DisablePowerUps();
-                    //  PC.MonsterMovement(2);
-                    //GameManager.instance.CurrentLives -= 1;
-                    //if (GameManager.instance.CurrentLives < 1)
-                    //{
-                    //    if (GameConstants.GameType == "Tournament")
-                    //    {
-                    //        APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
-                    //        Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
-                    //    }
-                    //    Invoke("LoadSceneDelayCall", 3f);
-                    //}
-                    //else
+                    PC.DisablePowerUps();
+                    PC.MonsterMovement(2);
+                    GameManager.instance.CurrentLives -= 1;
+                    if (GameManager.instance.CurrentLives < 1)
+                    {
+                        if (GameConstants.GameType == "Tournament")
+                        {
+                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                          //  Debug.Log(GameConstants.JoinedTournamentId + GameManager.instance.TotalDIstanceCovered + GameManager.instance.TotalTimeSpend + GameManager.instance.CollectedChillis);
+                        }
+                        Invoke("LoadSceneDelayCall", 3f);
+                    }
+                    else
                     {
                         PC.DisablePowerUps();
                         // Invoke("RespwanPlayer", 3f);
                         PC.RespwanPlayer_Fn();
                         // StartCoroutine("StumbleWaitWall");
-                        // PC.StumbleWaitWall_Fn();
+                         PC.StumbleWaitWall_Fn();
                     }
 
                 }
@@ -85,22 +82,22 @@ public class PlayerHittingHurdle : MonoBehaviour
                 else
                 {
                     PC.EnteredPlatformTrigger(hit.collider.gameObject.GetComponent<StartPosRefrence>().NextPosition, hit.collider.gameObject.tag);
-                    Debug.Log("Hittingggggggggggggggggggggg :" + hit.collider.gameObject.tag);
+                  //  Debug.Log("Hittingggggggggggggggggggggg :" + hit.collider.gameObject.tag);
                 }
             }
             else
             {
                 PC.isonturn = false;
             }
-            Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.yellow);
-            Debug.Log("Did Hit");
+          //  Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.yellow);
+        //    Debug.Log("Did Hit");
 
         }
         else
         {
             PC.isonturn = false;
-            Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
-            Debug.Log("Did not Hit");
+          //  Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
+          //  Debug.Log("Did not Hit");
         }
        
         #region Parent Movement
@@ -109,10 +106,10 @@ public class PlayerHittingHurdle : MonoBehaviour
 
         if (!PC.dead)
         {
-            // Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
+             //PC.Parent.transform.Translate(new Vector3(0, 0, PC.speed * 0.05f), Space.Self);
             //  Parent.transform.localPosition = new Vector3(Parent.transform.localPosition.x, Parent.transform.localPosition.y, Parent.transform.localPosition.z-( speed * Time.deltaTime));
-            PC.Parent.transform.localPosition = Vector3.Lerp(PC.Parent.transform.localPosition, (PC.Parent.transform.localPosition + PC.Parent.transform.forward * PC.speed), 0.016f); //PC.Parent.transform.forward * PC.speed * Time.deltaTime;
-
+            PC.Parent.transform.localPosition = Vector3.Lerp(PC.Parent.transform.localPosition, (PC.Parent.transform.localPosition + PC.Parent.transform.forward * PC.speed), 0.01f); //PC.Parent.transform.forward * PC.speed * Time.deltaTime;
+            //PRB.velocity = PC.Parent.transform.forward * PC.speed * Time.deltaTime *100;
         }
         if ((PC.gameObject.transform.localPosition.z > 0.0001 || PC.gameObject.transform.localPosition.z < -0.0001) && !PC.dead)
         {
@@ -120,7 +117,7 @@ public class PlayerHittingHurdle : MonoBehaviour
             PC.gameObject.transform.localPosition = new Vector3(PC.gameObject.transform.localPosition.x, PC.gameObject.transform.localPosition.y, 0.01f);
 
         }
-        yield return new WaitForSecondsRealtime(0.016f);
+        yield return new WaitForSeconds(0.01f);
         StartCoroutine(StartCall());
         #endregion
     }

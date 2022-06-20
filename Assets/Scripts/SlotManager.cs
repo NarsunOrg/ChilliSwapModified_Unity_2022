@@ -71,6 +71,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[0];
+                CharacterNumber = 0;
                 SelectedCharacter.SetActive(true);
                 slot1 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot1;
@@ -84,6 +85,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[1];
+                CharacterNumber = 1;
                 SelectedCharacter.SetActive(true);
                 slot2 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot2;
@@ -98,6 +100,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[2];
+                CharacterNumber = 2;
                 SelectedCharacter.SetActive(true);
                 slot3 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot3;
@@ -112,6 +115,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[3];
+                CharacterNumber = 3;
                 SelectedCharacter.SetActive(true);
                 slot4 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot4;
@@ -126,6 +130,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[4];
+                CharacterNumber = 4;
                 SelectedCharacter.SetActive(true);
                 slot5 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot5;
@@ -140,6 +145,7 @@ public class SlotManager : MonoBehaviour
                     obj.SetActive(false);
                 }
                 SelectedCharacter = CharacterList[5];
+                CharacterNumber = 5;
                 SelectedCharacter.SetActive(true);
                 slot6 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
                 SelectedSlot = slot6;
@@ -595,7 +601,7 @@ public class SlotManager : MonoBehaviour
 
     public void OnCharcaterSelectButton()
     {
-        Debug.Log(CharacterNumber);
+      //  Debug.Log(CharacterNumber);
         GameConstants.SelectedPlayerForGame = CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData;
         //Debug.Log(GameConstants.SelectedPlayerForGame.hairstyle + CharacterList[CharacterNumber].GetComponent<CharacterCustomizer>().MyData.hairstyle);
     }

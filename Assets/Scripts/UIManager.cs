@@ -138,6 +138,7 @@ public class UIManager : MonoBehaviour
 
     public void OnLeaderBoardCloseButton()
     {
+        LoadingPanel.SetActive(true);
         SceneManager.LoadScene(0);
     }
 
@@ -149,7 +150,7 @@ public class UIManager : MonoBehaviour
     {
         if (GameConstants.SelectedPowerupNumber != 0)
         {
-            Debug.Log(GameConstants.SelectedPowerupNumber);
+           // Debug.Log(GameConstants.SelectedPowerupNumber);
             PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
             PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
             PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
@@ -182,7 +183,7 @@ public class UIManager : MonoBehaviour
 
     public void CallPowerUpDurationTimer()
     {
-        Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
+      //  Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
         StartCoroutine(PowerUpDurationTimer());
     }
     public IEnumerator PowerUpDurationTimer()

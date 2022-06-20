@@ -144,22 +144,22 @@ public class APIManager : MonoBehaviour
     private string authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmE1Mjk2ZmQ0Yzg1MTk5MzVhZGM2OCIsInB1YmxpY0FkZHJlc3MiOiIweDBjNzI5YzFmODFlOGE1Y2UxNzYwN2UwMDMzODFkOGQ0NDhlYTU1ZGYiLCJpYXQiOjE2NTExMzY4OTl9.Iw_n8y0TEkIDrHFhW3iJWwAmmOP5ohtzufRlodU-tX4";
 
     //For WEBGL
-    //private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
-    //private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
-    //private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
-    //private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
-    //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
-    //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
-    //private string PostChilliesURL = "https://game-api.chilliswap.org/api/users/earnChilli";
+    private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
+    private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
+    private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
+    private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
+    private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
+    private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
+    private string PostChilliesURL = "https://game-api.chilliswap.org/api/users/earnChilli";
 
-    //For EDITOR
-    private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
-    private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
-    private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
-    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
-    private string SetCharacterURL = "http://54.179.83.173/api/character/set";
-    private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
-    private string PostChilliesURL = "http://54.179.83.173/api/users/earnChilli";
+    ////For EDITOR
+    //private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
+    //private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
+    //private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
+    //private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
+    //private string SetCharacterURL = "http://54.179.83.173/api/character/set";
+    //private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+    //private string PostChilliesURL = "http://54.179.83.173/api/users/earnChilli";
 
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
@@ -202,8 +202,8 @@ public class APIManager : MonoBehaviour
 
         }).Then(res =>
         {
-            Debug.Log("responce received of GetProfileAPI");
-            Debug.Log(res.Text);
+           // Debug.Log("responce received of GetProfileAPI");
+          //  Debug.Log(res.Text);
             
             GetProfileAPIResponseVar = new GetProfileAPIResponse();
             GetProfileAPIResponseVar = JsonUtility.FromJson<GetProfileAPIResponse>(res.Text);
@@ -235,7 +235,7 @@ public class APIManager : MonoBehaviour
 
         }).Catch(err =>
         {
-            Debug.Log(err);
+           // Debug.Log(err);
         });
     }
 
@@ -252,18 +252,18 @@ public class APIManager : MonoBehaviour
 
         }).Then(res =>
         {
-            Debug.Log("responce received of GetAllTournamentsAPI");
-            Debug.Log(res.Text);
+           // Debug.Log("responce received of GetAllTournamentsAPI");
+           // Debug.Log(res.Text);
             GetAllTournamnetsAPIResponseVar = new GetAllTournamnetsAPIResponse();
             GetAllTournamnetsAPIResponseVar = JsonUtility.FromJson<GetAllTournamnetsAPIResponse>(res.Text);
 
-            Debug.Log(GetAllTournamnetsAPIResponseVar.currentDate);
+            //Debug.Log(GetAllTournamnetsAPIResponseVar.currentDate);
             string CurrentDateTime = GetAllTournamnetsAPIResponseVar.currentDate;
             DateTime currentTime = DateTime.Parse(CurrentDateTime).ToUniversalTime();
             print(currentTime.ToString("HH:mm:ss"));
 
-            Debug.Log(GetAllTournamnetsAPIResponseVar.data[0]._id);
-            Debug.Log(GetAllTournamnetsAPIResponseVar.data.Length);
+            //Debug.Log(GetAllTournamnetsAPIResponseVar.data[0]._id);
+            //Debug.Log(GetAllTournamnetsAPIResponseVar.data.Length);
             for (int i = 0; i < GetAllTournamnetsAPIResponseVar.data.Length; i++)
             {
                 GameObject TournamentObj = Instantiate(TournamentButton, UISelectionManager.instance.TournamentScrollContent);
@@ -304,7 +304,7 @@ public class APIManager : MonoBehaviour
             
         }).Catch(err =>
         {
-            Debug.Log(err);
+           // Debug.Log(err);
         });
     }
 
@@ -328,12 +328,12 @@ public class APIManager : MonoBehaviour
             },
         }).Then(res =>
         {
-            Debug.Log("responce received of PostTournamentResultApi");
-            Debug.Log(res.Text);
+          //  Debug.Log("responce received of PostTournamentResultApi");
+           // Debug.Log(res.Text);
 
         }).Catch(err =>
         {
-            Debug.Log("Error Response" + err);
+           // Debug.Log("Error Response" + err);
         });
     }
 
@@ -349,8 +349,8 @@ public class APIManager : MonoBehaviour
 
         }).Then(res =>
         {
-            Debug.Log("responce received of GetLeaderboardAPI");
-            Debug.Log(res.Text);
+           // Debug.Log("responce received of GetLeaderboardAPI");
+           // Debug.Log(res.Text);
             GetLeaderboardAPIResponseVar = new GetLeaderboardAPIResponse();
             GetLeaderboardAPIResponseVar = JsonUtility.FromJson<GetLeaderboardAPIResponse>(res.Text);
 
@@ -369,7 +369,7 @@ public class APIManager : MonoBehaviour
 
         }).Catch(err =>
         {
-            Debug.Log(err);
+          //  Debug.Log(err);
         });
     }
 
@@ -395,7 +395,7 @@ public class APIManager : MonoBehaviour
         }
         
         string temp = "[" + JsonUtility.ToJson(CharacterAPIData) + "]";
-        Debug.Log( temp );
+       // Debug.Log( temp );
         RestClient.Request(new RequestHelper
         {
             Uri = SetCharacterURL,
@@ -409,13 +409,13 @@ public class APIManager : MonoBehaviour
             
         }).Then(res =>
         {
-            Debug.Log("responce received of SetCharacterApi");
-            Debug.Log(res.Text);
+          //  Debug.Log("responce received of SetCharacterApi");
+          //  Debug.Log(res.Text);
 
         }).Catch(err =>
         {
-            Debug.Log(temp);
-            Debug.Log("Error Response" + err);
+           // Debug.Log(temp);
+            //Debug.Log("Error Response" + err);
         });
     }
 
@@ -430,8 +430,8 @@ public class APIManager : MonoBehaviour
             },
         }).Then(res =>
         {
-            Debug.Log("responce received of GetSwapChilliesApi");
-            Debug.Log(res.Text);
+           // Debug.Log("responce received of GetSwapChilliesApi");
+           // Debug.Log(res.Text);
             if (int.Parse(UISelectionManager.instance.UserTotalCollectedChillies.text) < 500)
             {
                 UISelectionManager.instance.ProfileInnerPanel.SetActive(false);
@@ -441,7 +441,7 @@ public class APIManager : MonoBehaviour
         }).Catch(err =>
         {
             
-            Debug.Log("Error Response" + err);
+          //  Debug.Log("Error Response" + err);
         });
     }
 
@@ -449,7 +449,7 @@ public class APIManager : MonoBehaviour
     {
         ChilliesData _ChilliesData = new ChilliesData();
         _ChilliesData.chillis = ChilliesAmount;
-        Debug.Log(JsonUtility.ToJson(_ChilliesData));
+        //Debug.Log(JsonUtility.ToJson(_ChilliesData));
         RestClient.Request(new RequestHelper
         {
             Uri = PostChilliesURL,
@@ -461,14 +461,14 @@ public class APIManager : MonoBehaviour
             },
         }).Then(res =>
         {
-            Debug.Log("responce received of PostTournamentResultApi");
-            Debug.Log(res.Text);
+           // Debug.Log("responce received of PostTournamentResultApi");
+           // Debug.Log(res.Text);
             GetEarnChilliesAPIResponseVar = new GetEarnChilliesAPIResponse();
             GetEarnChilliesAPIResponseVar = JsonUtility.FromJson<GetEarnChilliesAPIResponse>(res.Text);
             GetProfileAPIResponseVar.CollectedChillis = GetEarnChilliesAPIResponseVar.chillis;
         }).Catch(err =>
         {
-            Debug.Log("Error Response" + err);
+           // Debug.Log("Error Response" + err);
         });
     }
 

@@ -31,7 +31,7 @@ public class UISelectionManager : MonoBehaviour
     private void Awake()
     {
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 0;
+        Application.targetFrameRate = 30;
     }
     void Start()
     {
@@ -92,7 +92,7 @@ public class UISelectionManager : MonoBehaviour
             CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
-            Debug.Log(angel);
+           // Debug.Log(angel);
         }
         else if (GameConstants.CharacterType == "girl")
         {
@@ -100,7 +100,7 @@ public class UISelectionManager : MonoBehaviour
             CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
-            Debug.Log(angel);
+           // Debug.Log(angel);
         }
     }
 
@@ -112,7 +112,7 @@ public class UISelectionManager : MonoBehaviour
             CharacterNameText.text = "SARAH";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 0, 0), 0.5f);
-            Debug.Log(angel);
+           // Debug.Log(angel);
         }
         else if (GameConstants.CharacterType == "girl")
         {
@@ -120,7 +120,7 @@ public class UISelectionManager : MonoBehaviour
             CharacterNameText.text = "MIKE";
             float angel = cam.transform.rotation.y + 180;
             cam.transform.DORotate(new Vector3(18, 180, 0), 0.5f);
-            Debug.Log(angel);
+         //   Debug.Log(angel);
         }
     }
 
