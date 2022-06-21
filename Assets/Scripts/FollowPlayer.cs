@@ -9,7 +9,7 @@ public class FollowPlayer : MonoBehaviour
     public GameObject PositionToSet;
     public Vector3 offset;
     public static float lookatspeed=1f;
-    float sSpeed = 1f;
+    //float sSpeed = 1f;
     
     //void Update()
     //{

@@ -34,8 +34,8 @@ public class PlayerController : MonoBehaviour
     public bool SuperSpeedBool;
     public GameObject LaserToUse;
     private float speedTimer;
-    bool isCollidingEnter = false;
-    bool isCollidingExit = false;
+    //bool isCollidingEnter = false;
+    //bool isCollidingExit = false;
     public bool powerUpInUse = false;
     public bool AlreadyHit = false;
     public GameObject Monster;
@@ -278,7 +278,7 @@ public class PlayerController : MonoBehaviour
         RespawnInvisibility();
         UIManager.instance.DisablePowerupUsage = false;
         UIManager.instance.CallPowerUpRefreshTimer();
-        DisablePowerUps();
+        //DisablePowerUps();
         ChangingPlatform = false;
         //changingline = false;
         //Line = 0;

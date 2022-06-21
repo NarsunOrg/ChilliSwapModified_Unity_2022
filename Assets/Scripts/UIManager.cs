@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     public GameObject[] PowerupsButtons;
     public GameObject[] PowerUpTimerImage;
     public GameObject[] PowerUpTimerFillImage;
-    private int PowerUpRefreshTime = 10;
+    //private int PowerUpRefreshTime = 10;
     public PlayerController pc;
     public bool DisablePowerupUsage = false;
     public GameObject LoadingPanel;

@@ -7,16 +7,16 @@ public class PUButtonsHandler : MonoBehaviour
 {
     public PlayerController PURefrence;
     public List<Button> buttonsList;
-    Text currenttext = null;
+    //Text currenttext = null;
     public bool powerupInUse;
-    float time;
-    int number;
+    //float time;
+    //int number;
     
     void Start()
     {
-        number = 0;
+        //number = 0;
         powerupInUse = false;
-        time = 10;
+        //time = 10;
     }
 
    
@@ -114,16 +114,16 @@ public class PUButtonsHandler : MonoBehaviour
             PURefrence.LaserGoggles();
         //StartCoroutine(EndPowerup(btnNmbr));
     }
-    IEnumerator EndPowerup(int nmbr)
-    {
-        number = nmbr;
-        yield return new WaitForSeconds(10);
-        for (int i = 0; i < buttonsList.Count; i++)
-        {
-            buttonsList[i].interactable = true;
-        }
-        currenttext.text = (nmbr + 1).ToString();
-        time = 10;
-        powerupInUse = false;
-    }
+    //IEnumerator EndPowerup(int nmbr)
+    //{
+    //    number = nmbr;
+    //    yield return new WaitForSeconds(10);
+    //    for (int i = 0; i < buttonsList.Count; i++)
+    //    {
+    //        buttonsList[i].interactable = true;
+    //    }
+    //    currenttext.text = (nmbr + 1).ToString();
+    //    time = 10;
+    //    powerupInUse = false;
+    //}
 }
