@@ -127,7 +127,8 @@ public class UISelectionManager : MonoBehaviour
 
     public void OnPowerUpSelectButton()
     {
-        SceneManager.LoadScene(EnvNumber);
+        //SceneManager.LoadScene(EnvNumber);
+        AssetBundleManager.instance.playGamePressed(EnvNumber);
         GameConstants.SceneLoaded = EnvNumber;
     }
 

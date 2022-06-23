@@ -1456,7 +1456,7 @@ GameObject:
   - component: {fileID: 40467938}
   - component: {fileID: 40467937}
   m_Layer: 5
-  m_Name: Forest
+  m_Name: forest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10661,7 +10661,7 @@ MonoBehaviour:
   SelectedCharacter: {fileID: 0}
   CharacterList:
   - {fileID: 395739659}
-  - {fileID: 1976578434}
+  - {fileID: 919132149112702898}
   - {fileID: 1908352922}
   - {fileID: 1170855626}
   - {fileID: 1280615517}
@@ -26389,6 +26389,62 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 738362491}
   m_CullTransparentMesh: 1
+--- !u!1 &739586711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 739586713}
+  - component: {fileID: 739586712}
+  m_Layer: 0
+  m_Name: AssetBundleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &739586712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739586711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c418dd2abc452fa40b310092ae7e745d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  url:
+  - file:///D:/GitHub/ChilliSwapModified_Unity_2022/AssetBundles/WebGL/apocalypse
+  - file:///D:/GitHub/ChilliSwapModified_Unity_2022/AssetBundles/WebGL/apocalypse
+  - file:///D:/GitHub/ChilliSwapModified_Unity_2022/AssetBundles/WebGL/apocalypse
+  - file:///D:/GitHub/ChilliSwapModified_Unity_2022/AssetBundles/WebGL/apocalypse
+  - file:///D:/GitHub/ChilliSwapModified_Unity_2022/AssetBundles/WebGL/apocalypse
+  sceneNames:
+  - apocalypse
+  - apocalypse
+  - apocalypse
+  - apocalypse
+  - apocalypse
+--- !u!4 &739586713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739586711}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740525377
 GameObject:
   m_ObjectHideFlags: 0
@@ -30194,7 +30250,7 @@ GameObject:
   - component: {fileID: 853869579}
   - component: {fileID: 853869578}
   m_Layer: 5
-  m_Name: Apocalypse
+  m_Name: apocalypse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31945,7 +32001,7 @@ GameObject:
   - component: {fileID: 885260160}
   - component: {fileID: 885260159}
   m_Layer: 5
-  m_Name: Moon
+  m_Name: moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37586,7 +37642,7 @@ PrefabInstance:
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
@@ -43313,7 +43369,7 @@ PrefabInstance:
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
@@ -48209,7 +48265,7 @@ PrefabInstance:
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
@@ -49213,7 +49269,7 @@ GameObject:
   - component: {fileID: 1320355979}
   - component: {fileID: 1320355978}
   m_Layer: 5
-  m_Name: Underwater
+  m_Name: underwater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61665,7 +61721,7 @@ GameObject:
   - component: {fileID: 1654595622}
   - component: {fileID: 1654595621}
   m_Layer: 5
-  m_Name: Sci-fi
+  m_Name: scifi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70565,7 +70621,7 @@ PrefabInstance:
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
@@ -72817,12 +72873,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1973290309}
   m_CullTransparentMesh: 1
---- !u!1 &1976578434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1477927012080356323}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1983189094
 GameObject:
   m_ObjectHideFlags: 0
@@ -81657,6 +81707,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146606462}
   m_CullTransparentMesh: 1
+--- !u!1 &919132149112702898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1477927012080356323}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1477927012080356323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81664,10 +81720,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 111728878355690892, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 669245582616431874, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 773750319534422184, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076651709083073769, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
@@ -81724,6 +81800,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: female
       objectReference: {fileID: 0}
+    - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2989292242997775998, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628418665696154745, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5925846663169424936, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190014396408472054, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7403963805996352787, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763851278798295830, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3e8a6e008f684c888dfcdef2b00a5, type: 3}
 --- !u!1001 &7018557527027287341
@@ -81736,7 +81847,7 @@ PrefabInstance:
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7416396831572156620, guid: ff4e12c1771f1f14a88765f00e6fb094,
         type: 3}
@@ -81792,6 +81903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy.blend1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901430527373130358, guid: ff4e12c1771f1f14a88765f00e6fb094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4e12c1771f1f14a88765f00e6fb094, type: 3}
