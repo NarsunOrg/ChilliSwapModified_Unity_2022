@@ -161,10 +161,19 @@ public class UIManager : MonoBehaviour
                 {
                     break;
                 }
-                //Debug.Log("nvnfhfhfdhfhfghfhfghfhfhf");
-                PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
-                PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
-                yield return new WaitForSeconds(1f / 8);
+                if (GameConstants.SelectedPowerupNumber != 0 && GameConstants.SelectedPowerupNumber != 3)
+                {
+                    PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.066f / 8;
+                    PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+                    yield return new WaitForSeconds(1f / 8);
+                }
+                if (GameConstants.SelectedPowerupNumber == 3)
+                {
+                    PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount += 0.044f / 8;
+                    PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
+                    yield return new WaitForSeconds(1f / 8);
+                }
+                    
             }
             if (DisablePowerupUsage == true)
             {
@@ -180,12 +189,11 @@ public class UIManager : MonoBehaviour
         }
     }
 
-
     public void CallPowerUpDurationTimer()
     {
-      //  Debug.Log("aaaaaaaaaaaaaaaaaaaaaaaa");
         StartCoroutine(PowerUpDurationTimer());
     }
+
     public IEnumerator PowerUpDurationTimer()
     {
         if (GameConstants.SelectedPowerupNumber != 0)
@@ -193,16 +201,30 @@ public class UIManager : MonoBehaviour
             PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable = false;
             PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(true);
             PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 1;
-            while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
+            if (GameConstants.SelectedPowerupNumber != 0 && GameConstants.SelectedPowerupNumber != 3)
             {
-                PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
-                yield return new WaitForSeconds(1f / 8);
-            }
-           
+                while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
+                {
+                    PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.1f / 8;
+                    yield return new WaitForSeconds(1f / 8);
+                }
                 PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
-                //PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount = 0;
                 StopCoroutine(PowerUpDurationTimer());
                 CallPowerUpRefreshTimer();
+            }
+
+            if (GameConstants.SelectedPowerupNumber == 3)
+            {
+                while (PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount > 0)
+                {
+                    PowerUpTimerFillImage[GameConstants.SelectedPowerupNumber].GetComponent<Image>().fillAmount -= 0.3f / 8;
+                    yield return new WaitForSeconds(0.0000001f / 8);
+                }
+                PowerUpTimerImage[GameConstants.SelectedPowerupNumber].SetActive(false);
+                StopCoroutine(PowerUpDurationTimer());
+                CallPowerUpRefreshTimer();
+            }
+
         }
     }
 

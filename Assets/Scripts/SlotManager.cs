@@ -54,6 +54,7 @@ public class SlotManager : MonoBehaviour
 
     public GameObject[] OutfitListobj;
     public ScrollRect OutfitScrollView;
+    public Slider PlayerRotatingSlider;
 
     private void Awake()
     {
@@ -61,11 +62,27 @@ public class SlotManager : MonoBehaviour
     }
     void Start()
     {
-        
+        foreach (GameObject obj in CharacterList)
+        {
+            obj.SetActive(false);
+        }
+        SelectedCharacter = CharacterList[0];
+        CharacterNumber = 0;
+        SelectedCharacter.SetActive(true);
+        slot1 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+        SelectedSlot = slot1;
+        UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+        UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+        foreach (GameObject o in OutfitListobj)
+        {
+            o.SetActive(true);
+            OutfitScrollView.vertical = true;
+        }
     }
 
     public void OnSelectSlot(string slotNumber)
     {
+        
         switch (slotNumber)
         {
 
@@ -604,7 +621,127 @@ public class SlotManager : MonoBehaviour
             {
                 UISelectionManager.instance.CharacterNameText.text = "SARAH";
             }
+
+            switch (CharacterNumber)
+            {
+
+                case 0:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[0];
+                    CharacterNumber = 0;
+                    SelectedCharacter.SetActive(true);
+                    slot1 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot1;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 1:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[1];
+                    CharacterNumber = 1;
+                    SelectedCharacter.SetActive(true);
+                    slot2 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot2;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+
+                case 2:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[2];
+                    CharacterNumber = 2;
+                    SelectedCharacter.SetActive(true);
+                    slot3 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot3;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 3:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[3];
+                    CharacterNumber = 3;
+                    SelectedCharacter.SetActive(true);
+                    slot4 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot4;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+
+                case 4:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[4];
+                    CharacterNumber = 4;
+                    SelectedCharacter.SetActive(true);
+                    slot5 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot5;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 5:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[5];
+                    CharacterNumber = 5;
+                    SelectedCharacter.SetActive(true);
+                    slot6 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot6;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+            }
         }
+
+        
     }
 
     public void OnSelectCharacterBackwardButton()
@@ -625,7 +762,127 @@ public class SlotManager : MonoBehaviour
             {
                 UISelectionManager.instance.CharacterNameText.text = "SARAH";
             }
+
+            switch (CharacterNumber)
+            {
+
+                case 0:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[0];
+                    CharacterNumber = 0;
+                    SelectedCharacter.SetActive(true);
+                    slot1 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot1;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 1:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[1];
+                    CharacterNumber = 1;
+                    SelectedCharacter.SetActive(true);
+                    slot2 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot2;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+
+                case 2:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[2];
+                    CharacterNumber = 2;
+                    SelectedCharacter.SetActive(true);
+                    slot3 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot3;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 3:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[3];
+                    CharacterNumber = 3;
+                    SelectedCharacter.SetActive(true);
+                    slot4 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot4;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+
+                case 4:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[4];
+                    CharacterNumber = 4;
+                    SelectedCharacter.SetActive(true);
+                    slot5 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot5;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "MIKE";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "MIKE";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(true);
+                        OutfitScrollView.vertical = true;
+                    }
+                    break;
+
+                case 5:
+                    foreach (GameObject obj in CharacterList)
+                    {
+                        obj.SetActive(false);
+                    }
+                    SelectedCharacter = CharacterList[5];
+                    CharacterNumber = 5;
+                    SelectedCharacter.SetActive(true);
+                    slot6 = SelectedCharacter.GetComponent<CharacterCustomizer>().MyData;
+                    SelectedSlot = slot6;
+                    UISelectionManager.instance.OutfitPanelCharacterNameText.text = "SARAH";
+                    UISelectionManager.instance.SkinsPanelCharacterNameText.text = "SARAH";
+                    foreach (GameObject o in OutfitListobj)
+                    {
+                        o.SetActive(false);
+                        OutfitScrollView.vertical = false;
+                    }
+                    break;
+            }
         }
+
+        
     }
 
     public void OnCharcaterSelectButton()
@@ -640,6 +897,11 @@ public class SlotManager : MonoBehaviour
         SelectedSlot.clothes[0] = "Cloth-00";
         SelectedSlot.clothes[1] = "Cloth-000";
         SelectedSlot.shoes = "Shoes-00";
+        SelectedSlot.goggles = "";
+        SelectedSlot.headwear = "";
+        SelectedSlot.headphones = "";
+        SelectedSlot.watch = "";
+        SelectedSlot.backpack = "";
         ApplyChanges();
     }
 
@@ -649,5 +911,10 @@ public class SlotManager : MonoBehaviour
         SelectedSlot.hairstyle = "Hairs-00";
         SelectedSlot.eyecolor = "Eye-00";
         ApplyChanges();
+    }
+
+    public void OnPlayerRotatingSlider()
+    {
+        SelectedCharacter.GetComponent<Transform>().rotation = Quaternion.Euler(0, PlayerRotatingSlider.value, 0);
     }
 }

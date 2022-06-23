@@ -61,6 +61,7 @@ public class CharacterCustomizer : MonoBehaviour
     public GameObject GirlShoulders;
     public GameObject GirlStomach;
     public GameObject GirlBaseArmDesignBand;
+    public GameObject GirlBaseHairsPoni;
 
     void Start()
     {
@@ -282,6 +283,15 @@ public class CharacterCustomizer : MonoBehaviour
             if (B.id == NewData.hairstyle)
             {
                 B.bodypartobj.SetActive(true);
+                if (B.id == "Hairs-00")
+                {
+                    GirlBaseHairsPoni.SetActive(true);
+                }
+                else
+                {
+                    GirlBaseHairsPoni.SetActive(false);
+                }
+                
             }
             else
             {

@@ -125,7 +125,7 @@ PrefabInstance:
     - target: {fileID: -6751227282386371652, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -6241630721699371546, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
         type: 3}
@@ -325,7 +325,7 @@ PrefabInstance:
     - target: {fileID: 5418859984145435305, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6041488948082939885, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
         type: 3}
@@ -647,6 +647,7 @@ MonoBehaviour:
   GirlShoulders: {fileID: 4827984183586977279}
   GirlStomach: {fileID: 3041922831765990425}
   GirlBaseArmDesignBand: {fileID: 5140024415561688813}
+  GirlBaseHairsPoni: {fileID: 7401335932719600687}
 --- !u!1 &1952078652318664548 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8100414455615130012, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
@@ -794,6 +795,12 @@ GameObject:
 --- !u!1 &7374805138134032176 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8275985515081723440, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
+    type: 3}
+  m_PrefabInstance: {fileID: 1477927012005654784}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7401335932719600687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -994040870064151249, guid: 38a1dd277bbdaf14d94eabdd68b8b538,
     type: 3}
   m_PrefabInstance: {fileID: 1477927012005654784}
   m_PrefabAsset: {fileID: 0}

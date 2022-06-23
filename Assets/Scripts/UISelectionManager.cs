@@ -30,12 +30,13 @@ public class UISelectionManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 30;
     }
     void Start()
     {
-        instance = this;
+        //instance = this;
         GameConstants.CharacterType = "boy";
         StartCoroutine(LoadingBar());
     }
@@ -213,5 +214,11 @@ public class UISelectionManager : MonoBehaviour
         SlotManager.instance.GirlshoesScreen.SetActive(false);
         SlotManager.instance.GirlbackpackScreen.SetActive(false);
         SlotManager.instance.GirlwatchScreen.SetActive(false);
+
+        SlotManager.instance.PlayerRotatingSlider.value = 0;
+        foreach (GameObject g in SlotManager.instance.CharacterList)
+        {
+            g.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
     }
 }
