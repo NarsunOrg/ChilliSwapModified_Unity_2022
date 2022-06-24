@@ -62,6 +62,7 @@ public class CharacterCustomizer : MonoBehaviour
     public GameObject GirlStomach;
     public GameObject GirlBaseArmDesignBand;
     public GameObject GirlBaseHairsPoni;
+    public GameObject GirlPlainHair;
 
     void Start()
     {
@@ -157,10 +158,12 @@ public class CharacterCustomizer : MonoBehaviour
         {
             if (B.id == NewData.headwear)
             {
+                Debug.Log("MATCH"+B.id+NewData.headwear);
                 B.bodypartobj.SetActive(true);
             }
             else
             {
+                Debug.Log("not match MATCH" + B.id + NewData.headwear);
                 if (B.bodypartobj != null)
                 {
                     B.bodypartobj.SetActive(false);
@@ -185,20 +188,20 @@ public class CharacterCustomizer : MonoBehaviour
         }
 
         //Headphone
-        foreach (BodyParts B in BoyHeadphonesPart)
-        {
-            if (B.id == NewData.headphones)
-            {
-                B.bodypartobj.SetActive(true);
-            }
-            else
-            {
-                if (B.bodypartobj != null)
-                {
-                    B.bodypartobj.SetActive(false);
-                }
-            }
-        }
+        //foreach (BodyParts B in BoyHeadphonesPart)
+        //{
+        //    if (B.id == NewData.headphones)
+        //    {
+        //        B.bodypartobj.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        if (B.bodypartobj != null)
+        //        {
+        //            B.bodypartobj.SetActive(false);
+        //        }
+        //    }
+        //}
 
         //shoes
         foreach (BodyParts B in BoyShoesPart)
@@ -381,6 +384,7 @@ public class CharacterCustomizer : MonoBehaviour
             if (B.id == NewData.headwear)
             {
                 B.bodypartobj.SetActive(true);
+                SlotManager.instance.SelectedSlot.hairstyle = "Hairs-plain";
             }
             else
             {
@@ -408,20 +412,20 @@ public class CharacterCustomizer : MonoBehaviour
         }
 
         //Headphone
-        foreach (BodyParts B in GirlHeadphonesPart)
-        {
-            if (B.id == NewData.headphones)
-            {
-                B.bodypartobj.SetActive(true);
-            }
-            else
-            {
-                if (B.bodypartobj != null)
-                {
-                    B.bodypartobj.SetActive(false);
-                }
-            }
-        }
+        //foreach (BodyParts B in GirlHeadphonesPart)
+        //{
+        //    if (B.id == NewData.headphones)
+        //    {
+        //        B.bodypartobj.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        if (B.bodypartobj != null)
+        //        {
+        //            B.bodypartobj.SetActive(false);
+        //        }
+        //    }
+        //}
 
         //shoes
         foreach (BodyParts B in GirlShoesPart)

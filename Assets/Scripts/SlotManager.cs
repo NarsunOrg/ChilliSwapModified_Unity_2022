@@ -211,6 +211,10 @@ public class SlotManager : MonoBehaviour
     public void SetCharacterHairstyle(string AssetId)
     {
         SelectedSlot.hairstyle = AssetId;
+        //if (SelectedSlot.headwear == "Headwear-01" || SelectedSlot.headwear == "Headwear-02" || SelectedSlot.headwear == "Headwear-03" || SelectedSlot.headwear == "Headwear-04")
+        //{
+            SelectedSlot.headwear = "";
+        //}
         ApplyChanges();
     }
 
@@ -235,6 +239,10 @@ public class SlotManager : MonoBehaviour
     public void SetCharacterHeadwear(string AssetId)
     {
         SelectedSlot.headwear = AssetId;
+        //if (AssetId == "Headwear-01" || AssetId == "Headwear-02" || AssetId == "Headwear-03" || AssetId == "Headwear-04")
+        //{
+            SelectedSlot.hairstyle = "Hairs-plain";
+       // }
         ApplyChanges();
     }
 
@@ -244,11 +252,11 @@ public class SlotManager : MonoBehaviour
         ApplyChanges();
     }
 
-    public void SetCharacterHeadphones(string AssetId)
-    {
-        SelectedSlot.headphones = AssetId;
-        ApplyChanges();
-    }
+    //public void SetCharacterHeadphones(string AssetId)
+    //{
+    //    SelectedSlot.headphones = AssetId;
+    //    ApplyChanges();
+    //}
 
     public void SetCharacterShoes(string AssetId)
     {
