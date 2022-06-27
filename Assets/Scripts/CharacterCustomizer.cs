@@ -158,12 +158,12 @@ public class CharacterCustomizer : MonoBehaviour
         {
             if (B.id == NewData.headwear)
             {
-                Debug.Log("MATCH"+B.id+NewData.headwear);
+                //Debug.Log("MATCH"+B.id+NewData.headwear);
                 B.bodypartobj.SetActive(true);
             }
             else
             {
-                Debug.Log("not match MATCH" + B.id + NewData.headwear);
+                //Debug.Log("not match MATCH" + B.id + NewData.headwear);
                 if (B.bodypartobj != null)
                 {
                     B.bodypartobj.SetActive(false);
