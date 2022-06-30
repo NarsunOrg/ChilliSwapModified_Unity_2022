@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Parent;
     public float speed, IncreasedSpeed; //CurrentSpeed
     float Jumpforce;
-  public  int Line = 0;
+    public  int Line = 0;
     bool changingline = false;
     public bool ChangingPlatform = false;
     GameObject nextTransformPosition;
@@ -589,7 +589,7 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(OnRespawnInvisibilityofGirl());
         }
-        Invoke("RespawnInvisibilityDelayCall", 1f);
+        Invoke("RespawnInvisibilityDelayCall", 1.5f);
     }
 
     public void RespawnInvisibilityDelayCall()

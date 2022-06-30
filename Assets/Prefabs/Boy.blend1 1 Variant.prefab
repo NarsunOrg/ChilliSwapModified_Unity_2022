@@ -434,7 +434,7 @@ PrefabInstance:
     - target: {fileID: 863170846311425793, guid: cbc0faf16306eb24e8ceb2a510716f58,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cbc0faf16306eb24e8ceb2a510716f58,
         type: 3}
@@ -812,6 +812,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7018557527353558823}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1679743054918685935 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8514417428578833352, guid: cbc0faf16306eb24e8ceb2a510716f58,
+    type: 3}
+  m_PrefabInstance: {fileID: 7018557527353558823}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1866760391963805344 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -536213897862446713, guid: cbc0faf16306eb24e8ceb2a510716f58,
@@ -1164,7 +1170,7 @@ MonoBehaviour:
   - id: Headwear-01
     bodypartobj: {fileID: 4107287807228586825}
   - id: Headwear-02
-    bodypartobj: {fileID: 8539138179684541453}
+    bodypartobj: {fileID: 1679743054918685935}
   - id: Headwear-03
     bodypartobj: {fileID: 5173804341579523928}
   - id: Headwear-04
@@ -1270,6 +1276,8 @@ MonoBehaviour:
   - id: Eye-00
     Bodymat: {fileID: 2100000, guid: 96c123fc5da5a5c4897eeccf175ed40b, type: 2}
   - id: Eye-08
+    Bodymat: {fileID: 2100000, guid: 96c123fc5da5a5c4897eeccf175ed40b, type: 2}
+  - id: Eye-00
     Bodymat: {fileID: 2100000, guid: dacb1ed20f9bc744b80bf2d8ae3955e7, type: 2}
   BoySkinMat:
   - id: Skintone-01
@@ -1372,12 +1380,6 @@ GameObject:
 --- !u!1 &8417416815860778620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1564516113629675867, guid: cbc0faf16306eb24e8ceb2a510716f58,
-    type: 3}
-  m_PrefabInstance: {fileID: 7018557527353558823}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8539138179684541453 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1722609317856617258, guid: cbc0faf16306eb24e8ceb2a510716f58,
     type: 3}
   m_PrefabInstance: {fileID: 7018557527353558823}
   m_PrefabAsset: {fileID: 0}

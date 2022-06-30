@@ -54,7 +54,13 @@ public class SlotManager : MonoBehaviour
 
     public GameObject[] OutfitListobj;
     public ScrollRect OutfitScrollView;
+    public RectTransform OutfitScrollViewContent;
     public Slider PlayerRotatingSlider;
+
+    public GameObject CharForwardButton;
+    public GameObject CharBackwardButton;
+    public GameObject StoreCharForwardButton;
+    public GameObject StoreCharBackwardButton;
 
     private void Awake()
     {
@@ -120,7 +126,7 @@ public class SlotManager : MonoBehaviour
                 foreach (GameObject o in OutfitListobj)
                 {
                     o.SetActive(false);
-                    OutfitScrollView.vertical = false;
+                    //OutfitScrollView.vertical = false;
                 }
                 break;
 
@@ -158,7 +164,7 @@ public class SlotManager : MonoBehaviour
                 foreach (GameObject o in OutfitListobj)
                 {
                     o.SetActive(false);
-                    OutfitScrollView.vertical = false;
+                    //OutfitScrollView.vertical = false;
                 }
                 break;
 
@@ -196,7 +202,7 @@ public class SlotManager : MonoBehaviour
                 foreach (GameObject o in OutfitListobj)
                 {
                     o.SetActive(false);
-                    OutfitScrollView.vertical = false;
+                    //OutfitScrollView.vertical = false;
                 }
                 break;
         }
@@ -211,10 +217,10 @@ public class SlotManager : MonoBehaviour
     public void SetCharacterHairstyle(string AssetId)
     {
         SelectedSlot.hairstyle = AssetId;
-        //if (SelectedSlot.headwear == "Headwear-01" || SelectedSlot.headwear == "Headwear-02" || SelectedSlot.headwear == "Headwear-03" || SelectedSlot.headwear == "Headwear-04")
-        //{
+        if (SelectedSlot.headwear == "Headwear-01" || SelectedSlot.headwear == "Headwear-02" || SelectedSlot.headwear == "Headwear-03" || SelectedSlot.headwear == "Headwear-04")
+        {
             SelectedSlot.headwear = "";
-        //}
+        }
         ApplyChanges();
     }
 
@@ -239,10 +245,10 @@ public class SlotManager : MonoBehaviour
     public void SetCharacterHeadwear(string AssetId)
     {
         SelectedSlot.headwear = AssetId;
-        //if (AssetId == "Headwear-01" || AssetId == "Headwear-02" || AssetId == "Headwear-03" || AssetId == "Headwear-04")
-        //{
+        if (SelectedSlot.headwear == "Headwear-01" || AssetId == "Headwear-02" || AssetId == "Headwear-03" || AssetId == "Headwear-04")
+        {
             SelectedSlot.hairstyle = "Hairs-plain";
-       // }
+        }
         ApplyChanges();
     }
 
@@ -616,6 +622,18 @@ public class SlotManager : MonoBehaviour
         if (CharacterNumber < 5)
         {
             CharacterNumber++;
+            if (CharacterNumber == 5)
+            {
+                CharForwardButton.SetActive(false);
+                CharBackwardButton.SetActive(true);
+                StoreCharForwardButton.SetActive(false);
+                StoreCharBackwardButton.SetActive(true);
+            }
+            if (CharacterNumber == 1)
+            {
+                CharBackwardButton.SetActive(true);
+                StoreCharBackwardButton.SetActive(true);
+            }
             foreach (GameObject g in CharacterList)
             {
                 g.SetActive(false);
@@ -624,10 +642,12 @@ public class SlotManager : MonoBehaviour
             if (CharacterNumber == 0 || CharacterNumber == 2 || CharacterNumber == 4)
             {
                 UISelectionManager.instance.CharacterNameText.text = "MIKE";
+                UISelectionManager.instance.StoreCharacterNameText.text = "MIKE";
             }
             else
             {
                 UISelectionManager.instance.CharacterNameText.text = "SARAH";
+                UISelectionManager.instance.StoreCharacterNameText.text = "SARAH";
             }
 
             switch (CharacterNumber)
@@ -649,6 +669,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -668,6 +689,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                        
                     }
                     break;
 
@@ -687,6 +711,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -706,6 +731,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                       
                     }
                     break;
 
@@ -725,6 +753,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -744,6 +773,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                        
                     }
                     break;
             }
@@ -757,6 +789,18 @@ public class SlotManager : MonoBehaviour
         if (CharacterNumber > 0)
         {
             CharacterNumber--;
+            if (CharacterNumber == 0)
+            {
+                CharForwardButton.SetActive(true);
+                CharBackwardButton.SetActive(false);
+                StoreCharForwardButton.SetActive(true);
+                StoreCharBackwardButton.SetActive(false);
+            }
+            if (CharacterNumber == 4)
+            {
+                CharForwardButton.SetActive(true);
+                StoreCharForwardButton.SetActive(true);
+            }
             foreach (GameObject g in CharacterList)
             {
                 g.SetActive(false);
@@ -765,10 +809,12 @@ public class SlotManager : MonoBehaviour
             if (CharacterNumber == 0 || CharacterNumber == 2 || CharacterNumber == 4)
             {
                 UISelectionManager.instance.CharacterNameText.text = "MIKE";
+                UISelectionManager.instance.StoreCharacterNameText.text = "MIKE";
             }
             else
             {
                 UISelectionManager.instance.CharacterNameText.text = "SARAH";
+                UISelectionManager.instance.StoreCharacterNameText.text = "SARAH";
             }
 
             switch (CharacterNumber)
@@ -790,6 +836,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -809,6 +856,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                        
                     }
                     break;
 
@@ -828,6 +878,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -847,6 +898,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                        
                     }
                     break;
 
@@ -866,6 +920,7 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(true);
                         OutfitScrollView.vertical = true;
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
                     }
                     break;
 
@@ -885,6 +940,9 @@ public class SlotManager : MonoBehaviour
                     {
                         o.SetActive(false);
                         OutfitScrollView.vertical = false;
+                        OutfitScrollViewContent.anchoredPosition = new Vector3(0, 5.74726e-05f, 0);
+                        OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(false);
+                        //OutfitScrollView.verticalScrollbar.GetComponent<Scrollbar>().size = 0.8f;
                     }
                     break;
             }

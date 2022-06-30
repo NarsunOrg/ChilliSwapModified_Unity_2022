@@ -18,6 +18,7 @@ public class UISelectionManager : MonoBehaviour
     public GameObject[] EnvImagesList;
     public GameObject cam;
     public Text CharacterNameText;
+    public Text StoreCharacterNameText;
     public Text OutfitPanelCharacterNameText;
     public Text SkinsPanelCharacterNameText;
     public Transform TournamentScrollContent;
@@ -27,6 +28,9 @@ public class UISelectionManager : MonoBehaviour
     public GameObject LoadingPanel;
     public Slider LoadingSlider;
     public float SliderTime = 1f;
+    public bool[] IsPowerUpSelected;
+    public GameObject EnvForwardBUtton;
+    public GameObject EnvBackwardBUtton;
 
     private void Awake()
     {
@@ -62,6 +66,15 @@ public class UISelectionManager : MonoBehaviour
         if (EnvNumber < 5)
         {
             EnvNumber++;
+            if (EnvNumber == 5)
+            {
+                EnvForwardBUtton.SetActive(false);
+                EnvBackwardBUtton.SetActive(true);
+            }
+            if (EnvNumber == 2)
+            {
+                EnvBackwardBUtton.SetActive(true);
+            }
             foreach (GameObject g in EnvImagesList)
             {
                 g.SetActive(false);
@@ -76,6 +89,15 @@ public class UISelectionManager : MonoBehaviour
         if (EnvNumber > 1)
         {
             EnvNumber--;
+            if (EnvNumber == 1)
+            {
+                EnvForwardBUtton.SetActive(true);
+                EnvBackwardBUtton.SetActive(false);
+            }
+            if (EnvNumber == 4)
+            {
+                EnvForwardBUtton.SetActive(true);
+            }
             foreach (GameObject g in EnvImagesList)
             {
                 g.SetActive(false);
@@ -144,10 +166,23 @@ public class UISelectionManager : MonoBehaviour
             g.GetComponent<Button>().interactable = true;
             g.GetComponentInChildren<Text>().text = "SELECT";
         }
-        PowerupsSelectButtons[powerupindex].GetComponent<Button>().interactable = false;
-        PowerupsSelectButtons[powerupindex].GetComponentInChildren<Text>().text = "SELECTED";
-        GameConstants.SelectedPowerupNumber = powerupindex;
-       
+        //PowerupsSelectButtons[powerupindex].GetComponent<Button>().interactable = false;
+        if (IsPowerUpSelected[powerupindex] == true)
+        {
+            PowerupsSelectButtons[powerupindex].GetComponentInChildren<Text>().text = "SELECT";
+            GameConstants.SelectedPowerupNumber = 0;
+            IsPowerUpSelected[powerupindex] = false;
+        }
+        else
+        {
+            PowerupsSelectButtons[powerupindex].GetComponentInChildren<Text>().text = "SELECTED";
+            GameConstants.SelectedPowerupNumber = powerupindex;
+            for (int i = 1; i < IsPowerUpSelected.Length; i++)
+            {
+                IsPowerUpSelected[i] = false;
+            }
+            IsPowerUpSelected[powerupindex] = true;
+        }
     }
 
     public void OnSoundButtonOn()

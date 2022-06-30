@@ -384,7 +384,6 @@ public class CharacterCustomizer : MonoBehaviour
             if (B.id == NewData.headwear)
             {
                 B.bodypartobj.SetActive(true);
-                SlotManager.instance.SelectedSlot.hairstyle = "Hairs-plain";
             }
             else
             {
