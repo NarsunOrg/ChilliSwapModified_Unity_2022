@@ -29,7 +29,7 @@ public class AssetBundleManager : MonoBehaviour
 
     public void playGamePressed(int i)
     {
-
+        
         StartCoroutine(s(i));
     }
 
@@ -48,19 +48,22 @@ public class AssetBundleManager : MonoBehaviour
 
                 }
                 assetBundle = www.assetBundle;
-
+                
             }
         }
+        UISelectionManager.instance.SliderTime = 0.005f;
         //loadingStart = false;
         string[] scenes = assetBundle.GetAllScenePaths();
 
         foreach (string s in scenes)
         {
-            //print(Path.GetFileNameWithoutExtension(s));
+            print(Path.GetFileNameWithoutExtension(s));
             //print(Path.GetFileNameWithoutExtension(s));
             //loadScene(Path.GetFileNameWithoutExtension(s));
-            if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
+            Debug.Log(UISelectionManager.instance.LoadingSlider.value);
+            if (Path.GetFileNameWithoutExtension(s) == sceneNames[i] && UISelectionManager.instance.LoadingSlider.value > 0.08f)
             {
+                Debug.Log("inside");
                 loadScene(Path.GetFileNameWithoutExtension(s));
             }
         }
@@ -68,6 +71,6 @@ public class AssetBundleManager : MonoBehaviour
 
     public void loadScene(string name)
     {
-        SceneManager.LoadScene(name);
+       SceneManager.LoadScene(name);
     }
 }

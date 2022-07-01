@@ -150,6 +150,10 @@ public class UISelectionManager : MonoBehaviour
     public void OnPowerUpSelectButton()
     {
         //SceneManager.LoadScene(EnvNumber);
+        LoadingPanel.SetActive(true);
+        LoadingSlider.value = 0;
+        SliderTime = 1f;
+        StartCoroutine(LoadingBar());
         AssetBundleManager.instance.playGamePressed(EnvNumber);
         GameConstants.SceneLoaded = EnvNumber;
     }
@@ -215,6 +219,7 @@ public class UISelectionManager : MonoBehaviour
 
     IEnumerator LoadingBar()
     {
+        
         yield return new WaitForSeconds(SliderTime);
         if (LoadingSlider.value < 0.9)
         {

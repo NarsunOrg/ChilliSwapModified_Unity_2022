@@ -144,22 +144,22 @@ public class APIManager : MonoBehaviour
     private string authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyNmE1Mjk2ZmQ0Yzg1MTk5MzVhZGM2OCIsInB1YmxpY0FkZHJlc3MiOiIweDBjNzI5YzFmODFlOGE1Y2UxNzYwN2UwMDMzODFkOGQ0NDhlYTU1ZGYiLCJpYXQiOjE2NTExMzY4OTl9.Iw_n8y0TEkIDrHFhW3iJWwAmmOP5ohtzufRlodU-tX4";
 
     //For WEBGL
-    private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
-    private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
-    private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
-    private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
-    private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
-    private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
-    private string PostChilliesURL = "https://game-api.chilliswap.org/api/users/earnChilli";
+    //private string GetProfileURL = "https://game-api.chilliswap.org/api/users/getProfile";
+    //private string FindAllTournamentURL = "https://game-api.chilliswap.org/api/tournament";
+    //private string PostTournamentResultURL = "https://game-api.chilliswap.org/api/tournament/result";
+    //private string GetLeaderBoardURL = "https://game-api.chilliswap.org/api/leadboard/";
+    //private string SetCharacterURL = "https://game-api.chilliswap.org/api/character/set";
+    //private string GetSwapChilliesURL = "https://game-api.chilliswap.org/api/users/chilliToToken";
+    //private string PostChilliesURL = "https://game-api.chilliswap.org/api/users/earnChilli";
 
     ////For EDITOR
-    //private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
-    //private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
-    //private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
-    //private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
-    //private string SetCharacterURL = "http://54.179.83.173/api/character/set";
-    //private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
-    //private string PostChilliesURL = "http://54.179.83.173/api/users/earnChilli";
+    private string GetProfileURL = "http://54.179.83.173/api/users/getProfile";
+    private string FindAllTournamentURL = "http://54.179.83.173/api/tournament";
+    private string PostTournamentResultURL = "http://54.179.83.173/api/tournament/result";
+    private string GetLeaderBoardURL = "http://54.179.83.173/api/leadboard/";
+    private string SetCharacterURL = "http://54.179.83.173/api/character/set";
+    private string GetSwapChilliesURL = "http://54.179.83.173/api/users/chilliToToken";
+    private string PostChilliesURL = "http://54.179.83.173/api/users/earnChilli";
 
     public GetAllTournamnetsAPIResponse GetAllTournamnetsAPIResponseVar;
     public GetProfileAPIResponse GetProfileAPIResponseVar;
@@ -472,17 +472,9 @@ public class APIManager : MonoBehaviour
         });
     }
 
+    public void OnEnvSceneLoaded()
+    {
+
+    }
     
-    //IEnumerator loadSceneAsyn()
-    //{
-    //    AsyncOperation operation = UISelectionManager.instance.LoadingPanel.SetActive(false);
-    //    while (!operation.isDone)
-    //    {
-    //        float progress = Mathf.Clamp01(operation.progress / 0.9f);
-
-    //        UISelectionManager.sli.value = progress;
-
-    //        yield return null;
-    //    }
-    //}
 }
