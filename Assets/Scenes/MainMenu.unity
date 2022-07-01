@@ -81807,6 +81807,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 703568274282381335, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7065967
+      objectReference: {fileID: 0}
+    - target: {fileID: 703568274282381335, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7063647
+      objectReference: {fileID: 0}
+    - target: {fileID: 703568274282381335, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.03518162
+      objectReference: {fileID: 0}
+    - target: {fileID: 703568274282381335, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.023070818
+      objectReference: {fileID: 0}
+    - target: {fileID: 773750319534422184, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1371380944559167211, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_RootOrder
@@ -81868,6 +81893,26 @@ PrefabInstance:
       value: female
       objectReference: {fileID: 0}
     - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2718639896489830344, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3628418665696154745, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5816744642474219796, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895308690067061673, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -81940,6 +81985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy.blend1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901430527373130358, guid: ff4e12c1771f1f14a88765f00e6fb094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4e12c1771f1f14a88765f00e6fb094, type: 3}

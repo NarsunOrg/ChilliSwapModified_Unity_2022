@@ -89,8 +89,62 @@ public class PlayerHittingHurdle : MonoBehaviour
             {
                 PC.isonturn = false;
             }
-          //  Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.yellow);
-        //    Debug.Log("Did Hit");
+
+
+            switch (hit.collider.gameObject.tag)
+            {
+                case "GreenChilli":
+                    SoundManager.instance.ASChillies.clip = SoundManager.instance.GreenChilliClip;
+                    SoundManager.instance.ASChillies.Play();
+                    hit.collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    Destroy(hit.collider.gameObject);
+                    GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GreenChilliCount;
+                    break;
+                case "RedChilli":
+                    SoundManager.instance.ASChillies.clip = SoundManager.instance.RedChilliClip;
+                    SoundManager.instance.ASChillies.Play();
+                    hit.collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    Destroy(hit.collider.gameObject);
+                    GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.RedChilliCount;
+                    if (GameManager.instance.CollectedChillis < 0)
+                    {
+                        GameManager.instance.CollectedChillis = 0;
+                    }
+                    break;
+                case "GoldenChilli":
+                    SoundManager.instance.ASChillies.clip = SoundManager.instance.GoldenChilliClip;
+                    SoundManager.instance.ASChillies.Play();
+                    hit.collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    Destroy(hit.collider.gameObject);
+                    GameManager.instance.CollectedChillis = GameManager.instance.CollectedChillis + GameConstants.GoldenChilliCount;
+                    break;
+                case "BlueChilli":
+                    SoundManager.instance.ASChillies.clip = SoundManager.instance.BlueChilliClip;
+                    SoundManager.instance.ASChillies.Play();
+                    hit.collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                    Destroy(hit.collider.gameObject);
+                    if (GameManager.instance.CurrentLives < GameConstants.PlayerLives)
+                    {
+                        GameManager.instance.CurrentLives = GameManager.instance.CurrentLives + GameConstants.BlueChilliCount;
+                    }
+                    break;
+                case "invisibility":
+                    if (!PC.powerUpInUse)
+                    {
+                        SoundManager.instance.ASChillies.clip = SoundManager.instance.PowerUpClip;
+                        SoundManager.instance.ASChillies.Play();
+                        SpawnManager.instance.IsInvisible = true;
+                        hit.collider.gameObject.GetComponent<BoxCollider>().enabled = false;
+                        Destroy(hit.collider.gameObject);
+                        //Invisibility();
+                        //UIManager.instance.PowerupsButtons[0].SetActive(true);
+                        PC.PUButtonhandlerRef.setPowerUpInvisibility(0);
+                    }
+                    break;
+
+            }
+            //  Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.yellow);
+            //    Debug.Log("Did Hit");
 
         }
         else

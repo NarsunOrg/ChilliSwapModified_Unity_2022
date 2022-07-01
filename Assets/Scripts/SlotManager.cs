@@ -83,6 +83,7 @@ public class SlotManager : MonoBehaviour
         {
             o.SetActive(true);
             OutfitScrollView.vertical = true;
+            OutfitScrollView.verticalScrollbar.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 

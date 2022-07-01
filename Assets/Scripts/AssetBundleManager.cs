@@ -56,7 +56,7 @@ public class AssetBundleManager : MonoBehaviour
 
         foreach (string s in scenes)
         {
-            print(Path.GetFileNameWithoutExtension(s));
+            //print(Path.GetFileNameWithoutExtension(s));
             //print(Path.GetFileNameWithoutExtension(s));
             //loadScene(Path.GetFileNameWithoutExtension(s));
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])

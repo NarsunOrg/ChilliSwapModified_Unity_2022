@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 546445361721782709}
   - component: {fileID: 546445361721782706}
   - component: {fileID: 546445361721782707}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chilli_Golden
   m_TagString: GoldenChilli
   m_Icon: {fileID: 0}
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2833397269949770658}
   - {fileID: 8295405061711172638}
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

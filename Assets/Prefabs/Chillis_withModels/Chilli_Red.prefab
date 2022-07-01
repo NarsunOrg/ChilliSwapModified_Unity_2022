@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5529504405982976615}
   - component: {fileID: 5529504405982976614}
   - component: {fileID: 5529504405982976613}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Chilli_Red
   m_TagString: RedChilli
   m_Icon: {fileID: 0}
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3912228773953716363}
   - {fileID: 5606247089270402417}
@@ -54,6 +55,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
