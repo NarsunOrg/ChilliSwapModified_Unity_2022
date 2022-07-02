@@ -59,9 +59,9 @@ public class AssetBundleManager : MonoBehaviour
         {
             print(Path.GetFileNameWithoutExtension(s));
             //print(Path.GetFileNameWithoutExtension(s));
-            //loadScene(Path.GetFileNameWithoutExtension(s));
+            //loadScene(Path.GetFileNameWithoutExtension(s));   && UISelectionManager.instance.LoadingSlider.value > 0.8f
             Debug.Log(UISelectionManager.instance.LoadingSlider.value);
-            if (Path.GetFileNameWithoutExtension(s) == sceneNames[i] && UISelectionManager.instance.LoadingSlider.value > 0.08f)
+            if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 Debug.Log("inside");
                 loadScene(Path.GetFileNameWithoutExtension(s));

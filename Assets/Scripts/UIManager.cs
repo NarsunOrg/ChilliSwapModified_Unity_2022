@@ -57,7 +57,7 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
-        //StartCoroutine(LoadingBar());
+        StartCoroutine(LoadingBar());
         foreach (Button b in GameplayButtons)
         {
             b.onClick.AddListener(SoundManager.instance.OnButtonClick);

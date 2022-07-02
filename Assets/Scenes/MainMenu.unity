@@ -25858,12 +25858,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   url:
-  - https://drive.google.com/uc?export=download&id=1o_BdAQGnbxFa45Ywm_SyFJFnFyg2UCmq
-  - https://drive.google.com/uc?export=download&id=1o_BdAQGnbxFa45Ywm_SyFJFnFyg2UCmq
-  - https://drive.google.com/uc?export=download&id=1_bWWanTL8Qsq6btbidOPLXc6dnXyzrbR
-  - https://drive.google.com/uc?export=download&id=17xSUcycedw8_ik_FuzT6oEGd2NiEB3Eg
-  - https://drive.google.com/uc?export=download&id=1v1C1qR3W9YdTWh4jvE4lqBX7JFA_iNXX
-  - https://drive.google.com/uc?export=download&id=1JH4u50xBb16rJLN0LqCdsK9JXFRd285X
+  - https://drive.google.com/uc?export=download&id=1Xkq-f5fXVpwFLQQuM6wQAnDje3F8kHQg
+  - https://drive.google.com/uc?export=download&id=1Xkq-f5fXVpwFLQQuM6wQAnDje3F8kHQg
+  - https://drive.google.com/uc?export=download&id=1WLorppTGztWA-BBDRkvX2uCEu81nmG-k
+  - https://drive.google.com/uc?export=download&id=1osWbuWBWNShFszDbJElFhoSWYybQ65Lh
+  - https://drive.google.com/uc?export=download&id=1Ud7JMfHTH6Vm9kCdg8XbOD_JchwvIOyV
+  - https://drive.google.com/uc?export=download&id=14izzFv9i9drinHQY-EoDb0N3CJBXpLZS
   sceneNames:
   - forest
   - forest
@@ -79174,6 +79174,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: female
       objectReference: {fileID: 0}
+    - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3e8a6e008f684c888dfcdef2b00a5, type: 3}
 --- !u!1001 &7018557527027287341
@@ -79242,6 +79247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy.blend1 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7901430527373130358, guid: ff4e12c1771f1f14a88765f00e6fb094,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4e12c1771f1f14a88765f00e6fb094, type: 3}
