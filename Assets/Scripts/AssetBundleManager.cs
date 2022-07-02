@@ -35,8 +35,9 @@ public class AssetBundleManager : MonoBehaviour
 
     IEnumerator s(int i)
     {
-        if (!assetBundle)
-        {
+        //if (!assetBundle)
+        //{
+            Debug.Log("inside 11111");
             using (www = new WWW(url[i]))
             {
                 //loadingStart = true;
@@ -50,20 +51,21 @@ public class AssetBundleManager : MonoBehaviour
                 assetBundle = www.assetBundle;
                 
             }
-        }
+        //}
         UISelectionManager.instance.SliderTime = 0.005f;
         //loadingStart = false;
         string[] scenes = assetBundle.GetAllScenePaths();
 
         foreach (string s in scenes)
         {
+            Debug.Log("inside 2222");
             print(Path.GetFileNameWithoutExtension(s));
             //print(Path.GetFileNameWithoutExtension(s));
             //loadScene(Path.GetFileNameWithoutExtension(s));   && UISelectionManager.instance.LoadingSlider.value > 0.8f
             Debug.Log(UISelectionManager.instance.LoadingSlider.value);
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
-                Debug.Log("inside");
+                Debug.Log("inside 333333");
                 loadScene(Path.GetFileNameWithoutExtension(s));
             }
         }
