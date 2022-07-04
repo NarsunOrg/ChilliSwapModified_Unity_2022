@@ -34267,6 +34267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
         type: 3}
+      propertyPath: LaserEffect
+      value: 
+      objectReference: {fileID: 1272173412}
+    - target: {fileID: 685640091488730890, guid: b348f4e4334123f41bfb0c08a74a49d4,
+        type: 3}
       propertyPath: PUButtonhandlerRef
       value: 
       objectReference: {fileID: 514696976}
@@ -34298,6 +34303,12 @@ MonoBehaviour:
 --- !u!4 &1272173410 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8185838961244256029, guid: b348f4e4334123f41bfb0c08a74a49d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1272173407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1272173412 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7177138327092056258, guid: b348f4e4334123f41bfb0c08a74a49d4,
     type: 3}
   m_PrefabInstance: {fileID: 1272173407}
   m_PrefabAsset: {fileID: 0}
