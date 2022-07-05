@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
     public PlayerController pc;
     public bool DisablePowerupUsage = false;
     public GameObject LoadingPanel;
-    public Slider LoadingSlider;
+    //public Slider LoadingSlider;
 
     public void Awake()
     {
@@ -57,7 +57,9 @@ public class UIManager : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(LoadingBar());
+        LoadingPanel.SetActive(true);
+        Invoke("InactiveLoadingPanel", 0.5f);
+        //StartCoroutine(LoadingBar());
         foreach (Button b in GameplayButtons)
         {
             b.onClick.AddListener(SoundManager.instance.OnButtonClick);
@@ -229,17 +231,23 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadingBar()
+    public void InactiveLoadingPanel()
     {
-        yield return new WaitForSeconds(0.1f);
-        if (LoadingSlider.value < 0.9)
-        {
-            LoadingSlider.value += 0.1f;
-            StartCoroutine(LoadingBar());
-        }
-        else
-        {
-            LoadingPanel.SetActive(false);
-        }
+        LoadingPanel.SetActive(false);
     }
+
+    //IEnumerator LoadingBar()
+    //{
+    //    yield return new WaitForSeconds(0.1f);
+    //    if (LoadingSlider.value < 0.9)
+    //    {
+    //        LoadingSlider.value += 0.1f;
+    //        StartCoroutine(LoadingBar());
+    //    }
+    //    else
+    //    {
+    //        LoadingSlider.value = 1f;
+    //        LoadingPanel.SetActive(false);
+    //    }
+    //}
 }

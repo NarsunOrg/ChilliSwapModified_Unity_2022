@@ -26,8 +26,8 @@ public class UISelectionManager : MonoBehaviour
     public int Sound = 1;
     public int Music = 1;
     public GameObject LoadingPanel;
-    public Slider LoadingSlider;
-    public float SliderTime = 1f;
+    //public Slider LoadingSlider;
+    //public float SliderTime = 1f;
     public bool[] IsPowerUpSelected;
     public GameObject EnvForwardBUtton;
     public GameObject EnvBackwardBUtton;
@@ -42,7 +42,8 @@ public class UISelectionManager : MonoBehaviour
     {
         //instance = this;
         GameConstants.CharacterType = "boy";
-        StartCoroutine(LoadingBar());
+        //StartCoroutine(LoadingBar());
+        LoadingPanel.SetActive(true);
     }
 
     public void OnSingleButton()
@@ -149,12 +150,12 @@ public class UISelectionManager : MonoBehaviour
 
     public void OnPowerUpSelectButton()
     {
-        //SceneManager.LoadScene(EnvNumber);
+        SceneManager.LoadScene(EnvNumber);
         LoadingPanel.SetActive(true);
-        LoadingSlider.value = 0;
-        SliderTime = 1f;
-        StartCoroutine(LoadingBar());
-        AssetBundleManager.instance.playGamePressed(EnvNumber);
+        //LoadingSlider.value = 0;
+        //SliderTime = 1f;
+        //StartCoroutine(AssetBundleLoadingBar());
+        //AssetBundleManager.instance.playGamePressed(EnvNumber);
         GameConstants.SceneLoaded = EnvNumber;
     }
 
@@ -217,20 +218,40 @@ public class UISelectionManager : MonoBehaviour
         Music = 1;
     }
 
-    IEnumerator LoadingBar()
-    {
+    //IEnumerator LoadingBar()
+    //{
         
-        yield return new WaitForSeconds(SliderTime);
-        if (LoadingSlider.value < 0.9)
-        {
-            LoadingSlider.value += 0.01f;
-            StartCoroutine(LoadingBar());
-        }
-        else
-        {
-            LoadingPanel.SetActive(false);
-        }
-    }
+    //    yield return new WaitForSeconds(SliderTime);
+    //    if (LoadingSlider.value < 0.9)
+    //    {
+    //        LoadingSlider.value += 0.01f;
+    //        StartCoroutine(LoadingBar());
+    //    }
+    //    else
+    //    {
+    //        LoadingPanel.SetActive(false);
+    //    }
+    //}
+
+    //IEnumerator AssetBundleLoadingBar()
+    //{
+
+    //    yield return new WaitForSeconds(SliderTime);
+    //    if (LoadingSlider.value < 0.8)
+    //    {
+    //        LoadingSlider.value += 0.01f;
+    //        StartCoroutine(AssetBundleLoadingBar());
+    //    }
+    //    else if (LoadingSlider.value < 0.9)
+    //    {
+    //        StartCoroutine(AssetBundleLoadingBar());
+    //    }
+    //    else
+    //    {
+    //        LoadingPanel.SetActive(false);
+    //    }
+        
+    //}
 
     public void StoreBackButton()
     {

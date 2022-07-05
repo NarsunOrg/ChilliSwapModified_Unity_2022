@@ -202,7 +202,7 @@ public class APIManager : MonoBehaviour
 
         }).Then(res =>
         {
-           // Debug.Log("responce received of GetProfileAPI");
+            Debug.Log("responce received of GetProfileAPI");
           //  Debug.Log(res.Text);
             
             GetProfileAPIResponseVar = new GetProfileAPIResponse();
@@ -231,8 +231,8 @@ public class APIManager : MonoBehaviour
                 SlotManager.instance.CharacterList[p].GetComponent<CharacterCustomizer>().ChangeData(CD);
                 
             }
-            UISelectionManager.instance.SliderTime = 0.05f;
-
+            //UISelectionManager.instance.SliderTime = 0.05f;
+            UISelectionManager.instance.LoadingPanel.SetActive(false);
         }).Catch(err =>
         {
            // Debug.Log(err);
