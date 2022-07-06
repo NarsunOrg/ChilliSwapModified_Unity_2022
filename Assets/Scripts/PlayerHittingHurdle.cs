@@ -45,9 +45,11 @@ public class PlayerHittingHurdle : MonoBehaviour
                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
                         SoundManager.instance.ASPlayer.Play();
                     }
+                    PC.PlayerAnim.SetBool("Death", true);
                     PC.MonsterAnim.SetBool("Attack", true);
                     PC.PlayerAnim.SetBool("Running", false);
-                    PC.PlayerAnim.SetBool("Death", true);
+                    PC.PlayerAnim.SetBool("Sliding", false);
+                    
                     PC.DisablePowerUps();
                     PC.MonsterMovement(2);
                     GameManager.instance.CurrentLives -= 1;
@@ -186,6 +188,7 @@ public class PlayerHittingHurdle : MonoBehaviour
        
         if (other.gameObject.tag == "Hurdle")
         {
+            Debug.Log(other.gameObject.tag);
             if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
             {
 
@@ -209,8 +212,10 @@ public class PlayerHittingHurdle : MonoBehaviour
                         }
                         PC.MonsterAttackAnim();
                         //PC.CancelFunctionsInvoke();
-                        PC.PlayerAnim.SetBool("Running", false);
                         PC.PlayerAnim.SetBool("Death", true);
+                        PC.PlayerAnim.SetBool("Running", false);
+                        PC.PlayerAnim.SetBool("Sliding", false);
+                       
                         PC.DisablePowerUps();
                         GameManager.instance.CurrentLives -= 1;
                         if (GameManager.instance.CurrentLives < 1)
@@ -265,8 +270,10 @@ public class PlayerHittingHurdle : MonoBehaviour
                     }
                     PC.MonsterAttackAnim();
                     //PC.CancelFunctionsInvoke();
-                    PC.PlayerAnim.SetBool("Running", false);
                     PC.PlayerAnim.SetBool("Death", true);
+                    PC.PlayerAnim.SetBool("Running", false);
+                    PC.PlayerAnim.SetBool("Sliding", false);
+
                     PC.DisablePowerUps();
                     GameManager.instance.CurrentLives -= 1;
                     if (GameManager.instance.CurrentLives < 1)

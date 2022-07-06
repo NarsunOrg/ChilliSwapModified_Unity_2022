@@ -603,7 +603,7 @@ public class PlayerController : MonoBehaviour
         {
             StopCoroutine(OnRespawnInvisibilityofGirl());
         }
-        RespawnInvisibilityBool = false;
+        //RespawnInvisibilityBool = false;
     }
 
     IEnumerator OnRespawnInvisibilityofBoy()
@@ -618,6 +618,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             re += 0.1f;
         }
+        RespawnInvisibilityBool = false;
 
     }
 

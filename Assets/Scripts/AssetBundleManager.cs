@@ -19,7 +19,20 @@ public class AssetBundleManager : MonoBehaviour
     
     //// Start is called before the first frame update https://drive.google.com/uc?export=vi...
     
-    private void Awake()
+    //private void Awake()
+    //{
+    //    if (instance == null)
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(this);
+    //    }
+    //    else
+    //    {
+    //        Destroy(this);
+    //    }
+    //}
+
+    public void Start()
     {
         if (instance == null)
         {
@@ -30,11 +43,6 @@ public class AssetBundleManager : MonoBehaviour
         {
             Destroy(this);
         }
-    }
-
-    public void Start()
-    {
-        
     }
 
     public void playGamePressed(int i)
@@ -63,16 +71,22 @@ public class AssetBundleManager : MonoBehaviour
                     yield break;
                 }
                 AssetBundleSceneOne = www.assetBundle;
+               
             }
         }
         //UISelectionManager.instance.SliderTime = 1f;
-        UISelectionManager.instance.LoadingPanel.SetActive(false);
+        //UISelectionManager.instance.LoadingPanel.SetActive(false);
         string[] scenes = AssetBundleSceneOne.GetAllScenePaths();
         foreach (string s in scenes)
         {
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 loadScene(Path.GetFileNameWithoutExtension(s));
+                //if (UISelectionManager.instance != null)
+                //{
+                //    UISelectionManager.instance.LoadingPanel.SetActive(false);
+                //}
+                
             }
         }
     }
@@ -92,13 +106,17 @@ public class AssetBundleManager : MonoBehaviour
             }
         }
         //UISelectionManager.instance.SliderTime = 1f;
-        UISelectionManager.instance.LoadingPanel.SetActive(false);
+        //UISelectionManager.instance.LoadingPanel.SetActive(false);
         string[] scenes = AssetBundleSceneTwo.GetAllScenePaths();
         foreach (string s in scenes)
         {
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 loadScene(Path.GetFileNameWithoutExtension(s));
+                //if (UISelectionManager.instance != null)
+                //{
+                //    UISelectionManager.instance.LoadingPanel.SetActive(false);
+                //}
             }
         }
     }
@@ -118,13 +136,17 @@ public class AssetBundleManager : MonoBehaviour
             }
         }
         //UISelectionManager.instance.SliderTime = 1f;
-        UISelectionManager.instance.LoadingPanel.SetActive(false);
+        //UISelectionManager.instance.LoadingPanel.SetActive(false);
         string[] scenes = AssetBundleSceneThree.GetAllScenePaths();
         foreach (string s in scenes)
         {
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 loadScene(Path.GetFileNameWithoutExtension(s));
+                //if (UISelectionManager.instance != null)
+                //{
+                //    UISelectionManager.instance.LoadingPanel.SetActive(false);
+                //}
             }
         }
     }
@@ -144,13 +166,17 @@ public class AssetBundleManager : MonoBehaviour
             }
         }
         //UISelectionManager.instance.SliderTime = 1f;
-        UISelectionManager.instance.LoadingPanel.SetActive(false);
+        //UISelectionManager.instance.LoadingPanel.SetActive(false);
         string[] scenes = AssetBundleSceneFour.GetAllScenePaths();
         foreach (string s in scenes)
         {
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 loadScene(Path.GetFileNameWithoutExtension(s));
+                //if (UISelectionManager.instance != null)
+                //{
+                //    UISelectionManager.instance.LoadingPanel.SetActive(false);
+                //}
             }
         }
     }
@@ -170,13 +196,17 @@ public class AssetBundleManager : MonoBehaviour
             }
         }
         //UISelectionManager.instance.SliderTime = 1f;
-        UISelectionManager.instance.LoadingPanel.SetActive(false);
+        //UISelectionManager.instance.LoadingPanel.SetActive(false);
         string[] scenes = AssetBundleSceneFive.GetAllScenePaths();
         foreach (string s in scenes)
         {
             if (Path.GetFileNameWithoutExtension(s) == sceneNames[i])
             {
                 loadScene(Path.GetFileNameWithoutExtension(s));
+                //if (UISelectionManager.instance != null)
+                //{
+                //    UISelectionManager.instance.LoadingPanel.SetActive(false);
+                //}
             }
         }
     }

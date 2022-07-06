@@ -9,6 +9,7 @@ public class PlayerTriggering : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             anim.Play();
         }
     }
