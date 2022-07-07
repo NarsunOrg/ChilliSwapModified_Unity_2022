@@ -634,6 +634,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             re += 0.1f;
         }
+        RespawnInvisibilityBool = false;
 
     }
 

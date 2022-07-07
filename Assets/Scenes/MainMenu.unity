@@ -79511,6 +79511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: female
       objectReference: {fileID: 0}
+    - target: {fileID: 1748468784995241041, guid: e1b3e8a6e008f684c888dfcdef2b00a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b3e8a6e008f684c888dfcdef2b00a5, type: 3}
 --- !u!1001 &7018557527027287341
@@ -79579,11 +79584,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Boy.blend1 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7901430527373130358, guid: ff4e12c1771f1f14a88765f00e6fb094,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff4e12c1771f1f14a88765f00e6fb094, type: 3}
