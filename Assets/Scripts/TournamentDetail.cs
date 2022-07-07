@@ -21,7 +21,17 @@ public class TournamentDetail : MonoBehaviour
 
     void Start()
     {
+        //InvokeRepeating("MinusTime", 1f, 1f);
+        //Debug.Log(Timer);
+        //RemainingTimeSeconds = Timer.Seconds;
+        //RemainingTimeMinutes = Timer.Minutes;
+        //RemainingTimeHours = Timer.Hours;
+    }
+
+    public void InvokeMinusTime()
+    {
         InvokeRepeating("MinusTime", 1f, 1f);
+        Debug.Log(Timer);
         RemainingTimeSeconds = Timer.Seconds;
         RemainingTimeMinutes = Timer.Minutes;
         RemainingTimeHours = Timer.Hours;
@@ -52,6 +62,8 @@ public class TournamentDetail : MonoBehaviour
                     //this.GetComponent<Button>().interactable = true;
                     TimerImage.SetActive(false);
                     JoinButton.SetActive(true);
+                    UISelectionManager.instance.TournamentLoadingImage.SetActive(false);
+                    UISelectionManager.instance.TournamentScrollView.SetActive(true);
                 }
             }
         }

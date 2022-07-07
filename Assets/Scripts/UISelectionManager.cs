@@ -22,6 +22,8 @@ public class UISelectionManager : MonoBehaviour
     public Text OutfitPanelCharacterNameText;
     public Text SkinsPanelCharacterNameText;
     public Transform TournamentScrollContent;
+    public GameObject TournamentScrollView;
+    public GameObject TournamentLoadingImage;
     public GameObject[] PowerupsSelectButtons;
     public int Sound = 1;
     public int Music = 1;

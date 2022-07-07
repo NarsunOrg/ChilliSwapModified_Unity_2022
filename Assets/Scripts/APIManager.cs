@@ -270,6 +270,7 @@ public class APIManager : MonoBehaviour
                 TournamentDetail _TournamentDetails = TournamentObj.GetComponent<TournamentDetail>();
                 _TournamentDetails.TournamentName_Text.text = GetAllTournamnetsAPIResponseVar.data[i].tournament_name;
                 _TournamentDetails.Tournamentid = GetAllTournamnetsAPIResponseVar.data[i]._id;
+                //_TournamentDetails.InvokeMinusTime();
 
                 string StartDateTime = GetAllTournamnetsAPIResponseVar.data[i].start_date;
                 DateTime startTime = DateTime.Parse(StartDateTime).ToUniversalTime();
@@ -283,6 +284,8 @@ public class APIManager : MonoBehaviour
                 if (diffStartTime > TimeSpan.Zero)
                 {
                     _TournamentDetails.Timer = diffStartTime;
+                   
+                    Debug.Log(_TournamentDetails.Timer);
                 }
                 else
                 {
@@ -293,13 +296,17 @@ public class APIManager : MonoBehaviour
                         _TournamentDetails.TimerSeconds_Text.text = "00";
                         _TournamentDetails.TimerImage.SetActive(false);
                         _TournamentDetails.JoinButton.SetActive(true);
+                       
                     }
                     else
                     {
                         _TournamentDetails.JoinButton.SetActive(false);
                     }
+                    //UISelectionManager.instance.TournamentScrollView.SetActive(true);
+                    //UISelectionManager.instance.TournamentLoadingImage.SetActive(false);
+
                 }
-               
+                _TournamentDetails.InvokeMinusTime();
             }
             
         }).Catch(err =>
@@ -308,6 +315,7 @@ public class APIManager : MonoBehaviour
         });
     }
 
+   
     public void PostTournamentResultApi(string _TournamentId, string _Distance, string _Time, string _CollectedChillis)
     {
         TournamentResultData _TournamentResultData = new TournamentResultData() ;

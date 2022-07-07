@@ -22,6 +22,28 @@ public class PUButtonsHandler : MonoBehaviour
    
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space) && GameConstants.SelectedPowerupNumber == 1 && UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable == true)
+        {
+            setPowerUpSuperJump(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && GameConstants.SelectedPowerupNumber == 2 && UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable == true)
+        {
+            setPowerUpSuperSpeed(2);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && GameConstants.SelectedPowerupNumber == 3 && UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable == true)
+        {
+            setPowerUpTeleportation(3);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && GameConstants.SelectedPowerupNumber == 4 && UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable == true)
+        {
+            setPowerUpSlowingDown(4);
+        }
+        if (Input.GetKeyDown(KeyCode.Space) && GameConstants.SelectedPowerupNumber == 5 && UIManager.instance.PowerupsButtons[GameConstants.SelectedPowerupNumber].GetComponent<Button>().interactable == true)
+        {
+            setPowerUpLaserGoggles(5);
+        }
+
+
         //if (PURefrence.dead)
         //{
         //    for (int i = 0; i < buttonsList.Count; i++)
@@ -36,7 +58,7 @@ public class PUButtonsHandler : MonoBehaviour
         //    time = 10;
         //    powerupInUse = false;
         //}
-        
+
         //if(powerupInUse)
         //{
         //    time = time - Time.deltaTime;

@@ -177,12 +177,7 @@ public class PlayerHittingHurdle : MonoBehaviour
         StartCoroutine(StartCall());
         #endregion
     }
-
-    private void FixedUpdate()
-    {
-        
-        
-    }
+    
     public void OnTriggerEnter(Collider other)
     {
        
