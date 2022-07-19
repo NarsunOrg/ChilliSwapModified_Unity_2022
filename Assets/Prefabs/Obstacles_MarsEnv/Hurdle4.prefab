@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6527469959890793391}
   - component: {fileID: 1686144133713484619}
   - component: {fileID: 1819017379331909032}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Obstacle_Gameover
   m_TagString: HurdleDie
   m_Icon: {fileID: 0}
@@ -29,6 +29,7 @@ Transform:
   m_LocalRotation: {x: -0, y: 0.5164139, z: -0, w: 0.85633904}
   m_LocalPosition: {x: -1.2569886, y: 2.214, z: 0}
   m_LocalScale: {x: 1, y: 4.0881705, z: 1.6193267}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4817725262308100216}
   m_RootOrder: 1
@@ -52,6 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -121,6 +123,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7473013182510103316}
   - {fileID: 2249324429628354608}
@@ -155,6 +158,7 @@ Transform:
   m_LocalRotation: {x: -0.6099488, y: -0.35771844, z: -0.35771844, w: 0.6099488}
   m_LocalPosition: {x: -6.42, y: 0.26999998, z: -1.45}
   m_LocalScale: {x: 100, y: 100, z: 100}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4817725262308100216}
   m_RootOrder: 0
@@ -178,6 +182,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

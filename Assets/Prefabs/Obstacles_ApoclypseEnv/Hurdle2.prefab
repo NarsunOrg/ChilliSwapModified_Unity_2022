@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7513433609079613706}
   - component: {fileID: 478763195057807039}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: apocalypse Hurdle
   m_TagString: Hurdle
   m_Icon: {fileID: 0}
@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.325, y: 0.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8439660986095953521}
   m_Father: {fileID: 1867417494485675883}
@@ -43,8 +44,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.6231258, y: 1.2786399, z: 1}
-  m_Center: {x: 1.5144271, y: 0.13931997, z: 0}
+  m_Size: {x: 2.5337167, y: 1.2786399, z: 1}
+  m_Center: {x: 1.5591316, y: 0.13931996, z: 0}
 --- !u!1 &8254749718052231634
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,6 +72,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7513433609079613706}
   m_Father: {fileID: 0}
@@ -104,6 +106,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0.7660445, z: 0, w: 0.64278764}
   m_LocalPosition: {x: 1.507, y: 0.09, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7513433609079613706}
   m_RootOrder: 0
@@ -127,6 +130,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

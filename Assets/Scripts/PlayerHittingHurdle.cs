@@ -9,6 +9,20 @@ public class PlayerHittingHurdle : MonoBehaviour
     public PlayerController PC;
     public GameObject restartPanel;
     public Rigidbody PRB;
+
+    //For SphereCast
+    public GameObject currentHitObject;
+
+    public float sphereRadius;
+    public float maxDistance;
+    public LayerMask layerMask;
+
+    private Vector3 origin;
+    private Vector3 direction;
+
+    private float currentHitDistance;
+    //End Spherecast
+
     private void Awake()
     {
         PRB = PC.Parent.transform.GetComponent<Rigidbody>();
@@ -20,7 +34,137 @@ public class PlayerHittingHurdle : MonoBehaviour
         StartCoroutine(StartCall());
     }
 
-   
+    private void Update()
+    {
+        origin = this.transform.position;
+        direction = this.transform.forward;
+        RaycastHit Hit;
+        if (Physics.SphereCast(origin, sphereRadius, direction, out Hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        {
+            currentHitObject = Hit.transform.gameObject;
+            //currentHitDistance = Hit.distance;
+
+            if (currentHitObject.gameObject.tag == "Hurdle")
+            {
+                Debug.Log(currentHitObject.gameObject.tag);
+                if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+                {
+
+                    if (PC.AlreadyHit)
+                    {
+                        PC.MonsterMovement(2);
+                        if (PC.dead == false && PC.PortalUse == false)
+                        {
+                            PC.PlayerRespawnTransform.SetParent(null);
+                            PC.dead = true;
+
+                            if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                            {
+                                SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                                SoundManager.instance.ASPlayer.Play();
+                            }
+                            else
+                            {
+                                SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                                SoundManager.instance.ASPlayer.Play();
+                            }
+                            PC.MonsterAttackAnim();
+                            //PC.CancelFunctionsInvoke();
+                            PC.PlayerAnim.SetBool("Death", true);
+                            PC.PlayerAnim.SetBool("Running", false);
+                            PC.PlayerAnim.SetBool("Sliding", false);
+
+                            PC.DisablePowerUps();
+                            GameManager.instance.CurrentLives -= 1;
+                            if (GameManager.instance.CurrentLives < 1)
+                            {
+                                if (GameConstants.GameType == "Tournament")
+                                {
+                                    APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 1000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                                }
+                                Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
+                                                                    //Invoke("PanelDelayCall", 3f);
+                            }
+                            else
+                            {
+                                PC.DisablePowerUps();
+                                Invoke("RespawnPlayerDelayCall", 3f);    //on after this chus of restart
+                                                                         //Invoke("PanelDelayCall", 3f);
+                            }
+                        }
+
+                    }
+                    if (!PC.AlreadyHit)
+                    {
+                        PC.PlayerAnim.SetTrigger("Stumble");
+                        PC.PlayerAnim.SetBool("Sliding", false);
+                        PC.MonsterMovement(1);
+                        StartCoroutine("StumbleWait");
+
+                    }
+
+                }
+            }
+
+            if (currentHitObject.gameObject.tag == "HurdleDie")
+            {
+                if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+                {
+                    PC.MonsterMovement(2);
+                    if (PC.dead == false && PC.PortalUse == false)
+                    {
+                        PC.PlayerRespawnTransform.SetParent(null);
+                        PC.dead = true;
+                        PC.DisablePowerUps();
+                        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                        {
+                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                            SoundManager.instance.ASPlayer.Play();
+                        }
+                        else
+                        {
+                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                            SoundManager.instance.ASPlayer.Play();
+                        }
+                        PC.MonsterAttackAnim();
+                        //PC.CancelFunctionsInvoke();
+                        PC.PlayerAnim.SetBool("Death", true);
+                        PC.PlayerAnim.SetBool("Running", false);
+                        PC.PlayerAnim.SetBool("Sliding", false);
+
+                        PC.DisablePowerUps();
+                        GameManager.instance.CurrentLives -= 1;
+                        if (GameManager.instance.CurrentLives < 1)
+                        {
+                            if (GameConstants.GameType == "Tournament")
+                            {
+                                APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                            }
+                            Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
+                                                                 //Invoke("PanelDelayCall", 3f);
+                        }
+                        else
+                        {
+                            PC.DisablePowerUps();
+                            Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
+                                                                      //Invoke("PanelDelayCall", 3f);
+                        }
+                    }
+
+                }
+            }
+
+            if (currentHitObject.gameObject.tag == "MachineHurdle")
+            {
+                currentHitObject.transform.parent.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            currentHitDistance = maxDistance;
+            currentHitObject = null;
+        }
+    }
 
     IEnumerator StartCall()
     {
@@ -152,9 +296,140 @@ public class PlayerHittingHurdle : MonoBehaviour
         else
         {
             PC.isonturn = false;
-          //  Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
-          //  Debug.Log("Did not Hit");
+            //Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
+           //Debug.Log("Did not Hit");
         }
+
+        //For SphereCast
+        //origin = this.transform.position;
+        //direction = this.transform.forward;
+        //RaycastHit Hit;
+        //if (Physics.SphereCast(origin, sphereRadius, direction, out Hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        //{
+        //    currentHitObject = Hit.transform.gameObject;
+        //    currentHitDistance = Hit.distance;
+
+        //    if (currentHitObject.gameObject.tag == "Hurdle")
+        //    {
+        //        Debug.Log(currentHitObject.gameObject.tag);
+        //        if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+        //        {
+
+        //            if (PC.AlreadyHit)
+        //            {
+        //                PC.MonsterMovement(2);
+        //                if (PC.dead == false && PC.PortalUse == false)
+        //                {
+        //                    PC.PlayerRespawnTransform.SetParent(null);
+        //                    PC.dead = true;
+
+        //                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+        //                    {
+        //                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+        //                        SoundManager.instance.ASPlayer.Play();
+        //                    }
+        //                    else
+        //                    {
+        //                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+        //                        SoundManager.instance.ASPlayer.Play();
+        //                    }
+        //                    PC.MonsterAttackAnim();
+        //                    //PC.CancelFunctionsInvoke();
+        //                    PC.PlayerAnim.SetBool("Death", true);
+        //                    PC.PlayerAnim.SetBool("Running", false);
+        //                    PC.PlayerAnim.SetBool("Sliding", false);
+
+        //                    PC.DisablePowerUps();
+        //                    GameManager.instance.CurrentLives -= 1;
+        //                    if (GameManager.instance.CurrentLives < 1)
+        //                    {
+        //                        if (GameConstants.GameType == "Tournament")
+        //                        {
+        //                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 1000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+        //                        }
+        //                        Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
+        //                                                            //Invoke("PanelDelayCall", 3f);
+        //                    }
+        //                    else
+        //                    {
+        //                        PC.DisablePowerUps();
+        //                        Invoke("RespawnPlayerDelayCall", 3f);    //on after this chus of restart
+        //                                                                 //Invoke("PanelDelayCall", 3f);
+        //                    }
+        //                }
+
+        //            }
+        //            if (!PC.AlreadyHit)
+        //            {
+        //                PC.PlayerAnim.SetTrigger("Stumble");
+        //                PC.PlayerAnim.SetBool("Sliding", false);
+        //                PC.MonsterMovement(1);
+        //                StartCoroutine("StumbleWait");
+
+        //            }
+
+        //        }
+        //    }
+
+        //    if (currentHitObject.gameObject.tag == "HurdleDie")
+        //    {
+        //        if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+        //        {
+        //            PC.MonsterMovement(2);
+        //            if (PC.dead == false && PC.PortalUse == false)
+        //            {
+        //                PC.PlayerRespawnTransform.SetParent(null);
+        //                PC.dead = true;
+        //                PC.DisablePowerUps();
+        //                if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+        //                {
+        //                    SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+        //                    SoundManager.instance.ASPlayer.Play();
+        //                }
+        //                else
+        //                {
+        //                    SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+        //                    SoundManager.instance.ASPlayer.Play();
+        //                }
+        //                PC.MonsterAttackAnim();
+        //                //PC.CancelFunctionsInvoke();
+        //                PC.PlayerAnim.SetBool("Death", true);
+        //                PC.PlayerAnim.SetBool("Running", false);
+        //                PC.PlayerAnim.SetBool("Sliding", false);
+
+        //                PC.DisablePowerUps();
+        //                GameManager.instance.CurrentLives -= 1;
+        //                if (GameManager.instance.CurrentLives < 1)
+        //                {
+        //                    if (GameConstants.GameType == "Tournament")
+        //                    {
+        //                        APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+        //                    }
+        //                    Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
+        //                                                         //Invoke("PanelDelayCall", 3f);
+        //                }
+        //                else
+        //                {
+        //                    PC.DisablePowerUps();
+        //                    Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
+        //                                                              //Invoke("PanelDelayCall", 3f);
+        //                }
+        //            }
+
+        //        }
+        //    }
+
+        //    if (currentHitObject.gameObject.tag == "MachineHurdle")
+        //    {
+        //        currentHitObject.transform.parent.gameObject.SetActive(false);
+        //    }
+        //}
+        //else
+        //{
+        //    currentHitDistance = maxDistance;
+        //    currentHitObject = null;
+        //}
+        //End SphereCast
        
         #region Parent Movement
         float x = PC.Parent.transform.position.x;
@@ -177,125 +452,132 @@ public class PlayerHittingHurdle : MonoBehaviour
         StartCoroutine(StartCall());
         #endregion
     }
-    
-    public void OnTriggerEnter(Collider other)
+
+    private void OnDrawGizmosSelected()
     {
-       
-        if (other.gameObject.tag == "Hurdle")
-        {
-            Debug.Log(other.gameObject.tag);
-            if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
-            {
-
-                if (PC.AlreadyHit)
-                {
-                    PC.MonsterMovement(2);
-                    if (PC.dead == false && PC.PortalUse == false)
-                    {
-                        PC.PlayerRespawnTransform.SetParent(null);
-                        PC.dead = true;
-                        
-                        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
-                        {
-                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
-                            SoundManager.instance.ASPlayer.Play();
-                        }
-                        else
-                        {
-                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
-                            SoundManager.instance.ASPlayer.Play();
-                        }
-                        PC.MonsterAttackAnim();
-                        //PC.CancelFunctionsInvoke();
-                        PC.PlayerAnim.SetBool("Death", true);
-                        PC.PlayerAnim.SetBool("Running", false);
-                        PC.PlayerAnim.SetBool("Sliding", false);
-                       
-                        PC.DisablePowerUps();
-                        GameManager.instance.CurrentLives -= 1;
-                        if (GameManager.instance.CurrentLives < 1)
-                        {
-                            if (GameConstants.GameType == "Tournament")
-                            {
-                                APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 1000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
-                            }
-                            Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
-                            //Invoke("PanelDelayCall", 3f);
-                        }
-                        else
-                        {
-                            PC.DisablePowerUps();
-                            Invoke("RespawnPlayerDelayCall", 3f);    //on after this chus of restart
-                            //Invoke("PanelDelayCall", 3f);
-                        }
-                    }
-                  
-                }
-                if (!PC.AlreadyHit)
-                {
-                    PC.PlayerAnim.SetTrigger("Stumble");
-                    PC.PlayerAnim.SetBool("Sliding", false);
-                    PC.MonsterMovement(1);
-                    StartCoroutine("StumbleWait");
-                    
-                }
-
-            }
-        }
-
-        if (other.gameObject.tag == "HurdleDie")
-        {
-            if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
-            {
-                PC.MonsterMovement(2);
-                if (PC.dead == false && PC.PortalUse == false)
-                {
-                    PC.PlayerRespawnTransform.SetParent(null);
-                    PC.dead = true;
-                    PC.DisablePowerUps();
-                    if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
-                    {
-                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
-                        SoundManager.instance.ASPlayer.Play();
-                    }
-                    else
-                    {
-                        SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
-                        SoundManager.instance.ASPlayer.Play();
-                    }
-                    PC.MonsterAttackAnim();
-                    //PC.CancelFunctionsInvoke();
-                    PC.PlayerAnim.SetBool("Death", true);
-                    PC.PlayerAnim.SetBool("Running", false);
-                    PC.PlayerAnim.SetBool("Sliding", false);
-
-                    PC.DisablePowerUps();
-                    GameManager.instance.CurrentLives -= 1;
-                    if (GameManager.instance.CurrentLives < 1)
-                    {
-                        if (GameConstants.GameType == "Tournament")
-                        {
-                            APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
-                        }
-                        Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
-                        //Invoke("PanelDelayCall", 3f);
-                    }
-                    else
-                    {
-                        PC.DisablePowerUps();
-                        Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
-                        //Invoke("PanelDelayCall", 3f);
-                    }
-                }
-               
-            }
-        }
-
-        if (other.gameObject.tag == "MachineHurdle")
-        {
-            other.transform.parent.gameObject.SetActive(false);
-        }
+        Gizmos.color = Color.red;
+        Debug.DrawLine(origin, origin + direction * currentHitDistance); //origin + direction * currentHitDistance
+        Gizmos.DrawWireSphere(origin + direction * currentHitDistance, sphereRadius); //origin + direction * currentHitDistance
     }
+
+    /* public void OnTriggerEnter(Collider other)
+     {
+
+         if (other.gameObject.tag == "Hurdle")
+         {
+             Debug.Log(other.gameObject.tag);
+             if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+             {
+
+                 if (PC.AlreadyHit)
+                 {
+                     PC.MonsterMovement(2);
+                     if (PC.dead == false && PC.PortalUse == false)
+                     {
+                         PC.PlayerRespawnTransform.SetParent(null);
+                         PC.dead = true;
+
+                         if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                         {
+                             SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                             SoundManager.instance.ASPlayer.Play();
+                         }
+                         else
+                         {
+                             SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                             SoundManager.instance.ASPlayer.Play();
+                         }
+                         PC.MonsterAttackAnim();
+                         //PC.CancelFunctionsInvoke();
+                         PC.PlayerAnim.SetBool("Death", true);
+                         PC.PlayerAnim.SetBool("Running", false);
+                         PC.PlayerAnim.SetBool("Sliding", false);
+
+                         PC.DisablePowerUps();
+                         GameManager.instance.CurrentLives -= 1;
+                         if (GameManager.instance.CurrentLives < 1)
+                         {
+                             if (GameConstants.GameType == "Tournament")
+                             {
+                                 APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 1000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                             }
+                             Invoke("LoadSceneDelayCall", 3f);   //on after this chus of restart
+                             //Invoke("PanelDelayCall", 3f);
+                         }
+                         else
+                         {
+                             PC.DisablePowerUps();
+                             Invoke("RespawnPlayerDelayCall", 3f);    //on after this chus of restart
+                             //Invoke("PanelDelayCall", 3f);
+                         }
+                     }
+
+                 }
+                 if (!PC.AlreadyHit)
+                 {
+                     PC.PlayerAnim.SetTrigger("Stumble");
+                     PC.PlayerAnim.SetBool("Sliding", false);
+                     PC.MonsterMovement(1);
+                     StartCoroutine("StumbleWait");
+
+                 }
+
+             }
+         }
+
+         if (other.gameObject.tag == "HurdleDie")
+         {
+             if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
+             {
+                 PC.MonsterMovement(2);
+                 if (PC.dead == false && PC.PortalUse == false)
+                 {
+                     PC.PlayerRespawnTransform.SetParent(null);
+                     PC.dead = true;
+                     PC.DisablePowerUps();
+                     if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                     {
+                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                         SoundManager.instance.ASPlayer.Play();
+                     }
+                     else
+                     {
+                         SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                         SoundManager.instance.ASPlayer.Play();
+                     }
+                     PC.MonsterAttackAnim();
+                     //PC.CancelFunctionsInvoke();
+                     PC.PlayerAnim.SetBool("Death", true);
+                     PC.PlayerAnim.SetBool("Running", false);
+                     PC.PlayerAnim.SetBool("Sliding", false);
+
+                     PC.DisablePowerUps();
+                     GameManager.instance.CurrentLives -= 1;
+                     if (GameManager.instance.CurrentLives < 1)
+                     {
+                         if (GameConstants.GameType == "Tournament")
+                         {
+                             APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                         }
+                         Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
+                         //Invoke("PanelDelayCall", 3f);
+                     }
+                     else
+                     {
+                         PC.DisablePowerUps();
+                         Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
+                         //Invoke("PanelDelayCall", 3f);
+                     }
+                 }
+
+             }
+         }
+
+         if (other.gameObject.tag == "MachineHurdle")
+         {
+             other.transform.parent.gameObject.SetActive(false);
+         }
+     }*/
 
     IEnumerator StumbleWait()
     {

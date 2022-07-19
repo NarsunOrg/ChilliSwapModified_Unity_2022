@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5130754190321380639}
   m_RootOrder: 2
@@ -72,6 +73,7 @@ Transform:
   m_LocalRotation: {x: -0.70638883, y: -0.031857356, z: -0.03185726, w: 0.7063887}
   m_LocalPosition: {x: -0.04, y: 3.14, z: 1.06}
   m_LocalScale: {x: 5.9, y: 5.9, z: 5.9}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3464441269509739982}
   m_RootOrder: 0
@@ -95,6 +97,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -151,6 +154,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -0.843, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7759026262195646087}
   m_Father: {fileID: 5130754190321380639}
@@ -182,6 +186,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.58, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9065667385162147545}
   - {fileID: 3464441269509739982}
@@ -203,7 +208,7 @@ GameObject:
   - component: {fileID: 9065667385162147520}
   - component: {fileID: 9065667385162147521}
   - component: {fileID: 9065667385162147548}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlockHurdle
   m_TagString: HurdleDie
   m_Icon: {fileID: 0}
@@ -220,6 +225,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: -0.843, z: 0}
   m_LocalScale: {x: 0.9853439, y: 0.9853439, z: 0.9853439}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5130754190321380639}
   m_RootOrder: 0
@@ -243,6 +249,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

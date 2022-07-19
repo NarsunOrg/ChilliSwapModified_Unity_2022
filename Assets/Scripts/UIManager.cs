@@ -113,8 +113,8 @@ public class UIManager : MonoBehaviour
         PausedPanel.SetActive(false);
         GameOverPanel.SetActive(false);
         SoundManager.instance.ASBg.Play();
-        //SceneManager.LoadScene(GameConstants.SceneLoaded);
-        AssetBundleManager.instance.playGamePressed(GameConstants.SceneLoaded);
+        SceneManager.LoadScene(GameConstants.SceneLoaded);
+        //AssetBundleManager.instance.playGamePressed(GameConstants.SceneLoaded);
     }
 
     public void OnHomeButton()

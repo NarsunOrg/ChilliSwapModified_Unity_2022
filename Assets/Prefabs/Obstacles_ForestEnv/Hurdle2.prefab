@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4253311544343740421}
   - {fileID: 4569232797072789800}
@@ -58,6 +59,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2336495634138691432}
   m_Father: {fileID: 143391591182207939}
@@ -78,7 +80,7 @@ GameObject:
   - component: {fileID: 4253311544343740444}
   - component: {fileID: 4253311544343740445}
   - component: {fileID: 4253311544343740416}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlockHurdle
   m_TagString: HurdleDie
   m_Icon: {fileID: 0}
@@ -95,6 +97,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: -0.13, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 143391591182207939}
   m_RootOrder: 0
@@ -118,6 +121,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -228,6 +232,7 @@ Transform:
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4569232797072789800}
   m_RootOrder: 0
@@ -251,6 +256,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

@@ -20023,7 +20023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1550801250}
   - component: {fileID: 1550801251}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collider
   m_TagString: portal
   m_Icon: {fileID: 0}
@@ -25211,7 +25211,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685640091301602098}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.0397086
@@ -25232,6 +25232,12 @@ MonoBehaviour:
   PC: {fileID: 685640091488730890}
   restartPanel: {fileID: 0}
   PRB: {fileID: 0}
+  currentHitObject: {fileID: 0}
+  sphereRadius: 0.5
+  maxDistance: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!1 &685640091690768358
 GameObject:
   m_ObjectHideFlags: 0

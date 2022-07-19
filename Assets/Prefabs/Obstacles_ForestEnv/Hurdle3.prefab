@@ -26,6 +26,7 @@ Transform:
   m_LocalRotation: {x: 0.31138453, y: 0.0012075234, z: -0.95013106, w: -0.01700399}
   m_LocalPosition: {x: 4.4, y: 2.59, z: -4.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1128329126989926102}
   m_Father: {fileID: 8529855678502661393}
@@ -59,6 +60,7 @@ Transform:
   m_LocalRotation: {x: -0.5254827, y: -0.4731468, z: 0.4731468, w: 0.5254827}
   m_LocalPosition: {x: -3.5906386e-16, y: 1.6170799, z: 5.262362}
   m_LocalScale: {x: 50, y: 50, z: 50}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2759361895247421477}
   m_RootOrder: 0
@@ -82,10 +84,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -110,6 +114,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5520150075313170131
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,7 +127,7 @@ GameObject:
   - component: {fileID: 5520150075313170134}
   - component: {fileID: 5520150075313170129}
   - component: {fileID: 5520150075313170128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: BlockHurdle
   m_TagString: Hurdle
   m_Icon: {fileID: 0}
@@ -139,6 +144,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.2200003, y: 0, z: -4.34}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8529855678502661393}
   m_RootOrder: 0
@@ -162,10 +168,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -190,6 +198,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &5520150075313170128
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -229,6 +238,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5520150075313170135}
   - {fileID: 2759361895247421477}
