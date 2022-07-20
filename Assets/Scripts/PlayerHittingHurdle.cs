@@ -23,26 +23,31 @@ public class PlayerHittingHurdle : MonoBehaviour
     private float currentHitDistance;
     //End Spherecast
 
+    private Vector3 raypos;
+
     private void Awake()
     {
         PRB = PC.Parent.transform.GetComponent<Rigidbody>();
     }
     private void Start()
     {
+        raypos = this.transform.position;
+        //raypos.y += 2;
+        
         PC.MonsterMovement(1);
         StartCoroutine("StumbleWait");
         StartCoroutine(StartCall());
     }
 
-    private void Update()
+    /*private void Update()
     {
-        origin = this.transform.position;
+        origin = this.transform.position + this.GetComponent<CapsuleCollider>().center;
         direction = this.transform.forward;
         RaycastHit Hit;
-        if (Physics.SphereCast(origin, sphereRadius, direction, out Hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(origin, sphereRadius, direction, out Hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal)) //, QueryTriggerInteraction.UseGlobal
         {
             currentHitObject = Hit.transform.gameObject;
-            //currentHitDistance = Hit.distance;
+            currentHitDistance = Hit.distance;
 
             if (currentHitObject.gameObject.tag == "Hurdle")
             {
@@ -164,7 +169,7 @@ public class PlayerHittingHurdle : MonoBehaviour
             currentHitDistance = maxDistance;
             currentHitObject = null;
         }
-    }
+    }*/
 
     IEnumerator StartCall()
     {
@@ -299,7 +304,16 @@ public class PlayerHittingHurdle : MonoBehaviour
             //Debug.DrawRay(this.transform.position, this.transform.TransformDirection(Vector3.forward) * 2, Color.white);
            //Debug.Log("Did not Hit");
         }
+        raypos = this.transform.position;
+        raypos.y += 0.5f;
+        if (Physics.Raycast(raypos, this.transform.TransformDirection(Vector3.forward), out hit, 2, LayerMask.GetMask("Col")))
+        {
 
+        }
+        else
+        {
+            Debug.DrawRay(raypos, this.transform.TransformDirection(Vector3.forward) * 22, Color.blue);
+        }
         //For SphereCast
         //origin = this.transform.position;
         //direction = this.transform.forward;
@@ -453,14 +467,14 @@ public class PlayerHittingHurdle : MonoBehaviour
         #endregion
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Debug.DrawLine(origin, origin + direction * currentHitDistance); //origin + direction * currentHitDistance
-        Gizmos.DrawWireSphere(origin + direction * currentHitDistance, sphereRadius); //origin + direction * currentHitDistance
-    }
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Debug.DrawLine(origin, origin + direction * currentHitDistance); //origin + direction * currentHitDistance
+    //    Gizmos.DrawWireSphere(origin + direction * currentHitDistance, sphereRadius); //origin + direction * currentHitDistance
+    //}
 
-    /* public void OnTriggerEnter(Collider other)
+     public void OnTriggerEnter(Collider other)
      {
 
          if (other.gameObject.tag == "Hurdle")
@@ -577,7 +591,7 @@ public class PlayerHittingHurdle : MonoBehaviour
          {
              other.transform.parent.gameObject.SetActive(false);
          }
-     }*/
+     }
 
     IEnumerator StumbleWait()
     {
