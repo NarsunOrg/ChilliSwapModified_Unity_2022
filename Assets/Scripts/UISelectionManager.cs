@@ -46,6 +46,15 @@ public class UISelectionManager : MonoBehaviour
         GameConstants.CharacterType = "boy";
         //StartCoroutine(LoadingBar());
         LoadingPanel.SetActive(true);
+#if UNITY_ANDROID || UNITY_EDITOR
+Invoke("ForMobile", 1f);
+#endif
+
+    }
+
+    public void ForMobile()
+    {
+        LoadingPanel.SetActive(false);
     }
 
     public void OnSingleButton()
@@ -152,12 +161,12 @@ public class UISelectionManager : MonoBehaviour
 
     public void OnPowerUpSelectButton()
     {
-        SceneManager.LoadScene(EnvNumber);
+        //SceneManager.LoadScene(EnvNumber);
         LoadingPanel.SetActive(true);
         //LoadingSlider.value = 0;
         //SliderTime = 1f;
         //StartCoroutine(AssetBundleLoadingBar());
-        //AssetBundleManager.instance.playGamePressed(EnvNumber);
+        AssetBundleManager.instance.playGamePressed(EnvNumber);
         GameConstants.SceneLoaded = EnvNumber;
     }
 
@@ -284,5 +293,10 @@ public class UISelectionManager : MonoBehaviour
         {
             g.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+    }
+
+    public void OnMobileCharacterSelectionButton()
+    {
+        SceneManager.LoadScene(1);
     }
 }

@@ -675,6 +675,10 @@ public class SlotManager : MonoBehaviour
                     break;
 
                 case 1:
+#if UNITY_ANDROID || UNITY_EDITOR
+                    CharForwardButton.SetActive(false);
+                    CharBackwardButton.SetActive(true);
+#endif
                     foreach (GameObject obj in CharacterList)
                     {
                         obj.SetActive(false);
@@ -842,6 +846,10 @@ public class SlotManager : MonoBehaviour
                     break;
 
                 case 1:
+#if UNITY_ANDROID || UNITY_EDITOR
+                    CharForwardButton.SetActive(true);
+                    CharBackwardButton.SetActive(false);
+#endif
                     foreach (GameObject obj in CharacterList)
                     {
                         obj.SetActive(false);
