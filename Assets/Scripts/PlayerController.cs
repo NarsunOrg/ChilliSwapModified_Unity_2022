@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         
         Jumpforce = 500;
         GroundedTime = 0.8f;
-        speed = 50;
+        speed = 200; //50
         IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -948,7 +948,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator StumbleWait()
     {
         yield return new WaitForSeconds(2);
-        AlreadyHit = true;
+        //AlreadyHit = true;
         yield return new WaitForSeconds(7);
         AlreadyHit = false;
     }

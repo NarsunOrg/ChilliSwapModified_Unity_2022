@@ -112,45 +112,56 @@ public class PlayerHittingHurdle : MonoBehaviour
             {
                 if (!PC.InvisibilityBool && !PC.SuperSpeedBool && !PC.RespawnInvisibilityBool)
                 {
-                    PC.MonsterMovement(2);
-                    if (PC.dead == false && PC.PortalUse == false)
+                    if (PC.AlreadyHit)// for testing this only if added
                     {
-                        PC.PlayerRespawnTransform.SetParent(null);
-                        PC.dead = true;
-                        PC.DisablePowerUps();
-                        if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                        PC.MonsterMovement(2);
+                        if (PC.dead == false && PC.PortalUse == false)
                         {
-                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
-                            SoundManager.instance.ASPlayer.Play();
-                        }
-                        else
-                        {
-                            SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
-                            SoundManager.instance.ASPlayer.Play();
-                        }
-                        PC.MonsterAttackAnim();
-                        //PC.CancelFunctionsInvoke();
-                        PC.PlayerAnim.SetBool("Death", true);
-                        PC.PlayerAnim.SetBool("Running", false);
-                        PC.PlayerAnim.SetBool("Sliding", false);
-
-                        PC.DisablePowerUps();
-                        GameManager.instance.CurrentLives -= 1;
-                        if (GameManager.instance.CurrentLives < 1)
-                        {
-                            if (GameConstants.GameType == "Tournament")
-                            {
-                                APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
-                            }
-                            Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
-                                                                 //Invoke("PanelDelayCall", 3f);
-                        }
-                        else
-                        {
+                            PC.PlayerRespawnTransform.SetParent(null);
+                            PC.dead = true;
                             PC.DisablePowerUps();
-                            Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
-                                                                      //Invoke("PanelDelayCall", 3f);
+                            if (GameConstants.SelectedPlayerForGame.bodytype == "boy")
+                            {
+                                SoundManager.instance.ASPlayer.clip = SoundManager.instance.BoyDeathClip;
+                                SoundManager.instance.ASPlayer.Play();
+                            }
+                            else
+                            {
+                                SoundManager.instance.ASPlayer.clip = SoundManager.instance.GirlDeathClip;
+                                SoundManager.instance.ASPlayer.Play();
+                            }
+                            PC.MonsterAttackAnim();
+                            //PC.CancelFunctionsInvoke();
+                            PC.PlayerAnim.SetBool("Death", true);
+                            PC.PlayerAnim.SetBool("Running", false);
+                            PC.PlayerAnim.SetBool("Sliding", false);
+
+                            PC.DisablePowerUps();
+                            GameManager.instance.CurrentLives -= 1;
+                            if (GameManager.instance.CurrentLives < 1)
+                            {
+                                if (GameConstants.GameType == "Tournament")
+                                {
+                                    APIManager.instance.PostTournamentResultApi(GameConstants.JoinedTournamentId, (GameManager.instance.TotalDIstanceCovered / 10000).ToString(), GameManager.instance.TotalTimeSpend.ToString(), GameManager.instance.CollectedChillis.ToString());
+                                }
+                                Invoke("LoadSceneDelayCall", 3f);    //on after this chus of restart
+                                                                     //Invoke("PanelDelayCall", 3f);
+                            }
+                            else
+                            {
+                                PC.DisablePowerUps();
+                                Invoke("RespawnPlayerDelayCall", 3f);     //on after this chus of restart
+                                                                          //Invoke("PanelDelayCall", 3f);
+                            }
                         }
+                    }
+                    if (!PC.AlreadyHit) // for testing this if and code added
+                    {
+                        PC.PlayerAnim.SetTrigger("Stumble");
+                        PC.PlayerAnim.SetBool("Sliding", false);
+                        PC.MonsterMovement(1);
+                        StartCoroutine("StumbleWait");
+
                     }
 
                 }
@@ -598,7 +609,7 @@ public class PlayerHittingHurdle : MonoBehaviour
     IEnumerator StumbleWait()
     {
         yield return new WaitForSeconds(2);
-        PC.AlreadyHit = true;
+        //PC.AlreadyHit = true;
         yield return new WaitForSeconds(7);
         PC.AlreadyHit = false;
         PC.MonsterMovement(0);
