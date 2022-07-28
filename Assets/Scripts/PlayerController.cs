@@ -63,6 +63,7 @@ public class PlayerController : MonoBehaviour
     public GameObject InvisibilityBooster;
     public bool isonturn = false;
     private float MaxSpeed = 200f;
+    public float GyroValue;
 
     public void SettingBoy()
     {
@@ -88,10 +89,11 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
-        
+
+        GyroValue = GameConstants.GyroSetValue;
         Jumpforce = 500;
         GroundedTime = 0.8f;
-        speed = 200; //50
+        speed = 50; 
         IncreasedSpeed = speed;
         isGrounded = true;
         rb = gameObject.GetComponent<Rigidbody>();
@@ -239,7 +241,7 @@ public class PlayerController : MonoBehaviour
         //#region Parent Movement
         //float x = Parent.transform.position.x;
         //float z = Parent.transform.position.z;
-       
+
         //if (!dead)
         //{
         //    Parent.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), Space.Self);
@@ -251,19 +253,19 @@ public class PlayerController : MonoBehaviour
 
         //#endregion
 
-        //#region Gyro Movement
-        //if (Input.acceleration.x != 0 && !dead)
-        //{
-        //    if (Mathf.Abs(Input.acceleration.x) > 0.07)
-        //    {
-        //        transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
-        //        if (!InvisibilityBool)
-        //        {
-        //            Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * 120, -1.2f, 1.2f), 1.0f);
-        //        }
-        //    }
-        //}
-        //#endregion
+        #region Gyro Movement
+        if (Input.acceleration.x != 0 && !dead)
+        {
+            if (Mathf.Abs(Input.acceleration.x) > 0.07)
+            {
+                transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * GyroValue, -1.2f, 1.2f), 1.0f);
+                if (!InvisibilityBool)
+                {
+                    Monster.transform.DOLocalMoveX(Mathf.Clamp((Input.acceleration.x) * Time.deltaTime * GyroValue, -1.2f, 1.2f), 1.0f);
+                }
+            }
+        }
+        #endregion
 
 
     }
@@ -286,6 +288,7 @@ public class PlayerController : MonoBehaviour
         powerUpInUse = false;
         InvisibilityBool = false;
         SuperSpeedBool = false;
+        GyroValue = GameConstants.GyroSetValue;
         Jumpforce = 500;
         GroundedTime = 0.8f;
         speed = IncreasedSpeed;
@@ -372,7 +375,9 @@ public class PlayerController : MonoBehaviour
         UIManager.instance.GameOverPanelTimeSecondsText.text = (TimeSpan.FromSeconds(GameManager.instance.TotalTimeSpend).Seconds).ToString("00");
         UIManager.instance.GameOverPanelDistanceCoveredText.text = (GameManager.instance.TotalDIstanceCovered / 10000).ToString();
         UIManager.instance.GameOverPanel.SetActive(true);
+#if !UNITY_ANDROID
         APIManager.instance.PostChilliesApi(GameManager.instance.CollectedChillis);
+#endif
         if (GameConstants.GameType == "Tournament")
         {
             UIManager.instance.HomeButton.SetActive(false);
@@ -948,7 +953,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator StumbleWait()
     {
         yield return new WaitForSeconds(2);
-        //AlreadyHit = true;
+        AlreadyHit = true;
         yield return new WaitForSeconds(7);
         AlreadyHit = false;
     }

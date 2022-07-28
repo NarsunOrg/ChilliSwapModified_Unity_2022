@@ -16,4 +16,5 @@ public static class GameConstants
     public static bool IsPaused = false;
     public static CharacterData SelectedPlayerForGame;
     public static int SelectedPowerupNumber;
+    public static float GyroSetValue = 120;
 }

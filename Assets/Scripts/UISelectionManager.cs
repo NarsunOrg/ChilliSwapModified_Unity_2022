@@ -33,6 +33,7 @@ public class UISelectionManager : MonoBehaviour
     public bool[] IsPowerUpSelected;
     public GameObject EnvForwardBUtton;
     public GameObject EnvBackwardBUtton;
+    public Slider GyroSlider;
 
     private void Awake()
     {
@@ -55,6 +56,11 @@ Invoke("ForMobile", 1f);
     public void ForMobile()
     {
         LoadingPanel.SetActive(false);
+    }
+
+    public void OnGyroSlider()
+    {
+        GameConstants.GyroSetValue = GyroSlider.value;
     }
 
     public void OnSingleButton()
@@ -166,7 +172,9 @@ Invoke("ForMobile", 1f);
         //LoadingSlider.value = 0;
         //SliderTime = 1f;
         //StartCoroutine(AssetBundleLoadingBar());
+#if !UNITY_ANDROID
         AssetBundleManager.instance.playGamePressed(EnvNumber);
+#endif
         GameConstants.SceneLoaded = EnvNumber;
     }
 

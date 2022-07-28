@@ -114,7 +114,9 @@ public class UIManager : MonoBehaviour
         GameOverPanel.SetActive(false);
         SoundManager.instance.ASBg.Play();
         //SceneManager.LoadScene(GameConstants.SceneLoaded);
+#if !UNITY_ANDROID
         AssetBundleManager.instance.playGamePressed(GameConstants.SceneLoaded);
+#endif
     }
 
     public void OnHomeButton()
@@ -123,7 +125,9 @@ public class UIManager : MonoBehaviour
         {
             LeaderboardPanel.SetActive(true);
             GameOverPanel.SetActive(false);
+#if !UNITY_ANDROID
             APIManager.instance.GetLeaderboardAPI(LeaderboardScrollContent);
+#endif
             Time.timeScale = 1;
             GameConstants.IsPaused = false;
         }
