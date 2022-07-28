@@ -19943,7 +19943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &562633982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -59316,7 +59316,7 @@ MonoBehaviour:
   IsPowerUpSelected: 010000000000
   EnvForwardBUtton: {fileID: 1999274742}
   EnvBackwardBUtton: {fileID: 266049629}
-  GyroSlider: {fileID: 0}
+  GyroSlider: {fileID: 1819422316}
 --- !u!4 &1637134122
 Transform:
   m_ObjectHideFlags: 0
@@ -62243,7 +62243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 337, y: -148}
+  m_AnchoredPosition: {x: 151, y: -148}
   m_SizeDelta: {x: 179, y: 174}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1755254244

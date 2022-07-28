@@ -117,6 +117,10 @@ public class UIManager : MonoBehaviour
 #if !UNITY_ANDROID
         AssetBundleManager.instance.playGamePressed(GameConstants.SceneLoaded);
 #endif
+
+#if UNITY_ANDROID
+        SceneManager.LoadScene(1);
+#endif
     }
 
     public void OnHomeButton()
